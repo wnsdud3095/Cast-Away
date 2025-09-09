@@ -12,6 +12,7 @@ public class AnimalDeathState : MonoBehaviour, IState<AnimalCtrl>
         }
 
         Initialize();
+        m_controller.Status.Death();
     }
 
     public void ExecuteExit()

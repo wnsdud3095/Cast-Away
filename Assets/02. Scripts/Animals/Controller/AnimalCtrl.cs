@@ -61,6 +61,7 @@ public class AnimalCtrl : MonoBehaviour
         SO = animal;
 
         Movement.Initialize(SO.IdleTime, SO.WALK_SPD, SO.RUN_SPD, SO.MoveTime);
+        Status.Initialize(SO.HP);
     }
 
     public void ChangeState(AnimalState state)
