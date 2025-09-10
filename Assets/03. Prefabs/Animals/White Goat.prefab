@@ -3268,6 +3268,7 @@ GameObject:
   - component: {fileID: 6032165459762265776}
   - component: {fileID: 162938726355825744}
   - component: {fileID: 8012635438018710802}
+  - component: {fileID: 433523774347197052}
   m_Layer: 0
   m_Name: White Goat
   m_TagString: Neutrality
@@ -3392,6 +3393,28 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   m_smooth: 2
+--- !u!195 &433523774347197052
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7139533960107097419}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 53
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &7277493761515281833
 GameObject:
   m_ObjectHideFlags: 0

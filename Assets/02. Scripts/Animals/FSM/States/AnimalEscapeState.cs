@@ -38,13 +38,10 @@ public class AnimalEscapeState : MonoBehaviour, IState<AnimalCtrl>
 
     private void Escape()
     {
-        var velocity = m_controller.Movement.Velocity;
-        var direction = new Vector3(0f, Random.Range(0f, 360f), 0f);
-
-        m_move_coroutine = StartCoroutine(EscapeToDirection(velocity, direction, m_controller.Movement.MoveTime));
+        m_move_coroutine = StartCoroutine(EscapeToDirection(Vector3.zero, m_controller.Movement.MoveTime));
     }
 
-    private IEnumerator EscapeToDirection(Vector3 velocity, Vector3 direction, float move_time)
+    private IEnumerator EscapeToDirection(Vector3 destination, float move_time)
     {
         float elasped_time = 0f;
 

@@ -26,11 +26,14 @@ public class AnimalMovement : MonoBehaviour
     public bool IsWalk { get; set; }
     public bool IsRun { get; set; }
 
-    public Vector3 Velocity => transform.forward * (IsWalk ? m_walk_speed : m_run_speed);
-
     private void Awake()
     {
         m_controller = GetComponent<AnimalCtrl>();
+    }
+    
+    private void Update()
+    {
+        m_controller.Movement.InclineInterpolation();
     }
 
     public void Initialize(float idle_time,
@@ -46,33 +49,24 @@ public class AnimalMovement : MonoBehaviour
         m_move_time = move_time;
     }
 
-    public void Move()
+    public void Move(Vector3 destination)
     {
-        m_controller.Rigidbody.MovePosition(transform.position +
-                                            Velocity *
-                                            Time.deltaTime);
+        m_controller.Agent.speed = IsWalk ? m_walk_speed : m_run_speed;
+        
+        var target_pos = transform.position + destination * 3f;
+        m_controller.Agent.SetDestination(target_pos);
     } 
 
-    public void Rotation(Vector3 direction)
+    public void InclineInterpolation()
     {
-        var yaw = new Vector3(0f, direction.y, 0f);
-        var desired_forward = Quaternion.Euler(yaw) * Vector3.forward;
+        var agent_position = m_controller.Agent.nextPosition;
 
-        if (Physics.Raycast(transform.position + Vector3.up, Vector3.down, out RaycastHit hit, m_ray_distance, m_ground_mask))
+        if (Physics.Raycast(agent_position + Vector3.up, Vector3.down, out var hit, m_ray_distance, m_ground_mask))
         {
-            var projected_forward = Vector3.ProjectOnPlane(desired_forward, hit.normal).normalized;
-            if (projected_forward.sqrMagnitude < 1e-4f) 
-            {
-                projected_forward = transform.forward;
-            }
+            transform.position = new Vector3(agent_position.x, hit.point.y, agent_position.z);
 
-            var target_rotation = Quaternion.LookRotation(projected_forward, hit.normal);
-            m_controller.Rigidbody.MoveRotation(Quaternion.Slerp(transform.rotation, target_rotation, Time.deltaTime * m_smooth));
-        }
-        else
-        {
-            var rotation = Vector3.Lerp(transform.rotation.eulerAngles, direction, Time.deltaTime);
-            m_controller.Rigidbody.MoveRotation(Quaternion.Euler(rotation));
+            var target_rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+            transform.rotation = Quaternion.Slerp(transform.rotation, target_rotation, Time.deltaTime * m_smooth);
         }
     }
 }

@@ -16,6 +16,6 @@ MonoBehaviour:
   m_code: 1
   m_idle_time: 3
   m_hp: 10
-  m_walk_speed: 3
-  m_run_speed: 5
+  m_walk_speed: 1
+  m_run_speed: 2
   m_move_time: 3

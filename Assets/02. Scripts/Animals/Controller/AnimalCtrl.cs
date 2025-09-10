@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.AI;
 
-[RequireComponent(typeof(BoxCollider), typeof(Rigidbody), typeof(Animator))]
+[RequireComponent(typeof(BoxCollider), typeof(Animator), typeof(NavMeshAgent))]
 public class AnimalCtrl : MonoBehaviour
 {
     #region FSM States
@@ -11,24 +12,25 @@ public class AnimalCtrl : MonoBehaviour
     private IState<AnimalCtrl> m_eat_state;
     private IState<AnimalCtrl> m_wander_state;
     private IState<AnimalCtrl> m_escape_state;
-    private IState<AnimalCtrl> m_hurt_state;
+    protected IState<AnimalCtrl> m_hurt_state;
     private IState<AnimalCtrl> m_death_state;
     #endregion FSM States
 
     public BoxCollider Collider { get; protected set; }
-    public Rigidbody Rigidbody { get; protected set; }
     public Animator Animator { get; protected set; }
+    public NavMeshAgent Agent { get; protected set; }
 
     public AnimalMovement Movement { get; private set; }
     public AnimalStatus Status { get; private set; }
 
     [field: SerializeField] public Animal SO { get; private set; }
+    public PlayerCtrl Player { get; protected set; }
 
     protected virtual void Awake()
     {
         Collider = GetComponent<BoxCollider>();
-        Rigidbody = GetComponent<Rigidbody>();
         Animator = GetComponent<Animator>();
+        Agent = GetComponent<NavMeshAgent>();
 
         Movement = GetComponent<AnimalMovement>();
         Status = GetComponent<AnimalStatus>();
@@ -56,15 +58,15 @@ public class AnimalCtrl : MonoBehaviour
         ChangeState(AnimalState.RETURNED);
     }
 
-    public void Initialize(Animal animal)
+    public virtual void Initialize(Animal animal)
     {
         SO = animal;
 
-        Movement.Initialize(SO.IdleTime, SO.WALK_SPD, SO.RUN_SPD, SO.MoveTime);
+        Movement.Initialize(SO.IdleTime, SO.WalkSPD, SO.RunSPD, SO.MoveTime);
         Status.Initialize(SO.HP);
     }
 
-    public void ChangeState(AnimalState state)
+    public virtual void ChangeState(AnimalState state)
     {
         switch(state)
         {

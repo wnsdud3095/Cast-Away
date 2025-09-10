@@ -23,11 +23,11 @@ public class Animal : ScriptableObject
 
     [Header("걷기 속력")]
     [SerializeField] private float m_walk_speed;
-    public float WALK_SPD => m_walk_speed;
+    public float WalkSPD => m_walk_speed;
 
     [Header("뛰기 속력")]
     [SerializeField] private float m_run_speed;
-    public float RUN_SPD => m_run_speed;
+    public float RunSPD => m_run_speed;
 
     [Header("총 이동 시간")]
     [SerializeField] private float m_move_time;
