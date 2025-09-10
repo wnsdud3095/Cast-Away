@@ -10,6 +10,8 @@ public class AnimalStatus : MonoBehaviour
 
     private bool m_is_dead;
 
+    public float CurrentHP => m_current_hp;
+    public float MaxHP => m_max_hp;
     public bool IsDead => m_is_dead;
 
     private void Awake()

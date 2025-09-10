@@ -1264,13 +1264,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3301237672207932539}
   - component: {fileID: 406483529084571367}
+  - component: {fileID: 3446068149746476345}
   - component: {fileID: 1804856262019596523}
   - component: {fileID: 1559618255148519919}
   - component: {fileID: 5456684049421983423}
   - component: {fileID: 4847070220597291457}
   - component: {fileID: 6339734196564217167}
   - component: {fileID: 8447387632357413964}
-  - component: {fileID: 3446068149746476345}
+  - component: {fileID: 8516142691801954294}
   m_Layer: 0
   m_Name: Grizzly
   m_TagString: Enemy
@@ -1317,6 +1318,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2290993, y: 1.6179216, z: 2.082367}
   m_Center: {x: 0.01648593, y: 0.8123647, z: -0.06093216}
+--- !u!135 &3446068149746476345
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4992923953264487803}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1804856262019596523
 Animator:
   serializedVersion: 7
@@ -1417,27 +1439,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_atk_holder: {fileID: 5582038830379880119}
---- !u!135 &3446068149746476345
-SphereCollider:
+--- !u!114 &8516142691801954294
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4992923953264487803}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c5f89d7e32321458294dd0ae3b88ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5255788340472528235
 GameObject:
   m_ObjectHideFlags: 0

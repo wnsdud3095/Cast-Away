@@ -1599,10 +1599,11 @@ GameObject:
   - component: {fileID: 8436613996181366158}
   - component: {fileID: 8976651513873949748}
   - component: {fileID: 7798965961115886833}
+  - component: {fileID: 1704802730184094260}
   - component: {fileID: 7538798629690582026}
   - component: {fileID: 7247939904162111998}
   - component: {fileID: 2158153790059803184}
-  - component: {fileID: 1704802730184094260}
+  - component: {fileID: 7156546251935655942}
   m_Layer: 0
   m_Name: White Sheep
   m_TagString: Neutrality
@@ -1670,6 +1671,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!195 &1704802730184094260
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5061314774636770389}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 55
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &7538798629690582026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1683,6 +1706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SO>k__BackingField: {fileID: 11400000, guid: a237618d46d9ef0409850c2880122d84, type: 2}
+  <Player>k__BackingField: {fileID: 0}
 --- !u!114 &7247939904162111998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1712,28 +1736,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0532c1b53902dd940b6aaa96bd9cfbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!195 &1704802730184094260
-NavMeshAgent:
+--- !u!114 &7156546251935655942
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5061314774636770389}
   m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 55
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c5f89d7e32321458294dd0ae3b88ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5303346047893838833
 GameObject:
   m_ObjectHideFlags: 0
