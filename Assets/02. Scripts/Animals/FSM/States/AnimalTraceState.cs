@@ -55,6 +55,7 @@ public class AnimalTraceState : MonoBehaviour, IState<AnimalCtrl>
             if((m_controller as AggressiveAnimalCtrl).Attack.CanAttack)
             {
                 m_controller.ChangeState(AnimalState.ATTACK);
+                yield break;
             }
 
             var player_position = m_controller.Player.transform.position;

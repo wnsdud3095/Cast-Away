@@ -6,8 +6,8 @@ public class AnimalAttack : MonoBehaviour
 {
     private AnimalCtrl m_controller;
 
-    [Header("공격 범위 콜라이더")]
-    [SerializeField] private BoxCollider m_atk_collider;
+    [Header("공격 홀더")]
+    [SerializeField] private AnimalAttackHolder m_atk_holder;
 
     private float m_atk;
     private float m_atk_range;
@@ -16,7 +16,7 @@ public class AnimalAttack : MonoBehaviour
     public bool CanTrace { get; private set; }
     public bool CanAttack => SqrMagnitude <= m_atk_range * m_atk_range;
 
-    public BoxCollider ATKCollider => m_atk_collider;
+    public AnimalAttackHolder AttackHolder => m_atk_holder;
 
     public float SqrMagnitude => Vector3.SqrMagnitude(m_controller.Player.transform.position - transform.position);
     public float Magnitude => Vector3.Magnitude(m_controller.Player.transform.position - transform.position);
