@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerCtrl))]
 public class PlayerMovement : MonoBehaviour
 {
+    public bool IsDashActive { get; set; }
+
     private PlayerCtrl m_controller;
 
     [Header("카메라 리그")]
@@ -12,8 +14,6 @@ public class PlayerMovement : MonoBehaviour
 
     private float m_walk_speed = 1.5f;
     private float m_run_speed = 2.5f;
-
-    private bool m_is_dash_active;
 
     private void Awake()
     {
@@ -37,11 +37,11 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
-            m_is_dash_active = true;
+            IsDashActive = true;
         }
         else
         {
-            m_is_dash_active = false;
+            IsDashActive = false;
         }
     }
 
@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         var final_direction = ((forward_direction * m_controller.Direction.z) +
                                (right_direction * m_controller.Direction.x)).normalized;
 
-        var velocity = final_direction * (m_is_dash_active ? m_run_speed : m_walk_speed);
+        var velocity = final_direction * (IsDashActive ? m_run_speed : m_walk_speed);
         m_controller.Model.transform.forward = Vector3.Lerp(m_controller.Model.transform.forward,
                                                             final_direction,
                                                             Time.deltaTime * 5f);
@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
             m_controller.Animator.applyRootMotion = false;
 
             m_controller.Animator.SetBool("Walking", true);
-            m_controller.Animator.SetBool("Running", m_is_dash_active);
+            m_controller.Animator.SetBool("Running", IsDashActive);
         }
         else
         {
