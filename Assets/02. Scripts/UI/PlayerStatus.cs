@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class PlayerStatus
+public class PlayerStatus : MonoBehaviour 
 {
     public float MaxValue { get; private set; } = 100f;
 

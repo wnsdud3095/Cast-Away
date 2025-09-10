@@ -2,7 +2,7 @@ using EXPService;
 using UnityEngine;
 using UserService;
 
-public class StatusUIInstaller : MonoBehaviour
+public class StatusUIInstaller : MonoBehaviour, IInstaller
 {
     [Header("플레이어 상태 컴포넌트")]
     [SerializeField] private PlayerStatus m_player_status;

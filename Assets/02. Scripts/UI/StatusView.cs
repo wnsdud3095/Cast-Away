@@ -9,8 +9,14 @@ public class StatusView : MonoBehaviour, IStatusView
     [SerializeField] private Image m_hp_image;
     [SerializeField] private Image m_hunger_image;
     [SerializeField] private Image m_thirst_image;
-    [SerializeField] private TMP_Text m_level_text;
     [SerializeField] private Image m_exp_image;
+
+    [SerializeField] private TMP_Text m_hp_text;
+    [SerializeField] private TMP_Text m_hunger_text;
+    [SerializeField] private TMP_Text m_thirst_text;
+    [SerializeField] private TMP_Text m_level_text;
+
+    [SerializeField] private PlayerStatus m_player_status;
 
     private StatusPresenter m_presenter;
 
@@ -31,7 +37,7 @@ public class StatusView : MonoBehaviour, IStatusView
     public void UpdateLV(int level, float exp_rate)
     {
         if (m_level_text != null)
-            m_level_text.text = $"Lv. {level}";
+            m_level_text.text = $"Lv.{level}";
 
         if (m_exp_image != null)
         {
@@ -42,6 +48,9 @@ public class StatusView : MonoBehaviour, IStatusView
 
     public void UpdateHP(float hp_rate)
     {
+        if (m_hp_text != null)
+            m_hp_text.text = $"{Mathf.CeilToInt(m_player_status.HP)}";
+
         if (m_hp_image != null)
         {
             if (m_hp_routine != null) StopCoroutine(m_hp_routine);
@@ -51,6 +60,9 @@ public class StatusView : MonoBehaviour, IStatusView
 
     public void UpdateThirst(float thirst_rate)
     {
+        if (m_thirst_text != null)
+            m_thirst_text.text = $"{Mathf.CeilToInt(Mathf.CeilToInt(m_player_status.Thirst))}";
+
         if (m_thirst_image != null)
         {
             if (m_thirst_routine != null) StopCoroutine(m_thirst_routine);
@@ -60,6 +72,9 @@ public class StatusView : MonoBehaviour, IStatusView
 
     public void UpdateHunger(float hunger_rate)
     {
+        if (m_hunger_text != null)
+            m_hunger_text.text = $"{Mathf.CeilToInt(m_player_status.Hunger)}";
+
         if (m_hunger_image != null)
         {
             if (m_hunger_routine != null) StopCoroutine(m_hunger_routine);
