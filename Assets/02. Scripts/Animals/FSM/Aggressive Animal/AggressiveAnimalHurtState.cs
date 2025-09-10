@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BearHurtState : AnimalHurtState
+public class AggressiveAnimalHurtState : AnimalHurtState
 {
     public override void OnHurtAnimationEnd()
     {   

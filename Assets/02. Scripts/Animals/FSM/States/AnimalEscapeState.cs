@@ -34,11 +34,17 @@ public class AnimalEscapeState : MonoBehaviour, IState<AnimalCtrl>
 
         m_controller.Animator.SetBool("Walk", false);
         m_controller.Animator.SetBool("Run", true);
+
+        m_controller.Agent.isStopped = false;
+        m_controller.Agent.ResetPath();
     }
 
     private void Escape()
     {
-        m_move_coroutine = StartCoroutine(EscapeToDirection(Vector3.zero, m_controller.Movement.MoveTime));
+        var escape_direction = transform.position - m_controller.Player.transform.position;
+        var destination = transform.position + escape_direction * 6f;
+        
+        m_move_coroutine = StartCoroutine(EscapeToDirection(destination, m_controller.Movement.MoveTime));
     }
 
     private IEnumerator EscapeToDirection(Vector3 destination, float move_time)
@@ -47,7 +53,7 @@ public class AnimalEscapeState : MonoBehaviour, IState<AnimalCtrl>
 
         while(elasped_time < move_time)
         {
-            // TODO: 도망에 대한 처리
+            m_controller.Movement.Move(destination);
 
             elasped_time += Time.deltaTime;
             yield return null;

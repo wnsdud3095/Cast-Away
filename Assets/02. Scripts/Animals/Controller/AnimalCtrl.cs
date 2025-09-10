@@ -24,7 +24,7 @@ public class AnimalCtrl : MonoBehaviour
     public AnimalStatus Status { get; private set; }
 
     [field: SerializeField] public Animal SO { get; private set; }
-    public PlayerCtrl Player { get; protected set; }
+    [field: SerializeField] public PlayerCtrl Player { get; protected set; }
 
     protected virtual void Awake()
     {

@@ -5,4 +5,5 @@ public enum AnimalCode
     DARK_SHEEP = 2,
     WHITE_GOAT = 3,
     DARK_GOAT = 4,
+    GRIZZLY = 5,
 }

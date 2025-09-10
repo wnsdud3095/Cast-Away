@@ -1,13 +1,10 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Animal", menuName = "SO/Animals/Create Aggressive Animal")]
 public class AggressiveAnimal : Animal
 {
     [Space(30f)]
     [Header("공격 특징")]
-    [Header("플레이어 인식 범위")]
-    [SerializeField] private float m_awareness_range;
-    public float AwarenessRange => m_awareness_range;
-
     [Header("플레이어 공격 범위")]
     [SerializeField] private float m_atk_range;
     public float ATKRange => m_atk_range;

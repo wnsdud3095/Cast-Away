@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class BearCtrl : AnimalCtrl
+public class AggressiveAnimalCtrl : AnimalCtrl
 {
     private IState<AnimalCtrl> m_trace_state;
     private IState<AnimalCtrl> m_attack_state;
@@ -12,9 +12,11 @@ public class BearCtrl : AnimalCtrl
     {
         base.Awake();
 
-        m_hurt_state = gameObject.AddComponent<BearHurtState>();
+        m_hurt_state = gameObject.AddComponent<AggressiveAnimalHurtState>();
         m_trace_state = gameObject.AddComponent<AnimalTraceState>();
-        m_attack_state = gameObject.AddComponent<BearAttackState>();
+        m_attack_state = gameObject.AddComponent<AnimalAttackState>();
+
+        Attack = GetComponent<AnimalAttack>();
     }
 
     public override void Initialize(Animal animal)
@@ -22,13 +24,13 @@ public class BearCtrl : AnimalCtrl
         base.Initialize(animal);
 
         Attack.Initialize((animal as AggressiveAnimal).ATK,
-                          (animal as AggressiveAnimal).ATKDelay,
-                          (animal as AggressiveAnimal).AwarenessRange,
                           (animal as AggressiveAnimal).ATKRange);
     }
 
     public override void ChangeState(AnimalState state)
     {
+        base.ChangeState(state);
+        
         switch(state)
         {
             case AnimalState.TRACE:

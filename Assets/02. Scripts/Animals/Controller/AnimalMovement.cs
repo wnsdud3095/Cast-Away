@@ -51,9 +51,9 @@ public class AnimalMovement : MonoBehaviour
 
     public void Move(Vector3 destination)
     {
-        m_controller.Agent.speed = IsWalk ? m_walk_speed : m_run_speed;
+        m_controller.Agent.speed = IsRun ? m_run_speed : m_walk_speed;
         
-        var target_pos = transform.position + destination * 3f;
+        var target_pos = transform.position + destination;
         m_controller.Agent.SetDestination(target_pos);
     } 
 

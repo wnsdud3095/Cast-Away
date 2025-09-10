@@ -40,11 +40,13 @@ public class AnimalWanderState : MonoBehaviour, IState<AnimalCtrl>
 
         m_controller.Animator.SetBool("Walk", true);
         m_controller.Animator.SetBool("Run", false);
+
+        m_controller.Agent.isStopped = false;
+        m_controller.Agent.ResetPath();
     }
 
     private void Wander()
     {
-        // 원형 범위 내에서 랜덤한 방향 생성
         var random_angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
         var random_distance = Random.Range(2f, 8f);
         
@@ -63,7 +65,7 @@ public class AnimalWanderState : MonoBehaviour, IState<AnimalCtrl>
 
         while(elasped_time < move_time)
         {
-            m_controller.Movement.Move(destination);
+            m_controller.Movement.Move(destination * 3f);
 
             elasped_time += Time.deltaTime;
             yield return null;
