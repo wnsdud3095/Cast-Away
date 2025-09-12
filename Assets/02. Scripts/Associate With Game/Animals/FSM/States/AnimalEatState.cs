@@ -32,9 +32,16 @@ public class AnimalEatState : MonoBehaviour, IState<AnimalCtrl>
 
     public void OnEatAnimationEnd()
     {
-        var states = new AnimalState[] { AnimalState.IDLE, AnimalState.WANDER };
-        var random_state = states[Random.Range(0, states.Length)];
-        
-        m_controller.ChangeState(random_state);
+        if(!m_controller.ForceMode)
+        {
+            var states = new AnimalState[] { AnimalState.IDLE, AnimalState.WANDER };
+            var random_state = states[Random.Range(0, states.Length)];
+            
+            m_controller.ChangeState(random_state);
+        }
+        else
+        {
+            m_controller.ChangeState(AnimalState.RETURNED);
+        }
     }
 }

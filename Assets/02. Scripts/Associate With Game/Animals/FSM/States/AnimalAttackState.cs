@@ -70,6 +70,13 @@ public class AnimalAttackState : MonoBehaviour, IState<AnimalCtrl>
 
     public void OnAnimeExit()
     {
-        m_controller.ChangeState(AnimalState.TRACE);
+        if(!m_controller.ForceMode)
+        {
+            m_controller.ChangeState(AnimalState.TRACE);
+        }
+        else
+        {
+            m_controller.ChangeState(AnimalState.RETURNED);
+        }
     }
 }

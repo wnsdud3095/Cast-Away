@@ -49,11 +49,11 @@ public class AnimalMovement : MonoBehaviour
         m_move_time = move_time;
     }
 
-    public void Move(Vector3 destination)
+    public void Move(Vector3 destination, bool world_coord = false)
     {
         m_controller.Agent.speed = IsRun ? m_run_speed : m_walk_speed;
         
-        var target_pos = transform.position + destination;
+        var target_pos = world_coord ? destination : transform.position + destination;
         m_controller.Agent.SetDestination(target_pos);
     } 
 
@@ -68,5 +68,10 @@ public class AnimalMovement : MonoBehaviour
             var target_rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
             transform.rotation = Quaternion.Slerp(transform.rotation, target_rotation, Time.deltaTime * m_smooth);
         }
+    }
+
+    public void ReturnAtSunrise()
+    {
+        m_controller.ChangeState(AnimalState.RETURNED);
     }
 }

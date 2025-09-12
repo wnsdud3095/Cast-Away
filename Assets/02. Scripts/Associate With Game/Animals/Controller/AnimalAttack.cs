@@ -28,7 +28,7 @@ public class AnimalAttack : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if(collision.CompareTag("Player"))
+        if(collision.CompareTag("Player") && !m_controller.TimeManager.IsDayTime)
         {
             CanTrace = true;
             m_controller.ChangeState(AnimalState.TRACE);
@@ -37,7 +37,7 @@ public class AnimalAttack : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        if(collision.CompareTag("Player"))
+        if(collision.CompareTag("Player") && !m_controller.TimeManager.IsDayTime)
         {
             CanTrace = false;
             m_controller.ChangeState(AnimalState.IDLE);

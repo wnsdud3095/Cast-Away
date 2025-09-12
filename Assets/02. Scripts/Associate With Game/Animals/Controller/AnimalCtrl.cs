@@ -7,7 +7,7 @@ public class AnimalCtrl : MonoBehaviour
     #region FSM States
     protected AnimalStateContext m_state_context;
 
-    private IState<AnimalCtrl> m_returned_state;
+    protected IState<AnimalCtrl> m_returned_state;
     private IState<AnimalCtrl> m_idle_state;
     private IState<AnimalCtrl> m_eat_state;
     private IState<AnimalCtrl> m_wander_state;
@@ -15,6 +15,8 @@ public class AnimalCtrl : MonoBehaviour
     protected IState<AnimalCtrl> m_hurt_state;
     private IState<AnimalCtrl> m_death_state;
     #endregion FSM States
+
+    public bool ForceMode { get; set; }
 
     public BoxCollider Collider { get; protected set; }
     public Animator Animator { get; protected set; }
@@ -25,6 +27,7 @@ public class AnimalCtrl : MonoBehaviour
 
     [field: SerializeField] public Animal SO { get; private set; }
     public PlayerCtrl Player { get; protected set; }
+    public TimeManager TimeManager { get; protected set; }
 
     protected virtual void Awake()
     {
@@ -45,12 +48,16 @@ public class AnimalCtrl : MonoBehaviour
         m_death_state = gameObject.AddComponent<AnimalDeathState>();
     }
 
-    public virtual void Initialize(PlayerCtrl player_ctrl)
+    public virtual void Initialize(PlayerCtrl player_ctrl,
+                                   TimeManager time_manager)
     {
         Player = player_ctrl;
+        TimeManager = time_manager;
 
         Movement.Initialize(SO.IdleTime, SO.WalkSPD, SO.RunSPD, SO.MoveTime);
         Status.Initialize(SO.HP);
+
+        ForceMode = false;
 
         Collider.enabled = true;
         ChangeState(AnimalState.IDLE);

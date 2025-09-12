@@ -73,6 +73,8 @@ public class TimeManager : MonoBehaviour
         add => m_service.OnHourChanged += value;
         remove => m_service.OnHourChanged -= value;
     }   
+
+    public bool IsDayTime => m_service.IsDayTime();
     
     private void Start()
     {

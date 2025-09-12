@@ -12,16 +12,28 @@ public class AggressiveAnimalCtrl : AnimalCtrl
         m_hurt_state = gameObject.AddComponent<AggressiveAnimalHurtState>();
         m_trace_state = gameObject.AddComponent<AnimalTraceState>();
         m_attack_state = gameObject.AddComponent<AnimalAttackState>();
+        m_returned_state = gameObject.AddComponent<AggressiveAnimalReturnedState>();
 
         Attack = GetComponent<AnimalAttack>();
     }
 
-    public override void Initialize(PlayerCtrl player_ctrl)
+    private void OnDisable()
     {
-        base.Initialize(player_ctrl);
+        if(TimeManager != null)
+        {
+            TimeManager.OnSunrise -= Movement.ReturnAtSunrise;
+        }
+    }
+
+    public override void Initialize(PlayerCtrl player_ctrl, 
+                                    TimeManager time_manager)
+    {
+        base.Initialize(player_ctrl, time_manager);
 
         Attack.Initialize((SO as AggressiveAnimal).ATK,
                           (SO as AggressiveAnimal).ATKRange);
+
+        TimeManager.OnSunrise += Movement.ReturnAtSunrise;
     }
 
     public override void ChangeState(AnimalState state)

@@ -57,7 +57,7 @@ public class TimeService
         return Mathf.Lerp(start_degree, start_degree + 180f, (float)progress);
     }
 
-    private bool IsDayTime() => m_sunrise_time  < m_current_time.TimeOfDay && m_current_time.TimeOfDay < m_sunset_time;
+    public bool IsDayTime() => m_sunrise_time  < m_current_time.TimeOfDay && m_current_time.TimeOfDay < m_sunset_time;
 
     private TimeSpan GetTimeDiff(TimeSpan from, TimeSpan to)
     {

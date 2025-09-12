@@ -16,8 +16,11 @@ public class AnimalSpawner : MonoBehaviour
     [Header("동물 무리 최대 크기")]
     [SerializeField] private int m_max_herd_size;
 
-    [Header("스폰될 동물 목록")]
-    [SerializeField] private Animal[] m_animal_list;
+    [Header("스폰될 중립 동물 목록")]
+    [SerializeField] private Animal[] m_neutrality_animal_list;
+
+    [Header("스폰될 공격 동물 목록")]
+    [SerializeField] private AggressiveAnimal[] m_aggressive_animal_list;
 
     [Space(20f)]
     [Header("스폰 지점 탐색 설정")]
@@ -36,7 +39,8 @@ public class AnimalSpawner : MonoBehaviour
 
     private void OnDisable()
     {
-        m_time_manager.OnHourChanged -= Spawn;
+        m_time_manager.OnHourChanged -= SpawnNeutrality;
+        m_time_manager.OnSunset -= SpawnAggressive;
     }
 
     private void OnTriggerExit(Collider collider)
@@ -68,14 +72,16 @@ public class AnimalSpawner : MonoBehaviour
         m_mouse_detector_presenter = mouse_detector_presenter;
         m_time_manager = time_manager;
 
-        m_time_manager.OnHourChanged += Spawn;
-        Spawn();
+        m_time_manager.OnHourChanged += SpawnNeutrality;
+        SpawnNeutrality();
+
+        m_time_manager.OnSunset += SpawnAggressive;
     }
 
-    public void Spawn()
+    public void SpawnNeutrality()
     {
         var spawn_count = Random.Range(m_min_herd_size, m_max_herd_size + 1);
-        var spawn_position = GetRandomPosition();
+        var spawn_position = GetSpawnerRandomPosition();
 
         for(int i = 0; i < spawn_count; i++)
         {
@@ -84,12 +90,12 @@ public class AnimalSpawner : MonoBehaviour
                 return;
             }
 
-            var random_animal = m_animal_list[Random.Range(0, m_animal_list.Length)];
+            var random_animal = m_neutrality_animal_list[Random.Range(0, m_neutrality_animal_list.Length)];
             var animal_obj = ObjectManager.Instance.GetObject(GetObjectType(random_animal.Code));
             animal_obj.transform.position = spawn_position;
 
             var animal_ctrl = animal_obj.GetComponent<AnimalCtrl>();
-            animal_ctrl.Initialize(m_player_ctrl);
+            animal_ctrl.Initialize(m_player_ctrl, m_time_manager);
             animal_ctrl.Status.OnAnimalDeath += DecreaseCurrentCount;
 
             var animal_mouse_detector = animal_obj.GetComponent<AnimalMouseDetector>();
@@ -99,7 +105,27 @@ public class AnimalSpawner : MonoBehaviour
         }
     }
 
-    private Vector3 GetRandomPosition()
+    public void SpawnAggressive()
+    {
+        var spawn_count = Random.Range(8, 10);
+
+        for(int i = 0; i < spawn_count; i++)
+        {
+            var spawn_position = GetWorldRandomPosition();
+
+            var random_animal = m_aggressive_animal_list[Random.Range(0, m_aggressive_animal_list.Length)];
+            var animal_obj = ObjectManager.Instance.GetObject(GetObjectType(random_animal.Code));
+            animal_obj.transform.position = spawn_position;
+
+            var animal_ctrl = animal_obj.GetComponent<AggressiveAnimalCtrl>();
+            animal_ctrl.Initialize(m_player_ctrl, m_time_manager);
+
+            var animal_mouse_detector = animal_obj.GetComponent<AnimalMouseDetector>();
+            animal_mouse_detector.Inject(m_mouse_detector_presenter);
+        }
+    }
+
+    private Vector3 GetSpawnerRandomPosition()
     {
         var random_position = Vector3.zero;
 
@@ -110,7 +136,7 @@ public class AnimalSpawner : MonoBehaviour
             var random_circle = Random.insideUnitCircle.normalized * Random.Range(m_min_spawn_range, m_max_spawn_range);
             random_position = m_player_ctrl.transform.position + new Vector3(random_circle.x, transform.position.y, random_circle.y);
             
-            if (Physics.Raycast(random_position + (Vector3.up * m_ray_distance * 0.5f), 
+            if (Physics.Raycast(random_position + (0.5f * m_ray_distance * Vector3.up), 
                                 Vector3.down, 
                                 out RaycastHit hit, 
                                 m_ray_distance, 
@@ -129,6 +155,38 @@ public class AnimalSpawner : MonoBehaviour
         }
 
         return Vector3.zero;
+    }
+
+    private Vector3 GetWorldRandomPosition()
+    {
+        var random_position = Vector3.zero;
+
+        var m_max_attempt = 50;
+        var m_current_attempt = 0;
+        while(m_current_attempt < m_max_attempt)
+        {
+            var random_circle = Random.insideUnitCircle.normalized * Random.Range(60f, 75f);
+            random_position = new Vector3(random_circle.x, transform.position.y, random_circle.y);
+            
+            if (Physics.Raycast(random_position + (0.5f * m_ray_distance * Vector3.up), 
+                                Vector3.down, 
+                                out RaycastHit hit, 
+                                m_ray_distance, 
+                                m_ground_layer))
+            {
+                if (NavMesh.SamplePosition(hit.point, 
+                                           out NavMeshHit nav_hit, 
+                                           2f, 
+                                           NavMesh.AllAreas))
+                {
+                    return nav_hit.position;
+                }
+            }
+
+            m_current_attempt++;
+        }
+
+        return Vector3.zero;        
     }
 
     private void Return(Collider animal_collider)
