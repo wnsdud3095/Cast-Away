@@ -26,9 +26,12 @@ public class AggressiveAnimalCtrl : AnimalCtrl
     }
 
     public override void Initialize(PlayerCtrl player_ctrl, 
-                                    TimeManager time_manager)
+                                    TimeManager time_manager,
+                                    NameTagPresenter name_tag_presenter)
     {
-        base.Initialize(player_ctrl, time_manager);
+        base.Initialize(player_ctrl, 
+                        time_manager, 
+                        name_tag_presenter);
 
         Attack.Initialize((SO as AggressiveAnimal).ATK,
                           (SO as AggressiveAnimal).ATKRange);

@@ -31,7 +31,6 @@ public class AnimalSpawner : MonoBehaviour
     [SerializeField] private float m_ray_distance;
 
     private PlayerCtrl m_player_ctrl;
-    private MouseDetectorPresenter m_mouse_detector_presenter;
     private TimeManager m_time_manager;
 
     private int m_max_animal_count = 8;
@@ -65,11 +64,9 @@ public class AnimalSpawner : MonoBehaviour
     }
 
     public void Inject(PlayerCtrl player_ctrl,
-                       MouseDetectorPresenter mouse_detector_presenter,
                        TimeManager time_manager)
     {
         m_player_ctrl = player_ctrl;
-        m_mouse_detector_presenter = mouse_detector_presenter;
         m_time_manager = time_manager;
 
         m_time_manager.OnHourChanged += SpawnNeutrality;
@@ -94,12 +91,12 @@ public class AnimalSpawner : MonoBehaviour
             var animal_obj = ObjectManager.Instance.GetObject(GetObjectType(random_animal.Code));
             animal_obj.transform.position = spawn_position;
 
-            var animal_ctrl = animal_obj.GetComponent<AnimalCtrl>();
-            animal_ctrl.Initialize(m_player_ctrl, m_time_manager);
-            animal_ctrl.Status.OnAnimalDeath += DecreaseCurrentCount;
+            var name_tag_view = animal_obj.GetComponentInChildren<INameTagView>();
+            var name_tag_presenter = new NameTagPresenter(name_tag_view);
 
-            var animal_mouse_detector = animal_obj.GetComponent<AnimalMouseDetector>();
-            animal_mouse_detector.Inject(m_mouse_detector_presenter);
+            var animal_ctrl = animal_obj.GetComponent<AnimalCtrl>();
+            animal_ctrl.Initialize(m_player_ctrl, m_time_manager, name_tag_presenter);
+            animal_ctrl.Status.OnAnimalDeath += DecreaseCurrentCount;
 
             m_current_animal_count++;
         }
@@ -117,11 +114,11 @@ public class AnimalSpawner : MonoBehaviour
             var animal_obj = ObjectManager.Instance.GetObject(GetObjectType(random_animal.Code));
             animal_obj.transform.position = spawn_position;
 
-            var animal_ctrl = animal_obj.GetComponent<AggressiveAnimalCtrl>();
-            animal_ctrl.Initialize(m_player_ctrl, m_time_manager);
+            var name_tag_view = animal_obj.GetComponentInChildren<INameTagView>();
+            var name_tag_presenter = new NameTagPresenter(name_tag_view);
 
-            var animal_mouse_detector = animal_obj.GetComponent<AnimalMouseDetector>();
-            animal_mouse_detector.Inject(m_mouse_detector_presenter);
+            var animal_ctrl = animal_obj.GetComponent<AggressiveAnimalCtrl>();
+            animal_ctrl.Initialize(m_player_ctrl, m_time_manager, name_tag_presenter);
         }
     }
 

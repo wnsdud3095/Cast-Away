@@ -14,7 +14,6 @@ public class AnimalSpawnerInstaller : MonoBehaviour, IInstaller
     public void Install()
     {
         m_animal_spawner.Inject(m_player_ctrl,
-                                DIContainer.Resolve<MouseDetectorPresenter>(),
                                 m_time_manager);
         DIContainer.Register<AnimalSpawner>(m_animal_spawner);
     }
