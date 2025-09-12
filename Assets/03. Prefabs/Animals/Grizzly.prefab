@@ -1396,7 +1396,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SO>k__BackingField: {fileID: 11400000, guid: 456eeee8b805f234b8df8646a119daca, type: 2}
-  <Player>k__BackingField: {fileID: 0}
 --- !u!114 &4847070220597291457
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ public class AnimalCtrl : MonoBehaviour
     public AnimalStatus Status { get; private set; }
 
     [field: SerializeField] public Animal SO { get; private set; }
-    [field: SerializeField] public PlayerCtrl Player { get; protected set; }
+    public PlayerCtrl Player { get; protected set; }
 
     protected virtual void Awake()
     {
@@ -45,25 +45,15 @@ public class AnimalCtrl : MonoBehaviour
         m_death_state = gameObject.AddComponent<AnimalDeathState>();
     }
 
-    private void OnEnable()
+    public virtual void Initialize(PlayerCtrl player_ctrl)
     {
-        Collider.enabled = true;
-        ChangeState(AnimalState.IDLE);
-
-        Initialize(SO);
-    }
-
-    private void OnDisable()
-    {
-        ChangeState(AnimalState.RETURNED);
-    }
-
-    public virtual void Initialize(Animal animal)
-    {
-        SO = animal;
+        Player = player_ctrl;
 
         Movement.Initialize(SO.IdleTime, SO.WalkSPD, SO.RunSPD, SO.MoveTime);
         Status.Initialize(SO.HP);
+
+        Collider.enabled = true;
+        ChangeState(AnimalState.IDLE);
     }
 
     public virtual void ChangeState(AnimalState state)

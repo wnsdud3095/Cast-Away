@@ -60,7 +60,7 @@ public class CameraCtrl : MonoBehaviour
     private bool CheckObstacle(Collider collider)
     {
         if(!collider.CompareTag("Player") &&
-           !collider.CompareTag("Neutrality") &&
+           !collider.CompareTag("Animal") &&
            !collider.CompareTag("Enemy") &&
            !collider.CompareTag("Item") &&
            !collider.CompareTag("Tool") &&

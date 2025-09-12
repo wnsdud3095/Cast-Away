@@ -3272,7 +3272,7 @@ GameObject:
   - component: {fileID: 1742824457130116055}
   m_Layer: 0
   m_Name: White Goat
-  m_TagString: Neutrality
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3371,8 +3371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6e0c4a3c4708154c9f3ffdd05b9914f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <SO>k__BackingField: {fileID: 11400000, guid: a237618d46d9ef0409850c2880122d84, type: 2}
-  <Player>k__BackingField: {fileID: 0}
+  <SO>k__BackingField: {fileID: 11400000, guid: 9665ec9bafac5164288aeb6e24d24267, type: 2}
 --- !u!114 &8012635438018710802
 MonoBehaviour:
   m_ObjectHideFlags: 0

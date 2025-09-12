@@ -1606,7 +1606,7 @@ GameObject:
   - component: {fileID: 7156546251935655942}
   m_Layer: 0
   m_Name: White Sheep
-  m_TagString: Neutrality
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1706,7 +1706,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SO>k__BackingField: {fileID: 11400000, guid: a237618d46d9ef0409850c2880122d84, type: 2}
-  <Player>k__BackingField: {fileID: 0}
 --- !u!114 &7247939904162111998
 MonoBehaviour:
   m_ObjectHideFlags: 0

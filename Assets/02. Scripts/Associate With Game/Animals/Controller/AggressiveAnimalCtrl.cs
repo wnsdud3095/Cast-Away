@@ -1,6 +1,3 @@
-using System.Collections;
-using UnityEngine;
-
 public class AggressiveAnimalCtrl : AnimalCtrl
 {
     private IState<AnimalCtrl> m_trace_state;
@@ -19,12 +16,12 @@ public class AggressiveAnimalCtrl : AnimalCtrl
         Attack = GetComponent<AnimalAttack>();
     }
 
-    public override void Initialize(Animal animal)
+    public override void Initialize(PlayerCtrl player_ctrl)
     {
-        base.Initialize(animal);
+        base.Initialize(player_ctrl);
 
-        Attack.Initialize((animal as AggressiveAnimal).ATK,
-                          (animal as AggressiveAnimal).ATKRange);
+        Attack.Initialize((SO as AggressiveAnimal).ATK,
+                          (SO as AggressiveAnimal).ATKRange);
     }
 
     public override void ChangeState(AnimalState state)

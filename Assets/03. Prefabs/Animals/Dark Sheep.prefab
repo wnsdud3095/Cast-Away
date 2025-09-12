@@ -3333,7 +3333,7 @@ GameObject:
   - component: {fileID: 2022288341796747330}
   m_Layer: 0
   m_Name: Dark Sheep
-  m_TagString: Neutrality
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3433,7 +3433,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SO>k__BackingField: {fileID: 11400000, guid: 2fca33aa0f34dc049bf31b4dedbb4f9c, type: 2}
-  <Player>k__BackingField: {fileID: 0}
 --- !u!114 &2277766961788290413
 MonoBehaviour:
   m_ObjectHideFlags: 0

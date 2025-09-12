@@ -6,14 +6,17 @@ public class Bootstrapper : MonoBehaviour
 
     protected virtual void Awake()
     {
-        // ÇÏÀ§ÀÇ IInstaller¸¦ ±¸ÇöÇÏ´Â ¸ðµç ÀÚ½Ä ¿ÀºêÁ§Æ®¸¦ ¸ðÀº´Ù. 
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ IInstallerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. 
         m_installers = transform.GetComponentsInChildren<IInstaller>();
-        ServiceLocator.InitServices(); // ¼­ºñ½º¸¦ µñ¼Å³Ê¸®¿¡ µî·Ï
+        ServiceLocator.InitServices(); // ï¿½ï¿½ï¿½ñ½º¸ï¿½ ï¿½ï¿½Å³Ê¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
     }
 
     protected virtual void Start()
     {
-        // ÀÌµéÀ» ¼øÈ¸ÇÏ¸ç ÀÇÁ¸¼ºÀ» ÁÖÀÔÇÑ´Ù.
+        // ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
         foreach (var installer in m_installers)
         {
             installer.Install();

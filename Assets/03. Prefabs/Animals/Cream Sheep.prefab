@@ -3146,7 +3146,7 @@ GameObject:
   - component: {fileID: 5394910928087280938}
   m_Layer: 0
   m_Name: Cream Sheep
-  m_TagString: Neutrality
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3246,7 +3246,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SO>k__BackingField: {fileID: 11400000, guid: 12d2872a6a9056c4899dacabaf8e27d7, type: 2}
-  <Player>k__BackingField: {fileID: 0}
 --- !u!114 &166749956386331482
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(AnimalCtrl))]
 public class AnimalStatus : MonoBehaviour
@@ -14,6 +15,8 @@ public class AnimalStatus : MonoBehaviour
     public float MaxHP => m_max_hp;
     public bool IsDead => m_is_dead;
 
+    public event Action<AnimalCtrl> OnAnimalDeath;
+
     private void Awake()
     {
         m_controller = GetComponent<AnimalCtrl>();
@@ -22,6 +25,11 @@ public class AnimalStatus : MonoBehaviour
     private void OnEnable()
     {
         m_is_dead = false;
+    }
+
+    private void OnDisable()
+    {
+        OnAnimalDeath?.Invoke(m_controller);
     }
 
     public void Initialize(float max_hp)
@@ -56,5 +64,7 @@ public class AnimalStatus : MonoBehaviour
         m_is_dead = true;
 
         m_controller.Collider.enabled = false;
+
+        OnAnimalDeath?.Invoke(m_controller);
     }
 }
