@@ -6,16 +6,11 @@ public class AnimalStatus : MonoBehaviour
 {
     private AnimalCtrl m_controller;
 
-    private float m_max_hp;
-    private float m_current_hp;
+    public float CurrentHP { get; private set; }
+    public float MaxHP { get; private set; }
+    public bool IsDead { get; private set; }
 
-    private bool m_is_dead;
-
-    public float CurrentHP => m_current_hp;
-    public float MaxHP => m_max_hp;
-    public bool IsDead => m_is_dead;
-
-    public event Action<AnimalCtrl> OnAnimalDeath;
+    public event Action<AnimalCtrl> OnDisabledObject;
 
     private void Awake()
     {
@@ -24,27 +19,27 @@ public class AnimalStatus : MonoBehaviour
 
     private void OnEnable()
     {
-        m_is_dead = false;
+        IsDead = false;
     }
 
     private void OnDisable()
     {
-        OnAnimalDeath?.Invoke(m_controller);
+        OnDisabledObject?.Invoke(m_controller);
     }
 
     public void Initialize(float max_hp)
     {
-        m_max_hp = max_hp;
-        m_current_hp = m_max_hp;
+        MaxHP = max_hp;
+        CurrentHP = MaxHP;
     }
 
     public void UpdateHP(float amount)
     {
-        m_current_hp += amount;
+        CurrentHP += amount;
 
         if(amount < 0f)
         {
-            if(m_current_hp <= 0f)
+            if(CurrentHP <= 0f)
             {
                 m_controller.ChangeState(AnimalState.DEATH);
             }
@@ -57,14 +52,14 @@ public class AnimalStatus : MonoBehaviour
 
     public void Death()
     {
-        if(m_is_dead)
+        if(IsDead)
         {
             return;
         }
-        m_is_dead = true;
+        IsDead = true;
 
         m_controller.Collider.enabled = false;
 
-        OnAnimalDeath?.Invoke(m_controller);
+        OnDisabledObject?.Invoke(m_controller);
     }
 }

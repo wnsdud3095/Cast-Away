@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public interface INameTagView
 {
     void OpenUI(string name_text);

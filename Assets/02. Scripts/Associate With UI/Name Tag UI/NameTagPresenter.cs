@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class NameTagPresenter
 {
     private readonly INameTagView m_view;

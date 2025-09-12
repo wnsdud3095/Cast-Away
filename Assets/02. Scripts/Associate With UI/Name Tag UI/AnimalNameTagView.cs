@@ -10,21 +10,16 @@ public class AnimalNameTagView : MonoBehaviour, INameTagView
     [Header("네임 태그 텍스트")]
     [SerializeField] private TMP_Text m_name_tag_label;
 
-    [Header("네임 태그 회전 계수")]
-    [SerializeField] private float m_rotation_speed = 3f;
-
     private Coroutine m_fade_coroutine;
 
     private void Update()
     {
-        if (gameObject.activeSelf)
-        {
-            var direction = transform.position - Camera.main.transform.position;
-            var target_rotation = Quaternion.LookRotation(direction);
+        Rotation();
+    }
 
-
-            transform.rotation = target_rotation;
-        }
+    private void OnDisable()
+    {
+        m_canvas_group.alpha = 0f;
     }
 
     public void OpenUI(string name_text)
@@ -36,6 +31,17 @@ public class AnimalNameTagView : MonoBehaviour, INameTagView
     public void CloseUI()
     {
         Fade(false);
+    }
+
+    private void Rotation()
+    {
+        if (gameObject.activeInHierarchy)
+        {
+            var direction = transform.position - Camera.main.transform.position;
+
+            var target_rotation = Quaternion.LookRotation(direction);
+            transform.rotation = target_rotation;
+        }
     }
 
     private void Fade(bool is_in)

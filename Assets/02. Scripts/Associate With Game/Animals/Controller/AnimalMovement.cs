@@ -12,16 +12,13 @@ public class AnimalMovement : MonoBehaviour
     [SerializeField] private LayerMask m_ground_mask;
 
     [Header("보간 크기")]
-    [SerializeField] private float m_smooth;
-    
-    private float m_idle_time;
-    private float m_move_time;
+    [SerializeField] private float m_smoothness;
 
     private float m_walk_speed;
     private float m_run_speed;
 
-    public float IdleTime => m_idle_time;
-    public float MoveTime => m_move_time;
+    public float IdleTime { get; private set; }
+    public float MoveTime { get; private set; }
 
     public bool IsWalk { get; set; }
     public bool IsRun { get; set; }
@@ -41,12 +38,12 @@ public class AnimalMovement : MonoBehaviour
                            float run_speed,
                            float move_time)
     {
-        m_idle_time = idle_time;
+        IdleTime = idle_time;
 
         m_walk_speed = walk_speed;
         m_run_speed = run_speed;
 
-        m_move_time = move_time;
+        MoveTime = move_time;
     }
 
     public void Move(Vector3 destination, bool world_coord = false)
@@ -61,12 +58,18 @@ public class AnimalMovement : MonoBehaviour
     {
         var agent_position = m_controller.Agent.nextPosition;
 
-        if (Physics.Raycast(agent_position + Vector3.up, Vector3.down, out var hit, m_ray_distance, m_ground_mask))
+        if (Physics.Raycast(agent_position + Vector3.up, 
+                            Vector3.down, 
+                            out var hit, 
+                            m_ray_distance, 
+                            m_ground_mask))
         {
             transform.position = new Vector3(agent_position.x, hit.point.y, agent_position.z);
 
             var target_rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
-            transform.rotation = Quaternion.Slerp(transform.rotation, target_rotation, Time.deltaTime * m_smooth);
+            transform.rotation = Quaternion.Slerp(transform.rotation, 
+                                                  target_rotation, 
+                                                  Time.deltaTime * m_smoothness);
         }
     }
 

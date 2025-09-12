@@ -12,13 +12,9 @@ public class AnimalDeathState : MonoBehaviour, IState<AnimalCtrl>
         }
 
         Initialize();
-        m_controller.Status.Death();
     }
 
-    public void ExecuteExit()
-    {
-
-    }
+    public void ExecuteExit() {}
 
     private void Initialize()
     {
@@ -28,7 +24,8 @@ public class AnimalDeathState : MonoBehaviour, IState<AnimalCtrl>
         m_controller.Animator.SetBool("Walk", false);
         m_controller.Animator.SetBool("Run", false);
 
-        m_controller.Animator.SetTrigger("Death");        
+        m_controller.Animator.SetTrigger("Death");    
+        m_controller.Status.Death();    
     }
 
     public void OnDeathAnimationEnd()

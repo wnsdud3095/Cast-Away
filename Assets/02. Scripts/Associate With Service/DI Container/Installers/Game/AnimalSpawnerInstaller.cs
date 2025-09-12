@@ -13,6 +13,11 @@ public class AnimalSpawnerInstaller : MonoBehaviour, IInstaller
 
     public void Install()
     {
+        InstallSpawner();
+    }
+
+    private void InstallSpawner()
+    {
         m_animal_spawner.Inject(m_player_ctrl,
                                 m_time_manager);
         DIContainer.Register<AnimalSpawner>(m_animal_spawner);

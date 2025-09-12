@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(AnimalCtrl))]
@@ -9,10 +8,9 @@ public class AnimalAttack : MonoBehaviour
     [Header("공격 홀더")]
     [SerializeField] private AnimalAttackHolder m_atk_holder;
 
-    private float m_atk;
     private float m_atk_range;
 
-    public float ATK => m_atk;
+    public float ATK { get; private set; }
     public bool CanTrace { get; private set; }
     public bool CanAttack => SqrMagnitude <= m_atk_range * m_atk_range;
 
@@ -47,7 +45,7 @@ public class AnimalAttack : MonoBehaviour
     public void Initialize(float atk,
                            float atk_range)
     {
-        m_atk = atk;
+        ATK = atk;
         m_atk_range = atk_range;
     }
 }

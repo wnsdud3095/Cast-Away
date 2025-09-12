@@ -4,17 +4,30 @@ using UnityEngine.AI;
 public class AnimalSpawner : MonoBehaviour
 {
     [Header("스포너 관련 설정")]
+    
+    [Header("범위 설정")]
     [Header("최소 스폰 범위")]
     [SerializeField] private float m_min_spawn_range;
 
     [Header("최대 스폰 범위")]
     [SerializeField] private float m_max_spawn_range;
 
+    [Space(20f)]
+    [Header("무리 설정")]
     [Header("동물 무리 최소 크기")]
     [SerializeField] private int m_min_herd_size;
 
     [Header("동물 무리 최대 크기")]
     [SerializeField] private int m_max_herd_size;
+
+    [Space(20f)]
+    [Header("적대 동물 설정")]
+    [Header("최소 적대 동물의 수")]
+    [SerializeField] private int m_min_aggressive_count = 8;
+    
+    [Header("최대 적대 동물의 수")]
+    [SerializeField] private int m_max_aggressive_count = 10;
+    
 
     [Header("스폰될 중립 동물 목록")]
     [SerializeField] private Animal[] m_neutrality_animal_list;
@@ -33,8 +46,8 @@ public class AnimalSpawner : MonoBehaviour
     private PlayerCtrl m_player_ctrl;
     private TimeManager m_time_manager;
 
-    private int m_max_animal_count = 8;
-    [SerializeField] private int m_current_animal_count = 0;
+    private readonly int m_max_animal_count = 8;
+    private int m_current_animal_count = 0;
 
     private void OnDisable()
     {
@@ -46,21 +59,8 @@ public class AnimalSpawner : MonoBehaviour
     {
         if(collider.CompareTag("Animal"))
         {
-            Return(collider);
+            Despawn(collider);
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        if(m_player_ctrl == null)
-        {
-            return;
-        } 
-
-        Gizmos.color = Color.green;
-
-        Gizmos.DrawWireSphere(m_player_ctrl.transform.position, m_min_spawn_range);
-        Gizmos.DrawWireSphere(m_player_ctrl.transform.position, m_max_spawn_range);
     }
 
     public void Inject(PlayerCtrl player_ctrl,
@@ -96,7 +96,7 @@ public class AnimalSpawner : MonoBehaviour
 
             var animal_ctrl = animal_obj.GetComponent<AnimalCtrl>();
             animal_ctrl.Initialize(m_player_ctrl, m_time_manager, name_tag_presenter);
-            animal_ctrl.Status.OnAnimalDeath += DecreaseCurrentCount;
+            animal_ctrl.Status.OnDisabledObject += AnimalDisabledEvent;
 
             m_current_animal_count++;
         }
@@ -186,7 +186,7 @@ public class AnimalSpawner : MonoBehaviour
         return Vector3.zero;        
     }
 
-    private void Return(Collider animal_collider)
+    private void Despawn(Collider animal_collider)
     {
         var animal_ctrl = animal_collider.GetComponent<AnimalCtrl>();
         animal_ctrl.ChangeState(AnimalState.RETURNED);
@@ -200,9 +200,9 @@ public class AnimalSpawner : MonoBehaviour
 
     private ObjectType GetObjectType(AnimalCode animal_code) => (ObjectType)((int)animal_code + 201);
 
-    private void DecreaseCurrentCount(AnimalCtrl animal_ctrl)
+    private void AnimalDisabledEvent(AnimalCtrl animal_ctrl)
     {
         m_current_animal_count--;
-        animal_ctrl.Status.OnAnimalDeath -= DecreaseCurrentCount;
+        animal_ctrl.Status.OnDisabledObject -= AnimalDisabledEvent;
     }
 }

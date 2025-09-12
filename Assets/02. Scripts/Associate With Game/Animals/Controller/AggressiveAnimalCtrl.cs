@@ -1,3 +1,6 @@
+using UnityEngine;
+
+[RequireComponent(typeof(AnimalAttack))]
 public class AggressiveAnimalCtrl : AnimalCtrl
 {
     private IState<AnimalCtrl> m_trace_state;

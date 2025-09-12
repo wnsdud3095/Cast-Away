@@ -89,10 +89,6 @@ public class TimeManager : MonoBehaviour
         RenderSettings.fogMode = FogMode.ExponentialSquared;
 
         UpdateFogImmediate();
-
-        OnSunrise += () => Debug.Log("Sunrise");
-        OnSunset += () => Debug.Log("Sunset");
-        OnHourChanged += () => Debug.Log("Hour change");
     }
 
     private void Update()

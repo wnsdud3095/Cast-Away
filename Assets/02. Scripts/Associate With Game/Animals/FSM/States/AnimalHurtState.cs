@@ -14,10 +14,7 @@ public class AnimalHurtState : MonoBehaviour, IState<AnimalCtrl>
         Initialize();
     }
 
-    public void ExecuteExit()
-    {
-
-    }
+    public void ExecuteExit() {}
 
     private void Initialize()
     {

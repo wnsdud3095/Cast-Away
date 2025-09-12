@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(BoxCollider), typeof(Animator), typeof(NavMeshAgent))]
+[RequireComponent(typeof(AnimalMovement), typeof(AnimalStatus))]
 public class AnimalCtrl : MonoBehaviour
 {
     #region FSM States

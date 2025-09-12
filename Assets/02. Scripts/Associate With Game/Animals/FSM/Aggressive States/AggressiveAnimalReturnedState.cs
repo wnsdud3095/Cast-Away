@@ -14,9 +14,7 @@ public class AggressiveAnimalReturnedState : MonoBehaviour, IState<AnimalCtrl>
         Initialize();
     }
 
-    public void ExecuteExit()
-    {
-    }
+    public void ExecuteExit() {}
 
     private void Initialize()
     {
