@@ -2790,7 +2790,7 @@ MonoBehaviour:
   m_ground_layer:
     serializedVersion: 2
     m_Bits: 64
-  m_interpolation_strength: 3
+  m_interpolation_strength: 60
 --- !u!1 &5924599971292584451
 GameObject:
   m_ObjectHideFlags: 0

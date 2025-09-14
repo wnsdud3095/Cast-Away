@@ -13,7 +13,7 @@ public class InclineInterpolation : MonoBehaviour
     [SerializeField] private LayerMask m_ground_layer;
 
     [Header("보간 강도")]
-    [SerializeField] private float m_interpolation_strength;
+    [SerializeField] private float m_interpolation_strength = 60f;
 
     private void Update()
     {
@@ -25,10 +25,10 @@ public class InclineInterpolation : MonoBehaviour
         if(Physics.Raycast(transform.position + Vector3.up, Vector3.down, out var hit, m_ray_distance, m_ground_layer))
         {
             transform.position = new Vector3(m_agent.nextPosition.x, hit.point.y, m_agent.nextPosition.z);
-            var velocity = m_agent.velocity;
-            var forward = velocity.sqrMagnitude > 0.01f ? velocity.normalized : transform.forward;
-            var targetRotation = Quaternion.LookRotation(forward, hit.normal);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 60f * Time.deltaTime);
+
+            var forward = m_agent.velocity.sqrMagnitude > 0.01f ? m_agent.velocity.normalized : transform.forward;
+            var target_rotation = Quaternion.LookRotation(forward, hit.normal);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, target_rotation, m_interpolation_strength * Time.deltaTime);
         }
     }
 }
