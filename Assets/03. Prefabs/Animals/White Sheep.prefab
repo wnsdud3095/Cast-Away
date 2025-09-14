@@ -1440,6 +1440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8898560685972277345}
+  - component: {fileID: 1271915641669982300}
   m_Layer: 0
   m_Name: Base_joint
   m_TagString: Untagged
@@ -1461,8 +1462,27 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 919068652914446507}
+  - {fileID: 3821468423484101635}
   m_Father: {fileID: 8436613996181366158}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1271915641669982300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4694268099050947581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a0a3c4ebfd60b748b3311ffbf4a8acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_agent: {fileID: 1704802730184094260}
+  m_ray_distance: 5
+  m_ground_layer:
+    serializedVersion: 2
+    m_Bits: 64
+  m_interpolation_strength: 3
 --- !u!1 &4717193388462188287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1626,7 +1646,6 @@ Transform:
   m_Children:
   - {fileID: 8898560685972277345}
   - {fileID: 2959917537209138633}
-  - {fileID: 3821468423484101635}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8976651513873949748
@@ -1744,7 +1763,7 @@ MonoBehaviour:
   m_ground_mask:
     serializedVersion: 2
     m_Bits: 64
-  m_smooth: 2
+  m_smoothness: 0
 --- !u!114 &2158153790059803184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3584,7 +3603,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8436613996181366158}
+    m_TransformParent: {fileID: 8898560685972277345}
     m_Modifications:
     - target: {fileID: 211585408017947351, guid: fad5aebe3c1b9694c90864cb9d098474, type: 3}
       propertyPath: m_PresetInfoIsWorld

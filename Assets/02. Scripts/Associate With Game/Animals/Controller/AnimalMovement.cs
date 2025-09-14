@@ -27,11 +27,6 @@ public class AnimalMovement : MonoBehaviour
     {
         m_controller = GetComponent<AnimalCtrl>();
     }
-    
-    private void Update()
-    {
-        m_controller.Movement.InclineInterpolation();
-    }
 
     public void Initialize(float idle_time,
                            float walk_speed,
@@ -52,25 +47,6 @@ public class AnimalMovement : MonoBehaviour
         
         var target_pos = world_coord ? destination : transform.position + destination;
         m_controller.Agent.SetDestination(target_pos);
-    } 
-
-    public void InclineInterpolation()
-    {
-        var agent_position = m_controller.Agent.nextPosition;
-
-        if (Physics.Raycast(agent_position + Vector3.up, 
-                            Vector3.down, 
-                            out var hit, 
-                            m_ray_distance, 
-                            m_ground_mask))
-        {
-            transform.position = new Vector3(agent_position.x, hit.point.y, agent_position.z);
-
-            var target_rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
-            transform.rotation = Quaternion.Slerp(transform.rotation, 
-                                                  target_rotation, 
-                                                  Time.deltaTime * m_smoothness);
-        }
     }
 
     public void ReturnAtSunrise()
