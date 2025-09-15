@@ -1819,6 +1819,7 @@ GameObject:
   - component: {fileID: 297165205}
   - component: {fileID: 297165204}
   - component: {fileID: 297165207}
+  - component: {fileID: 297165208}
   m_Layer: 5
   m_Name: Key Binder UI
   m_TagString: Untagged
@@ -1924,6 +1925,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ui_manager: {fileID: 1025504285}
   m_close_button: {fileID: 1553292135}
+--- !u!225 &297165208
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297165202}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &301710523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4206,6 +4219,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 297165203}
     m_Modifications:
+    - target: {fileID: 290668047158713508, guid: 05d5f3da60f211143afcb478347d0d44, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1573756848151360150, guid: 05d5f3da60f211143afcb478347d0d44, type: 3}
       propertyPath: m_IsActive
       value: 1
