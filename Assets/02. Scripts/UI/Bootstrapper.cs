@@ -8,6 +8,8 @@ public class Bootstrapper : MonoBehaviour
     {
         // 하위의 IInstaller를 구현하는 모든 자식 오브젝트를 모은다. 
         m_installers = transform.GetComponentsInChildren<IInstaller>();
+        Debug.Log("<color=lime>InitServices 실행됨</color>");
+
         ServiceLocator.InitServices(); // 서비스를 딕셔너리에 등록
     }
 
