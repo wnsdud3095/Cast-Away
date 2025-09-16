@@ -4,10 +4,10 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Neutrality
   - Enemy
   - Item
   - Tool
+  - Animal
   layers:
   - Default
   - TransparentFX
