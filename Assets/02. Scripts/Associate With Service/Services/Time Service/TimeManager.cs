@@ -76,10 +76,13 @@ public class TimeManager : MonoBehaviour
 
     public bool IsDayTime => m_service.IsDayTime();
     
-    private void Start()
+    private void Awake()
     {
         m_service = new TimeService(m_time_settings);
+    }
 
+    private void Start()
+    {
         if(m_volume != null && m_volume.profile != null)
         {
             m_volume.profile.TryGet(out m_color_adjustments);
