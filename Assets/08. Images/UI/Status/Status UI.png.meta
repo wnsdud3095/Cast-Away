@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 77ce302330f541f4382a46940f60a4f3
+guid: 704f869e67311914aa629e00b785054f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Key Binder Panel
+      name: Status UI_4
       rect:
         serializedVersion: 2
-        x: 374
-        y: 0
-        width: 360
-        height: 400
+        x: 2
+        y: 159
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,20 +125,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a332eb9db874bf409cad646cd08401c
-      internalID: -501496368
+      spriteID: cfda85e021e5bb740b70f443e59d57d0
+      internalID: -635445728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Binder Slot Panel
+      name: Status UI_5
       rect:
         serializedVersion: 2
-        x: 747
-        y: 318
-        width: 335
-        height: 82
+        x: 167
+        y: 159
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f1cd3d2f4b52f64a87f202d5a63cb14
-      internalID: 893980825
+      spriteID: 96f0cc903b5b69949ac01e34559fc76d
+      internalID: 1328869902
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Binder Button
+      name: Status UI_6
       rect:
         serializedVersion: 2
-        x: 752
-        y: 254
-        width: 55
-        height: 55
+        x: 330
+        y: 159
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,30 +169,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c60acdc87053ee4da6ac83e05b47f2e
-      internalID: 1782620795
+      spriteID: dc7228c11ad680c4199d0445bcd2b67a
+      internalID: 1930113198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scroll Bar
+      name: Status UI_7
       rect:
         serializedVersion: 2
-        x: 824
-        y: 265
-        width: 11
-        height: 33
+        x: 495
+        y: 154
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 3, z: 3, w: 3}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d531892cdd364043ba2b3d65ff10026
-      internalID: -883316768
+      spriteID: 893fd585ee82b064fbf1c55830c9a79b
+      internalID: -1204950802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Status UI_8
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 2
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7958bc7621939f3438a510cb3e4e857c
+      internalID: -1889765299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Status UI_9
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 2
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b35d067a65c45f248861da423d94dd22
+      internalID: 723970090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Status UI_10
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 2
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45f50073ff3829d46ae7b6620742b66b
+      internalID: 242299765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Status UI_11
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 2
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd6345d57231be643af32b8476352430
+      internalID: -2078133285
       vertices: []
       indices: 
       edges: []
@@ -201,7 +289,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: aba5d07caa1d87f41b1f37f6baa3b15c
+    spriteID: 51ac85f93a8f6214585b1586d904dce4
     internalID: 0
     vertices: []
     indices: 
@@ -213,11 +301,18 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Binder Button: 1782620795
-      Binder Slot Panel: 893980825
-      Key Binder Panel: -501496368
-      Key Binder UI_0: 1986243365
-      Scroll Bar: -883316768
+      Status UI_0: -1943491160
+      Status UI_1: 2001657532
+      Status UI_10: 242299765
+      Status UI_11: -2078133285
+      Status UI_2: -1574505479
+      Status UI_3: -1910998091
+      Status UI_4: -635445728
+      Status UI_5: 1328869902
+      Status UI_6: 1930113198
+      Status UI_7: -1204950802
+      Status UI_8: -1889765299
+      Status UI_9: 723970090
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
