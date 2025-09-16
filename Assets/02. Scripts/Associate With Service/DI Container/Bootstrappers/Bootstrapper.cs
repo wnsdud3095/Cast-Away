@@ -9,9 +9,6 @@ public class Bootstrapper : MonoBehaviour
         // ������ IInstaller�� �����ϴ� ��� �ڽ� ������Ʈ�� ������. 
         m_installers = transform.GetComponentsInChildren<IInstaller>();
         ServiceLocator.InitServices(); // ���񽺸� ��ųʸ��� ���
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
     }
 
     protected virtual void Start()
