@@ -16,9 +16,6 @@ public class ItemSlotView : MonoBehaviour, IItemSlotView
     [Header("아이템 개수")]
     [SerializeField] private TMP_Text m_count_label;
 
-    [Header("쿨타임 이미지")]
-    [SerializeField] private Image m_cooldown_image;
-
     [Header("슬롯 마스크")]
     [SerializeField] private ItemType m_slot_type;
 
@@ -44,8 +41,6 @@ public class ItemSlotView : MonoBehaviour, IItemSlotView
 
         m_count_label.text = string.Empty;
         m_count_label.gameObject.SetActive(false);
-
-        m_cooldown_image.fillAmount = 0f;
     }
 
     // 아이템 슬롯에 아이템을 추가한다.
@@ -67,7 +62,6 @@ public class ItemSlotView : MonoBehaviour, IItemSlotView
             m_count_label.gameObject.SetActive(false);
         }
 
-        m_cooldown_image.fillAmount = 0f;
     }
 
     // 슬롯에 넣을 수 있는 아이템 타입인지 확인한다.

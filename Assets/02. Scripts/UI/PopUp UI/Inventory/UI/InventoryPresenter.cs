@@ -5,12 +5,14 @@ public class InventoryPresenter : IPopupPresenter //IDisposable
 {
     private readonly IInventoryView m_view;
     private readonly IInventoryService m_model;
+    private ItemSlotPresenter[] m_slot_presenters;
 
     // 생성자를 통해서 view와 인벤토리 서비스를 주입
-    public InventoryPresenter(IInventoryView view, IInventoryService model)
+    public InventoryPresenter(IInventoryView view, IInventoryService model, ItemSlotPresenter[] slot_presenters)
     {
         m_view = view;
         m_model = model;
+        m_slot_presenters = slot_presenters;
 
         m_view.Inject(this);
     }
@@ -25,7 +27,12 @@ public class InventoryPresenter : IPopupPresenter //IDisposable
     {
         m_view.CloseUI();
     }
+    public ItemSlotPresenter GetPrioritySlotPresenter(ItemCode code)
+    {
+        var offset = m_model.GetPriorityOffset(code);
 
+        return offset != -1 ? m_slot_presenters[offset] : null;
+    }
     /*
     // 인벤토리 UI를 초기화할 때 사용한다.
     public void Initialize()
