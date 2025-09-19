@@ -1,33 +1,35 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public static class DIContainer
 {
     private static Dictionary<Type, object> m_instances = new();
 
-    // ÀÇÁ¸¼ºÀ» µî·ÏÇÒ ¶§ »ç¿ëÇÑ´Ù.
+    // ì˜ì¡´ì„±ì„ ë“±ë¡í•  ë•Œ ì‚¬ìš©í•œë‹¤.
     public static void Register<T>(object instance)
     {
         m_instances[typeof(T)] = instance;
     }
 
-    // ÀÇÁ¸¼ºÀ» ÁÖÀÔÇÒ ¶§ »ç¿ëÇÑ´Ù.
+    // ì˜ì¡´ì„±ì„ ì£¼ì…í•  ë•Œ ì‚¬ìš©í•œë‹¤.
     public static T Resolve<T>()
     {
         if (!IsRegistered<T>())
         {
-            throw new Exception($"{typeof(T)}°¡ DI ÄÁÅ×ÀÌ³Ê¿¡ µî·ÏµÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù.");
+            throw new Exception($"{typeof(T)}ê°€ DI ì»¨í…Œì´ë„ˆì— ë“±ë¡ë˜ì–´ ìˆì§€ ì•ŠìŠµë‹ˆë‹¤.");
         }
+
         return (T)m_instances[typeof(T)];
     }
 
-    // ÀÇÁ¸ÇÏ·Á´Â °´Ã¼°¡ Á¸ÀçÇÏ´ÂÁö È®ÀÎÇÒ ¶§ »ç¿ëÇÑ´Ù.
+    // ì˜ì¡´í•˜ë ¤ëŠ” ê°ì²´ê°€ ì¡´ì¬í•˜ëŠ”ì§€ í™•ì¸í•  ë•Œ ì‚¬ìš©í•œë‹¤.
     public static bool IsRegistered<T>()
     {
         return m_instances.ContainsKey(typeof(T));
     }
 
-    // µñ¼Å³Ê¸®¸¦ Áö¿ì¸ç ÀÇÁ¸¼ºÀ» ¸ğµÎ Á¦°ÅÇÑ´Ù.
+    // ë”•ì…”ë„ˆë¦¬ë¥¼ ì§€ìš°ë©° ì˜ì¡´ì„±ì„ ëª¨ë‘ ì œê±°í•œë‹¤.
     public static void Clear()
     {
         m_instances.Clear();

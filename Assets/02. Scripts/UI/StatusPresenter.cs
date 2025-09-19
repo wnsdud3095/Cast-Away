@@ -16,18 +16,18 @@ public class StatusPresenter : IDisposable
         m_user_service = user_service;
         m_exp_service = exp_service;
 
-        // View¿¡ Presenter ÁÖÀÔ
+        // Viewì— Presenter ì£¼ì…
         m_view.Inject(this);
 
-        // Model ÀÌº¥Æ® ±¸µ¶
+        // Model ì´ë²¤íŠ¸ êµ¬ë…
         m_model.OnUpdatedHP = OnUpdatedHP;
         m_model.OnUpdatedThirst = OnUpdatedThirst;
         m_model.OnUpdatedHunger = OnUpdatedHunger;
 
-        // UserService ÀÌº¥Æ® ±¸µ¶
+        // UserService ì´ë²¤íŠ¸ êµ¬ë…
         m_user_service.OnUpdatedLevel += OnUpdatedLevel;
 
-        // ÃÊ±â »óÅÂ ¹İ¿µ
+        // ì´ˆê¸° ìƒíƒœ ë°˜ì˜
         m_model.Initialize();
         m_user_service.InitLevel();
     }

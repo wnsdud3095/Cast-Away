@@ -4,7 +4,7 @@ namespace EXPService
 {
     public interface IEXPService
     {
-        public int GetEXP(int cur_level); //ÇöÀç ·¹º§ ÀÔ·Â½Ã ·¹º§¾÷À» À§ÇØ ÇÊ¿äÇÑ °æÇèÄ¡ ¹İÈ¯
+        public int GetEXP(int cur_level); //í˜„ì¬ ë ˆë²¨ ì…ë ¥ì‹œ ë ˆë²¨ì—…ì„ ìœ„í•´ í•„ìš”í•œ ê²½í—˜ì¹˜ ë°˜í™˜
         public void Load();
     }
 }

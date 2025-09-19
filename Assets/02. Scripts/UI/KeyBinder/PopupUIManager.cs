@@ -6,8 +6,8 @@ public class PopupUIManager : MonoBehaviour
 {
     private IKeyService m_key_service;
 
-    private LinkedList<IPopupPresenter> m_active_popup_list;		// È°¼ºÈ­ µÈ UI ÇÁ·¹Á¨ÅÍ¸¦ ÀúÀåÇÒ ¿¬°á ¸®½ºÆ®
-    private Dictionary<string, IPopupPresenter> m_presenter_dict;	// ÆË¾÷ UI ÇÁ·¹Á¨ÅÍ¸¦ ÀüºÎ º¸°üÇÏ´Â µñ¼Å³Ê¸®
+    private LinkedList<IPopupPresenter> m_active_popup_list;		// í™œì„±í™” ëœ UI í”„ë ˆì  í„°ë¥¼ ì €ì¥í•  ì—°ê²° ë¦¬ìŠ¤íŠ¸
+    private Dictionary<string, IPopupPresenter> m_presenter_dict;	// íŒì—… UI í”„ë ˆì  í„°ë¥¼ ì „ë¶€ ë³´ê´€í•˜ëŠ” ë”•ì…”ë„ˆë¦¬
 
     private void Awake()
     {
@@ -17,30 +17,30 @@ public class PopupUIManager : MonoBehaviour
 
     private void Update()
     {
-        // "Pause"Å°´Â KeyCode.Escape¿¡ ¸ÅÇÎµÇ¾î ÀÖ´Ù.
-        // ESC Å°¸¦ ´­·¶À» ¶§ ¹ß»ıÇÏ´Â Çàµ¿À» Á¤ÀÇÇÑ´Ù.
+        // "Pause"í‚¤ëŠ” KeyCode.Escapeì— ë§¤í•‘ë˜ì–´ ìˆë‹¤.
+        // ESC í‚¤ë¥¼ ëˆŒë €ì„ ë•Œ ë°œìƒí•˜ëŠ” í–‰ë™ì„ ì •ì˜í•œë‹¤.
         if (Input.GetKeyDown(m_key_service.GetKeyCode("Pause")))
         {
-            // È°¼ºÈ­µÈ ÆË¾÷ UI°¡ ÀÖ´Ù¸é ÀÌµéÀ» ÄÑÁø ¼ø¼­¿Í ¹İ´ë·Î ºñÈ°¼ºÈ­ÇÑ´Ù.
+            // í™œì„±í™”ëœ íŒì—… UIê°€ ìˆë‹¤ë©´ ì´ë“¤ì„ ì¼œì§„ ìˆœì„œì™€ ë°˜ëŒ€ë¡œ ë¹„í™œì„±í™”í•œë‹¤.
             if (m_active_popup_list.Count > 0)
             {
                 CloseUI(m_active_popup_list.First.Value);
             }
             else
             {
-                // È°¼ºÈ­µÈ ÆË¾÷ UI°¡ ¾ø´Ù¸é ÀÏ½ÃÁ¤Áö UI¸¦ È°¼ºÈ­½ÃÅ²´Ù.
+                // í™œì„±í™”ëœ íŒì—… UIê°€ ì—†ë‹¤ë©´ ì¼ì‹œì •ì§€ UIë¥¼ í™œì„±í™”ì‹œí‚¨ë‹¤.
                 if (m_presenter_dict.TryGetValue("Pause", out var presenter))
                 {
                     OpenUI(presenter);
-                    // SETTING ¸ğµå·Î º¯°æ. °ÔÀÓ¸Å´ÏÀú·Î °ÔÀÓ ½ºÅ×ÀÌÆ® °ü¸®½Ã¿¡ Ãß°¡·Î ÀÛ¼º
+                    // SETTING ëª¨ë“œë¡œ ë³€ê²½. ê²Œì„ë§¤ë‹ˆì €ë¡œ ê²Œì„ ìŠ¤í…Œì´íŠ¸ ê´€ë¦¬ì‹œì— ì¶”ê°€ë¡œ ì‘ì„±
                 }
             }
         }
         
-        // SETTINGÀÏ ¶§´Â Å° ÀÔ·ÂÀ» ¹ŞÁö ¾Ê´Â °ÍÀÌ ÀÏ¹İÀûÀÌ´Ù.
+        // SETTINGì¼ ë•ŒëŠ” í‚¤ ì…ë ¥ì„ ë°›ì§€ ì•ŠëŠ” ê²ƒì´ ì¼ë°˜ì ì´ë‹¤.
         //if (GameManager.Instance.Event != GameEventType.SETTING)
         {
-            // °¢ ÆË¾÷ UI¿¡ ÇØ´çÇÏ´Â ¹®ÀÚ¿­À» ÅëÇÏ¿© Å° ÀÔ·ÂÀ» ´ë±âÇÑ´Ù.
+            // ê° íŒì—… UIì— í•´ë‹¹í•˜ëŠ” ë¬¸ìì—´ì„ í†µí•˜ì—¬ í‚¤ ì…ë ¥ì„ ëŒ€ê¸°í•œë‹¤.
             
         }
         InputToggleKey("Binder");
@@ -49,19 +49,19 @@ public class PopupUIManager : MonoBehaviour
 
     }
 
-    // ÆË¾÷ UI ÇÁ·¹Á¨ÅÍÀÇ ¸ñ·ÏÀ» Inject()¸¦ ÅëÇØ ÁÖÀÔ¹Ş´Â´Ù.
+    // íŒì—… UI í”„ë ˆì  í„°ì˜ ëª©ë¡ì„ Inject()ë¥¼ í†µí•´ ì£¼ì…ë°›ëŠ”ë‹¤.
     public void Inject(List<PopupData> popup_data_list)
     {
         m_presenter_dict = new();
 
-        // ÆË¾÷ UI ÇÁ·¹Á¨ÅÍÀÇ ¸ñ·ÏÀ» ÀÌ¿ëÇÏ¿© µñ¼Å³Ê¸®¸¦ ÃÊ±âÈ­ÇÑ´Ù.
+        // íŒì—… UI í”„ë ˆì  í„°ì˜ ëª©ë¡ì„ ì´ìš©í•˜ì—¬ ë”•ì…”ë„ˆë¦¬ë¥¼ ì´ˆê¸°í™”í•œë‹¤.
         foreach (var popup_data in popup_data_list)
         {
             m_presenter_dict.TryAdd(popup_data.Name, popup_data.Presenter);
         }
     }
 
-    // Å° ÀÔ·ÂÀ» ÅëÇÏ¿© È°¼ºÈ­/ºñÈ°¼ºÈ­ ¿©ºÎ¸¦ °áÁ¤ÇÑ´Ù.
+    // í‚¤ ì…ë ¥ì„ í†µí•˜ì—¬ í™œì„±í™”/ë¹„í™œì„±í™” ì—¬ë¶€ë¥¼ ê²°ì •í•œë‹¤.
     private void InputToggleKey(string key_name)
     {
         if (Input.GetKeyDown(m_key_service.GetKeyCode(key_name)))
@@ -75,7 +75,7 @@ public class PopupUIManager : MonoBehaviour
 
     private void ToggleUI(IPopupPresenter presenter)
     {
-        // ¿¬°á ¸®½ºÆ®¿¡ ÇÁ·¹Á¨ÅÍ°¡ Æ÷ÇÔµÇ¾î ÀÖ´Ù¸é ±× ÆË¾÷ UI´Â È°¼ºÈ­ »óÅÂ´Ù.
+        // ì—°ê²° ë¦¬ìŠ¤íŠ¸ì— í”„ë ˆì  í„°ê°€ í¬í•¨ë˜ì–´ ìˆë‹¤ë©´ ê·¸ íŒì—… UIëŠ” í™œì„±í™” ìƒíƒœë‹¤.
         if (m_active_popup_list.Contains(presenter))
         {
             CloseUI(presenter);
@@ -88,10 +88,10 @@ public class PopupUIManager : MonoBehaviour
         SortDepth();
     }
 
-    // ¾î´ğÅÍ¸¦ ÅëÇØ¼­ UI¸¦ È°¼ºÈ­½ÃÅ³ ¼ö ¾ø´Â °æ¿ì¿¡ »ç¿ëÇÑ´Ù.
+    // ì–´ëŒ‘í„°ë¥¼ í†µí•´ì„œ UIë¥¼ í™œì„±í™”ì‹œí‚¬ ìˆ˜ ì—†ëŠ” ê²½ìš°ì— ì‚¬ìš©í•œë‹¤.
     public void AddPresenter(IPopupPresenter presenter)
     {
-        if (m_active_popup_list.Contains(presenter))		// È°¼ºÈ­µÇ¾î ÀÖ´Ù¸é ¿ì¼±¼øÀ§¸¦ ÃÖ°í·Î ¿Ã¸®°í
+        if (m_active_popup_list.Contains(presenter))		// í™œì„±í™”ë˜ì–´ ìˆë‹¤ë©´ ìš°ì„ ìˆœìœ„ë¥¼ ìµœê³ ë¡œ ì˜¬ë¦¬ê³ 
         {
             m_active_popup_list.Remove(presenter);
         }
@@ -99,25 +99,25 @@ public class PopupUIManager : MonoBehaviour
         m_active_popup_list.AddFirst(presenter);
         //GameEventBus.Publish(GameEventType.INTERACTING);
 
-        SortDepth();										// UI ±íÀÌ ¼ø¼­¸¦ ÀçÁ¤·ÄÇÑ´Ù.
+        SortDepth();										// UI ê¹Šì´ ìˆœì„œë¥¼ ì¬ì •ë ¬í•œë‹¤.
     }
 
-    // ¾î´ğÅÍ¸¦ ÅëÇØ¼­ UI¸¦ ºñÈ°¼ºÈ­½ÃÅ³ ¼ö ¾ø´Â °æ¿ì¿¡ »ç¿ëÇÑ´Ù.
+    // ì–´ëŒ‘í„°ë¥¼ í†µí•´ì„œ UIë¥¼ ë¹„í™œì„±í™”ì‹œí‚¬ ìˆ˜ ì—†ëŠ” ê²½ìš°ì— ì‚¬ìš©í•œë‹¤.
     public void RemovePresenter(IPopupPresenter presenter)
     {
-        if (m_active_popup_list.Contains(presenter))		// È°¼ºÈ­µÇ¾î ÀÖ´Ù¸é
+        if (m_active_popup_list.Contains(presenter))		// í™œì„±í™”ë˜ì–´ ìˆë‹¤ë©´
         {
-            m_active_popup_list.Remove(presenter);			// ºñÈ°¼ºÈ­ÇÏ°í
-            SortDepth();									// UI ±íÀÌ ¼ø¼­¸¦ ÀçÁ¤·ÄÇÑ´Ù.
+            m_active_popup_list.Remove(presenter);			// ë¹„í™œì„±í™”í•˜ê³ 
+            SortDepth();									// UI ê¹Šì´ ìˆœì„œë¥¼ ì¬ì •ë ¬í•œë‹¤.
 
-            if (m_active_popup_list.Count == 0)				// ´Ù ²¨Á® ÀÖ´Ù¸é PLAYING ¸ğµå·Î º¯°æÇÑ´Ù.
+            if (m_active_popup_list.Count == 0)				// ë‹¤ êº¼ì ¸ ìˆë‹¤ë©´ PLAYING ëª¨ë“œë¡œ ë³€ê²½í•œë‹¤.
             {
                 //GameEventBus.Publish(GameEventType.PLAYING);
             }
         }
     }
 
-    // ¿¬°á ¸®½ºÆ®¿¡ ÇÁ·¹Á¨ÅÍ¸¦ Ãß°¡ÇÏ°í UI¸¦ È°¼ºÈ­ÇÑ´Ù.
+    // ì—°ê²° ë¦¬ìŠ¤íŠ¸ì— í”„ë ˆì  í„°ë¥¼ ì¶”ê°€í•˜ê³  UIë¥¼ í™œì„±í™”í•œë‹¤.
     public void OpenUI(IPopupPresenter presenter)
     {
         m_active_popup_list.AddFirst(presenter);
@@ -126,7 +126,7 @@ public class PopupUIManager : MonoBehaviour
         //GameEventBus.Publish(GameEventType.INTERACTING);
     }
 
-    // ¿¬°á ¸®½ºÆ®¿¡¼­ ÇÁ·¹Á¨ÅÍ¸¦ »èÁ¦ÇÏ°í UI¸¦ ºñÈ°¼ºÈ­ÇÑ´Ù.
+    // ì—°ê²° ë¦¬ìŠ¤íŠ¸ì—ì„œ í”„ë ˆì  í„°ë¥¼ ì‚­ì œí•˜ê³  UIë¥¼ ë¹„í™œì„±í™”í•œë‹¤.
     public void CloseUI(IPopupPresenter presenter)
     {
         m_active_popup_list.Remove(presenter);
@@ -138,7 +138,7 @@ public class PopupUIManager : MonoBehaviour
         }
     }
 
-    // UI ±íÀÌ ¼ø¼­¸¦ ÀçÁ¤·ÄÇÑ´Ù.
+    // UI ê¹Šì´ ìˆœì„œë¥¼ ì¬ì •ë ¬í•œë‹¤.
     private void SortDepth()
     {
         foreach (var presenter in m_active_popup_list)

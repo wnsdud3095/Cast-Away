@@ -7,12 +7,12 @@ namespace EXPService
     [System.Serializable]
     public struct EXPData
     {
-        public int Level;  // ·¹º§
-        public int EXP;    // ÇØ´ç ·¹º§ÀÇ ·¹º§¾÷À» À§ÇØ ÇÊ¿äÇÑ °æÇèÄ¡
+        public int Level;  // ë ˆë²¨
+        public int EXP;    // í•´ë‹¹ ë ˆë²¨ì˜ ë ˆë²¨ì—…ì„ ìœ„í•´ í•„ìš”í•œ ê²½í—˜ì¹˜
     }
 
     [System.Serializable]
-    public class DataWrapper //Json¿¡¼­ ¹è¿­À» ÀĞ±â À§ÇØ ·¹ÇÎ
+    public class DataWrapper //Jsonì—ì„œ ë°°ì—´ì„ ì½ê¸° ìœ„í•´ ë ˆí•‘
     {
         public EXPData[] List;   
     }                            
@@ -26,7 +26,7 @@ namespace EXPService
             Load();
         }
 
-        // StreamingAssets Æú´õ ÇÏÀ§¿¡¼­ EXPData.jsonÀ» ÀĞ¾î ÆÄ½ÌÇÏ¿© µñ¼Å³Ê¸®¿¡ ÀúÀå
+        // StreamingAssets í´ë” í•˜ìœ„ì—ì„œ EXPData.jsonì„ ì½ì–´ íŒŒì‹±í•˜ì—¬ ë”•ì…”ë„ˆë¦¬ì— ì €ì¥
         public void Load()
         {
             var local_data_path = Path.Combine(Application.streamingAssetsPath, "EXPData.json");
@@ -41,19 +41,19 @@ namespace EXPService
                     m_exp_dict.TryAdd(exp_data.Level, exp_data.EXP);
                 }
 
-                Debug.Log("¼º°øÀûÀ¸·Î EXP µ¥ÀÌÅÍ¸¦ ·Îµå");
+                Debug.Log("ì„±ê³µì ìœ¼ë¡œ EXP ë°ì´í„°ë¥¼ ë¡œë“œ");
 
             }
             else
             {
-                // Á¸ÀçÇÏÁö ¾Ê´Â´Ù¸é, Á¤»óÀûÀÎ °ÔÀÓÀÌ ºÒ°¡´ÉÇÏ¹Ç·Î °­Á¦ Á¾·á
-                Debug.LogError($"{local_data_path}°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+                // ì¡´ì¬í•˜ì§€ ì•ŠëŠ”ë‹¤ë©´, ì •ìƒì ì¸ ê²Œì„ì´ ë¶ˆê°€ëŠ¥í•˜ë¯€ë¡œ ê°•ì œ ì¢…ë£Œ
+                Debug.LogError($"{local_data_path}ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
                 UnityEditor.EditorApplication.isPlaying = false;
                 Application.Quit();
             }
         }
 
-        public int GetEXP(int current_level) //·¹º§¾÷À» À§ÇØ ÇÊ¿äÇÑ °æÇèÄ¡ ¹İÈ¯
+        public int GetEXP(int current_level) //ë ˆë²¨ì—…ì„ ìœ„í•´ í•„ìš”í•œ ê²½í—˜ì¹˜ ë°˜í™˜
         {
             return m_exp_dict.TryGetValue(current_level + 1, out var exp) ? exp : 0;
         }

@@ -31,7 +31,7 @@ public static class ServiceLocator
     {
         if (!Services.TryGetValue(typeof(T), out var service))
         {
-            throw new Exception($"{typeof(T)} ¼­ºñ½º°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+            throw new Exception($"{typeof(T)} ì„œë¹„ìŠ¤ê°€ ì¡´ìž¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
         }
         else
         {

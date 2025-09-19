@@ -5,14 +5,14 @@ namespace KeyService
 {
     public interface IKeyService
     {  
-        event Action<KeyCode, string> OnUpdatedKey;// ÀÌÀüÀÇ Å°¿Í ´Ş¶óÁø Å°°¡ ÀÖ´Â °æ¿ì¿¡ È£Ãâ.
+        event Action<KeyCode, string> OnUpdatedKey;// ì´ì „ì˜ í‚¤ì™€ ë‹¬ë¼ì§„ í‚¤ê°€ ìˆëŠ” ê²½ìš°ì— í˜¸ì¶œ.
 
 
-        void Initialize();	// ÃÊ±âÈ­¸¦ À§ÇØ OnUpdatedKey¸¦ ½ÇÇà½ÃÅ°´Â ¿ëµµ
-        void Reset();       // Å°¸¦ ±âº» ¼³Á¤À¸·Î ÃÊ±âÈ­
+        void Initialize();	// ì´ˆê¸°í™”ë¥¼ ìœ„í•´ OnUpdatedKeyë¥¼ ì‹¤í–‰ì‹œí‚¤ëŠ” ìš©ë„
+        void Reset();       // í‚¤ë¥¼ ê¸°ë³¸ ì„¤ì •ìœ¼ë¡œ ì´ˆê¸°í™”
 
-        KeyCode GetKeyCode(string key_name);			// ¹®ÀÚ¿­¿¡ ¸ÅÇÎµÈ Å° ÄÚµå¸¦ ¹İÈ¯
-        bool Check(KeyCode key, KeyCode current_key);	// º¯°æÇÏ·Á´Â Å°°¡ À¯È¿ÇÑ Å°ÀÎÁö È®ÀÎ
-        void Register(KeyCode key, string key_name);	// À¯È¿ÇÑ Å°¸¦ Åä´ë·Î Å°¸¦ º¯°æ
+        KeyCode GetKeyCode(string key_name);			// ë¬¸ìì—´ì— ë§¤í•‘ëœ í‚¤ ì½”ë“œë¥¼ ë°˜í™˜
+        bool Check(KeyCode key, KeyCode current_key);	// ë³€ê²½í•˜ë ¤ëŠ” í‚¤ê°€ ìœ íš¨í•œ í‚¤ì¸ì§€ í™•ì¸
+        void Register(KeyCode key, string key_name);	// ìœ íš¨í•œ í‚¤ë¥¼ í† ëŒ€ë¡œ í‚¤ë¥¼ ë³€ê²½
     }
 }

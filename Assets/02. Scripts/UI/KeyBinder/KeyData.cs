@@ -5,7 +5,7 @@ namespace KeyService
     [System.Serializable]
     public struct KeyData
     {
-        public string Name;     // Å°¿¡ ¸ÅÇÎµÉ ¹®ÀÚ¿­
+        public string Name;     // í‚¤ì— ë§¤í•‘ë  ë¬¸ìì—´
         public KeyCode Code;
 
         public KeyData(string name, KeyCode code)

@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class PopupUIManagerInstaller : MonoBehaviour, IInstaller
 {
-    [Header("ÆË¾÷UI ¸Å´ÏÀú")]
+    [Header("íŒì—…UI ë§¤ë‹ˆì €")]
     [SerializeField] private PopupUIManager m_popup_manager;
 
     public void Install()
     {
         var popup_data_list = new List<PopupData>{
             new("Binder", DIContainer.Resolve<KeyBinderPresenter>()),
-            // ...
+            new("Inventory", DIContainer.Resolve<InventoryPresenter>()),
         };
 
         m_popup_manager.Inject(popup_data_list);

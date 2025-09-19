@@ -23,7 +23,7 @@ namespace InventoryService
                 m_items[i] = new ItemData();
             }
 
-            // µğ·ºÅÍ¸® °æ·Î°¡ ¾ø´Ù¸é »õ·Ó°Ô »ı¼ºÇÑ´Ù.
+            // ë””ë ‰í„°ë¦¬ ê²½ë¡œê°€ ì—†ë‹¤ë©´ ìƒˆë¡­ê²Œ ìƒì„±í•œë‹¤.
             CreateDirectory();
         }
 
@@ -35,36 +35,36 @@ namespace InventoryService
             {
                 Directory.CreateDirectory(directory_path);
 #if UNITY_EDITOR
-                Debug.Log($"<color=cyan>Inventory µğ·ºÅÍ¸®¸¦ »õ·Ó°Ô »ı¼ºÇÕ´Ï´Ù.</color>");
+                Debug.Log($"<color=cyan>Inventory ë””ë ‰í„°ë¦¬ë¥¼ ìƒˆë¡­ê²Œ ìƒì„±í•©ë‹ˆë‹¤.</color>");
 #endif
             }
         }
 
-        // Inject()¸¦ ÅëÇØ¼­ ¾ÆÀÌÅÛ ¸Å´ÏÀú¸¦ ÁÖÀÔ¹Ş´Â´Ù.
+        // Inject()ë¥¼ í†µí•´ì„œ ì•„ì´í…œ ë§¤ë‹ˆì €ë¥¼ ì£¼ì…ë°›ëŠ”ë‹¤.
         public void Inject(IItemDataBase item_db)
         {
             m_item_db = item_db;
         }
 
-        // offset¿¡ ÇØ´çÇÏ´Â ½½·ÔÀ» ÇâÇÏ¿© ÀÌº¥Æ®¸¦ ¹ß»ı½ÃÅ²´Ù.
+        // offsetì— í•´ë‹¹í•˜ëŠ” ìŠ¬ë¡¯ì„ í–¥í•˜ì—¬ ì´ë²¤íŠ¸ë¥¼ ë°œìƒì‹œí‚¨ë‹¤.
         public void InitializeSlot(int offset)
         {
             OnUpdatedSlot?.Invoke(offset, m_items[offset]);
         }
 
 
-        // ¾ÆÀÌÅÛÀ» È¹µæÇÒ ¶§ »ç¿ëÇÑ´Ù.
+        // ì•„ì´í…œì„ íšë“í•  ë•Œ ì‚¬ìš©í•œë‹¤.
         public void AddItem(ItemCode code, int count)
         {
             var item = m_item_db.GetItem(code);
 
-            // ¾ÆÀÌÅÛÀÌ ÁßÃ¸ °¡´ÉÇÏ´Ù¸é
+            // ì•„ì´í…œì´ ì¤‘ì²© ê°€ëŠ¥í•˜ë‹¤ë©´
             if (item.Stackable)
             {
-                // ½½·ÔµéÀ» ¼øÈ¸ÇÏ¸é¼­
+                // ìŠ¬ë¡¯ë“¤ì„ ìˆœíšŒí•˜ë©´ì„œ
                 for (int i = 0; i < m_items.Length; i++)
                 {
-                    // ¾ÆÀÌÅÛ ÄÚµå°¡ ÀÏÄ¡ÇÏ¸é¼­ 99°³ ÀÌÇÏÀÎ ½½·ÔÀ» Ã£´Â´Ù.
+                    // ì•„ì´í…œ ì½”ë“œê°€ ì¼ì¹˜í•˜ë©´ì„œ 99ê°œ ì´í•˜ì¸ ìŠ¬ë¡¯ì„ ì°¾ëŠ”ë‹¤.
                     if (m_items[i].Code == code && m_items[i].Count + count <= 99)
                     {
                         m_items[i].Count += count;
@@ -75,10 +75,10 @@ namespace InventoryService
                 }
             }
 
-            // ÁßÃ¸ ¾ÆÀÌÅÛÀÌ ¾Æ´Ï¶ó¸é
+            // ì¤‘ì²© ì•„ì´í…œì´ ì•„ë‹ˆë¼ë©´
             for (int i = 0; i < m_items.Length; i++)
             {
-                // ºñ¾îÀÖ´Â ½½·ÔÀ» Ã£´Â´Ù.
+                // ë¹„ì–´ìˆëŠ” ìŠ¬ë¡¯ì„ ì°¾ëŠ”ë‹¤.
                 if (m_items[i].Code == ItemCode.NONE)
                 {
                     m_items[i].Code = code;
@@ -90,30 +90,30 @@ namespace InventoryService
             }
         }
 
-        // ¾ÆÀÌÅÛÀ» Á¦°ÅÇÒ ¶§ »ç¿ëÇÑ´Ù.
+        // ì•„ì´í…œì„ ì œê±°í•  ë•Œ ì‚¬ìš©í•œë‹¤.
         public void RemoveItem(ItemCode code, int count)
         {
             var item = m_item_db.GetItem(code);
 
-            // ¾ÆÀÌÅÛÀÌ ÁßÃ¸ °¡´ÉÇÏ´Ù¸é
+            // ì•„ì´í…œì´ ì¤‘ì²© ê°€ëŠ¥í•˜ë‹¤ë©´
             if (item.Stackable)
             {
-                // ¾Æ¹«·¡µµ µÚ¿¡¼­ºÎÅÍ ¼øÈ¸ÇØ¾ß 99°³°¡ ¾Æ´Ò È®·üÀÌ ³ô´Ù.
+                // ì•„ë¬´ë˜ë„ ë’¤ì—ì„œë¶€í„° ìˆœíšŒí•´ì•¼ 99ê°œê°€ ì•„ë‹ í™•ë¥ ì´ ë†’ë‹¤.
                 for (int i = m_items.Length - 1; i >= 0; i--)
                 {
-                    // ÇØ´ç ¾ÆÀÌÅÛÀÌ µé¾îÀÖ´Â ½½·ÔÀ» ¹ß°ßÇß´Ù¸é
+                    // í•´ë‹¹ ì•„ì´í…œì´ ë“¤ì–´ìˆëŠ” ìŠ¬ë¡¯ì„ ë°œê²¬í–ˆë‹¤ë©´
                     if (m_items[i].Code == code)
                     {
-                        // count ¸¸Å­ Á¦°ÅÇÒ ¼ö ÀÖ´ÂÁö È®ÀÎÇÏ°í
+                        // count ë§Œí¼ ì œê±°í•  ìˆ˜ ìˆëŠ”ì§€ í™•ì¸í•˜ê³ 
                         if (m_items[i].Count >= count)
                         {
-                            // Á¦°Å °¡´ÉÇÏ´Ù¸é Á¦°ÅÇÏ°í
+                            // ì œê±° ê°€ëŠ¥í•˜ë‹¤ë©´ ì œê±°í•˜ê³ 
                             m_items[i].Count -= count;
 
-                            // Á¦°ÅÇÏ·Á´Â °³¼ö¿Í °°¾Æ¼­ ½½·ÔÀÇ ¾ÆÀÌÅÛ °³¼ö°¡ 0ÀÌ¶ó¸é
+                            // ì œê±°í•˜ë ¤ëŠ” ê°œìˆ˜ì™€ ê°™ì•„ì„œ ìŠ¬ë¡¯ì˜ ì•„ì´í…œ ê°œìˆ˜ê°€ 0ì´ë¼ë©´
                             if (m_items[i].Count == 0)
                             {
-                                // ½½·ÔÀ» ºñ¿î´Ù.
+                                // ìŠ¬ë¡¯ì„ ë¹„ìš´ë‹¤.
                                 Clear(i);
                             }
 
@@ -122,7 +122,7 @@ namespace InventoryService
                         }
                         else
                         {
-                            // Á¦°ÅÇÒ ¼ö ¾ø´Ù¸é Á¦°ÅÇÒ ¼ö ÀÖ´Â ¸¸Å­¸¸ Á¦°ÅÇÏ°í ½½·ÔÀ» ºñ¿î´Ù.
+                            // ì œê±°í•  ìˆ˜ ì—†ë‹¤ë©´ ì œê±°í•  ìˆ˜ ìˆëŠ” ë§Œí¼ë§Œ ì œê±°í•˜ê³  ìŠ¬ë¡¯ì„ ë¹„ìš´ë‹¤.
                             count -= m_items[i].Count;
                             Clear(i);
                         }
@@ -130,13 +130,13 @@ namespace InventoryService
                 }
             }
 
-            // ÁßÃ¸ ¾ÆÀÌÅÛÀÌ ¾Æ´Ï¶ó¸é
+            // ì¤‘ì²© ì•„ì´í…œì´ ì•„ë‹ˆë¼ë©´
             for (int i = 0; i < m_items.Length; i++)
             {
-                // ¾ÆÀÌÅÛ ÄÚµå°¡ ÀÏÄ¡ÇÏ´Â ½½·ÔÀ»
+                // ì•„ì´í…œ ì½”ë“œê°€ ì¼ì¹˜í•˜ëŠ” ìŠ¬ë¡¯ì„
                 if (m_items[i].Code == code)
                 {
-                    // ºñ¿î´Ù.
+                    // ë¹„ìš´ë‹¤.
                     Clear(i);
 
                     OnUpdatedSlot?.Invoke(i, m_items[i]);
@@ -145,20 +145,20 @@ namespace InventoryService
             }
         }
 
-        // ¾ÆÀÌÅÛÀ» ¿øÇÏ´Â À§Ä¡¿¡ ¼³Á¤ÇÏ°í ½ÍÀ» ¶§ »ç¿ëÇÑ´Ù.
+        // ì•„ì´í…œì„ ì›í•˜ëŠ” ìœ„ì¹˜ì— ì„¤ì •í•˜ê³  ì‹¶ì„ ë•Œ ì‚¬ìš©í•œë‹¤.
         public void SetItem(int offset, ItemCode code, int count)
         {
-            // offset À§Ä¡ÀÇ ½½·Ô¿¡ code¿Í count¸¸Å­À» Ã¤¿î´Ù.
+            // offset ìœ„ì¹˜ì˜ ìŠ¬ë¡¯ì— codeì™€ countë§Œí¼ì„ ì±„ìš´ë‹¤.
             m_items[offset].Code = code;
             m_items[offset].Count = count;
 
             OnUpdatedSlot?.Invoke(offset, m_items[offset]);
         }
 
-        // ¿øÇÏ´Â À§Ä¡ÀÇ ¾ÆÀÌÅÛÀÇ °³¼ö¸¦ °»½ÅÇÏ°í ½ÍÀ» ¶§ »ç¿ëÇÑ´Ù.
+        // ì›í•˜ëŠ” ìœ„ì¹˜ì˜ ì•„ì´í…œì˜ ê°œìˆ˜ë¥¼ ê°±ì‹ í•˜ê³  ì‹¶ì„ ë•Œ ì‚¬ìš©í•œë‹¤.
         public int UpdateItem(int offset, int count)
         {
-            // ½½·ÔÀÇ ÃÖ´ë º¸°ü °³¼ö ÀÌÇÏ¶ó¸é -1À» ¹İÈ¯ÇÏ°í,
+            // ìŠ¬ë¡¯ì˜ ìµœëŒ€ ë³´ê´€ ê°œìˆ˜ ì´í•˜ë¼ë©´ -1ì„ ë°˜í™˜í•˜ê³ ,
             if (m_items[offset].Count + count <= 99)
             {
                 m_items[offset].Count += count;
@@ -166,7 +166,7 @@ namespace InventoryService
 
                 return -1;
             }
-            else    // ±×°Ô ¾Æ´Ï¶ó¸é ÀúÀåÇÒ ¸¸Å­¸¸ ÀúÀåÇÑ´Ù.
+            else    // ê·¸ê²Œ ì•„ë‹ˆë¼ë©´ ì €ì¥í•  ë§Œí¼ë§Œ ì €ì¥í•œë‹¤.
             {
                 var remain_count = 99 - m_items[offset].Count;
 
@@ -177,7 +177,7 @@ namespace InventoryService
             }
         }
 
-        // Æ¯Á¤ À§Ä¡ÀÇ ½½·ÔÀ» ºñ¿î´Ù.
+        // íŠ¹ì • ìœ„ì¹˜ì˜ ìŠ¬ë¡¯ì„ ë¹„ìš´ë‹¤.
         public void Clear(int offset)
         {
             m_items[offset].Code = ItemCode.NONE;
@@ -186,7 +186,7 @@ namespace InventoryService
             OnUpdatedSlot?.Invoke(offset, m_items[offset]);
         }
 
-        // Æ¯Á¤ ¾ÆÀÌÅÛÀÇ ÃÑ °³¼ö¸¦ ¹İÈ¯ÇÑ´Ù.
+        // íŠ¹ì • ì•„ì´í…œì˜ ì´ ê°œìˆ˜ë¥¼ ë°˜í™˜í•œë‹¤.
         public int GetItemCount(ItemCode code)
         {
             var total_count = 0;
@@ -202,7 +202,7 @@ namespace InventoryService
             return total_count;
         }
 
-        // ¾ÆÀÌÅÛÀ» ÀúÀåÇÒ ¼ö ÀÖ´Â Å¸´çÇÑ À§Ä¡¸¦ ¹İÈ¯ÇÑ´Ù.
+        // ì•„ì´í…œì„ ì €ì¥í•  ìˆ˜ ìˆëŠ” íƒ€ë‹¹í•œ ìœ„ì¹˜ë¥¼ ë°˜í™˜í•œë‹¤.
         public int GetValidOffset(ItemCode code)
         {
             for (int offset = 0; offset < m_items.Length; offset++)
@@ -225,7 +225,7 @@ namespace InventoryService
             return -1;
         }
 
-        // ¾ÆÀÌÅÛÀ» ¿ì¼±ÀûÀ¸·Î Á¦°ÅÇÒ ¿ì¼±¼øÀ§ ½½·ÔÀ» ¹İÈ¯ÇÑ´Ù.
+        // ì•„ì´í…œì„ ìš°ì„ ì ìœ¼ë¡œ ì œê±°í•  ìš°ì„ ìˆœìœ„ ìŠ¬ë¡¯ì„ ë°˜í™˜í•œë‹¤.
         public int GetPriorityOffset(ItemCode code)
         {
             for (int offset = m_items.Length - 1; offset >= 0; offset--)
@@ -239,7 +239,7 @@ namespace InventoryService
             return -1;
         }
 
-        // ¾ÆÀÌÅÛ º¸À¯ ¿©ºÎ¸¦ ¹İÈ¯ÇÑ´Ù.
+        // ì•„ì´í…œ ë³´ìœ  ì—¬ë¶€ë¥¼ ë°˜í™˜í•œë‹¤.
         public bool HasItem(ItemCode code)
         {
             foreach (var slot in m_items)
@@ -253,7 +253,7 @@ namespace InventoryService
             return false;
         }
 
-        // Æ¯Á¤ À§Ä¡ÀÇ ¾ÆÀÌÅÛ µ¥ÀÌÅÍ¸¦ ¹İÈ¯ÇÑ´Ù.
+        // íŠ¹ì • ìœ„ì¹˜ì˜ ì•„ì´í…œ ë°ì´í„°ë¥¼ ë°˜í™˜í•œë‹¤.
         public ItemData GetItem(int offset)
         {
             return m_items[offset];

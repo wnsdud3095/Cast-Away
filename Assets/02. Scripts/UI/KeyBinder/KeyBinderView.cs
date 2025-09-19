@@ -2,60 +2,53 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-[RequireComponent(typeof(Animator))]
+//[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CanvasGroup))]
 public class KeyBinderView : MonoBehaviour, IKeyBinderView
 {
-    [Header("ÆË¾÷ UI ¸Å´ÏÀú")]
+    [Header("íŒì—… UI ë§¤ë‹ˆì €")]
     [SerializeField] private PopupUIManager m_ui_manager;
 
-    [Header("UI ´İ±â ¹öÆ°")]
-    [SerializeField] private Button m_close_button;
-
-    private Animator m_animator;
+    //private Animator m_animator;
     private KeyBinderPresenter m_presenter;
-    private CanvasGroup m_canvas_group; // CanvasGroup ÂüÁ¶
+    private CanvasGroup m_canvas_group; // CanvasGroup ì°¸ì¡°
 
     private void Awake()
     {
-        m_animator = GetComponent<Animator>();
+        //m_animator = GetComponent<Animator>();
         m_canvas_group = GetComponent<CanvasGroup>();
         CloseUI();
     }
 
-    // Inject()¸¦ ÅëÇØ¼­ ÇÁ·¹Á¨ÅÍ¸¦ ÁÖÀÔ¹Ş´Â´Ù.
+    // Inject()ë¥¼ í†µí•´ì„œ í”„ë ˆì  í„°ë¥¼ ì£¼ì…ë°›ëŠ”ë‹¤.
     public void Inject(KeyBinderPresenter presenter)
     {
         m_presenter = presenter;
-
-        // ´İ±â ¹öÆ°¿¡ PopupUIManagerÀÇ »óÅÂ¸¦ µ¿±âÈ­½ÃÅ³ ÀÌº¥Æ®µéÀ» µî·ÏÇÑ´Ù.
-        m_close_button.onClick.AddListener(m_presenter.CloseUI);
-        m_close_button.onClick.AddListener(PopupCloseUI);
     }
 
     public void OpenUI()
     {
-        m_canvas_group.alpha = 1f;          // ¿ÏÀüÈ÷ º¸ÀÌ°Ô
-        m_canvas_group.interactable = true; // Å¬¸¯ °¡´É
-        m_canvas_group.blocksRaycasts = true; // ÀÔ·Â Â÷´Ü Çã¿ë
+        m_canvas_group.alpha = 1f;          // ì™„ì „íˆ ë³´ì´ê²Œ
+        m_canvas_group.interactable = true; // í´ë¦­ ê°€ëŠ¥
+        m_canvas_group.blocksRaycasts = true; // ì…ë ¥ ì°¨ë‹¨ í—ˆìš©
         //m_animator.SetBool("Open", true);
     }
 
     public void CloseUI()
     {
-        m_canvas_group.alpha = 0f;           // º¸ÀÌÁö ¾Ê°Ô
-        m_canvas_group.interactable = false; // Å¬¸¯ ºÒ°¡
-        m_canvas_group.blocksRaycasts = false; // ÀÔ·Â Â÷´Ü ¾ÈÇÔ
+        m_canvas_group.alpha = 0f;           // ë³´ì´ì§€ ì•Šê²Œ
+        m_canvas_group.interactable = false; // í´ë¦­ ë¶ˆê°€
+        m_canvas_group.blocksRaycasts = false; // ì…ë ¥ ì°¨ë‹¨ ì•ˆí•¨
         //m_animator.SetBool("Open", false);
     }
 
-    // UIÀÇ ±íÀÌ¸¦ ¼³Á¤ÇÑ´Ù. ¾ó¸¶¸¸Å­ °¡·ÁÁö°í ¾ó¸¶¸¸Å­ ³ëÃâµÉÁö¸¦ °áÁ¤ÇÑ´Ù.
+    // UIì˜ ê¹Šì´ë¥¼ ì„¤ì •í•œë‹¤. ì–¼ë§ˆë§Œí¼ ê°€ë ¤ì§€ê³  ì–¼ë§ˆë§Œí¼ ë…¸ì¶œë ì§€ë¥¼ ê²°ì •í•œë‹¤.
     public void SetDepth()
     {
         (transform as RectTransform).SetAsFirstSibling();
     }
 
-    // ÇÁ·¹Á¨ÅÍ¸¦ ¸µÅ©µå ¸®½ºÆ®¿¡¼­ °­Á¦·Î Á¦°ÅÇÏ´Â ¿ªÇÒÀ» ÇÑ´Ù.
+    // í”„ë ˆì  í„°ë¥¼ ë§í¬ë“œ ë¦¬ìŠ¤íŠ¸ì—ì„œ ê°•ì œë¡œ ì œê±°í•˜ëŠ” ì—­í• ì„ í•œë‹¤.
     public void PopupCloseUI()
     {
         m_ui_manager.RemovePresenter(m_presenter);

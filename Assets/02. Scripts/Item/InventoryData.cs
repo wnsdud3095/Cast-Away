@@ -3,19 +3,19 @@ public class InventoryData
 {
     public ItemData[] Items;
 
-    // ±âº» »ı¼ºÀÚ: ½½·Ô 12°³
+    // ê¸°ë³¸ ìƒì„±ì: ìŠ¬ë¡¯ 12ê°œ
     public InventoryData()
     {
         Items = new ItemData[12];
     }
 
-    // »ı¼ºÀÚ: ½½·Ô ¼ö ÁöÁ¤ °¡´É
+    // ìƒì„±ì: ìŠ¬ë¡¯ ìˆ˜ ì§€ì • ê°€ëŠ¥
     public InventoryData(int slotCount)
     {
         Items = new ItemData[slotCount];
     }
 
-    // »ı¼ºÀÚ: ÀÌ¹Ì ¾ÆÀÌÅÛ ¹è¿­ÀÌ ÀÖ´Â °æ¿ì
+    // ìƒì„±ì: ì´ë¯¸ ì•„ì´í…œ ë°°ì—´ì´ ìˆëŠ” ê²½ìš°
     public InventoryData(ItemData[] items)
     {
         Items = items;

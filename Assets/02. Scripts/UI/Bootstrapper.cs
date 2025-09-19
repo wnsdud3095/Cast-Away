@@ -6,16 +6,16 @@ public class Bootstrapper : MonoBehaviour
 
     protected virtual void Awake()
     {
-        // ÇÏÀ§ÀÇ IInstaller¸¦ ±¸ÇöÇÏ´Â ¸ğµç ÀÚ½Ä ¿ÀºêÁ§Æ®¸¦ ¸ğÀº´Ù. 
+        // í•˜ìœ„ì˜ IInstallerë¥¼ êµ¬í˜„í•˜ëŠ” ëª¨ë“  ìì‹ ì˜¤ë¸Œì íŠ¸ë¥¼ ëª¨ì€ë‹¤. 
         m_installers = transform.GetComponentsInChildren<IInstaller>();
-        Debug.Log("<color=lime>InitServices ½ÇÇàµÊ</color>");
+        Debug.Log("<color=lime>InitServices ì‹¤í–‰ë¨</color>");
 
-        ServiceLocator.InitServices(); // ¼­ºñ½º¸¦ µñ¼Å³Ê¸®¿¡ µî·Ï
+        ServiceLocator.InitServices(); // ì„œë¹„ìŠ¤ë¥¼ ë”•ì…”ë„ˆë¦¬ì— ë“±ë¡
     }
 
     protected virtual void Start()
     {
-        // ÀÌµéÀ» ¼øÈ¸ÇÏ¸ç ÀÇÁ¸¼ºÀ» ÁÖÀÔÇÑ´Ù.
+        // ì´ë“¤ì„ ìˆœíšŒí•˜ë©° ì˜ì¡´ì„±ì„ ì£¼ì…í•œë‹¤.
         foreach (var installer in m_installers)
         {
             installer.Install();

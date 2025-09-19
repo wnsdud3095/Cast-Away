@@ -3,28 +3,28 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item", menuName = "SO/Create Item")]
 public class Item : ScriptableObject
 {
-    [Header("¾ÆÀÌÅÛ Á¤º¸")]
-    [Header("¾ÆÀÌÅÛ ÄÚµå")]
+    [Header("ì•„ì´í…œ ì •ë³´")]
+    [Header("ì•„ì´í…œ ì½”ë“œ")]
     [SerializeField] private ItemCode m_code;
     public ItemCode Code => m_code;
 
-    [Header("¾ÆÀÌÅÛ Å¸ÀÔ")]
+    [Header("ì•„ì´í…œ íƒ€ìž…")]
     [SerializeField] private ItemType m_type;
     public ItemType Type => m_type;
 
-    [Header("¾ÆÀÌÅÛ ¸í")]
+    [Header("ì•„ì´í…œ ëª…")]
     [SerializeField] private string m_name;
     public string Name => m_name;
 
-    [Header("½½·Ô ÁßÃ¸ ¿©ºÎ")]
+    [Header("ìŠ¬ë¡¯ ì¤‘ì²© ì—¬ë¶€")]
     [SerializeField] private bool m_stackable;
     public bool Stackable => m_stackable;
 
-    [Header("¾ÆÀÌÅÛ ÄðÅ¸ÀÓ")]
+    [Header("ì•„ì´í…œ ì¿¨íƒ€ìž„")]
     [SerializeField] private float m_cool = -1f;
     public float Cool => m_cool;
 
-    [Header("¾ÆÀÌÅÛ ÀÌ¹ÌÁö")]
+    [Header("ì•„ì´í…œ ì´ë¯¸ì§€")]
     [SerializeField] private Sprite m_sprite;
     public Sprite Sprite => m_sprite;
 }
