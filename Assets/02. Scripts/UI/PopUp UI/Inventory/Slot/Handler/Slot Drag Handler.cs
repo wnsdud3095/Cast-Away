@@ -1,4 +1,5 @@
 using UnityEngine.EventSystems;
+using UnityEngine;
 
 public class SlotDragHandler
 {
@@ -9,8 +10,6 @@ public class SlotDragHandler
 
     private SlotType m_slot_type;
     private int m_offset;
-
-    private bool IsShopOrCraft => m_slot_type == SlotType.Craft;
 
     public SlotDragHandler(IItemSlotContext slot_context,
                            
@@ -75,12 +74,10 @@ public class SlotDragHandler
         {
             return false;
         }
-
-        if (IsShopOrCraft)
+        if (m_slot_type == SlotType.Craft)
         {
             return false;
         }
-
         return true;
     }
 }

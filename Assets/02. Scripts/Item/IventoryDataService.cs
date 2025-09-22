@@ -1,23 +1,21 @@
 using System.IO;
 using System;
 using UnityEngine;
+using static UnityEditor.Timeline.Actions.MenuPriority;
+
 namespace InventoryService
 {
     public class IventoryDataService : ISaveable, IInventoryService
     {
         private IItemDataBase m_item_db;
 
-        private int m_money;
         private ItemData[] m_items;
 
         public event Action<int, ItemData> OnUpdatedSlot;
 
-        public int Gold => m_money;
-
         public IventoryDataService()
         {
-            m_money = 0;
-            m_items = new ItemData[12];
+            m_items = new ItemData[17];
             for (int i = 0; i < m_items.Length; i++)
             {
                 m_items[i] = new ItemData();
@@ -143,6 +141,24 @@ namespace InventoryService
                     return;
                 }
             }
+        }
+
+        public void UseItem(int offset)
+        {
+            var item = m_items[offset];
+            if (item.Code == ItemCode.NONE) return;
+
+            // TODO: 아이템 효과 발동 (ex. 체력 회복 등)
+            // 예시: ConsumeItem(item);
+
+            // 소모
+            item.Count--;
+            if (item.Count <= 0)
+                m_items[offset] = new ItemData();
+            else
+                m_items[offset] = item;
+
+            OnUpdatedSlot?.Invoke(offset, m_items[offset]);
         }
 
         // 아이템을 원하는 위치에 설정하고 싶을 때 사용한다.

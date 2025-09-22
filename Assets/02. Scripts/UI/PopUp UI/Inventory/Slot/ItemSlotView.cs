@@ -21,10 +21,6 @@ public class ItemSlotView : MonoBehaviour, IItemSlotView
 
     private ItemSlotPresenter m_presenter;
 
-    private void Update() { }
-
-    private void OnDestroy() { }
-
     public void Inject(ItemSlotPresenter presenter)
     {
         m_presenter = presenter;
@@ -78,19 +74,63 @@ public class ItemSlotView : MonoBehaviour, IItemSlotView
         m_item_image.color = color;
     }
 
-    public void SetCursor(CursorMode mode) { }
+    public void SetCursor(CursorMode mode)
+    {
+        m_cursor_db.SetCursor(mode);
+    }
 
-    public void OnPointerEnter(PointerEventData eventData) { }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        m_presenter.OnPointerEnter();
+    }
 
-    public void OnPointerExit(PointerEventData eventData) { }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        m_presenter.OnPointerExit();
+    }
 
-    public void OnBeginDrag(PointerEventData eventData) { }
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        DragMode drag_mode;
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        {
+            drag_mode = DragMode.SHIFT;
+        }
+        else if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+        {
+            drag_mode = DragMode.CTRL;
+        }
+        else
+        {
+            drag_mode = DragMode.DEFAULT;
+        }
 
-    public void OnDrag(PointerEventData eventData) { }
+        var mouse_position = new System.Numerics.Vector2(eventData.position.x, eventData.position.y);
+        m_presenter.OnBeginDrag(mouse_position, drag_mode);
 
-    public void OnEndDrag(PointerEventData eventData) { }
+    }
 
-    public void OnDrop(PointerEventData eventData) { }
+    public void OnDrag(PointerEventData eventData)
+    {
+        var mouse_position = new System.Numerics.Vector2(eventData.position.x, eventData.position.y);
+        m_presenter.OnDrag(mouse_position);
+    }
 
-    public void OnPointerClick(PointerEventData eventData) { }
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        m_presenter.OnEndDrag();
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        m_presenter.OnDrop();
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            m_presenter.OnPointerClick();
+        }
+    }
 }

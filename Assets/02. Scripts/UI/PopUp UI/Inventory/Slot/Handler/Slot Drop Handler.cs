@@ -12,7 +12,7 @@ public class SlotDropHandler
     private SlotType m_slot_type;
     private int m_offset;
 
-    private bool IsShopOrCraft => m_slot_type == SlotType.Craft;
+    private bool IsShopOrCraft =>  m_slot_type == SlotType.Craft;
 
     public SlotDropHandler(IInventoryService inventory_service,
                            IItemSlotContext slot_context,
@@ -82,6 +82,21 @@ public class SlotDropHandler
         var draged_item = m_drag_slot_presenter.GetItem();
 
         var current_item_data = m_slot_context.Get(m_slot_type, m_offset);
+
+        if (current_item_data.Code == draged_item_data.Code && current_item_data.Code != ItemCode.NONE && m_slot_type != SlotType.Shortcut)
+        {
+            var result = m_inventory_service.UpdateItem(m_offset, draged_item_data.Count);
+            if (result == -1)
+            {
+                m_drag_slot_presenter.Clear();
+            }
+            else
+            {
+                m_drag_slot_presenter.Updates(-result);
+            }
+            m_inventory_service.InitializeSlot(m_offset);
+            return;
+        }
 
         if (CheckShift(draged_item_data, current_item_data))
         {
@@ -167,7 +182,6 @@ public class SlotDropHandler
         if (m_slot_type != SlotType.Shortcut)
         {
             m_slot_context.Set(m_slot_type, m_offset, draged_item_data.Code, draged_item_data.Count);
-
             if (temp_data.Code != ItemCode.NONE)
             {
                 m_drag_slot_presenter.Set(temp_data.Code, temp_data.Count);

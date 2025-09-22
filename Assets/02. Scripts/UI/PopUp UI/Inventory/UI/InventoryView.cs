@@ -1,6 +1,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using InventoryService;
+
 
 //[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CanvasGroup))]
@@ -28,7 +30,7 @@ public class InventoryView : MonoBehaviour, IInventoryView
     // 객체가 파괴되는 시점에 프레젠터에서 연결된 돈 갱신 이벤트를 해제한다.
     private void OnDestroy()
     {
-        //m_presenter.Dispose();
+        m_presenter.Dispose();
     }
 
     // 인벤토리 프레젠터를 Inject()에서 주입받는다.
@@ -44,7 +46,9 @@ public class InventoryView : MonoBehaviour, IInventoryView
     {
         m_canvas_group.alpha = 1f;          
         m_canvas_group.interactable = true; 
-        m_canvas_group.blocksRaycasts = true; 
+        m_canvas_group.blocksRaycasts = true;
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.WOOD, 18);
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE, 18);
         //m_animator.SetBool("Open", true);
     }
 

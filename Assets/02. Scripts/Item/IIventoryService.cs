@@ -20,6 +20,8 @@ namespace InventoryService
         int GetValidOffset(ItemCode code);
         int GetPriorityOffset(ItemCode code);
         bool HasItem(ItemCode code);
+        void UseItem(int offset);
+
         ItemData GetItem(int offset);
     }
 }

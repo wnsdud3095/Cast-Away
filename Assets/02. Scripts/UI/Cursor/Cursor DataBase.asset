@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cursor_datas:
   - Mode: 0
-    Cursor: {fileID: 10900, guid: 0000000000000000f000000000000000, type: 0}
-    Hotspot: {x: 0, y: 0}
+    Cursor: {fileID: 2800000, guid: fe1cf6d16496ec24cade9c21a189b79f, type: 3}
+    Hotspot: {x: 0.2, y: 0.2}
   - Mode: 1
-    Cursor: {fileID: 10900, guid: 0000000000000000f000000000000000, type: 0}
-    Hotspot: {x: 0, y: 0}
+    Cursor: {fileID: 2800000, guid: 033fd29d02a0eb3428b86f6da325a415, type: 3}
+    Hotspot: {x: 0.2, y: 0.2}
   - Mode: 2
-    Cursor: {fileID: 10900, guid: 0000000000000000f000000000000000, type: 0}
-    Hotspot: {x: 0, y: 0}
+    Cursor: {fileID: 2800000, guid: fe7041ae43e44f04ab478a4543ed776f, type: 3}
+    Hotspot: {x: 0.2, y: 0.2}
   - Mode: 3
-    Cursor: {fileID: 10900, guid: 0000000000000000f000000000000000, type: 0}
-    Hotspot: {x: 0, y: 0}
+    Cursor: {fileID: 2800000, guid: d838fc7d1cfdefc43abc1faf604cadac, type: 3}
+    Hotspot: {x: 0.2, y: 0.2}
