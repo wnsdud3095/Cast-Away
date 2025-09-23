@@ -4,7 +4,7 @@ public class KeyBinderPresenter : IPopupPresenter
 {
     private readonly IKeyBinderView m_view;
 
-    // »ı¼ºÀÚ¸¦ ÅëÇØ View¸¦ ÁÖÀÔ¹Ş´Â´Ù.
+    // ìƒì„±ìë¥¼ í†µí•´ Viewë¥¼ ì£¼ì…ë°›ëŠ”ë‹¤.
     public KeyBinderPresenter(IKeyBinderView view)
     {
         m_view = view;
@@ -21,7 +21,7 @@ public class KeyBinderPresenter : IPopupPresenter
         m_view.CloseUI();
     }
 
-    // ViewÀÇ ±íÀÌ¸¦ ¼³Á¤ÇÑ´Ù.
+    // Viewì˜ ê¹Šì´ë¥¼ ì„¤ì •í•œë‹¤.
     public void SortDepth()
     {
         m_view.SetDepth();

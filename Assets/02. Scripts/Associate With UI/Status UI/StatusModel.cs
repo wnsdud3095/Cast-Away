@@ -27,7 +27,7 @@ public class StatusModel
     {
         m_player_status = player_status;
     }
-    // PlayerStatus¸¦ ÃÊ±âÈ­ÇÑ´Ù.
+    // PlayerStatusë¥¼ ì´ˆê¸°í™”í•œë‹¤.
     public void Initialize()
     {
         m_player_status.Initialize();

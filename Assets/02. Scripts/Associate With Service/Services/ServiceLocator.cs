@@ -5,6 +5,7 @@ using EXPService;
 using UserService;
 using InventoryService;
 using KeyService;
+using ShortcutService;
 
 public static class ServiceLocator
 {
@@ -17,6 +18,7 @@ public static class ServiceLocator
         Register<IUserService>(new UserDataService());
         Register<IInventoryService>(new IventoryDataService());
         Register<IKeyService>(new KeyDataService());
+        //Register<IShortcutService>(new ShortcutDataService());
     }
 
     public static void Register<T>(T service)
@@ -31,7 +33,7 @@ public static class ServiceLocator
     {
         if (!Services.TryGetValue(typeof(T), out var service))
         {
-            throw new Exception($"{typeof(T)} ¼­ºñ½º°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+            throw new Exception($"{typeof(T)} ì„œë¹„ìŠ¤ê°€ ì¡´ìž¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
         }
         else
         {

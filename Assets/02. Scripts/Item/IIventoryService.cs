@@ -5,12 +5,12 @@ namespace InventoryService
     public interface IInventoryService
     {
 
-        void Inject(IItemDataBase item_db);			// ¾ÆÀÌÅÛ ¸Å´ÏÀú¸¦ ÁÖÀÔ¹ŞÀ» ¸Ş¼­µå
+        void Inject(IItemDataBase item_db);			// ì•„ì´í…œ ë§¤ë‹ˆì €ë¥¼ ì£¼ì…ë°›ì„ ë©”ì„œë“œ
 
-        void InitializeSlot(int offset);			// offset À§Ä¡ÀÇ ½½·ÔÀ» ÃÊ±âÈ­ÇÏ´Â ¸Ş¼­µå
+        void InitializeSlot(int offset);			// offset ìœ„ì¹˜ì˜ ìŠ¬ë¡¯ì„ ì´ˆê¸°í™”í•˜ëŠ” ë©”ì„œë“œ
 
 
-        event Action<int, ItemData> OnUpdatedSlot;	// ½½·ÔÀÌ °»½ÅµÈ °æ¿ì¿¡ ½ÇÇàµÉ µ¨¸®°ÔÀÌÆ®
+        event Action<int, ItemData> OnUpdatedSlot;	// ìŠ¬ë¡¯ì´ ê°±ì‹ ëœ ê²½ìš°ì— ì‹¤í–‰ë  ë¸ë¦¬ê²Œì´íŠ¸
         void AddItem(ItemCode code, int count);
         void RemoveItem(ItemCode code, int count);
         void SetItem(int offset, ItemCode code, int count);
@@ -20,6 +20,8 @@ namespace InventoryService
         int GetValidOffset(ItemCode code);
         int GetPriorityOffset(ItemCode code);
         bool HasItem(ItemCode code);
+        void UseItem(int offset);
+
         ItemData GetItem(int offset);
     }
 }

@@ -4,10 +4,10 @@ using UserService;
 
 public class StatusUIInstaller : MonoBehaviour, IInstaller
 {
-    [Header("ÇÃ·¹ÀÌ¾î »óÅÂ ÄÄÆ÷³ÍÆ®")]
+    [Header("í”Œë ˆì´ì–´ ìƒíƒœ ì»´í¬ë„ŒíŠ¸")]
     [SerializeField] private PlayerStatus m_player_status;
 
-    [Header("½ºÅ×ÀÌÅÍ½º UI ºä")]
+    [Header("ìŠ¤í…Œì´í„°ìŠ¤ UI ë·°")]
     [SerializeField] private StatusView m_status_view;
 
     public void Install()

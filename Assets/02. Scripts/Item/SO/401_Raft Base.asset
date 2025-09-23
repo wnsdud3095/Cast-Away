@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e007a4a141875d745b10aa6d09ca3040, type: 3}
   m_Name: 401_Raft Base
   m_EditorClassIdentifier: 
-  m_code: 0
-  m_type: 0
-  m_name: 
+  m_code: 401
+  m_type: 2
+  m_name: "\uB55F\uBAA9 \uD1A0\uB300"
   m_stackable: 0
   m_cool: -1
   m_sprite: {fileID: 0}

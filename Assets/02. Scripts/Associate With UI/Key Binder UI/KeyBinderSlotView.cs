@@ -10,66 +10,66 @@ public class KeyBinderSlotView : MonoBehaviour
     private KeyCode m_origin_key_code;
     private IKeyService m_key_service;
 
-    [Header("¸ÅÇÎ ¹®ÀÚ¿­")]
+    [Header("ë§¤í•‘ ë¬¸ìì—´")]
     [SerializeField] private string m_key_name;
 
-    [Header("¹ÙÀÎµù ¹öÆ°")]
+    [Header("ë°”ì¸ë”© ë²„íŠ¼")]
     [SerializeField] private Button m_binding_button;
 
-    [Header("¹öÆ° ÅØ½ºÆ®")]
+    [Header("ë²„íŠ¼ í…ìŠ¤íŠ¸")]
     [SerializeField] private TMP_Text m_button_text;
 
-    [Header("¿¹¿Ü ÅØ½ºÆ®")]
+    [Header("ì˜ˆì™¸ í…ìŠ¤íŠ¸")]
     [SerializeField] private TMP_Text m_wrong_text;
 
     private Coroutine m_wrong_key_coroutine;
 
     private void Awake()
     {
-        // ¹ÙÀÎµù ¹öÆ°¿¡ Å° º¯°æ ÀÌº¥Æ®¸¦ µî·ÏÇÑ´Ù.
+        // ë°”ì¸ë”© ë²„íŠ¼ì— í‚¤ ë³€ê²½ ì´ë²¤íŠ¸ë¥¼ ë“±ë¡í•œë‹¤.
         m_binding_button.onClick.AddListener(ModifyKey);
     }
 
-    // Inject()¸¦ ÅëÇØ¼­ Å° ¼­ºñ½º¸¦ ÁÖÀÔ¹Ş´Â´Ù.
+    // Inject()ë¥¼ í†µí•´ì„œ í‚¤ ì„œë¹„ìŠ¤ë¥¼ ì£¼ì…ë°›ëŠ”ë‹¤.
     public void Inject(IKeyService key_service)
     {
         m_key_service = key_service;
 
-        // Ã³À½ÀÇ Å° ÄÚµå´Â ÀÎ½ºÆåÅÍ¿¡¼­ ÀÔ·Â¹ŞÀº ¹®ÀÚ¿­À» ÅëÇØ¼­ ¾ò¾î³½´Ù.
+        // ì²˜ìŒì˜ í‚¤ ì½”ë“œëŠ” ì¸ìŠ¤í™í„°ì—ì„œ ì…ë ¥ë°›ì€ ë¬¸ìì—´ì„ í†µí•´ì„œ ì–»ì–´ë‚¸ë‹¤.
         m_origin_key_code = m_key_service.GetKeyCode(m_key_name);
 
-        // ±×¸®°í ÀÌ Å° ÄÚµå¸¦ ÀÌ¿ëÇÏ¿© ÇöÀç Å°¸¦ »ç¿ëÀÚ¿¡°Ô º¸¿©ÁØ´Ù.
+        // ê·¸ë¦¬ê³  ì´ í‚¤ ì½”ë“œë¥¼ ì´ìš©í•˜ì—¬ í˜„ì¬ í‚¤ë¥¼ ì‚¬ìš©ìì—ê²Œ ë³´ì—¬ì¤€ë‹¤.
         m_button_text.text = ((char)m_origin_key_code).ToString().ToUpper();
     }
 
-    // Å°¸¦ º¯°æÇÒ ¶§ »ç¿ëÇÑ´Ù.
+    // í‚¤ë¥¼ ë³€ê²½í•  ë•Œ ì‚¬ìš©í•œë‹¤.
     public void ModifyKey()
     {
-        // Å°°¡ º¯°æ ÁßÀÓÀ» ±âÁ¸ÀÇ Å°¿¡¼­ '-'À¸·Î º¯°æÇÏ¿© ³ªÅ¸³½´Ù.
+        // í‚¤ê°€ ë³€ê²½ ì¤‘ì„ì„ ê¸°ì¡´ì˜ í‚¤ì—ì„œ '-'ìœ¼ë¡œ ë³€ê²½í•˜ì—¬ ë‚˜íƒ€ë‚¸ë‹¤.
         m_button_text.text = "-";
 
-        // ½ÇÁ¦ Å°°¡ º¯°æµÇ´Â ÄÚ·çÆ¾ÀÌ´Ù.
+        // ì‹¤ì œ í‚¤ê°€ ë³€ê²½ë˜ëŠ” ì½”ë£¨í‹´ì´ë‹¤.
         StartCoroutine(Co_AssignKey());
     }
 
     private IEnumerator Co_AssignKey()
     {
-        // ¹öÆ°ÀÌ ¼±ÅÃµÇ¾î ÀÖ´Â µ¿¾È ¹ß»ıÇÏ¸ç
+        // ë²„íŠ¼ì´ ì„ íƒë˜ì–´ ìˆëŠ” ë™ì•ˆ ë°œìƒí•˜ë©°
         while (true)
         {
-            // ¾Æ¹« Å°¸¦ ÀÔ·Â¹Ş°í
+            // ì•„ë¬´ í‚¤ë¥¼ ì…ë ¥ë°›ê³ 
             if (Input.anyKeyDown)
             {
-                // ±× Å°¿¡ ÇØ´çÇÏ´Â Å° ÄÚµå°¡ ÀÖ´ÂÁö È®ÀÎÇÑ´Ù.
+                // ê·¸ í‚¤ì— í•´ë‹¹í•˜ëŠ” í‚¤ ì½”ë“œê°€ ìˆëŠ”ì§€ í™•ì¸í•œë‹¤.
                 foreach (KeyCode code in Enum.GetValues(typeof(KeyCode)))
                 {
-                    // ¸¸¾à ÇØ´çÇÏ´Â Å° ÄÚµå°¡ ÀÖ´Ù¸é
+                    // ë§Œì•½ í•´ë‹¹í•˜ëŠ” í‚¤ ì½”ë“œê°€ ìˆë‹¤ë©´
                     if (Input.GetKey(code))
                     {
-                        // º¯°æÀÌ °¡´ÉÇÑ À¯È¿ÇÑ Å°ÀÎÁöÀÇ ¿©ºÎ¸¦ È®ÀÎÇÑ´Ù.
+                        // ë³€ê²½ì´ ê°€ëŠ¥í•œ ìœ íš¨í•œ í‚¤ì¸ì§€ì˜ ì—¬ë¶€ë¥¼ í™•ì¸í•œë‹¤.
                         if (m_key_service.Check(code, m_origin_key_code))
                         {
-                            // À¯È¿ÇÏ´Ù¸é ±× Å°¸¦ µî·ÏÇÏ´Â °úÁ¤À» °ÅÄ£´Ù.
+                            // ìœ íš¨í•˜ë‹¤ë©´ ê·¸ í‚¤ë¥¼ ë“±ë¡í•˜ëŠ” ê³¼ì •ì„ ê±°ì¹œë‹¤.
                             m_key_service.Register(code, m_key_name);
                             m_origin_key_code = code;
 
@@ -78,9 +78,9 @@ public class KeyBinderSlotView : MonoBehaviour
                         else
                         {
 
-                            // À¯È¿ÇÏÁö ¾Ê´Ù¸é ÀÌÀüÀÇ ¹ÙÀÎµùµÈ Å°·Î µ¹¾Æ°¡´Â °úÁ¤À» °ÅÄ£´Ù.
-                            // Ãß°¡ÀûÀ¸·Î, »ç¿ëÀÚ¿¡°Ô Àß¸øµÈ ÀÔ·ÂÀÓÀ» ³ªÅ¸³½´Ù.
-                            // ¿©±â¼­´Â ÄÚ·çÆ¾À» È°¿ëÇÏ¿© ¿¡·¯ ¸Ş½ÃÁö¸¦ ¹ß»ı½ÃÅ²´Ù.
+                            // ìœ íš¨í•˜ì§€ ì•Šë‹¤ë©´ ì´ì „ì˜ ë°”ì¸ë”©ëœ í‚¤ë¡œ ëŒì•„ê°€ëŠ” ê³¼ì •ì„ ê±°ì¹œë‹¤.
+                            // ì¶”ê°€ì ìœ¼ë¡œ, ì‚¬ìš©ìì—ê²Œ ì˜ëª»ëœ ì…ë ¥ì„ì„ ë‚˜íƒ€ë‚¸ë‹¤.
+                            // ì—¬ê¸°ì„œëŠ” ì½”ë£¨í‹´ì„ í™œìš©í•˜ì—¬ ì—ëŸ¬ ë©”ì‹œì§€ë¥¼ ë°œìƒì‹œí‚¨ë‹¤.
                             m_button_text.text = ((char)m_origin_key_code).ToString().ToUpper();
 
                             if (m_wrong_key_coroutine != null)
@@ -102,7 +102,7 @@ public class KeyBinderSlotView : MonoBehaviour
         }
     }
 
-    // Àß¸øµÈ Å° ÀÔ·ÂÀÓÀ» ¿¡·¯ ¸Ş½ÃÁö·Î ¹ß»ı½ÃÅ°´Â ÄÚ·çÆ¾ÀÌ´Ù.
+    // ì˜ëª»ëœ í‚¤ ì…ë ¥ì„ì„ ì—ëŸ¬ ë©”ì‹œì§€ë¡œ ë°œìƒì‹œí‚¤ëŠ” ì½”ë£¨í‹´ì´ë‹¤.
     private IEnumerator Co_WrongKey()
     {
         float elapsed_time = 0f;

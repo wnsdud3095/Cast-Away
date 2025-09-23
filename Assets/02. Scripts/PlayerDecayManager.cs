@@ -26,7 +26,7 @@ public class PlayerDecayManager : MonoBehaviour
             yield return new WaitForSeconds(m_decay_interval);
 
 
-            //»óÅÂ ÆĞÅÏÀ¸·Î º¯°æ½Ã »óÅÂ Ã¼Å© if¹® ÀÛ¼º
+            //ìƒíƒœ íŒ¨í„´ìœ¼ë¡œ ë³€ê²½ì‹œ ìƒíƒœ ì²´í¬ ifë¬¸ ì‘ì„±
             float hunger_decay = m_player_ctrl.Movement.IsDashActive ? m_running_hunger_decay : m_hunger_decay;
             float thirst_decay = m_thirst_decay;
 

@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class KeyBinderUIInstaller : MonoBehaviour, IInstaller
 {
-    [Header("Å° ¹ÙÀÎ´õ ºä")]
+    [Header("í‚¤ ë°”ì¸ë” ë·°")]
     [SerializeField] private KeyBinderView m_key_binder_view;
 
-    [Header("Å° ¹ÙÀÎ´õ ½½·ÔÀÇ ºÎ¸ğ Æ®·£½ºÆû")]
+    [Header("í‚¤ ë°”ì¸ë” ìŠ¬ë¡¯ì˜ ë¶€ëª¨ íŠ¸ëœìŠ¤í¼")]
     [SerializeField] private Transform m_key_binder_slot_root;
 
     public void Install()

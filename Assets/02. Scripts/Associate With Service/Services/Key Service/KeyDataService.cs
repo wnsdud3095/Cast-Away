@@ -16,8 +16,8 @@ namespace KeyService
         {
             m_key_dict = new();
 
-            CreateDirectory();		// µğ·ºÅÍ¸® °æ·Î°¡ ¾ø´Â °æ¿ì »õ·Ó°Ô »ı¼ºÇÑ´Ù.
-            Reset();				// ±âº» ¼³Á¤ Å°·Î ÃÊ±âÈ­ÇÑ´Ù.
+            CreateDirectory();		// ë””ë ‰í„°ë¦¬ ê²½ë¡œê°€ ì—†ëŠ” ê²½ìš° ìƒˆë¡­ê²Œ ìƒì„±í•œë‹¤.
+            Reset();				// ê¸°ë³¸ ì„¤ì • í‚¤ë¡œ ì´ˆê¸°í™”í•œë‹¤.
         }
 
         private void CreateDirectory()
@@ -29,11 +29,11 @@ namespace KeyService
                 Directory.CreateDirectory(local_directory_path);
 
 #if UNITY_EDITOR
-                Debug.Log($"<color=cyan>Key µğ·ºÅÍ¸®¸¦ »õ·Ó°Ô »ı¼ºÇÕ´Ï´Ù.</color>");
+                Debug.Log($"<color=cyan>Key ë””ë ‰í„°ë¦¬ë¥¼ ìƒˆë¡­ê²Œ ìƒì„±í•©ë‹ˆë‹¤.</color>");
 #endif
             }
         }
-        // ¸ğµç ¹ÙÀÎµùµÈ Å°¸¦ ¾÷µ¥ÀÌÆ®ÇÑ´Ù.
+        // ëª¨ë“  ë°”ì¸ë”©ëœ í‚¤ë¥¼ ì—…ë°ì´íŠ¸í•œë‹¤.
         public void Initialize()
         {
 
@@ -45,7 +45,7 @@ namespace KeyService
 
         }
 
-        // ±âº» ¼³Á¤ Å°·Î ÃÊ±âÈ­ÇÑ´Ù.
+        // ê¸°ë³¸ ì„¤ì • í‚¤ë¡œ ì´ˆê¸°í™”í•œë‹¤.
         public void Reset()
         {
             m_key_dict.Clear();
@@ -64,16 +64,16 @@ namespace KeyService
             Register(KeyCode.Escape, "Pause");
         }
 
-        // º¯°æÇÏ·Á´Â Å°°¡ À¯È¿ÇÑ Å°ÀÎÁö È®ÀÎÇÑ´Ù.
+        // ë³€ê²½í•˜ë ¤ëŠ” í‚¤ê°€ ìœ íš¨í•œ í‚¤ì¸ì§€ í™•ì¸í•œë‹¤.
         public bool Check(KeyCode key, KeyCode current_key)
         {
-            // º¯°æÇÏ·Á´Â Å°°¡ ÇöÀç Å°¿Í °°´Ù¸é º¯°æÀÌ °¡´ÉÇÏ´Ù.
+            // ë³€ê²½í•˜ë ¤ëŠ” í‚¤ê°€ í˜„ì¬ í‚¤ì™€ ê°™ë‹¤ë©´ ë³€ê²½ì´ ê°€ëŠ¥í•˜ë‹¤.
             if (current_key == key)
             {
                 return true;
             }
 
-            // Å°º¸µå ¾ËÆÄºª ÀÚÆÇ°ú ¼ıÀÚ¸¸ °¡´ÉÇÏ´Ù.
+            // í‚¤ë³´ë“œ ì•ŒíŒŒë²³ ìíŒê³¼ ìˆ«ìë§Œ ê°€ëŠ¥í•˜ë‹¤.
             if (KeyCode.A <= key && key <= KeyCode.Z ||
                 KeyCode.Alpha0 <= key && key <= KeyCode.Alpha9) { }
             else
@@ -81,7 +81,7 @@ namespace KeyService
                 return false;
             }
 
-            // WASD´Â ÀÌµ¿ Å°·Î ¿¹¾àµÇ¾î ÀÖÀ¸¹Ç·Î ÀÌ Å°´Â ¹ÙÀÎµùÀÌ ºÒ°¡´ÉÇÏ´Ù.
+            // WASDëŠ” ì´ë™ í‚¤ë¡œ ì˜ˆì•½ë˜ì–´ ìˆìœ¼ë¯€ë¡œ ì´ í‚¤ëŠ” ë°”ì¸ë”©ì´ ë¶ˆê°€ëŠ¥í•˜ë‹¤.
             if (key == KeyCode.W ||
                 key == KeyCode.A ||
                 key == KeyCode.S ||
@@ -90,7 +90,7 @@ namespace KeyService
                 return false;
             }
 
-            // ÀÌ¹Ì ¹ÙÀÎµùÀÌ µÇ¾îÀÖ´Â Å°¶ó¸é ÀÌ Å°´Â ¹ÙÀÎµùÀÌ ºÒ°¡´ÉÇÏ´Ù.
+            // ì´ë¯¸ ë°”ì¸ë”©ì´ ë˜ì–´ìˆëŠ” í‚¤ë¼ë©´ ì´ í‚¤ëŠ” ë°”ì¸ë”©ì´ ë¶ˆê°€ëŠ¥í•˜ë‹¤.
             foreach (var pair in m_key_dict)
             {
                 if (key == pair.Value)
@@ -102,7 +102,7 @@ namespace KeyService
             return true;
         }
 
-        // ÀÔ·ÂÇÑ Å°¸¦ ÁÖ¾îÁø ¹®ÀÚ¿­°ú ¸ÅÇÎÇÏ¿© ¹ÙÀÎµùÇÑ´Ù.
+        // ì…ë ¥í•œ í‚¤ë¥¼ ì£¼ì–´ì§„ ë¬¸ìì—´ê³¼ ë§¤í•‘í•˜ì—¬ ë°”ì¸ë”©í•œë‹¤.
         public void Register(KeyCode key, string key_name)
         {
             m_key_dict[key_name] = key;
@@ -110,7 +110,7 @@ namespace KeyService
             OnUpdatedKey?.Invoke(key, key_name);
         }
 
-        // ¹®ÀÚ¿­°ú ¸ÅÇÎµÈ Å° ÄÚµå¸¦ ¹İÈ¯ÇÑ´Ù.
+        // ë¬¸ìì—´ê³¼ ë§¤í•‘ëœ í‚¤ ì½”ë“œë¥¼ ë°˜í™˜í•œë‹¤.
         public KeyCode GetKeyCode(string key_name)
         {
             return m_key_dict.TryGetValue(key_name, out var code) ? code : KeyCode.None;

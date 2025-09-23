@@ -13,34 +13,34 @@ public class PlayerStatus : MonoBehaviour
     public Action<float, float> OnUpdatedThirst;
     public Action<float, float> OnUpdatedHunger;
 
-    // √ ±‚»≠
+    // Ï¥àÍ∏∞Ìôî
     public void Initialize()
     {
         HP = MaxValue;
         Thirst = MaxValue;
         Hunger = MaxValue;
 
-        // UI æ˜µ•¿Ã∆Æ »£√‚
+        // UI ÏóÖÎç∞Ïù¥Ìä∏ Ìò∏Ï∂ú
         OnUpdatedHP?.Invoke(HP, MaxValue);
         OnUpdatedThirst?.Invoke(Thirst, MaxValue);
         OnUpdatedHunger?.Invoke(Hunger, MaxValue);
     }
 
-    // HP ∫Ø∞Ê
+    // HP Î≥ÄÍ≤Ω
     public void ChangeHP(float amount)
     {
         HP = Mathf.Clamp(HP + amount, 0, MaxValue);
         OnUpdatedHP?.Invoke(HP, MaxValue);
     }
 
-    // ∞•¡ı ∫Ø∞Ê
+    // Í∞àÏ¶ù Î≥ÄÍ≤Ω
     public void ChangeThirst(float amount)
     {
         Thirst = Mathf.Clamp(Thirst + amount, 0, MaxValue);
         OnUpdatedThirst?.Invoke(Thirst, MaxValue);
     }
 
-    // «„±‚ ∫Ø∞Ê
+    // ÌóàÍ∏∞ Î≥ÄÍ≤Ω
     public void ChangeHunger(float amount)
     {
         Hunger = Mathf.Clamp(Hunger + amount, 0, MaxValue);

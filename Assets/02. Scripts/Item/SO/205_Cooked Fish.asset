@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e007a4a141875d745b10aa6d09ca3040, type: 3}
   m_Name: 205_Cooked Fish
   m_EditorClassIdentifier: 
-  m_code: 0
-  m_type: 0
-  m_name: 
-  m_stackable: 0
+  m_code: 205
+  m_type: 8
+  m_name: "\uC775\uD78C \uC0DD\uC120"
+  m_stackable: 1
   m_cool: -1
   m_sprite: {fileID: 0}

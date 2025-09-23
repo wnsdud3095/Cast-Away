@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Item DataBase", menuName = "SO/DB/Create Item DataBase")]
 public class ItemDataBase : ScriptableObject, IItemDataBase
 {
-    [Header("¾ÆÀÌÅÛ ¸ñ·Ï")]
+    [Header("ì•„ì´í…œ ëª©ë¡")]
     [SerializeField] private Item[] m_item_list;
 
     private Dictionary<ItemCode, Item> m_item_dict;
@@ -19,15 +19,15 @@ public class ItemDataBase : ScriptableObject, IItemDataBase
     {
         m_item_dict = new();
 
-        // SOÀÇ OnEnable()Àº À¯´ÏÆ¼ ¿¡µğÅÍ¿¡¼­ ·±Å¸ÀÓÀÌ ¾Æ´Ñ È¯°æ¿¡¼­µµ ÀÛµ¿ÇÏ±â ¶§¹®¿¡
-        // ¹İµå½Ã ¸®½ºÆ®ÀÇ Á¶°ÇÀÌ ³ÎÀÌ ¾Æ´Ñ °æ¿ì¿¡ ÀÛµ¿ÇÏµµ·Ï ¼³Á¤.
+        // SOì˜ OnEnable()ì€ ìœ ë‹ˆí‹° ì—ë””í„°ì—ì„œ ëŸ°íƒ€ì„ì´ ì•„ë‹Œ í™˜ê²½ì—ì„œë„ ì‘ë™í•˜ê¸° ë•Œë¬¸ì—
+        // ë°˜ë“œì‹œ ë¦¬ìŠ¤íŠ¸ì˜ ì¡°ê±´ì´ ë„ì´ ì•„ë‹Œ ê²½ìš°ì— ì‘ë™í•˜ë„ë¡ ì„¤ì •.
         if (m_item_list == null)
         {
             return;
         }
 
-        // ÀÎ½ºÆåÅÍ¸¦ ÅëÇØ ·ÎµåÇÑ ¾ÆÀÌÅÛ ¸®½ºÆ®¸¦
-        // ¾ÆÀÌÅÛ ÄÚµå¸¦ Å°·Î ÇÏ¿© µñ¼Å³Ê¸®¿¡ ÀúÀåÇÑ´Ù.
+        // ì¸ìŠ¤í™í„°ë¥¼ í†µí•´ ë¡œë“œí•œ ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ë¥¼
+        // ì•„ì´í…œ ì½”ë“œë¥¼ í‚¤ë¡œ í•˜ì—¬ ë”•ì…”ë„ˆë¦¬ì— ì €ì¥í•œë‹¤.
         foreach (var item in m_item_list)
         {
             m_item_dict.TryAdd(item.Code, item);

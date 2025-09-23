@@ -4,22 +4,22 @@ public enum ItemCode
 {
     NONE = 0,
 
-    //юГ╥А ╬фюлеш(1~100)
+    //Л·╛Кё▄ Л∙└Л²╢М┘°(1~100)
     WOOD = 1, STONE = 2, 
 
 
-    //╣╣╠╦ ╬фюлеш(101~200)
+    //К▐└Й╣╛ Л∙└Л²╢М┘°(101~200)
     HAND_AXE = 101, STONE_AXE = 102, STONE_PICKAXE = 103, STONE_SPEAR = 104, FISHING_ROD = 105, TORCH = 106,
     EMPTY_BOTTLE = 107, FILLED_BOTTLE = 108,
 
-    //ю╫╫д ╬фюлеш(201~300)
+    //Л²▄Л▀² Л∙└Л²╢М┘°(201~300)
     RAW_MEAT = 201, COOKED_MEAT = 202, MUSHROOM = 203, FISH = 204, COOKED_FISH = 205,      
 
-    //╟г╪Ё ╬фюлеш(301~400)
+    //Й╠╢Л└╓ Л∙└Л²╢М┘°(301~400)
     NOMAL_WORKBENCH = 301, WOOD_WORKBENCH = 302, STONE_WORKBENCH = 303, ELITE_WORKBENCH = 304,
     CAMPFIRE = 305, WATER_PURIFIER = 306, CHEST = 307, BED = 308,
     FOUNDATION = 309, WALL = 310, WINDOW_WALL = 311, DOOR_WALL = 312, CEILING = 313, STAIRS = 314,
 
-    //╤б╦Я ╬фюлеш(401~500)
+    //К≈▐К╙╘ Л∙└Л²╢М┘°(401~500)
     RAFT_BASE = 401, MAST = 402, SAIL = 403, PADDLE = 404,
 }

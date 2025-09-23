@@ -2,6 +2,6 @@ using UnityEngine;
 
 public interface ISaveable 
 {
-    bool Load(); //¿¹¿ÜÃ³¸®¸¦ À§ÇØ boolÅ¸ÀÔ
+    bool Load(); //ì˜ˆì™¸ì²˜ë¦¬ë¥¼ ìœ„í•´ boolíƒ€ìž…
     void Save();
 }

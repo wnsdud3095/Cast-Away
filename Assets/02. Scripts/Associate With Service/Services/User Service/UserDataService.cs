@@ -22,7 +22,7 @@ namespace UserService
             set => m_status = value;
         }
 
-        public UserDataService() //ÃÖÃÊ½ÇÇà½Ã µ¥ÀÌÅÍ
+        public UserDataService() //ìµœì´ˆì‹¤í–‰ì‹œ ë°ì´í„°
         {
             var user_data = new UserData();
 
@@ -30,7 +30,7 @@ namespace UserService
             m_status = user_data.Status;
             CreateDirectory();
         }
-        // µğ·ºÅÍ¸® °æ·Î°¡ ¾ø´Â °æ¿ì¿¡´Â µğ·ºÅÍ¸® °æ·Î¸¦ »ı¼ºÇÑ´Ù.
+        // ë””ë ‰í„°ë¦¬ ê²½ë¡œê°€ ì—†ëŠ” ê²½ìš°ì—ëŠ” ë””ë ‰í„°ë¦¬ ê²½ë¡œë¥¼ ìƒì„±í•œë‹¤.
         private void CreateDirectory()
         {
             var local_directory = Path.Combine(Application.persistentDataPath, "User");
@@ -41,7 +41,7 @@ namespace UserService
             }
         }
 
-        //ÃÖÃÊ ½ÇÇà½Ã °æÇèÄ¡ È¹µæÀÌ ¾ø¾îµµ ÇöÀç ·¹º§/°æÇèÄ¡¸¦ UI³ª ½Ã½ºÅÛ¿¡ ¾Ë¸®±â À§ÇØ
+        //ìµœì´ˆ ì‹¤í–‰ì‹œ ê²½í—˜ì¹˜ íšë“ì´ ì—†ì–´ë„ í˜„ì¬ ë ˆë²¨/ê²½í—˜ì¹˜ë¥¼ UIë‚˜ ì‹œìŠ¤í…œì— ì•Œë¦¬ê¸° ìœ„í•´
         public void InitLevel()
         {
             OnUpdatedLevel?.Invoke(m_status.Level, m_status.EXP);
