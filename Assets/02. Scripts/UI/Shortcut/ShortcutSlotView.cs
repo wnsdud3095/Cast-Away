@@ -1,42 +1,39 @@
 using KeyService;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShortcutSlotView : MonoBehaviour, IShortcutSlotView
 {
-    [Header("매핑 문자열")]
-    [SerializeField] private string m_key_name;
+    [Header("하이라이트 이미지")]
+    [SerializeField] private Image m_highlightImage;
 
-    [Header("단축키 텍스트")]
-    [SerializeField] private TMP_Text m_shortcut_key_text;
+    [Header("ShortcutSelect매니저")]
+    [SerializeField] private ShortcutSelectManager m_shortcut_select_manager;
 
     private ShortcutSlotPresenter m_presenter;
-    private IKeyService m_key_service;
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(m_key_service.GetKeyCode(m_key_name)))
-        {
-            m_presenter.UseShortcut();
-        }
-    }
 
     private void OnDestroy()
     {
         m_presenter.Dispose();
     }
 
+    [System.Obsolete]
     public void Inject(ShortcutSlotPresenter presenter)
     {
         m_presenter = presenter;
-        m_key_service = ServiceLocator.Get<IKeyService>();
-    }
+        m_highlightImage.enabled = false;
 
+        // 선택 매니저 이벤트 구독
+        m_shortcut_select_manager.OnSelectedChanged += HandleSelectedChanged;
+    }
+    private void HandleSelectedChanged(int index)
+    {
+        // 내 offset이 선택된 인덱스와 같으면 하이라이트
+        m_highlightImage.enabled = (m_presenter.Offset - 12 == index);
+    }
     public void UpdateUI(KeyCode code, string name)
     {
-        if (m_key_name == name)
-        {
-            m_shortcut_key_text.text = ((char)code).ToString().ToUpper();
-        }
+
     }
 }

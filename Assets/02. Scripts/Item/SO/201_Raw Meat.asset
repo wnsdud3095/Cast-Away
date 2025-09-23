@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e007a4a141875d745b10aa6d09ca3040, type: 3}
   m_Name: 201_Raw Meat
   m_EditorClassIdentifier: 
-  m_code: 0
-  m_type: 0
-  m_name: 
-  m_stackable: 0
+  m_code: 201
+  m_type: 2
+  m_name: "\uC0DD\uACE0\uAE30"
+  m_stackable: 1
   m_cool: -1
   m_sprite: {fileID: 0}

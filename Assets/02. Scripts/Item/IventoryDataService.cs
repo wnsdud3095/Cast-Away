@@ -2,6 +2,7 @@ using System.IO;
 using System;
 using UnityEngine;
 using static UnityEditor.Timeline.Actions.MenuPriority;
+using Mono.Cecil.Cil;
 
 namespace InventoryService
 {
@@ -21,7 +22,6 @@ namespace InventoryService
                 m_items[i] = new ItemData();
             }
 
-            // 디렉터리 경로가 없다면 새롭게 생성한다.
             CreateDirectory();
         }
 
@@ -38,7 +38,7 @@ namespace InventoryService
             }
         }
 
-        // Inject()를 통해서 아이템 매니저를 주입받는다.
+        // Inject()를 통해서 아이템 데이터베이스를 주입받는다.
         public void Inject(IItemDataBase item_db)
         {
             m_item_db = item_db;
@@ -145,19 +145,34 @@ namespace InventoryService
 
         public void UseItem(int offset)
         {
-            var item = m_items[offset];
-            if (item.Code == ItemCode.NONE) return;
+            if (m_items[offset].Code == ItemCode.NONE) return;
 
-            // TODO: 아이템 효과 발동 (ex. 체력 회복 등)
-            // 예시: ConsumeItem(item);
+            var item = m_item_db.GetItem(m_items[offset].Code);
+          
+            var type = item.Type;
 
-            // 소모
-            item.Count--;
-            if (item.Count <= 0)
-                m_items[offset] = new ItemData();
-            else
-                m_items[offset] = item;
+            switch (type)
+            {
+                case ItemType.Consumable:
+                case ItemType.Foods:
+                    m_items[offset].Count--;
+                    Debug.Log($"{item.Name} 사용됨");
+                    if (m_items[offset].Count <= 0)
+                        m_items[offset] = new ItemData();
+                    break;
 
+                case ItemType.Material:
+                    Debug.Log($"{item.Name}은(는) 재료라서 사용할 수 없음");
+                    break;
+
+                case ItemType.Tools:
+                    Debug.Log($"{item.Name} 도구 사용됨");
+                    break;
+
+                case ItemType.Structure:
+                    Debug.Log($"{item.Name} 건축물 사용됨");
+                    break;
+            }
             OnUpdatedSlot?.Invoke(offset, m_items[offset]);
         }
 

@@ -40,6 +40,7 @@ public class InventoryView : MonoBehaviour, IInventoryView
 
         m_close_button.onClick.AddListener(m_presenter.CloseUI);
         m_close_button.onClick.AddListener(PopupCloseUI);
+
     }
 
     public void OpenUI()
@@ -47,8 +48,11 @@ public class InventoryView : MonoBehaviour, IInventoryView
         m_canvas_group.alpha = 1f;          
         m_canvas_group.interactable = true; 
         m_canvas_group.blocksRaycasts = true;
+
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.WOOD, 18);
-        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE, 18);
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.HAND_AXE, 1);
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.FOUNDATION, 10);
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.MUSHROOM, 10);
         //m_animator.SetBool("Open", true);
     }
 

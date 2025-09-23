@@ -10,7 +10,7 @@ public class ShortcutSlotPresenter : IDisposable
     private IKeyService m_key_service;
     private IInventoryService m_inventory_service;
 
-    private int m_offset;
+    public int Offset { get; set; }
 
     public ShortcutSlotPresenter(IShortcutSlotView view,
                                  IItemDataBase item_db,
@@ -25,7 +25,7 @@ public class ShortcutSlotPresenter : IDisposable
 
         m_inventory_service = inventory_service;
 
-        m_offset = shortcut_index;
+        Offset = shortcut_index;
 
         m_key_service.OnUpdatedKey += m_view.UpdateUI;
         m_key_service.Initialize();
@@ -40,6 +40,6 @@ public class ShortcutSlotPresenter : IDisposable
 
     public void UseShortcut()
     {
-        m_inventory_service.UseItem(m_offset);
+        m_inventory_service.UseItem(Offset);
     }
 }

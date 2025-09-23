@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e007a4a141875d745b10aa6d09ca3040, type: 3}
   m_Name: 309_Foundation
   m_EditorClassIdentifier: 
-  m_code: 0
-  m_type: 0
-  m_name: 
-  m_stackable: 0
+  m_code: 309
+  m_type: 16
+  m_name: "\uD1A0\uB300"
+  m_stackable: 1
   m_cool: -1
-  m_sprite: {fileID: 0}
+  m_sprite: {fileID: -1655404254, guid: 1d5864d95f477c441b3d5a0ef6bd9055, type: 3}
