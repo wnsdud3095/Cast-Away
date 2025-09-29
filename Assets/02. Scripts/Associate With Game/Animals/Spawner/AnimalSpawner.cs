@@ -94,8 +94,11 @@ public class AnimalSpawner : MonoBehaviour
             var name_tag_view = animal_obj.GetComponentInChildren<INameTagView>();
             var name_tag_presenter = new NameTagPresenter(name_tag_view);
 
+            var name_tag_trigger = animal_obj.GetComponentInChildren<NameTagTrigger>();
+            name_tag_trigger.Inject(name_tag_presenter);
+
             var animal_ctrl = animal_obj.GetComponent<AnimalCtrl>();
-            animal_ctrl.Initialize(m_player_ctrl, m_time_manager, name_tag_presenter);
+            animal_ctrl.Initialize(m_player_ctrl, m_time_manager);
             animal_ctrl.Status.OnDisabledObject += AnimalDisabledEvent;
 
             m_current_animal_count++;
@@ -117,8 +120,11 @@ public class AnimalSpawner : MonoBehaviour
             var name_tag_view = animal_obj.GetComponentInChildren<INameTagView>();
             var name_tag_presenter = new NameTagPresenter(name_tag_view);
 
+            var name_tag_trigger = animal_obj.GetComponentInChildren<NameTagTrigger>();
+            name_tag_trigger.Inject(name_tag_presenter);
+
             var animal_ctrl = animal_obj.GetComponent<AggressiveAnimalCtrl>();
-            animal_ctrl.Initialize(m_player_ctrl, m_time_manager, name_tag_presenter);
+            animal_ctrl.Initialize(m_player_ctrl, m_time_manager);
         }
     }
 

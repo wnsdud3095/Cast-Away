@@ -63,7 +63,7 @@ ModelImporter:
       curves: []
       events:
       - time: 1
-        functionName: OnHurtAnimaionEnd
+        functionName: OnHurtAnimationEnd
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 46aefc08b9d12f6448a19e7cdcf923ee, type: 3}
         floatParameter: 0

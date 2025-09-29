@@ -17,7 +17,7 @@ public class AnimalCtrl : MonoBehaviour
     private IState<AnimalCtrl> m_death_state;
     #endregion FSM States
 
-    private NameTagPresenter m_name_tag_presenter;
+    
 
     public bool ForceMode { get; set; }
 
@@ -51,29 +51,13 @@ public class AnimalCtrl : MonoBehaviour
         m_death_state = gameObject.AddComponent<AnimalDeathState>();
     }
 
-    private void OnTriggerEnter(Collider collider)
-    {
-        if(collider.CompareTag("Player"))
-        {
-            m_name_tag_presenter.OpenUI(SO.Name, Status.CurrentHP, Status.MaxHP);
-        }
-    }
 
-    private void OnTriggerExit(Collider collider)
-    {
-        if(collider.CompareTag("Player"))
-        {
-            m_name_tag_presenter.CloseUI();
-        }
-    }
 
     public virtual void Initialize(PlayerCtrl player_ctrl,
-                                   TimeManager time_manager,
-                                   NameTagPresenter name_tag_presenter)
+                                   TimeManager time_manager)
     {
         Player = player_ctrl;
         TimeManager = time_manager;
-        m_name_tag_presenter = name_tag_presenter;
 
         Movement.Initialize(SO.IdleTime, SO.WalkSPD, SO.RunSPD, SO.MoveTime);
         Status.Initialize(SO.HP);

@@ -28,6 +28,11 @@ public class AnimalNameTagView : MonoBehaviour, INameTagView
         m_name_tag_label.text = name_text;
     }
 
+    public void UpdateUI(string name_text)
+    {
+        m_name_tag_label.text = name_text;
+    }
+
     public void CloseUI()
     {
         Fade(false);
