@@ -42,6 +42,8 @@ public class AnimalEscapeState : MonoBehaviour, IState<AnimalCtrl>
     private void Escape()
     {
         var escape_direction = transform.position - m_controller.Player.transform.position;
+        escape_direction.Normalize();
+
         var destination = transform.position + escape_direction * 6f;
         
         m_move_coroutine = StartCoroutine(EscapeToDirection(destination, m_controller.Movement.MoveTime));
@@ -53,7 +55,7 @@ public class AnimalEscapeState : MonoBehaviour, IState<AnimalCtrl>
 
         while(elasped_time < move_time)
         {
-            m_controller.Movement.Move(destination);
+            m_controller.Movement.Move(destination, true);
 
             elasped_time += Time.deltaTime;
             yield return null;
