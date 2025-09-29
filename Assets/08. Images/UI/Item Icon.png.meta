@@ -1,0 +1,870 @@
+fileFormatVersion: 2
+guid: ae89c7acf9a641848a009ff1a1ea8e1d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Leather
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d07551472b4031544b1ac5b4ceb55548
+      internalID: -2048984701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Handaxe
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 240
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e6f3933810d1ca42ba469003b32cebd
+      internalID: 981636638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wood Log
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 240
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea500fa739f71eb49890658e0ecbf15f
+      internalID: 1135936264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 240
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f59d5e058f5d802498a4be770ff6225b
+      internalID: -1252051298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wool
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 216
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e83d99f3dc16b2640afc875a950007e5
+      internalID: 525301450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item Icon_22
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 216
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f9224fde8e707e428aaf66d3c235ee9
+      internalID: -1658745053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coal
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 216
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 319dff3a35efec54e9976dd9e932703a
+      internalID: 1499162460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thread
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 216
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd6e1945de15cd42b4c58ab16dbd73e
+      internalID: 1145177616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 216
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 200e041823937f94e8081229ef99c0b6
+      internalID: 1315325488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rope
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc6f86f94225684479df83a880c58422
+      internalID: -1386378037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone Axe
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 192
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21f7b19a411b3da4ea5dd4de251a8795
+      internalID: 1152443898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone Pickaxe
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 192
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87497758aa1c0f54b8a75c04b23da54e
+      internalID: -126881242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone Hammer
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 192
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c5401c12c5cb6c468c3dc5e55410718
+      internalID: 1757826286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apple
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 168
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7f38843ee2460049b126a8f07938cef
+      internalID: -1049693087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raw Fish
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b2551fdf569113488526bc9da1c1601
+      internalID: 860442509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cooked Fish
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 144
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70b4fc815b3fac243b15c7b79c392d8e
+      internalID: 1052025256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raw Meat
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 144
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00ee699ae6aeee345840ad30ef68e69b
+      internalID: -622304887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cooked Meat
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 144
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5e7f90ea16df2c4a949ca4aa6d47786
+      internalID: -1947271725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mushroom1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b42559538116144daf2a440c43473ac
+      internalID: 722956212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mushroom2
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 120
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d87201c5590333a44b9cbcfebd79d029
+      internalID: -129564797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soup
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 120
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14ecf2f874d98fd4d8d127ba39fe967c
+      internalID: 449918544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Water Bottle
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 154324b3fdd46864e87ae197048c97c2
+      internalID: -1552187004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Empty Bottle
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 96
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd1c479a604165947adc8d73a7f2c93a
+      internalID: -698812613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green Apple
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b768e2278ecf404180e75027da6b13e
+      internalID: 1880637017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishing Rod
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 96
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cc95694fe866c04d9835ef04b3f7674
+      internalID: 774933754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2e18a43939d898342b1f0728a154a52a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":24.0,"y":24.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Apple: -1049693087
+      Coal: 1499162460
+      Cooked Fish: 1052025256
+      Cooked Meat: -1947271725
+      Empty Bottle: -698812613
+      Fishing Rod: 774933754
+      Green Apple: 1880637017
+      Handaxe: 981636638
+      Item Icon_10: -1293473348
+      Item Icon_100: 1697671583
+      Item Icon_101: 1490961533
+      Item Icon_102: 963859909
+      Item Icon_103: -208436919
+      Item Icon_104: -1678292554
+      Item Icon_108: 516708078
+      Item Icon_109: 1014906732
+      Item Icon_11: -790016788
+      Item Icon_110: -1836486621
+      Item Icon_111: 663364584
+      Item Icon_112: 1674483323
+      Item Icon_113: -494841357
+      Item Icon_114: 1028541141
+      Item Icon_115: -574014867
+      Item Icon_116: -194468202
+      Item Icon_117: 2092036509
+      Item Icon_118: 260429154
+      Item Icon_119: -922643763
+      Item Icon_12: 2042691575
+      Item Icon_120: -121350242
+      Item Icon_121: -262488829
+      Item Icon_122: 220624932
+      Item Icon_123: -939370258
+      Item Icon_124: -1860376393
+      Item Icon_125: -1751817313
+      Item Icon_126: -550201253
+      Item Icon_129: -1588045165
+      Item Icon_13: -1967370606
+      Item Icon_130: -1430176924
+      Item Icon_132: 866115341
+      Item Icon_133: 1867505480
+      Item Icon_134: 743844721
+      Item Icon_135: -2078872601
+      Item Icon_136: 53807878
+      Item Icon_137: -64137349
+      Item Icon_138: 42859366
+      Item Icon_139: -995788366
+      Item Icon_14: 192214211
+      Item Icon_140: 563506510
+      Item Icon_141: 1329656820
+      Item Icon_142: 737321462
+      Item Icon_143: 739395840
+      Item Icon_144: 28497975
+      Item Icon_145: -213569298
+      Item Icon_147: -913866339
+      Item Icon_148: 1161707631
+      Item Icon_149: 275484031
+      Item Icon_150: 1020711557
+      Item Icon_151: 1088285133
+      Item Icon_152: -864476412
+      Item Icon_153: 461601129
+      Item Icon_154: -2010425029
+      Item Icon_155: -1026442791
+      Item Icon_156: -1184196387
+      Item Icon_157: 1731446480
+      Item Icon_158: -1139014586
+      Item Icon_159: -395011669
+      Item Icon_16: -1321181246
+      Item Icon_160: -631659289
+      Item Icon_161: -670527993
+      Item Icon_162: -1145929485
+      Item Icon_163: 1732032723
+      Item Icon_164: -1256698475
+      Item Icon_165: -648883746
+      Item Icon_166: 1086221673
+      Item Icon_167: -948185934
+      Item Icon_168: -966008715
+      Item Icon_169: 839615659
+      Item Icon_17: -1900201112
+      Item Icon_170: 2019575251
+      Item Icon_171: -1404122611
+      Item Icon_172: -590339477
+      Item Icon_173: -1618866188
+      Item Icon_174: 782818150
+      Item Icon_175: 1761516887
+      Item Icon_176: 904529013
+      Item Icon_177: 960474714
+      Item Icon_178: -39725357
+      Item Icon_179: -807350813
+      Item Icon_18: 2109327722
+      Item Icon_180: 1336335498
+      Item Icon_181: -1776198932
+      Item Icon_182: -1567745392
+      Item Icon_183: 812978144
+      Item Icon_184: 1491348320
+      Item Icon_185: 769988020
+      Item Icon_186: 142556259
+      Item Icon_187: -1074393525
+      Item Icon_19: -968441699
+      Item Icon_20: -1112265882
+      Item Icon_22: -1658745053
+      Item Icon_25: -1406548852
+      Item Icon_26: 1970331460
+      Item Icon_27: 710399805
+      Item Icon_29: 753152541
+      Item Icon_3: -624769378
+      Item Icon_30: -710277527
+      Item Icon_31: 253065643
+      Item Icon_32: 103511530
+      Item Icon_33: 41828378
+      Item Icon_34: 2037776331
+      Item Icon_35: -1935006034
+      Item Icon_36: 1830942342
+      Item Icon_37: 868027205
+      Item Icon_38: -1857365307
+      Item Icon_39: -1591874997
+      Item Icon_4: -192945727
+      Item Icon_40: -1570742366
+      Item Icon_41: -893918793
+      Item Icon_46: 1809671862
+      Item Icon_47: -1755277960
+      Item Icon_48: -674230376
+      Item Icon_49: 913819943
+      Item Icon_5: -840060768
+      Item Icon_50: -902549989
+      Item Icon_51: 575228813
+      Item Icon_52: -1504147752
+      Item Icon_53: 1161282606
+      Item Icon_54: -1062317221
+      Item Icon_55: -1771898847
+      Item Icon_56: 775909617
+      Item Icon_57: 531704538
+      Item Icon_58: -2030245777
+      Item Icon_59: 1425668533
+      Item Icon_6: -1853119842
+      Item Icon_60: 1989357550
+      Item Icon_61: 748499511
+      Item Icon_62: -483435495
+      Item Icon_63: -1285197323
+      Item Icon_65: 329379688
+      Item Icon_66: -1056057141
+      Item Icon_67: 1267647509
+      Item Icon_68: -826857058
+      Item Icon_69: 105151772
+      Item Icon_7: 1498993054
+      Item Icon_70: 632502095
+      Item Icon_71: -729246157
+      Item Icon_72: 1634091431
+      Item Icon_73: 284334430
+      Item Icon_74: 1181113285
+      Item Icon_75: -1600516704
+      Item Icon_76: -476362030
+      Item Icon_77: 1264752564
+      Item Icon_78: 1505610259
+      Item Icon_79: 1387040041
+      Item Icon_8: 515387221
+      Item Icon_80: -37595458
+      Item Icon_81: 1253179621
+      Item Icon_82: 631559591
+      Item Icon_87: -1871354047
+      Item Icon_88: -1153012884
+      Item Icon_89: 515300901
+      Item Icon_9: 1062248062
+      Item Icon_90: 345291406
+      Item Icon_91: 1149723832
+      Item Icon_92: 274308580
+      Item Icon_93: 1760001665
+      Item Icon_94: 1446810705
+      Item Icon_95: -1170304791
+      Item Icon_96: 89834707
+      Item Icon_97: 1078060718
+      Item Icon_98: -897711269
+      Item Icon_99: -1139248269
+      Leather: -2048984701
+      Mushroom1: 722956212
+      Mushroom2: -129564797
+      Raw Fish: 860442509
+      Raw Meat: -622304887
+      Rope: -1386378037
+      Soup: 449918544
+      Spear: -1252051298
+      Stone: 1315325488
+      Stone Axe: 1152443898
+      Stone Hammer: 1757826286
+      Stone Pickaxe: -126881242
+      Thread: 1145177616
+      Water Bottle: -1552187004
+      Wood Log: 1135936264
+      Wool: 525301450
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

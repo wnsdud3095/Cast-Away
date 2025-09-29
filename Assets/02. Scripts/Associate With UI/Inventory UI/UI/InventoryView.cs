@@ -33,10 +33,10 @@ public class InventoryView : MonoBehaviour, IInventoryView
         m_canvas_group.interactable = true; 
         m_canvas_group.blocksRaycasts = true;
 
-        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.WOOD, 18);
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.HAND_AXE, 1);
-        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.FOUNDATION, 10);
-        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.MUSHROOM, 10);
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE_AXE, 1);
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE_PICKAXE, 1);
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE_SPEAR, 1);
     }
 
     public void CloseUI()
