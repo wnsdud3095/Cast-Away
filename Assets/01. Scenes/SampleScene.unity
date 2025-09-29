@@ -1348,7 +1348,7 @@ PrefabInstance:
     - target: {fileID: 521655673642667101, guid: dd730343e0df46546acbe05b59126516, type: 3}
       propertyPath: m_shortcut_select_manager
       value: 
-      objectReference: {fileID: 1594447264}
+      objectReference: {fileID: 0}
     - target: {fileID: 2498433862025858045, guid: dd730343e0df46546acbe05b59126516, type: 3}
       propertyPath: m_Name
       value: Shortcut Slot (2)
@@ -3384,7 +3384,7 @@ PrefabInstance:
     - target: {fileID: 521655673642667101, guid: dd730343e0df46546acbe05b59126516, type: 3}
       propertyPath: m_shortcut_select_manager
       value: 
-      objectReference: {fileID: 1594447264}
+      objectReference: {fileID: 0}
     - target: {fileID: 2498433862025858045, guid: dd730343e0df46546acbe05b59126516, type: 3}
       propertyPath: m_Name
       value: Shortcut Slot (4)
@@ -5999,7 +5999,7 @@ PrefabInstance:
     - target: {fileID: 521655673642667101, guid: dd730343e0df46546acbe05b59126516, type: 3}
       propertyPath: m_shortcut_select_manager
       value: 
-      objectReference: {fileID: 1594447264}
+      objectReference: {fileID: 0}
     - target: {fileID: 2498433862025858045, guid: dd730343e0df46546acbe05b59126516, type: 3}
       propertyPath: m_Name
       value: Shortcut Slot (1)
@@ -6561,7 +6561,7 @@ PrefabInstance:
     - target: {fileID: 521655673642667101, guid: dd730343e0df46546acbe05b59126516, type: 3}
       propertyPath: m_shortcut_select_manager
       value: 
-      objectReference: {fileID: 1594447264}
+      objectReference: {fileID: 0}
     - target: {fileID: 2498433862025858045, guid: dd730343e0df46546acbe05b59126516, type: 3}
       propertyPath: m_Name
       value: Shortcut Slot (3)
@@ -6955,8 +6955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc59ece24addd649b73a9ddb6caf086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ui_manager: {fileID: 1025504285}
-  m_close_button: {fileID: 0}
+  m_ui_manager: {fileID: 1025504287}
 --- !u!95 &886749501
 Animator:
   serializedVersion: 7
@@ -6999,7 +6998,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1557026005, guid: 5b772971b8847d340b694af7f39fd154, type: 3}
+  m_Sprite: {fileID: 400057248, guid: 01db681c3b7d9e64daaffb1e2deba94a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11157,51 +11156,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0c16f0ea935ea64297ca1d4d55d9746, type: 3}
---- !u!1 &1594447263
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1594447265}
-  - component: {fileID: 1594447264}
-  m_Layer: 0
-  m_Name: ShortcutSelectManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1594447264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1594447263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e141b735d15128e4a9659695d08208a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_shortcut_count: 5
---- !u!4 &1594447265
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1594447263}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 960, y: 69.99976, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1596422186 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2807449429036539767, guid: f0c16f0ea935ea64297ca1d4d55d9746, type: 3}
@@ -12855,7 +12809,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ui_manager: {fileID: 1025504287}
-  m_close_button: {fileID: 471539901}
 --- !u!225 &1905612079
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -13917,7 +13870,7 @@ PrefabInstance:
     - target: {fileID: 521655673642667101, guid: dd730343e0df46546acbe05b59126516, type: 3}
       propertyPath: m_shortcut_select_manager
       value: 
-      objectReference: {fileID: 1594447264}
+      objectReference: {fileID: 0}
     - target: {fileID: 2498433862025858045, guid: dd730343e0df46546acbe05b59126516, type: 3}
       propertyPath: m_Name
       value: Shortcut Slot
@@ -14165,4 +14118,3 @@ SceneRoots:
   - {fileID: 909162192}
   - {fileID: 1865605035}
   - {fileID: 1025504286}
-  - {fileID: 1594447265}
