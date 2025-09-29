@@ -34,7 +34,6 @@ public class ShortcutSelectManager : MonoBehaviour
         // 좌클릭 아이템 사용
         if (Input.GetMouseButtonDown(0))
         {
-            UseSelected();
         }
     }
 
@@ -44,12 +43,4 @@ public class ShortcutSelectManager : MonoBehaviour
         OnSelectedChanged?.Invoke(index);
     }
 
-    private void UseSelected()
-    {
-        var presenters = DIContainer.Resolve<List<ShortcutSlotPresenter>>();
-        if (SelectedIndex >= 0 && SelectedIndex < presenters.Count)
-        {
-            presenters[SelectedIndex].UseShortcut();
-        }
-    }
 }

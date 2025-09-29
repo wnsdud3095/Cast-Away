@@ -1,6 +1,5 @@
 using System;
 using InventoryService;
-using ShortcutService;
 using TMPro;
 
 public class ItemSlotContext : IItemSlotContext
@@ -8,15 +7,13 @@ public class ItemSlotContext : IItemSlotContext
     private readonly IItemDataBase m_item_db;
 
     private readonly IInventoryService m_inventory_service;
-    private readonly IShortcutService m_shortcut_service;
 
     public ItemSlotContext(IItemDataBase item_db,
                            IInventoryService inventory_service
-                           )//IShortcutService shortcut_service
+                           )
     {
         m_item_db = item_db;
         m_inventory_service = inventory_service;
-        //m_shortcut_service = shortcut_service;
     }
 
     public void Register(SlotType slot_type, Action<int, ItemData> update_action, int offset = 0, int count = 0)
@@ -25,10 +22,6 @@ public class ItemSlotContext : IItemSlotContext
         {
             case SlotType.Inventory:
                 m_inventory_service.OnUpdatedSlot += update_action;
-                break;
-
-            case SlotType.Shortcut:
-                //m_shortcut_service.OnUpdatedSlot += update_action;
                 break;
 
             case SlotType.Craft:
@@ -44,10 +37,6 @@ public class ItemSlotContext : IItemSlotContext
             case SlotType.Inventory:
                 m_inventory_service.OnUpdatedSlot -= update_action;
                 break;
-
-            case SlotType.Shortcut:
-                //m_shortcut_service.OnUpdatedSlot -= update_action;
-                break;
         }        
     }    
 
@@ -56,7 +45,6 @@ public class ItemSlotContext : IItemSlotContext
         return slot_type switch
         {
             SlotType.Inventory              => m_inventory_service.GetItem(offset),
-            //SlotType.Shortcut               => m_shortcut_service.GetItem(offset),
             SlotType.Craft => new ItemData(m_item_db.GetItem((ItemCode)offset).Code, count),
             _                               => null,
         };
@@ -67,7 +55,6 @@ public class ItemSlotContext : IItemSlotContext
         var action = slot_type switch
         {
             SlotType.Inventory              => () => m_inventory_service.SetItem(offset, code, count),
-            //SlotType.Shortcut               => () => m_shortcut_service.SetItem(offset, code),
             _                               => (Action)(() => {})
         };
 
@@ -90,7 +77,6 @@ public class ItemSlotContext : IItemSlotContext
         var action = slot_type switch
         {
             SlotType.Inventory              => () => m_inventory_service.Clear(offset),
-            //SlotType.Shortcut               => () => m_shortcut_service.Clear(offset),
             _                               => (Action)(() => {})
         };
 

@@ -5,7 +5,6 @@ using EXPService;
 using UserService;
 using InventoryService;
 using KeyService;
-using ShortcutService;
 
 public static class ServiceLocator
 {
@@ -18,7 +17,6 @@ public static class ServiceLocator
         Register<IUserService>(new UserDataService());
         Register<IInventoryService>(new IventoryDataService());
         Register<IKeyService>(new KeyDataService());
-        //Register<IShortcutService>(new ShortcutDataService());
     }
 
     public static void Register<T>(T service)
