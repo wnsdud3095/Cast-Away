@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 102_Stone Axe
   m_EditorClassIdentifier: 
   m_code: 102
-  m_type: 8
+  m_type: 4
   m_name: "\uB3CC \uB3C4\uB07C"
   m_stackable: 0
   m_cool: -1
-  m_sprite: {fileID: 0}
+  m_sprite: {fileID: 1152443898, guid: ae89c7acf9a641848a009ff1a1ea8e1d, type: 3}

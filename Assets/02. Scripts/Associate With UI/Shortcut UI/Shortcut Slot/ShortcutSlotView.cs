@@ -12,8 +12,8 @@ public class ShortcutSlotView : MonoBehaviour, IShortcutSlotView
 
     private void OnDestroy()
     {
-        m_presenter.Dispose();
         m_presenter.OnSelectedChanged -= HandleSelectedChanged;
+        m_presenter.Dispose();
     }
 
     [System.Obsolete]

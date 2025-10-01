@@ -54,7 +54,35 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: TriggerEnter
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 695e65ac3407cd84da425c4b7504d136, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.33183858
+        functionName: EnableHit
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 695e65ac3407cd84da425c4b7504d136, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.4284807
+        functionName: DisableHit
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 695e65ac3407cd84da425c4b7504d136, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.97289157
+        functionName: TriggerExit
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 695e65ac3407cd84da425c4b7504d136, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

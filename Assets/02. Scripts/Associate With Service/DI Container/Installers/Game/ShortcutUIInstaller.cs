@@ -22,7 +22,7 @@ public class ShortcutUIInstaller : MonoBehaviour, IInstaller
 
         //ShortcutPresenter 생성 및 등록
         var shortcut_presenter = new ShortcutPresenter(m_shortcut_view,
-                                                       DIContainer.Resolve<InventoryPresenter>());
+                                                       ServiceLocator.Get<IInventoryService>());
         for (int i = 0; i < shortcut_slot_views.Length; i++)
         {
             int offset = 12 + i; // 인벤토리 0~11, 숏컷 12~16

@@ -64,6 +64,7 @@ public class CameraCtrl : MonoBehaviour
            !collider.CompareTag("Enemy") &&
            !collider.CompareTag("Item") &&
            !collider.CompareTag("Tool") &&
+           !collider.CompareTag("UI") &&
            collider != null)
         {
             return true;

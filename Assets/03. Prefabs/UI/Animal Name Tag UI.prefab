@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 898398532748089490}
   - component: {fileID: 3431282286550607845}
   - component: {fileID: 2402382006321433509}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Animal Name Tag UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
+  m_IgnoreReversedGraphics: 0
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
@@ -118,7 +118,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_canvas_group: {fileID: 2402382006321433509}
   m_name_tag_label: {fileID: 7829798287144785353}
-  m_rotation_speed: 3
 --- !u!225 &2402382006321433509
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -142,7 +141,7 @@ GameObject:
   - component: {fileID: 6060736601793886157}
   - component: {fileID: 6785603840860216938}
   - component: {fileID: 7829798287144785353}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Name Tag Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}

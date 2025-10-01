@@ -18,6 +18,9 @@ public class AnimalHurtState : MonoBehaviour, IState<AnimalCtrl>
 
     private void Initialize()
     {
+        m_controller.Agent.velocity = Vector3.zero;
+        m_controller.Agent.ResetPath();
+
         m_controller.Movement.IsWalk = false;
         m_controller.Movement.IsRun = false;
 

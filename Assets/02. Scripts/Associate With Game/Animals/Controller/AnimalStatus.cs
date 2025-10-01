@@ -10,6 +10,7 @@ public class AnimalStatus : MonoBehaviour
     public float MaxHP { get; private set; }
     public bool IsDead { get; private set; }
 
+    public event Action<float, float> OnUpdatedHP;
     public event Action<AnimalCtrl> OnDisabledObject;
 
     private void Awake()
@@ -36,6 +37,7 @@ public class AnimalStatus : MonoBehaviour
     public void UpdateHP(float amount)
     {
         CurrentHP += amount;
+        CurrentHP = Mathf.Clamp(CurrentHP, 0f, MaxHP);
 
         if(amount < 0f)
         {
@@ -47,6 +49,8 @@ public class AnimalStatus : MonoBehaviour
             {
                 m_controller.ChangeState(AnimalState.HURT);
             }
+
+            OnUpdatedHP?.Invoke(CurrentHP, MaxHP);
         }
     }
 
