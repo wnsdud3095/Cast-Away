@@ -17,8 +17,6 @@ public class AnimalCtrl : MonoBehaviour
     private IState<AnimalCtrl> m_death_state;
     #endregion FSM States
 
-    
-
     public bool ForceMode { get; set; }
 
     public BoxCollider Collider { get; protected set; }

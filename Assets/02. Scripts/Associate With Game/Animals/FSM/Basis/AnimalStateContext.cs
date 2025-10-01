@@ -1,6 +1,6 @@
 public class AnimalStateContext
 {
-    private AnimalCtrl m_controller;
+    private readonly AnimalCtrl m_controller;
     private IState<AnimalCtrl> m_current_state;
 
     public AnimalStateContext(AnimalCtrl controller)
@@ -10,7 +10,6 @@ public class AnimalStateContext
 
     public void Transition(IState<AnimalCtrl> state)
     {
-        UnityEngine.Debug.Log(state);
         if(m_current_state == state)
         {
             return;

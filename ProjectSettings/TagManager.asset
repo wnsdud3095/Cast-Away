@@ -9,6 +9,7 @@ TagManager:
   - Tool
   - Animal
   - Breakable
+  - UI
   layers:
   - Default
   - TransparentFX

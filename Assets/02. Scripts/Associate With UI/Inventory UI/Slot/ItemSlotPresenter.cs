@@ -52,13 +52,11 @@ public class ItemSlotPresenter : IDisposable
 
         if (item_data.Code == ItemCode.NONE)
         {
-            UnityEngine.Debug.Log($"[ItemSlotPresenter] Slot {m_slot_type}[{m_offset}] Cleared");
             m_view.ClearUI();
             return;
         }
 
         var item = m_item_db.GetItem(item_data.Code);
-        UnityEngine.Debug.Log($"[ItemSlotPresenter] Slot {m_slot_type}[{m_offset}] Updated → {item.Name}, Count: {item_data.Count}");
         m_view.UpdateUI(item.Sprite, item.Stackable, item_data.Count);
     }
 

@@ -18,6 +18,13 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         m_controller = GetComponent<PlayerCtrl>();
+
+        PlayerInput.OnShiftHold += DashToggle;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerInput.OnShiftHold -= DashToggle;
     }
 
     private void Update()
@@ -34,15 +41,11 @@ public class PlayerMovement : MonoBehaviour
     {
         var input_vector = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
         m_controller.Direction = input_vector.normalized;
+    }
 
-        if(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-        {
-            IsDashActive = true;
-        }
-        else
-        {
-            IsDashActive = false;
-        }
+    private void DashToggle(bool active)
+    {
+        IsDashActive = active;
     }
 
     private void OnMove()
