@@ -18,6 +18,10 @@ public class AnimalIdleState : MonoBehaviour, IState<AnimalCtrl>
         m_wait_coroutine = StartCoroutine(WaitForAction(m_idle_time));
     }
 
+    public void ExecuteUpdate() { }
+
+    public void ExecuteFixedUpdate() { }
+
     public void ExecuteExit()
     {
         if(m_wait_coroutine != null)

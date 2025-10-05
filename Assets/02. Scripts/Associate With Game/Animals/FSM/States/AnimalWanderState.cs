@@ -18,6 +18,10 @@ public class AnimalWanderState : MonoBehaviour, IState<AnimalCtrl>
         Wander();
     }
 
+    public void ExecuteUpdate() { }
+
+    public void ExecuteFixedUpdate() { }
+
     public void ExecuteExit()
     {
         if(m_move_coroutine != null)

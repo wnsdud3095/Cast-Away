@@ -18,6 +18,10 @@ public class AnimalAttackState : MonoBehaviour, IState<AnimalCtrl>
         m_rotate_coroutine = StartCoroutine(RotateToPlayer());
     }
 
+    public void ExecuteUpdate() { }
+
+    public void ExecuteFixedUpdate() { }
+
     public void ExecuteExit()
     {
         if(m_rotate_coroutine != null)

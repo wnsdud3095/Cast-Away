@@ -14,6 +14,10 @@ public class AnimalEatState : MonoBehaviour, IState<AnimalCtrl>
         Initialize();
     }
 
+    public void ExecuteUpdate() { }
+
+    public void ExecuteFixedUpdate() { }
+
     public void ExecuteExit() {}
 
     private void Initialize()

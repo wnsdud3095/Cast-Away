@@ -18,6 +18,10 @@ public class AnimalTraceState : MonoBehaviour, IState<AnimalCtrl>
         Trace();
     }
 
+    public void ExecuteUpdate() { }
+
+    public void ExecuteFixedUpdate() { }
+
     public void ExecuteExit()
     {
         if(m_move_coroutine != null)

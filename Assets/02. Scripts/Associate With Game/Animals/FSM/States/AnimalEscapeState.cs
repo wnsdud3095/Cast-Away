@@ -18,6 +18,10 @@ public class AnimalEscapeState : MonoBehaviour, IState<AnimalCtrl>
         Escape();
     }
 
+    public void ExecuteUpdate() { }
+
+    public void ExecuteFixedUpdate() { }
+
     public void ExecuteExit()
     {
         if(m_move_coroutine != null)

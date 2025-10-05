@@ -7,7 +7,7 @@ public class Pickaxe : BaseTool
 
     protected override void OnLeftUse()
     {
-        m_player_ctrl.Animator.SetBool("Working", true);
+        m_player_ctrl.ChangeState(PlayerState.WORK);
     }
 
     protected override void OnRightUse() { }
@@ -27,5 +27,11 @@ public class Pickaxe : BaseTool
     protected override void OnInteract(AnimalCtrl animal)
     {
         animal.Status.UpdateHP(-m_target_damage);
+    }
+
+    public override void TriggerExit()
+    {
+        base.TriggerExit();
+        m_player_ctrl.ChangeState(PlayerState.IDLE);
     }
 }

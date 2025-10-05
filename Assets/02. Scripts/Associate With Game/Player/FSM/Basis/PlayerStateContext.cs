@@ -19,4 +19,14 @@ public class PlayerStateContext
         m_current_state = state;
         m_current_state?.ExecuteEnter(m_controller);
     }
+
+    public void UpdateState()
+    {
+        m_current_state?.ExecuteUpdate();
+    }
+
+    public void FixedUpdateState()
+    {
+        m_current_state?.ExecuteFixedUpdate();
+    }
 }

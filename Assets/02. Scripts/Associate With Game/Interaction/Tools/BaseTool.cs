@@ -20,25 +20,25 @@ public abstract class BaseTool : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerInput.OnLeftClickDown += OnLeftUse;
-        PlayerInput.OnLeftClickHold += OnLeftUse;
-        PlayerInput.OnRightClickDown += OnRightUse;
+        ItemSwapper.OnLeftClickDown += OnLeftUse;
+        ItemSwapper.OnLeftClickHold += OnLeftUse;
+        ItemSwapper.OnRightClickDown += OnRightUse;
     }
 
     private void OnDisable()
     {
         m_collider.enabled = false;
 
-        PlayerInput.OnLeftClickDown -= OnLeftUse;
-        PlayerInput.OnLeftClickHold -= OnLeftUse;
-        PlayerInput.OnRightClickDown -= OnRightUse;        
+        ItemSwapper.OnLeftClickDown -= OnLeftUse;
+        ItemSwapper.OnLeftClickHold -= OnLeftUse;
+        ItemSwapper.OnRightClickDown -= OnRightUse;        
     }
 
     private void OnDestroy()
     {
-        PlayerInput.OnLeftClickDown -= OnLeftUse;
-        PlayerInput.OnLeftClickHold -= OnLeftUse;
-        PlayerInput.OnRightClickDown -= OnRightUse;        
+        ItemSwapper.OnLeftClickDown -= OnLeftUse;
+        ItemSwapper.OnLeftClickHold -= OnLeftUse;
+        ItemSwapper.OnRightClickDown -= OnRightUse;        
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -80,6 +80,5 @@ public abstract class BaseTool : MonoBehaviour
     public virtual void TriggerExit()
     {
         m_is_working = false;
-        m_player_ctrl.Animator.SetBool("Working", false);
     }
 }

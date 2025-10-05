@@ -1,16 +1,54 @@
 using UnityEngine;
 
-public class PlayerIdleState : MonoBehaviour
+public class PlayerIdleState : MonoBehaviour, IState<PlayerCtrl>
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private PlayerCtrl m_controller;
+
+    public void ExecuteEnter(PlayerCtrl sender)
     {
-        
+        if(m_controller == null)
+        {
+            m_controller = sender;
+        }
+
+        Initialize();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ExecuteUpdate()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            ItemSwapper.OnLeftClickDown?.Invoke();
+        }
+        else if(Input.GetKey(KeyCode.Mouse0))
+        {
+            ItemSwapper.OnLeftClickHold?.Invoke();
+        }
+        else if(Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            ItemSwapper.OnRightClickDown?.Invoke();
+        }
+        else if(m_controller.Direction.magnitude > 0f)
+        {
+            if(m_controller.Movement.IsDashActive)
+            {
+                m_controller.ChangeState(PlayerState.RUN);
+            }
+            else
+            {
+                m_controller.ChangeState(PlayerState.WALK);
+            }
+        }
+    }
+
+    public void ExecuteFixedUpdate() { }
+
+    public void ExecuteExit() { }
+
+    private void Initialize()
+    {
+        m_controller.Animator.SetBool("Walking", false);
+        m_controller.Animator.SetBool("Running", false);
+        m_controller.Animator.SetBool("Working", false);
     }
 }
