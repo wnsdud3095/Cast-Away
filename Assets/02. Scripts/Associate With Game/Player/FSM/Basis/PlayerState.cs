@@ -4,4 +4,5 @@ public enum PlayerState
     WALK = 1,
     RUN = 2,
     WORK = 3,
+    ATTACK = 4,
 }

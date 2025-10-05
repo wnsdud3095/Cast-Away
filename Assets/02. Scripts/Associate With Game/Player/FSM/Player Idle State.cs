@@ -50,5 +50,6 @@ public class PlayerIdleState : MonoBehaviour, IState<PlayerCtrl>
         m_controller.Animator.SetBool("Walking", false);
         m_controller.Animator.SetBool("Running", false);
         m_controller.Animator.SetBool("Working", false);
+        m_controller.Animator.SetBool("Spearing", false);
     }
 }

@@ -47,5 +47,6 @@ public class PlayerRunState : MonoBehaviour, IState<PlayerCtrl>
         m_controller.Animator.SetBool("Walking", true);
         m_controller.Animator.SetBool("Running", true);
         m_controller.Animator.SetBool("Working", false);
+        m_controller.Animator.SetBool("Spearing", false);
     }
 }

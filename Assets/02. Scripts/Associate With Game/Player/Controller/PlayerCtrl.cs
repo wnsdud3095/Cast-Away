@@ -9,6 +9,7 @@ public class PlayerCtrl : MonoBehaviour
     private IState<PlayerCtrl> m_walk_state;
     private IState<PlayerCtrl> m_run_state;
     private IState<PlayerCtrl> m_work_state;
+    private IState<PlayerCtrl> m_attack_state;
     #endregion FSM States
 
     public PlayerMovement Movement { get; private set; }
@@ -37,6 +38,7 @@ public class PlayerCtrl : MonoBehaviour
         m_walk_state = gameObject.AddComponent<PlayerWalkState>();
         m_run_state = gameObject.AddComponent<PlayerRunState>();
         m_work_state = gameObject.AddComponent<PlayerWorkState>();
+        m_attack_state = gameObject.AddComponent<PlayerAttackState>();
 
         ChangeState(PlayerState.IDLE);
     }
@@ -59,6 +61,7 @@ public class PlayerCtrl : MonoBehaviour
             PlayerState.WALK        => m_walk_state,
             PlayerState.RUN         => m_run_state,
             PlayerState.WORK        => m_work_state,
+            PlayerState.ATTACK      => m_attack_state,
             _                       => null
         };
 

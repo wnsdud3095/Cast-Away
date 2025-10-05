@@ -11,7 +11,8 @@ public abstract class BaseTool : MonoBehaviour
     [SerializeField] protected float m_default_damage;
 
     protected Collider m_collider;
-    public static bool m_is_working = false;
+    protected bool m_is_working = false;
+    protected bool m_is_attacking = false;
 
     private void Awake()
     {
@@ -31,7 +32,10 @@ public abstract class BaseTool : MonoBehaviour
 
         ItemSwapper.OnLeftClickDown -= OnLeftUse;
         ItemSwapper.OnLeftClickHold -= OnLeftUse;
-        ItemSwapper.OnRightClickDown -= OnRightUse;        
+        ItemSwapper.OnRightClickDown -= OnRightUse; 
+
+        m_player_ctrl.Animator.Play("Idle");
+        m_player_ctrl.ChangeState(PlayerState.IDLE);       
     }
 
     private void OnDestroy()

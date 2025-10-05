@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerWorkState : MonoBehaviour, IState<PlayerCtrl>
+public class PlayerAttackState : MonoBehaviour, IState<PlayerCtrl>
 {
     private PlayerCtrl m_controller;
 
@@ -20,14 +20,14 @@ public class PlayerWorkState : MonoBehaviour, IState<PlayerCtrl>
 
     public void ExecuteExit()
     {
-        m_controller.Animator.SetBool("Working", false);   
+        m_controller.Animator.SetBool("Spearing", false);
     }
 
     private void Initialize()
     {
         m_controller.Animator.SetBool("Walking", false);
         m_controller.Animator.SetBool("Running", false);
-        m_controller.Animator.SetBool("Working", true);  
-        m_controller.Animator.SetBool("Spearing", false);      
+        m_controller.Animator.SetBool("Working", false);
+        m_controller.Animator.SetBool("Spearing", true);
     }
 }
