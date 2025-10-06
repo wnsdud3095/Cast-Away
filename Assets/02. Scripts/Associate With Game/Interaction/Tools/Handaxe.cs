@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class Handaxe : BaseTool
 {    
     protected override void OnLeftUse()
@@ -7,9 +9,9 @@ public class Handaxe : BaseTool
 
     protected override void OnRightUse() { }
 
-    protected override void OnInteract(IInteratable target)
+    protected override void OnInteract(BaseBreakable target, Vector3 point)
     {
-        target.UpdateHP(-m_default_damage);
+        target.UpdateHP(-m_default_damage, point);
     }    
 
     protected override void OnInteract(AnimalCtrl animal)

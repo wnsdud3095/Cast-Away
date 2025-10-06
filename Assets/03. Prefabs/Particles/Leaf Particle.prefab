@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 603154656173571128}
   - component: {fileID: 7825171358412560877}
   - component: {fileID: 7652266580915684971}
+  - component: {fileID: 6041019228808787852}
   m_Layer: 0
   m_Name: Leaf Particle
   m_TagString: Untagged
@@ -43,14 +44,14 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 7
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -980,7 +981,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 15
+        scalar: 8
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -4891,3 +4892,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &6041019228808787852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3823870175429082756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e4f42993371854fbfa495f3204c7f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_object_type: 302

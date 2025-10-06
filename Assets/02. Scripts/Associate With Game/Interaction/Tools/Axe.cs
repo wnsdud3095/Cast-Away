@@ -12,15 +12,15 @@ public class Axe : BaseTool
 
     protected override void OnRightUse() { }
 
-    protected override void OnInteract(IInteratable target)
+    protected override void OnInteract(BaseBreakable target, Vector3 point)
     {
         if(target is BreakableTree)
         {
-            target.UpdateHP(-m_target_damage);
+            target.UpdateHP(-m_target_damage, point);
         }
         else
         {
-            target.UpdateHP(-m_default_damage);
+            target.UpdateHP(-m_default_damage, point);
         }
     }
 

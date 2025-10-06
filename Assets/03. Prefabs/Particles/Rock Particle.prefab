@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8781492601271203922}
   - component: {fileID: 8893891301631573579}
   - component: {fileID: 5836309359112761621}
+  - component: {fileID: 7041246996102197557}
   m_Layer: 0
   m_Name: Rock Particle
   m_TagString: Untagged
@@ -43,14 +44,14 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 1.5
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -664,7 +665,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 0
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -4891,3 +4892,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &7041246996102197557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192594795892128657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e4f42993371854fbfa495f3204c7f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_object_type: 303

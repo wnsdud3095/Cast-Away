@@ -49,8 +49,9 @@ public abstract class BaseTool : MonoBehaviour
     {
         if(collider.CompareTag("Breakable"))
         {
-            var interactable = collider.GetComponent<IInteratable>();
-            OnInteract(interactable);
+            var hit_point = collider.ClosestPoint(transform.position);
+            var interactable = collider.GetComponent<BaseBreakable>();
+            OnInteract(interactable, hit_point);
         }
 
         if(collider.CompareTag("Animal"))
@@ -63,7 +64,7 @@ public abstract class BaseTool : MonoBehaviour
 
     protected abstract void OnLeftUse();
     protected abstract void OnRightUse();
-    protected abstract void OnInteract(IInteratable target);
+    protected abstract void OnInteract(BaseBreakable target, Vector3 point);
     protected abstract void OnInteract(AnimalCtrl animal);
 
     public virtual void TriggerEnter()
