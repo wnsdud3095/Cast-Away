@@ -45,6 +45,7 @@ public class AnimalSpawner : MonoBehaviour
 
     private PlayerCtrl m_player_ctrl;
     private TimeManager m_time_manager;
+    private CameraShaker m_camera_shaker;
 
     private readonly int m_max_animal_count = 8;
     private int m_current_animal_count = 0;
@@ -64,10 +65,12 @@ public class AnimalSpawner : MonoBehaviour
     }
 
     public void Inject(PlayerCtrl player_ctrl,
-                       TimeManager time_manager)
+                       TimeManager time_manager,
+                       CameraShaker camera_shaker)
     {
         m_player_ctrl = player_ctrl;
         m_time_manager = time_manager;
+        m_camera_shaker = camera_shaker;
 
         m_time_manager.OnHourChanged += SpawnNeutrality;
         SpawnNeutrality();
@@ -98,7 +101,9 @@ public class AnimalSpawner : MonoBehaviour
             name_tag_trigger.Inject(name_tag_presenter);
 
             var animal_ctrl = animal_obj.GetComponent<AnimalCtrl>();
-            animal_ctrl.Initialize(m_player_ctrl, m_time_manager);
+            animal_ctrl.Initialize(m_player_ctrl, 
+                                   m_time_manager, 
+                                   m_camera_shaker);
             animal_ctrl.Status.OnDisabledObject += AnimalDisabledEvent;
 
             m_current_animal_count++;
@@ -124,7 +129,9 @@ public class AnimalSpawner : MonoBehaviour
             name_tag_trigger.Inject(name_tag_presenter);
 
             var animal_ctrl = animal_obj.GetComponent<AggressiveAnimalCtrl>();
-            animal_ctrl.Initialize(m_player_ctrl, m_time_manager);
+            animal_ctrl.Initialize(m_player_ctrl, 
+                                   m_time_manager, 
+                                   m_camera_shaker);
         }
     }
 

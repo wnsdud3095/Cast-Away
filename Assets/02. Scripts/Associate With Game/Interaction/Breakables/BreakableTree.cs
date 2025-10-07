@@ -9,6 +9,8 @@ public class BreakableTree : BaseBreakable
 
     protected override void InstantiateEffect(Vector3 point)
     {
+        m_camera_shaker.Shaking(0.1f, 0.4f);
+
         var leaf_obj = ObjectManager.Instance.GetObject(ObjectType.LEAF_PARTICLE);
         leaf_obj.transform.position = transform.position + m_tree_height * Vector3.up;
 
@@ -42,6 +44,7 @@ public class BreakableTree : BaseBreakable
             yield return null;
         }
 
+        m_camera_shaker.Shaking(0.1f, 0.75f);
         InstantiateDeathEffect();
         transform.parent.gameObject.SetActive(false);
         

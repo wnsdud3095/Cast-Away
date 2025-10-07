@@ -12,6 +12,7 @@ public class AnimalDeathState : MonoBehaviour, IState<AnimalCtrl>
         }
 
         Initialize();
+        m_controller.CameraShaker.Shaking(0.05f, 0.4f);
     }
 
     public void ExecuteUpdate() { }
@@ -33,6 +34,11 @@ public class AnimalDeathState : MonoBehaviour, IState<AnimalCtrl>
 
         m_controller.Animator.SetTrigger("Death");    
         m_controller.Status.Death();    
+    }
+
+    public void ShakeCamera()
+    {
+        m_controller.CameraShaker.Shaking(0.05f, 0.5f);
     }
 
     public void OnDeathAnimationEnd()

@@ -2,10 +2,17 @@ using UnityEngine;
 
 public abstract class BaseBreakable : MonoBehaviour
 {
+    protected CameraShaker m_camera_shaker; 
+
     [Header("구조물의 체력")]
     [SerializeField] private float m_default_hp;
 
     private bool m_is_already_break = false;
+
+    public void Inject(CameraShaker camera_shaker)
+    {
+        m_camera_shaker = camera_shaker;
+    }
 
     public virtual void UpdateHP(float amount, Vector3 point)
     {

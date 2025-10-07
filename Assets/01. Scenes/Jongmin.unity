@@ -2942,6 +2942,52 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1 &228578555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 228578556}
+  - component: {fileID: 228578557}
+  m_Layer: 0
+  m_Name: Camera Shaker Installer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &228578556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228578555}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 532790672}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &228578557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228578555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc520b70a5527c43a69054d10a63939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_breakable_root: {fileID: 470436826}
+  m_camera_shaker: {fileID: 1466520903}
 --- !u!1001 &229626634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6155,6 +6201,7 @@ Transform:
   - {fileID: 1037409015}
   - {fileID: 433564445}
   - {fileID: 1967626780}
+  - {fileID: 228578556}
   m_Father: {fileID: 83690742}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &545955272
@@ -9953,6 +10000,7 @@ MonoBehaviour:
   m_player_ctrl: {fileID: 412178490}
   m_animal_spawner: {fileID: 1626636417}
   m_time_manager: {fileID: 382026197}
+  m_camera_shaker: {fileID: 1466520903}
 --- !u!1 &891018280
 GameObject:
   m_ObjectHideFlags: 0
@@ -15796,6 +15844,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1466520900}
   - component: {fileID: 1466520901}
+  - component: {fileID: 1466520903}
   m_Layer: 2
   m_Name: Camera Rig
   m_TagString: Untagged
@@ -15833,6 +15882,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_player_transform: {fileID: 9099099296474890088}
   m_camera_transform: {fileID: 330585546}
+--- !u!114 &1466520903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466520899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62634f2cb0bf820438667b53c868ac5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1477346778
 GameObject:
   m_ObjectHideFlags: 0

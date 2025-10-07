@@ -2,6 +2,16 @@ using UnityEngine;
 
 public class Hand : BaseTool
 {
+    protected override void OnTriggerEnter(Collider collider)
+    {
+        if(collider.CompareTag("Animal"))
+        {
+            Debug.Log(collider.name);
+            var animal = collider.GetComponent<AnimalCtrl>();
+            OnInteract(animal);
+        }
+    }
+
     protected override void OnLeftUse()
     {
         m_player_ctrl.ChangeState(PlayerState.WORK);

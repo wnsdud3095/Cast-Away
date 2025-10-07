@@ -11,6 +11,9 @@ public class AnimalSpawnerInstaller : MonoBehaviour, IInstaller
     [Header("시간 매니저")]
     [SerializeField] private TimeManager m_time_manager;
 
+    [Header("카메라 셰이커")]
+    [SerializeField] private CameraShaker m_camera_shaker;
+
     public void Install()
     {
         InstallSpawner();
@@ -19,7 +22,8 @@ public class AnimalSpawnerInstaller : MonoBehaviour, IInstaller
     private void InstallSpawner()
     {
         m_animal_spawner.Inject(m_player_ctrl,
-                                m_time_manager);
+                                m_time_manager,
+                                m_camera_shaker);
         DIContainer.Register<AnimalSpawner>(m_animal_spawner);
     }
 }

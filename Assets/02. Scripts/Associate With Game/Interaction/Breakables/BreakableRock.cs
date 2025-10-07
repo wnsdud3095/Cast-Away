@@ -8,6 +8,8 @@ public class BreakableRock : BaseBreakable
 
     protected override void InstantiateEffect(Vector3 point)
     {
+        m_camera_shaker.Shaking(0.15f, 0.35f);
+
         var rock_obj = ObjectManager.Instance.GetObject(ObjectType.ROCK_PARTICLE);
         rock_obj.transform.position = point;
 

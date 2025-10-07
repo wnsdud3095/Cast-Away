@@ -45,7 +45,7 @@ public abstract class BaseTool : MonoBehaviour
         ItemSwapper.OnRightClickDown -= OnRightUse;        
     }
 
-    private void OnTriggerEnter(Collider collider)
+    protected virtual void OnTriggerEnter(Collider collider)
     {
         if(collider.CompareTag("Breakable"))
         {

@@ -12,6 +12,7 @@ public class AnimalHurtState : MonoBehaviour, IState<AnimalCtrl>
         }
 
         Initialize();
+        m_controller.CameraShaker.Shaking(0.05f, 0.4f);
     }
 
     public void ExecuteUpdate() { }
