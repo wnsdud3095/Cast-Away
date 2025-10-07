@@ -29,10 +29,12 @@ public class AggressiveAnimalCtrl : AnimalCtrl
     }
 
     public override void Initialize(PlayerCtrl player_ctrl, 
-                                    TimeManager time_manager)
+                                    TimeManager time_manager,
+                                    CameraShaker camera_shaker)
     {
         base.Initialize(player_ctrl, 
-                        time_manager);
+                        time_manager,
+                        camera_shaker);
 
         Attack.Initialize((SO as AggressiveAnimal).ATK,
                           (SO as AggressiveAnimal).ATKRange);

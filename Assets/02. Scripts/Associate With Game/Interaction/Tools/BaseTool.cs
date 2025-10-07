@@ -11,7 +11,8 @@ public abstract class BaseTool : MonoBehaviour
     [SerializeField] protected float m_default_damage;
 
     protected Collider m_collider;
-    public static bool m_is_working = false;
+    protected bool m_is_working = false;
+    protected bool m_is_attacking = false;
 
     private void Awake()
     {
@@ -20,33 +21,37 @@ public abstract class BaseTool : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerInput.OnLeftClickDown += OnLeftUse;
-        PlayerInput.OnLeftClickHold += OnLeftUse;
-        PlayerInput.OnRightClickDown += OnRightUse;
+        ItemSwapper.OnLeftClickDown += OnLeftUse;
+        ItemSwapper.OnLeftClickHold += OnLeftUse;
+        ItemSwapper.OnRightClickDown += OnRightUse;
     }
 
     private void OnDisable()
     {
         m_collider.enabled = false;
 
-        PlayerInput.OnLeftClickDown -= OnLeftUse;
-        PlayerInput.OnLeftClickHold -= OnLeftUse;
-        PlayerInput.OnRightClickDown -= OnRightUse;        
+        ItemSwapper.OnLeftClickDown -= OnLeftUse;
+        ItemSwapper.OnLeftClickHold -= OnLeftUse;
+        ItemSwapper.OnRightClickDown -= OnRightUse; 
+
+        m_player_ctrl.Animator.Play("Idle");
+        m_player_ctrl.ChangeState(PlayerState.IDLE);       
     }
 
     private void OnDestroy()
     {
-        PlayerInput.OnLeftClickDown -= OnLeftUse;
-        PlayerInput.OnLeftClickHold -= OnLeftUse;
-        PlayerInput.OnRightClickDown -= OnRightUse;        
+        ItemSwapper.OnLeftClickDown -= OnLeftUse;
+        ItemSwapper.OnLeftClickHold -= OnLeftUse;
+        ItemSwapper.OnRightClickDown -= OnRightUse;        
     }
 
-    private void OnTriggerEnter(Collider collider)
+    protected virtual void OnTriggerEnter(Collider collider)
     {
         if(collider.CompareTag("Breakable"))
         {
-            var interactable = collider.GetComponent<IInteratable>();
-            OnInteract(interactable);
+            var hit_point = collider.ClosestPoint(transform.position);
+            var interactable = collider.GetComponent<BaseBreakable>();
+            OnInteract(interactable, hit_point);
         }
 
         if(collider.CompareTag("Animal"))
@@ -59,7 +64,7 @@ public abstract class BaseTool : MonoBehaviour
 
     protected abstract void OnLeftUse();
     protected abstract void OnRightUse();
-    protected abstract void OnInteract(IInteratable target);
+    protected abstract void OnInteract(BaseBreakable target, Vector3 point);
     protected abstract void OnInteract(AnimalCtrl animal);
 
     public virtual void TriggerEnter()
@@ -80,6 +85,5 @@ public abstract class BaseTool : MonoBehaviour
     public virtual void TriggerExit()
     {
         m_is_working = false;
-        m_player_ctrl.Animator.SetBool("Working", false);
     }
 }

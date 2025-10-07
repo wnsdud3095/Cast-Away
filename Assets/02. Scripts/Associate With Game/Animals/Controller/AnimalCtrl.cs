@@ -29,6 +29,7 @@ public class AnimalCtrl : MonoBehaviour
     [field: SerializeField] public Animal SO { get; private set; }
     public PlayerCtrl Player { get; protected set; }
     public TimeManager TimeManager { get; protected set; }
+    public CameraShaker CameraShaker { get; protected set; }
 
     protected virtual void Awake()
     {
@@ -49,10 +50,9 @@ public class AnimalCtrl : MonoBehaviour
         m_death_state = gameObject.AddComponent<AnimalDeathState>();
     }
 
-
-
     public virtual void Initialize(PlayerCtrl player_ctrl,
-                                   TimeManager time_manager)
+                                   TimeManager time_manager,
+                                   CameraShaker camera_shaker)
     {
         Player = player_ctrl;
         TimeManager = time_manager;
@@ -64,6 +64,8 @@ public class AnimalCtrl : MonoBehaviour
 
         Collider.enabled = true;
         ChangeState(AnimalState.IDLE);
+
+        CameraShaker = camera_shaker;
     }
 
     public virtual void ChangeState(AnimalState state)

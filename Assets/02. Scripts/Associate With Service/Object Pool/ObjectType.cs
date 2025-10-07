@@ -9,5 +9,5 @@ public enum ObjectType
     GRIZZLY = 206,
 
     // 이펙트 관련 오브젝트(301 ~ 400)
-    DEATH_SMOKE = 301,
+    DEATH_SMOKE = 301, LEAF_PARTICLE = 302, ROCK_PARTICLE = 303,
 }

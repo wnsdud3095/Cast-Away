@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ItemSwapper : MonoBehaviour
@@ -7,6 +8,11 @@ public class ItemSwapper : MonoBehaviour
 
     private BaseTool m_current_tool;
     private ShortcutPresenter m_shortcut_presenter;
+
+    public static Action OnLeftClickDown;
+    public static Action OnLeftClickHold;
+
+    public static Action OnRightClickDown;
 
     private void OnDestroy()
     {

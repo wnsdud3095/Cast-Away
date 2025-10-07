@@ -7,25 +7,31 @@ public class Axe : BaseTool
 
     protected override void OnLeftUse()
     {
-        m_player_ctrl.Animator.SetBool("Working", true);
+        m_player_ctrl.ChangeState(PlayerState.WORK);
     }
 
     protected override void OnRightUse() { }
 
-    protected override void OnInteract(IInteratable target)
+    protected override void OnInteract(BaseBreakable target, Vector3 point)
     {
         if(target is BreakableTree)
         {
-            target.UpdateHP(-m_target_damage);
+            target.UpdateHP(-m_target_damage, point);
         }
         else
         {
-            target.UpdateHP(-m_default_damage);
+            target.UpdateHP(-m_default_damage, point);
         }
     }
 
     protected override void OnInteract(AnimalCtrl animal)
     {
         animal.Status.UpdateHP(-m_target_damage);
+    }
+
+    public override void TriggerExit()
+    {
+        base.TriggerExit();
+        m_player_ctrl.ChangeState(PlayerState.IDLE);
     }
 }
