@@ -4,6 +4,9 @@ public class AnimalDeathState : MonoBehaviour, IState<AnimalCtrl>
 {
     private AnimalCtrl m_controller;
 
+    private readonly int m_min_meat_count = 1;
+    private readonly int m_max_meat_count = 3;
+
     public void ExecuteEnter(AnimalCtrl sender)
     {
         if(m_controller == null)
@@ -44,6 +47,7 @@ public class AnimalDeathState : MonoBehaviour, IState<AnimalCtrl>
     public void OnDeathAnimationEnd()
     {   
         InstantiateEffect();
+        InstantiateRawMeat();
         ObjectManager.Instance.ReturnObject(m_controller.gameObject, GetObjectType(m_controller.SO.Code));
     }
 
@@ -53,6 +57,22 @@ public class AnimalDeathState : MonoBehaviour, IState<AnimalCtrl>
         var model_obj = GetComponentInChildren<InclineInterpolation>().gameObject;
 
         smoke_obj.transform.position = model_obj.transform.position + Vector3.up;
+    }
+
+    private void InstantiateRawMeat()
+    {
+        var random_count = Random.Range(m_min_meat_count, m_max_meat_count + 1);
+
+        while(random_count-- > 0)
+        {
+            var offset = new Vector3(Random.Range(-0.2f, 0.2f), 1f, Random.Range(-0.2f, 0.2f));
+
+            var raw_meat_obj = ObjectManager.Instance.GetObject(ObjectType.RAW_MEAT);
+            raw_meat_obj.transform.position = transform.position + offset;
+
+            var raw_meat_rb = raw_meat_obj.GetComponent<Rigidbody>();
+            raw_meat_rb.AddForce(Vector3.up * 1.25f, ForceMode.Impulse);
+        }
     }
 
     private ObjectType GetObjectType(AnimalCode animal_code) => (ObjectType)((int)animal_code + 201);

@@ -23,6 +23,26 @@ public class PlayerCtrl : MonoBehaviour
 
     public Vector3 Direction { get; set; }
 
+    private void OnEnable()
+    {
+        GameEventBus.Subscribe(GameEventType.INPLAY, GameManager.Instance.InPlay);
+        GameEventBus.Subscribe(GameEventType.INTERACTING, GameManager.Instance.Interacting);
+        GameEventBus.Subscribe(GameEventType.PAUSE, GameManager.Instance.Pause);
+        GameEventBus.Subscribe(GameEventType.GAMEOVER, GameManager.Instance.GameOver);
+        GameEventBus.Subscribe(GameEventType.GAMECLEAR, GameManager.Instance.GameClear);
+
+        GameEventBus.Publish(GameEventType.INPLAY);
+    }
+
+    private void OnDisable()
+    {
+        GameEventBus.Unsubscribe(GameEventType.INPLAY, GameManager.Instance.InPlay);
+        GameEventBus.Unsubscribe(GameEventType.INTERACTING, GameManager.Instance.Interacting);
+        GameEventBus.Unsubscribe(GameEventType.PAUSE, GameManager.Instance.Pause);
+        GameEventBus.Unsubscribe(GameEventType.GAMEOVER, GameManager.Instance.GameOver);
+        GameEventBus.Unsubscribe(GameEventType.GAMECLEAR, GameManager.Instance.GameClear);
+    }
+
     private void Awake()
     {
         Movement = GetComponent<PlayerMovement>();

@@ -32,6 +32,7 @@ public class PopupUIManager : MonoBehaviour
                 if (m_presenter_dict.TryGetValue("Pause", out var presenter))
                 {
                     OpenUI(presenter);
+                    GameEventBus.Publish(GameEventType.PAUSE);
                     // SETTING 모드로 변경. 게임매니저로 게임 스테이트 관리시에 추가로 작성
                 }
             }
@@ -97,7 +98,7 @@ public class PopupUIManager : MonoBehaviour
         }
 
         m_active_popup_list.AddFirst(presenter);
-        //GameEventBus.Publish(GameEventType.INTERACTING);
+        GameEventBus.Publish(GameEventType.INTERACTING);
 
         SortDepth();										// UI 깊이 순서를 재정렬한다.
     }
@@ -112,7 +113,7 @@ public class PopupUIManager : MonoBehaviour
 
             if (m_active_popup_list.Count == 0)				// 다 꺼져 있다면 PLAYING 모드로 변경한다.
             {
-                //GameEventBus.Publish(GameEventType.PLAYING);
+                GameEventBus.Publish(GameEventType.INPLAY);
             }
         }
     }
@@ -123,7 +124,7 @@ public class PopupUIManager : MonoBehaviour
         m_active_popup_list.AddFirst(presenter);
         presenter.OpenUI();
 
-        //GameEventBus.Publish(GameEventType.INTERACTING);
+        GameEventBus.Publish(GameEventType.INTERACTING);
     }
 
     // 연결 리스트에서 프레젠터를 삭제하고 UI를 비활성화한다.
@@ -134,7 +135,7 @@ public class PopupUIManager : MonoBehaviour
 
         if (m_active_popup_list.Count == 0)
         {
-            //GameEventBus.Publish(GameEventType.PLAYING);
+            GameEventBus.Publish(GameEventType.INPLAY);
         }
     }
 

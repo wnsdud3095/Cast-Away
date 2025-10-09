@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efeb35cf1a5005f46b67f187b13fca2a, type: 3}
+  m_Name: Item-Object Converter
+  m_EditorClassIdentifier: 
+  m_data_list:
+  - ItemCode: 1
+    ObjectType: 101
+  - ItemCode: 2
+    ObjectType: 102
+  - ItemCode: 201
+    ObjectType: 103

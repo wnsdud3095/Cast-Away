@@ -7,6 +7,9 @@ public class BreakableTree : BaseBreakable
     [Header("나무의 높이")]
     [SerializeField] private float m_tree_height;
 
+    private readonly int m_min_log_count = 2;
+    private readonly int m_max_log_count = 4;
+
     protected override void InstantiateEffect(Vector3 point)
     {
         m_camera_shaker.Shaking(0.1f, 0.4f);
@@ -46,9 +49,8 @@ public class BreakableTree : BaseBreakable
 
         m_camera_shaker.Shaking(0.1f, 0.75f);
         InstantiateDeathEffect();
+        InstantiateLog();
         transform.parent.gameObject.SetActive(false);
-        
-        // 이후 Destroy하거나 나뭇조각 스폰
     }
 
     private void InstantiateDeathEffect()
@@ -58,5 +60,21 @@ public class BreakableTree : BaseBreakable
 
         var death_vfx = death_obj.GetComponent<ParticleSystem>();
         death_vfx.Play();
+    }
+
+    private void InstantiateLog()
+    {
+        var random_count = Random.Range(m_min_log_count, m_max_log_count + 1);
+
+        while(random_count-- > 0)
+        {
+            var offset = new Vector3(Random.Range(-0.2f, 0.2f), 1f, Random.Range(-0.2f, 0.2f));
+
+            var log_obj = ObjectManager.Instance.GetObject(ObjectType.WOOD_LOG);
+            log_obj.transform.position = transform.position + offset;
+
+            var raw_meat_rb = log_obj.GetComponent<Rigidbody>();
+            raw_meat_rb.AddForce(Vector3.up * 1.25f, ForceMode.Impulse);
+        }
     }
 }
