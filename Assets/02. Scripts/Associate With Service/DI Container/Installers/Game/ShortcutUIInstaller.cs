@@ -23,20 +23,19 @@ public class ShortcutUIInstaller : MonoBehaviour, IInstaller
         //ShortcutPresenter 생성 및 등록
         var shortcut_presenter = new ShortcutPresenter(m_shortcut_view,
                                                        ServiceLocator.Get<IInventoryService>());
-        for (int i = 0; i < shortcut_slot_views.Length; i++)
+       
+        for (int i = 0; i < shortcut_slot_views.Length; i++)// 숏컷 0~4, 인벤토리 5~16
         {
-            int offset = 12 + i; // 인벤토리 0~11, 숏컷 12~16
-
             //ItemSlotPresenter 생성
             var item_slot_view = shortcut_slot_views[i].GetComponentInChildren<IItemSlotView>();
-            item_slot_factory.Instantiate(item_slot_view, offset, SlotType.Inventory);
+            item_slot_factory.Instantiate(item_slot_view, i, SlotType.Inventory);
 
             //ShortcutSlotPresenter 생성 (키 입력, Shortcut UI 연동)
             new ShortcutSlotPresenter(shortcut_slot_views[i],
                                       DIContainer.Resolve<IItemDataBase>(),
                                       ServiceLocator.Get<IKeyService>(),
                                       ServiceLocator.Get<IInventoryService>(), // 인벤토리 참조
-                                      offset, shortcut_presenter);
+                                      i, shortcut_presenter);
         }
         shortcut_presenter.Select(0);
 

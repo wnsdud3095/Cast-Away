@@ -28,7 +28,7 @@ public class ShortcutSlotPresenter : IDisposable
 
         m_inventory_service = inventory_service;
 
-        Offset = shortcut_index - 12;
+        Offset = shortcut_index;
 
         m_key_service.OnUpdatedKey += m_view.UpdateUI;
         m_key_service.Initialize();

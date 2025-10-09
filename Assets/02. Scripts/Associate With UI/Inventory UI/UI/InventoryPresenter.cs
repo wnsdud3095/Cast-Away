@@ -38,7 +38,7 @@ public class InventoryPresenter : IPopupPresenter //IDisposable
     // 인벤토리 UI를 초기화할 때 사용한다.
     public void Initialize()
     {
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < 17; i++)
         {
             m_model.InitializeSlot(i);
         }

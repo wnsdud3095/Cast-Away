@@ -26,9 +26,10 @@ public class InventoryUIInstaller : MonoBehaviour, IInstaller
         var item_slot_factory = DIContainer.Resolve<ItemSlotFactory>();
 
         var slot_presenters = new ItemSlotPresenter[slot_views.Length];
-        for (int i = 0; i < slot_presenters.Length; i++)
+        for (int i = 0; i < slot_presenters.Length; i++) // 숏컷 0~4, 인벤토리 5~16
         {
-            slot_presenters[i] = item_slot_factory.Instantiate(slot_views[i], i, SlotType.Inventory);
+            int index = i + 5;
+            slot_presenters[i] = item_slot_factory.Instantiate(slot_views[i], index, SlotType.Inventory);
         }
 
         var m_inventory_presenter = new InventoryPresenter(m_inventory_view,

@@ -29,8 +29,7 @@ public class ShortcutPresenter
         SelectedIndex = index;
         OnSelectedChanged?.Invoke(index);
 
-        var transformed_index = 12 + index;
-        var item_code = m_inventory_service.GetItem(transformed_index).Code;
+        var item_code = m_inventory_service.GetItem(SelectedIndex).Code;
         OnSelectedChangedToCode?.Invoke(item_code);
     }
 
