@@ -20,7 +20,7 @@ public class PlayerIdleState : MonoBehaviour, IState<PlayerCtrl>
         {
             return;
         }
-        
+
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             ItemSwapper.OnLeftClickDown?.Invoke();
@@ -56,5 +56,6 @@ public class PlayerIdleState : MonoBehaviour, IState<PlayerCtrl>
         m_controller.Animator.SetBool("Running", false);
         m_controller.Animator.SetBool("Working", false);
         m_controller.Animator.SetBool("Spearing", false);
+        m_controller.Animator.SetBool("Fishing", false);
     }
 }

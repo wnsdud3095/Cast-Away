@@ -21879,6 +21879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fishing_view: {fileID: 100625825}
+  m_player_ctrl: {fileID: 412178490}
 --- !u!1001 &2079710620
 PrefabInstance:
   m_ObjectHideFlags: 0

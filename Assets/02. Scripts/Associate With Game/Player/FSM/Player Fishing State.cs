@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerAttackState : MonoBehaviour, IState<PlayerCtrl>
+public class PlayerFishingState : MonoBehaviour, IState<PlayerCtrl>
 {
     private PlayerCtrl m_controller;
 
@@ -20,7 +20,7 @@ public class PlayerAttackState : MonoBehaviour, IState<PlayerCtrl>
 
     public void ExecuteExit()
     {
-        m_controller.Animator.SetBool("Spearing", false);
+        m_controller.Animator.SetBool("Fishing", false);  
     }
 
     private void Initialize()
@@ -28,7 +28,7 @@ public class PlayerAttackState : MonoBehaviour, IState<PlayerCtrl>
         m_controller.Animator.SetBool("Walking", false);
         m_controller.Animator.SetBool("Running", false);
         m_controller.Animator.SetBool("Working", false);
-        m_controller.Animator.SetBool("Spearing", true);
-        m_controller.Animator.SetBool("Fishing", false);
+        m_controller.Animator.SetBool("Spearing", false);
+        m_controller.Animator.SetBool("Fishing", true);        
     }
 }
