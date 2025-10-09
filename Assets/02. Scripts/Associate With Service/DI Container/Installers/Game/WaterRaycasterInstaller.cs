@@ -18,6 +18,7 @@ public class WaterRaycasterInstaller : MonoBehaviour, IInstaller
 
         m_water_raycaster.Inject(ServiceLocator.Get<IKeyService>(),
                                  ServiceLocator.Get<IInventoryService>(),
-                                 DIContainer.Resolve<NoticePresenter>());
+                                 DIContainer.Resolve<NoticePresenter>(),
+                                 DIContainer.Resolve<FishingPresenter>());
     }
 }

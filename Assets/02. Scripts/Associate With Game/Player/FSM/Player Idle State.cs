@@ -16,6 +16,11 @@ public class PlayerIdleState : MonoBehaviour, IState<PlayerCtrl>
 
     public void ExecuteUpdate()
     {
+        if(GameManager.Instance.GameType != GameEventType.INPLAY)
+        {
+            return;
+        }
+        
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             ItemSwapper.OnLeftClickDown?.Invoke();

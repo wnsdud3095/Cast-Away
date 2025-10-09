@@ -22,6 +22,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckInput()
     {
+        if(GameManager.Instance.GameType != GameEventType.INPLAY)
+        {
+            return;
+        }
+
         var input_vector = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
         m_controller.Direction = input_vector.normalized;
 
