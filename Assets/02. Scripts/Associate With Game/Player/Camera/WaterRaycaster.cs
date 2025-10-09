@@ -14,25 +14,36 @@ public class WaterRaycaster : MonoBehaviour
     private IInventoryService m_inventory_service;
     private NoticePresenter m_notice_presenter;
     private FishingPresenter m_fishing_presenter;
+    private ItemSwapper m_item_swapper;
 
     public void Inject(IKeyService key_service,
                        IInventoryService inventory_service,
                        NoticePresenter notice_presenter,
-                       FishingPresenter fishing_presenter)
+                       FishingPresenter fishing_presenter,
+                       ItemSwapper item_swapper)
     {
         m_key_service = key_service;
         m_inventory_service = inventory_service;
         
         m_notice_presenter = notice_presenter;
         m_fishing_presenter = fishing_presenter;
+
+        m_item_swapper = item_swapper;
     }
 
     private void Update()
     {
-        //if(!m_inventory_service.HasItem(ItemCode.FISHING_ROD))
-        //{
-        //    return;
-        //}
+        if(!m_inventory_service.HasItem(ItemCode.FISHING_ROD))
+        {
+            m_notice_presenter.CloseUI();
+            return;
+        }
+
+        if(m_item_swapper.CurrentTool is not FishingRod)
+        {
+            m_notice_presenter.CloseUI();
+            return;
+        }
 
         if(m_fishing_presenter.Active)
         {

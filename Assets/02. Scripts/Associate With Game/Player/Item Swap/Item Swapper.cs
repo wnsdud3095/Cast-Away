@@ -14,6 +14,8 @@ public class ItemSwapper : MonoBehaviour
 
     public static Action OnRightClickDown;
 
+    public BaseTool CurrentTool => m_current_tool;
+
     private void OnDestroy()
     {
         m_shortcut_presenter.OnSelectedChangedToCode -= Swap;
