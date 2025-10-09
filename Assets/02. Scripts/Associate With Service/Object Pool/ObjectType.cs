@@ -1,8 +1,10 @@
 public enum ObjectType
 {
+    NONE = -1,
     // UI 관련 오브젝트(0 ~ 100)
 
     // 아이템 관련 타입(101 ~ 200)
+    WOOD_LOG = 101, ROCK = 102, RAW_MEAT = 103, RED_MUSHROOM = 104, BROWN_MUSHROOM = 105,
 
     // 동물 관련 오브젝트(201 ~ 300)
     WHITE_SHEEP = 201, CREAM_SHEEP = 202, DARK_SHEEP = 203, WHITE_GOAT = 204, DARK_GOAT = 205,

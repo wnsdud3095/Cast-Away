@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_code: 1
   m_type: 2
-  m_name: "\uB098\uBB34"
+  m_name: "\uD1B5\uB098\uBB34"
   m_stackable: 1
   m_cool: -1
   m_sprite: {fileID: 1135936264, guid: ae89c7acf9a641848a009ff1a1ea8e1d, type: 3}

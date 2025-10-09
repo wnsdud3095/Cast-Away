@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e007a4a141875d745b10aa6d09ca3040, type: 3}
-  m_Name: 204_Fish
+  m_Script: {fileID: 11500000, guid: efeb35cf1a5005f46b67f187b13fca2a, type: 3}
+  m_Name: Item-Object Converter
   m_EditorClassIdentifier: 
-  m_code: 204
-  m_type: 10
-  m_name: "\uC0DD\uC120"
-  m_stackable: 1
-  m_cool: -1
-  m_sprite: {fileID: 860442509, guid: ae89c7acf9a641848a009ff1a1ea8e1d, type: 3}
+  m_data_list:
+  - ItemCode: 1
+    ObjectType: 101
+  - ItemCode: 2
+    ObjectType: 102
+  - ItemCode: 201
+    ObjectType: 103
