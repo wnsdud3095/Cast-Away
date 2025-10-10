@@ -20,6 +20,7 @@ public class PlayerAttackState : MonoBehaviour, IState<PlayerCtrl>
 
     public void ExecuteExit()
     {
+        m_controller.Interacting = false;
         m_controller.Animator.SetBool("Spearing", false);
     }
 
@@ -30,5 +31,7 @@ public class PlayerAttackState : MonoBehaviour, IState<PlayerCtrl>
         m_controller.Animator.SetBool("Working", false);
         m_controller.Animator.SetBool("Spearing", true);
         m_controller.Animator.SetBool("Fishing", false);
+        
+        m_controller.Interacting = true;
     }
 }

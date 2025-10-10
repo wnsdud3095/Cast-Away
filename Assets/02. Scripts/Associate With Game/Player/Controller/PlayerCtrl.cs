@@ -23,6 +23,7 @@ public class PlayerCtrl : MonoBehaviour
     [field: SerializeField] public GameObject Model { get; private set; }
 
     public Vector3 Direction { get; set; }
+    public bool Interacting { get; set; }
 
     private void OnEnable()
     {
