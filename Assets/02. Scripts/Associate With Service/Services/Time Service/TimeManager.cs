@@ -6,9 +6,6 @@ using UnityEngine.Rendering.Universal;
 
 public class TimeManager : MonoBehaviour
 {
-    [Header("시간 텍스트")]
-    [SerializeField] private TMP_Text m_time_text;
-
     [Header("시간 설정")]
     [SerializeField] private TimeSettings m_time_settings;
 
@@ -75,6 +72,8 @@ public class TimeManager : MonoBehaviour
     }   
 
     public bool IsDayTime => m_service.IsDayTime();
+
+    public DateTime CurrentTime => m_service.CurrentTime;
     
     private void Awake()
     {
@@ -159,10 +158,5 @@ public class TimeManager : MonoBehaviour
     private void UpdateTimeOfDay()
     {
         m_service.UpdateTime(Time.deltaTime);
-
-        if(m_time_text != null)
-        {
-            m_time_text.text = m_service.CurrentTime.ToString(format:"hh:mm");
-        }
     }
 }
