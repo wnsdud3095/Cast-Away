@@ -641,10 +641,10 @@ TextureImporter:
       name: Fishing Rod
       rect:
         serializedVersion: 2
-        x: 504
+        x: 506
         y: 96
-        width: 24
-        height: 24
+        width: 20
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
