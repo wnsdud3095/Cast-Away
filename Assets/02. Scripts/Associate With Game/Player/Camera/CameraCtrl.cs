@@ -20,8 +20,11 @@ public class CameraCtrl : MonoBehaviour
 
     private void Update()
     {
-        Rotation();
-        Translation();
+        if(GameManager.Instance.GameType == GameEventType.INPLAY)
+        {
+            Rotation();
+            Translation();
+        }
     }
 
     private void Rotation()

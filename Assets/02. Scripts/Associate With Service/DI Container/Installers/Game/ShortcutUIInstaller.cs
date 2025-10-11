@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using InventoryService;
 using KeyService;
 using UnityEngine;
@@ -11,6 +10,9 @@ public class ShortcutUIInstaller : MonoBehaviour, IInstaller
     [Header("단축키 슬롯의 부모 트랜스폼")]
     [SerializeField] private Transform m_shortcut_slot_root;
 
+    [Header("플레이어 컨트롤러")]
+    [SerializeField] private PlayerCtrl m_player_ctrl;
+
     public void Install()
     {
         //ShortcutView 등록
@@ -22,7 +24,8 @@ public class ShortcutUIInstaller : MonoBehaviour, IInstaller
 
         //ShortcutPresenter 생성 및 등록
         var shortcut_presenter = new ShortcutPresenter(m_shortcut_view,
-                                                       ServiceLocator.Get<IInventoryService>());
+                                                       ServiceLocator.Get<IInventoryService>(),
+                                                       m_player_ctrl);
         for (int i = 0; i < shortcut_slot_views.Length; i++)
         {
             int offset = 12 + i; // 인벤토리 0~11, 숏컷 12~16

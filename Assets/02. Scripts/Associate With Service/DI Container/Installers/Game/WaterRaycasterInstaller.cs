@@ -7,6 +7,12 @@ public class WaterRaycasterInstaller : MonoBehaviour, IInstaller
     [Header("물 레이캐스터")]
     [SerializeField] private WaterRaycaster m_water_raycaster;
 
+    [Header("아이템 변경자")]
+    [SerializeField] private ItemSwapper m_item_swapper;
+
+    [Header("플레이어 컨트롤러")]
+    [SerializeField] private PlayerCtrl m_player_ctrl;
+
     public void Install()
     {
         InstallRaycaster();
@@ -18,6 +24,9 @@ public class WaterRaycasterInstaller : MonoBehaviour, IInstaller
 
         m_water_raycaster.Inject(ServiceLocator.Get<IKeyService>(),
                                  ServiceLocator.Get<IInventoryService>(),
-                                 DIContainer.Resolve<NoticePresenter>());
+                                 DIContainer.Resolve<NoticePresenter>(),
+                                 DIContainer.Resolve<FishingPresenter>(),
+                                 m_item_swapper,
+                                 m_player_ctrl);
     }
 }

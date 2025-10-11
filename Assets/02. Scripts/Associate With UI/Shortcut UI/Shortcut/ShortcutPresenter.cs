@@ -1,11 +1,11 @@
 using InventoryService;
 using System;
-using System.Collections.Generic;
 
 public class ShortcutPresenter
 {
     private readonly IShortcutView m_view;
     private readonly IInventoryService m_inventory_service;
+    private readonly PlayerCtrl m_player_ctrl;
 
     public int SelectedIndex { get; private set; } = 0;
     public int ShortcutCount => m_shortcut_count;
@@ -17,15 +17,22 @@ public class ShortcutPresenter
     public event Action<int> OnUseShortcutRequested; // UseSelected 전용 이벤트
 
     public ShortcutPresenter(IShortcutView view, 
-                             IInventoryService inventory_service)
+                             IInventoryService inventory_service,
+                             PlayerCtrl player_ctrl)
     {
         m_view = view;
         m_inventory_service = inventory_service;
+        m_player_ctrl = player_ctrl;
         m_view.Inject(this);
     }
 
     public void Select(int index)
     {
+        if(m_player_ctrl.Interacting)
+        {
+            return;
+        }
+
         SelectedIndex = index;
         OnSelectedChanged?.Invoke(index);
 
@@ -36,6 +43,11 @@ public class ShortcutPresenter
 
     public void ScrollSelect(int delta)
     {
+        if(m_player_ctrl.Interacting)
+        {
+            return;
+        }
+        
         SelectedIndex = (SelectedIndex + delta + m_shortcut_count) % m_shortcut_count;
         Select(SelectedIndex);
     }

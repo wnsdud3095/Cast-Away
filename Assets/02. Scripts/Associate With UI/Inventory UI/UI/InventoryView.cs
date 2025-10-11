@@ -37,6 +37,7 @@ public class InventoryView : MonoBehaviour, IInventoryView
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE_AXE, 1);
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE_PICKAXE, 1);
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE_SPEAR, 1);
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.FISHING_ROD, 1);
     }
 
     public void CloseUI()
