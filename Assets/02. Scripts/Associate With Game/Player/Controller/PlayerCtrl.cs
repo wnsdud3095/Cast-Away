@@ -91,4 +91,11 @@ public class PlayerCtrl : MonoBehaviour
 
         m_state_context.Transition(target_state);
     }
+
+    public void InstantiateNotice(string notice_text)
+    {
+        var notice_obj = ObjectManager.Instance.GetObject(ObjectType.POP_UP_NOTICE);
+        var notice_ui = notice_obj.GetComponent<PopupNoticeView>();
+        notice_ui.SetLabel(notice_text);
+    }
 }

@@ -30,6 +30,16 @@ public class PlayerMovement : MonoBehaviour
         var input_vector = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
         m_controller.Direction = input_vector.normalized;
 
+        if(m_controller.State.Thirsty || m_controller.State.Dehydrated)
+        {
+            if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+            {
+                m_controller.InstantiateNotice("탈수로 인하여 달릴 수 없습니다.");
+            }
+            
+            return;
+        }
+
         if(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
             IsDashActive = true;

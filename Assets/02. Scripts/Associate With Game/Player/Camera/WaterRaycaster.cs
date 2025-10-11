@@ -15,12 +15,14 @@ public class WaterRaycaster : MonoBehaviour
     private NoticePresenter m_notice_presenter;
     private FishingPresenter m_fishing_presenter;
     private ItemSwapper m_item_swapper;
+    private PlayerCtrl m_player_ctrl;
 
     public void Inject(IKeyService key_service,
                        IInventoryService inventory_service,
                        NoticePresenter notice_presenter,
                        FishingPresenter fishing_presenter,
-                       ItemSwapper item_swapper)
+                       ItemSwapper item_swapper,
+                       PlayerCtrl player_ctrl)
     {
         m_key_service = key_service;
         m_inventory_service = inventory_service;
@@ -29,6 +31,7 @@ public class WaterRaycaster : MonoBehaviour
         m_fishing_presenter = fishing_presenter;
 
         m_item_swapper = item_swapper;
+        m_player_ctrl = player_ctrl;
     }
 
     private void Update()
@@ -63,6 +66,12 @@ public class WaterRaycaster : MonoBehaviour
 
                 if(Input.GetKeyDown(m_key_service.GetKeyCode("PickUp")))
                 {
+                    if(m_player_ctrl.State.Hungry || m_player_ctrl.State.Starving)
+                    {
+                        m_player_ctrl.InstantiateNotice("허기로 인하여 낚시를 할 수 없습니다.");
+                        return;
+                    }
+
                     m_fishing_presenter.OpenUI();
                 }
             }

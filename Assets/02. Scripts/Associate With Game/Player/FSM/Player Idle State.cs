@@ -23,10 +23,22 @@ public class PlayerIdleState : MonoBehaviour, IState<PlayerCtrl>
 
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
+            if(m_controller.State.Hungry || m_controller.State.Starving)
+            {
+                m_controller.InstantiateNotice("허기로 인하여 도구를 사용할 수 없습니다.");
+                return;
+            }
+
             ItemSwapper.OnLeftClickDown?.Invoke();
         }
-        else if(Input.GetKey(KeyCode.Mouse0))
+        
+        if(Input.GetKey(KeyCode.Mouse0))
         {
+            if(m_controller.State.Hungry || m_controller.State.Starving)
+            {
+                return;
+            }
+            
             ItemSwapper.OnLeftClickHold?.Invoke();
         }
         else if(Input.GetKeyDown(KeyCode.Mouse1))
