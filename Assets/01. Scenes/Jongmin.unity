@@ -17460,7 +17460,7 @@ MonoBehaviour:
   m_ui_pool_list:
   - Type: 0
     Count: 5
-    Prefab: {fileID: 7379193247687985654, guid: 0b72a5c8077be2e4aa48ca13014473d7, type: 3}
+    Prefab: {fileID: 5584365258933891571, guid: 0b72a5c8077be2e4aa48ca13014473d7, type: 3}
     Container: {fileID: 414970400}
   m_item_pool_list:
   - Type: 101

@@ -18,6 +18,12 @@ public class PlayerRunState : MonoBehaviour, IState<PlayerCtrl>
 
     public void ExecuteUpdate()
     {
+        if(m_controller.State.Thirsty)
+        {
+            m_controller.InstantiateNotice("탈수로 인하여 달릴 수 없습니다.");
+            m_controller.ChangeState(PlayerState.WALK);
+        }
+
         if(m_controller.Direction.magnitude > 0f)
         {
             if(!m_controller.Movement.IsDashActive)
