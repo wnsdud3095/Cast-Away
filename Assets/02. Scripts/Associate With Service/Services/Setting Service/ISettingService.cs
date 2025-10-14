@@ -1,11 +1,16 @@
-public interface ISettingService : ISaveable
+namespace SettingService
 {
-    public float MouseSensitivity { get; set; }
-    public bool MouseInversion { get; set; }
-    public bool CameraShaking { get; set;}
+    public interface ISettingService : ISaveable
+    {
+        SettingData Data { get; }
 
-    public bool BGMPrint { get; set; }
-    public float BGMRate { get; set; }
-    public bool SFXPrint { get; set; }
-    public float SFXRate { get; set; }
+        float MouseSensitivity { get; set; }
+        bool MouseInversion { get; set; }
+        bool CameraShaking { get; set;}
+
+        bool BGMPrint { get; set; }
+        float BGMRate { get; set; }
+        bool SFXPrint { get; set; }
+        float SFXRate { get; set; }
+    }
 }

@@ -8,9 +8,11 @@ public class PopupUIManagerInstaller : MonoBehaviour, IInstaller
 
     public void Install()
     {
-        var popup_data_list = new List<PopupData>{
+        var popup_data_list = new List<PopupData>
+        {
             new("Binder", DIContainer.Resolve<KeyBinderPresenter>()),
             new("Inventory", DIContainer.Resolve<InventoryPresenter>()),
+            new("Pause", DIContainer.Resolve<SettingPresenter>()),
         };
 
         m_popup_manager.Inject(popup_data_list);
