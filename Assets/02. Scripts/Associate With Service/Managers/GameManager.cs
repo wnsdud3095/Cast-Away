@@ -24,6 +24,8 @@ public class GameManager : Singleton<GameManager>
     private void Loading()
     {
         GameType = GameEventType.LOADING;
+
+        Time.timeScale = 1f;
     }
 
     public void InPlay()
@@ -32,6 +34,8 @@ public class GameManager : Singleton<GameManager>
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        Time.timeScale = 1f;
     }
 
     public void Interacting()
@@ -40,11 +44,15 @@ public class GameManager : Singleton<GameManager>
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        Time.timeScale = 1f;
     }
 
     public void Pause()
     {
         GameType = GameEventType.PAUSE;
+
+        Time.timeScale = 0f;
     }
 
     public void GameClear()

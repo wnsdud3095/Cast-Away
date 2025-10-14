@@ -40,13 +40,6 @@ public class AnimalIdleState : MonoBehaviour, IState<AnimalCtrl>
 
         m_controller.Animator.SetBool("Walk", false);
         m_controller.Animator.SetBool("Run", false);
-
-        var random_idx = Random.Range(1, 20);
-
-        if(1<= random_idx && random_idx <= 5)
-        {
-            SoundManager.Instance.PlaySFX($"Animal Bah {random_idx}", true, transform.position);
-        }
     }
 
     private IEnumerator WaitForAction(float target_time)

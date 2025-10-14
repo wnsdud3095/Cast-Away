@@ -87,7 +87,6 @@ public class SettingView : MonoBehaviour, ISettingView
     public void OpenUI()
     {
         m_animator.SetBool("Open", true);
-        Debug.Log("열림");
     }
 
     public void CloseUI()

@@ -1,3 +1,4 @@
+using SettingService;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class SoundManager : Singleton<SoundManager>
     private Dictionary<string, int> m_sfx_channel_dict;
 
     private string m_last_bgm_key;
+    private ISettingService m_setting_service;
 
     public AudioSource BGM => m_bgm_source;
 
@@ -24,6 +26,11 @@ public class SoundManager : Singleton<SoundManager>
     {
         base.Awake();
         Initialize();
+    }
+
+    public void Start()
+    {
+        m_setting_service = ServiceLocator.Get<ISettingService>();
     }
 
     private void Initialize()
@@ -155,19 +162,24 @@ public class SoundManager : Singleton<SoundManager>
             while (elapsed_time <= target_time)
             {
                 var delta = elapsed_time / target_time;
-                bgm_source.volume = is_out ? Mathf.Lerp(0.5f, 0f, delta) : Mathf.Lerp(0f, 0.5f, delta);
+                bgm_source.volume = is_out ? Mathf.Lerp(m_setting_service.BGMRate, 0f, delta) : Mathf.Lerp(0f, m_setting_service.BGMRate, delta);
 
                 elapsed_time += Time.deltaTime;
                 yield return null;
             }
 
-            bgm_source.volume = is_out ? 0f : 0.5f;
+            bgm_source.volume = is_out ? 0f : m_setting_service.BGMRate;
     }
     #endregion BGM
 
     #region SFX
     public void PlaySFX(string sfx_name, bool is_spatial, Vector3 positon)
     {        
+        if(!m_setting_service.SFXPrint)
+        {
+            return;
+        }
+
         if (m_sfx_dict.TryGetValue(sfx_name, out var sfx_data))
         {
             if (m_sfx_channel_dict.TryGetValue(sfx_name, out var channel))
@@ -193,7 +205,7 @@ public class SoundManager : Singleton<SoundManager>
             sfx_source.spatialBlend = is_spatial ? 1f : 0f;
 
             sfx_source.clip = sfx_data.Clip;
-            sfx_source.volume = 0.5f;
+            sfx_source.volume = m_setting_service.SFXRate;
             sfx_source.Play();
 
             StartCoroutine(ReturnSFX(sfx_name, sfx_source));
