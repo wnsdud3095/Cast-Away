@@ -22,7 +22,6 @@ public class ShortcutSlotView : MonoBehaviour, IShortcutSlotView
         m_presenter = presenter;
         m_highlightImage.enabled = false;
 
-        // 선택 매니저 이벤트 구독
         m_presenter.OnSelectedChanged += HandleSelectedChanged;
     }
     private void HandleSelectedChanged(int index)

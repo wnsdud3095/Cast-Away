@@ -28,7 +28,7 @@ public class ShortcutUIInstaller : MonoBehaviour, IInstaller
         {
             //ItemSlotPresenter 생성
             var item_slot_view = shortcut_slot_views[i].GetComponentInChildren<IItemSlotView>();
-            item_slot_factory.Instantiate(item_slot_view, i, SlotType.Inventory);
+            item_slot_factory.Instantiate(item_slot_view, i, SlotType.Shortcut);
 
             //ShortcutSlotPresenter 생성 (키 입력, Shortcut UI 연동)
             new ShortcutSlotPresenter(shortcut_slot_views[i],
@@ -37,7 +37,7 @@ public class ShortcutUIInstaller : MonoBehaviour, IInstaller
                                       ServiceLocator.Get<IInventoryService>(), // 인벤토리 참조
                                       i, shortcut_presenter);
         }
-        shortcut_presenter.Select(0);
+        //shortcut_presenter.Select(0); 아이템 스와퍼가 인스톨 된 이후에 호출하기 위해 아이템 스와퍼에서 호출
 
         DIContainer.Register<ShortcutPresenter>(shortcut_presenter);
     }

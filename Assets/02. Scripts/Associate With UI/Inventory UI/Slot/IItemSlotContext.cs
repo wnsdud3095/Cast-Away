@@ -9,4 +9,8 @@ public interface IItemSlotContext
     void Set(SlotType slot_type, int offset, ItemCode code, int count);
     void Update(SlotType slot_type, int offset, int count);
     void Clear(SlotType slot_type, int offset);
+
+    public void RegisterShortcutSelectCallback(Action<int> on_shortcut_selected);
+
+    public void UnRegisterShortcutSelectCallback();
 }

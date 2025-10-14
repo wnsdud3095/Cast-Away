@@ -12,6 +12,11 @@ public class ShortcutView : MonoBehaviour, IShortcutView
         m_presenter = presenter;
     }
 
+    private void OnDestroy()
+    {
+        m_presenter.Dispose();
+    }
+
     private void Update()
     {
         // 키보드 입력 전달
