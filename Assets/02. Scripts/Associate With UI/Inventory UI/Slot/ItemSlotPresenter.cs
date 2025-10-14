@@ -73,6 +73,7 @@ public class ItemSlotPresenter : IDisposable
 
     public void OnBeginDrag(Vector2 mouse_position, DragMode drag_mode)
     {
+        m_view.PlaySFX("Slot Interaction");
         m_interaction_handler.OnBeginDrag(mouse_position, drag_mode);
     }
 
@@ -88,12 +89,15 @@ public class ItemSlotPresenter : IDisposable
 
     public void OnDrop()
     {
+        m_view.PlaySFX("Slot Interaction");
+
         var item = m_drag_slot_presenter.GetItem();
         m_interaction_handler.OnDrop(m_slot_type, m_offset, m_view.IsMask(item.Type));
     }
 
     public void OnPointerClick()
     {
+        m_view.PlaySFX("Slot Interaction");
         m_interaction_handler.OnPointerClick(m_slot_type, m_offset);
     }
 

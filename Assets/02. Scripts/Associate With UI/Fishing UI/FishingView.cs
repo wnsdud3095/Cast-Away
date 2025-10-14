@@ -88,6 +88,12 @@ public class FishingView : MonoBehaviour, IFishingView
         {
             m_hit_animator.SetTrigger("Hit");
             m_presenter.GetFish();
+
+            SoundManager.Instance.PlaySFX("Fishing Success", false, Vector3.zero);
+        }
+        else
+        {
+            SoundManager.Instance.PlaySFX("Fishing Fail", false, Vector3.zero);
         }
 
         StartCoroutine(Co_EndGameDelay());

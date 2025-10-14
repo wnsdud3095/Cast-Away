@@ -20,6 +20,11 @@ public class BreakableRock : BaseBreakable
         rock_vfx.Play();
     }
 
+    protected override void PlaySFX()
+    {
+        SoundManager.Instance.PlaySFX("Rock Interaction", false, Vector3.zero);
+    }
+
     protected override void Break(Vector3 point)
     {
         InstantiateDeathEffect(point);

@@ -56,4 +56,10 @@ public class PlayerRunState : MonoBehaviour, IState<PlayerCtrl>
         m_controller.Animator.SetBool("Spearing", false);
         m_controller.Animator.SetBool("Fishing", false);
     }
+
+    public void PlaySFX()
+    {
+        var random_index = Random.Range(1, 11);
+        SoundManager.Instance.PlaySFX($"Grass Run {random_index}", true, transform.position + Vector3.down);
+    }
 }

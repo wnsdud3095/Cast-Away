@@ -62,7 +62,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.33183858
+      - time: 0.3318386
         functionName: EnableHit
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 695e65ac3407cd84da425c4b7504d136, type: 3}

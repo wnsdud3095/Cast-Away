@@ -16,6 +16,7 @@ public class AnimalDeathState : MonoBehaviour, IState<AnimalCtrl>
 
         Initialize();
         m_controller.CameraShaker.Shaking(0.05f, 0.4f);
+        SoundManager.Instance.PlaySFX("Animal Interaction", true, transform.position);
     }
 
     public void ExecuteUpdate() { }
@@ -42,6 +43,11 @@ public class AnimalDeathState : MonoBehaviour, IState<AnimalCtrl>
     public void ShakeCamera()
     {
         m_controller.CameraShaker.Shaking(0.05f, 0.5f);
+    }
+
+    public void PlaySFX()
+    {
+        SoundManager.Instance.PlaySFX("Animal Death", true, transform.position);
     }
 
     public void OnDeathAnimationEnd()
