@@ -21,7 +21,7 @@ public class CameraCtrl : MonoBehaviour
 
     private void Update()
     {
-        if(GameManager.Instance.GameType == GameEventType.INPLAY)
+        if(GameManager.Instance.GameType == GameEventType.INPLAY || GameManager.Instance.GameType == GameEventType.CRAFTING)
         {
             Rotation();
             Translation();

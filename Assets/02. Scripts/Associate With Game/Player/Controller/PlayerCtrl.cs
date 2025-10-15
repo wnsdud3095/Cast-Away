@@ -29,6 +29,7 @@ public class PlayerCtrl : MonoBehaviour
     {
         GameEventBus.Subscribe(GameEventType.INPLAY, GameManager.Instance.InPlay);
         GameEventBus.Subscribe(GameEventType.INTERACTING, GameManager.Instance.Interacting);
+        GameEventBus.Subscribe(GameEventType.CRAFTING, GameManager.Instance.Crafting);
         GameEventBus.Subscribe(GameEventType.PAUSE, GameManager.Instance.Pause);
         GameEventBus.Subscribe(GameEventType.GAMEOVER, GameManager.Instance.GameOver);
         GameEventBus.Subscribe(GameEventType.GAMECLEAR, GameManager.Instance.GameClear);
@@ -40,6 +41,7 @@ public class PlayerCtrl : MonoBehaviour
     {
         GameEventBus.Unsubscribe(GameEventType.INPLAY, GameManager.Instance.InPlay);
         GameEventBus.Unsubscribe(GameEventType.INTERACTING, GameManager.Instance.Interacting);
+        GameEventBus.Unsubscribe(GameEventType.CRAFTING, GameManager.Instance.Crafting);
         GameEventBus.Unsubscribe(GameEventType.PAUSE, GameManager.Instance.Pause);
         GameEventBus.Unsubscribe(GameEventType.GAMEOVER, GameManager.Instance.GameOver);
         GameEventBus.Unsubscribe(GameEventType.GAMECLEAR, GameManager.Instance.GameClear);

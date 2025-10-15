@@ -24,7 +24,8 @@ public class ModulerUIInstaller : MonoBehaviour, IInstaller
         DIContainer.Register<ICompactModulerView>(m_compact_moduler_view);
 
         var compact_moduler_presenter = new CompactModulerPresenter(m_compact_moduler_view,
-                                                                    ServiceLocator.Get<IInventoryService>());
+                                                                    ServiceLocator.Get<IInventoryService>(),
+                                                                    DIContainer.Resolve<ModulerTutorialPresenter>());
         DIContainer.Register<CompactModulerPresenter>(compact_moduler_presenter);
     }
 
