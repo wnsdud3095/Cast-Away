@@ -1,3 +1,4 @@
+using SettingService;
 using UnityEngine;
 
 public class CameraCtrl : MonoBehaviour
@@ -9,9 +10,9 @@ public class CameraCtrl : MonoBehaviour
     [SerializeField] private Transform m_camera_transform;
 
     private float m_camera_distance;
+    private ISettingService m_setting_service;
 
     public Vector2 Delta { get; set; }
-    public bool Inversal { get; set; }
 
     private void Awake()
     {
@@ -27,13 +28,18 @@ public class CameraCtrl : MonoBehaviour
         }
     }
 
+    public void Inject(ISettingService setting_service)
+    {
+        m_setting_service = setting_service;
+    }
+
     private void Rotation()
     {
         Delta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
         var current_direction = transform.rotation.eulerAngles;
         
-        var final_x = Inversal ? (current_direction.x - Delta.y) : (current_direction.x + Delta.y);
+        var final_x = !m_setting_service.MouseInversion ? (current_direction.x - Delta.y) : (current_direction.x + Delta.y);
         final_x = final_x < 180f ? Mathf.Clamp(final_x, -1f, 60f) : Mathf.Clamp(final_x, 340f, 361f);
 
         transform.rotation = Quaternion.Euler(final_x, current_direction.y + Delta.x, current_direction.z);

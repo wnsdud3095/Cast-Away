@@ -1,0 +1,4 @@
+public enum ModuleCode
+{
+    CAMPFIRE = 1, WATER_FILTER = 2, WOOD_FLOOR = 3, PLYWOOD_FLOOR = 4, WOOD_WALL = 5, WOOD_WINDOW_WALL = 6, WOOD_CEIL = 7, WOOD_BOX = 8,
+}

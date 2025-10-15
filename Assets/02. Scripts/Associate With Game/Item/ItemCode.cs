@@ -5,7 +5,7 @@ public enum ItemCode
     NONE = 0,
 
     //재료 아이템(1~100)
-    WOOD = 1, STONE = 2, 
+    WOOD = 1, STONE = 2, TIMBER = 3, WOOL = 4, ROPE = 5,
 
 
     //도구 아이템(101~200)

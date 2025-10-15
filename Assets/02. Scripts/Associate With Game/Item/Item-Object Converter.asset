@@ -19,3 +19,11 @@ MonoBehaviour:
     ObjectType: 102
   - ItemCode: 201
     ObjectType: 103
+  - ItemCode: 203
+    ObjectType: 105
+  - ItemCode: 204
+    ObjectType: 104
+  - ItemCode: 4
+    ObjectType: 106
+  - ItemCode: 107
+    ObjectType: 107

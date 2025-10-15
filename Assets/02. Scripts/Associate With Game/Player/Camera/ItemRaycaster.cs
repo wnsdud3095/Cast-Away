@@ -45,6 +45,8 @@ public class ItemRaycaster : MonoBehaviour
 
             if(Input.GetKeyDown(m_key_service.GetKeyCode("PickUp")))
             {
+                SoundManager.Instance.PlaySFX("Pick Up", true, transform.position);
+
                 m_inventory_service.AddItem(field_item.Code, 1);
                 ObjectManager.Instance.ReturnObject(field_item.gameObject, 
                                                     m_item_object_converter.GetObjectType(field_item.Code));

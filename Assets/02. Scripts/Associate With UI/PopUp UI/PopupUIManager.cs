@@ -39,15 +39,14 @@ public class PopupUIManager : MonoBehaviour
         }
         
         // SETTING일 때는 키 입력을 받지 않는 것이 일반적이다.
-        //if (GameManager.Instance.Event != GameEventType.SETTING)
+        if (GameManager.Instance.GameType != GameEventType.PAUSE)
         {
             // 각 팝업 UI에 해당하는 문자열을 통하여 키 입력을 대기한다.
-            
+            InputToggleKey("Binder");
+            InputToggleKey("Crafting");
+            InputToggleKey("Inventory");
+            InputToggleKey("Build");            
         }
-        InputToggleKey("Binder");
-        InputToggleKey("Crafting");
-        InputToggleKey("Inventory");
-
     }
 
     // 팝업 UI 프레젠터의 목록을 Inject()를 통해 주입받는다.

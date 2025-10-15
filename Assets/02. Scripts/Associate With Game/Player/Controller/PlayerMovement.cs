@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
 
         if(m_controller.State.Thirsty || m_controller.State.Dehydrated)
         {
+            IsDashActive = false;
+            
             if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
             {
                 m_controller.InstantiateNotice("탈수로 인하여 달릴 수 없습니다.");
@@ -42,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
-            IsDashActive = true;
+            IsDashActive = !(m_controller.State.Thirsty || m_controller.State.Dehydrated);
         }
         else
         {

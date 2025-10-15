@@ -33,5 +33,6 @@ public class PlayerFishingState : MonoBehaviour, IState<PlayerCtrl>
         m_controller.Animator.SetBool("Fishing", true);
 
         m_controller.Interacting = true;        
+        SoundManager.Instance.PlaySFX("Fish Splashing", true, transform.position);
     }
 }

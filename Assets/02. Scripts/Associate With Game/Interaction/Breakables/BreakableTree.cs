@@ -21,8 +21,14 @@ public class BreakableTree : BaseBreakable
         leaf_vfx.Play();
     }
 
+    protected override void PlaySFX()
+    {
+        SoundManager.Instance.PlaySFX("Tree Interaction", false, Vector3.zero);
+    }
+
     protected override void Break(Vector3 point)
     {
+        SoundManager.Instance.PlaySFX("Tree Fall", true, transform.position);
         StartCoroutine(FallAnimation(point));
     }
 

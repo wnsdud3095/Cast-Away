@@ -18,6 +18,12 @@ public class PlayerRunState : MonoBehaviour, IState<PlayerCtrl>
 
     public void ExecuteUpdate()
     {
+        if(m_controller.State.Thirsty)
+        {
+            m_controller.InstantiateNotice("탈수로 인하여 달릴 수 없습니다.");
+            m_controller.ChangeState(PlayerState.WALK);
+        }
+
         if(m_controller.Direction.magnitude > 0f)
         {
             if(!m_controller.Movement.IsDashActive)
@@ -49,5 +55,11 @@ public class PlayerRunState : MonoBehaviour, IState<PlayerCtrl>
         m_controller.Animator.SetBool("Working", false);
         m_controller.Animator.SetBool("Spearing", false);
         m_controller.Animator.SetBool("Fishing", false);
+    }
+
+    public void PlaySFX()
+    {
+        var random_index = Random.Range(1, 11);
+        SoundManager.Instance.PlaySFX($"Grass Run {random_index}", true, transform.position + Vector3.down);
     }
 }
