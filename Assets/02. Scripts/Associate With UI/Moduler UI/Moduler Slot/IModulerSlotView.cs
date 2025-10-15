@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class IModulerSlotView : MonoBehaviour
+public interface IModulerSlotView
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    void Inject(ModulerSlotPresenter presenter);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void InitUI(string module_name, Sprite module_image);
+    void UpdateUI(bool unlock, int level = 0);
 }

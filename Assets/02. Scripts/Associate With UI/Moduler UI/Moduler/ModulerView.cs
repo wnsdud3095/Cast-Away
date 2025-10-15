@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ModulerView : MonoBehaviour, IModulerView
 {
@@ -12,6 +13,9 @@ public class ModulerView : MonoBehaviour, IModulerView
 
     [Header("슬롯의 부모 트랜스폼")]
     [SerializeField] private Transform m_slot_root;
+
+    [Header("스크롤바")]
+    [SerializeField] private Scrollbar m_scroll_bar;
 
     private List<GameObject> m_slot_list;
     private ModulerPresenter m_presenter;
@@ -50,7 +54,22 @@ public class ModulerView : MonoBehaviour, IModulerView
         m_canvas_group.blocksRaycasts = false;
         m_canvas_group.interactable = false;
 
+        m_scroll_bar.value = 0f;
+
+        Return();
         m_slot_list.Clear();
+    }
+
+    public void Return()
+    {
+        var container = ObjectManager.Instance.GetPool(ObjectType.MODULER_SLOT).Container;
+
+        foreach(var slot_obj in m_slot_list)
+        {    
+            slot_obj.transform.SetParent(container, false);
+
+            ObjectManager.Instance.ReturnObject(slot_obj, ObjectType.MODULER_SLOT);
+        }
     }
 
     public void SetDepth()
