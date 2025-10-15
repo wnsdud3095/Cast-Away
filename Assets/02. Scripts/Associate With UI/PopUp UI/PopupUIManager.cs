@@ -44,7 +44,8 @@ public class PopupUIManager : MonoBehaviour
             // 각 팝업 UI에 해당하는 문자열을 통하여 키 입력을 대기한다.
             InputToggleKey("Binder");
             InputToggleKey("Crafting");
-            InputToggleKey("Inventory");            
+            InputToggleKey("Inventory");
+            InputToggleKey("Build");            
         }
     }
 
