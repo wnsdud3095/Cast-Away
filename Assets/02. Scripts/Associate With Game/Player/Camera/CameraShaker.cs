@@ -1,3 +1,4 @@
+using SettingService;
 using System.Collections;
 using UnityEngine;
 
@@ -5,9 +6,20 @@ public class CameraShaker : MonoBehaviour
 {
     private Vector3 m_origin_position;
     private Coroutine m_shaker_coroutine;
+    private ISettingService m_setting_service;
+
+    public void Inject(ISettingService setting_service)
+    {
+        m_setting_service = setting_service;
+    }
 
     public void Shaking(float magnitude, float duration)
     {
+        if(!m_setting_service.CameraShaking)
+        {
+            return;
+        }
+
         if(m_shaker_coroutine != null)
         {
             StopCoroutine(m_shaker_coroutine);

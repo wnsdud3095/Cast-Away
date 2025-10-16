@@ -34,8 +34,7 @@ public abstract class BaseTool : MonoBehaviour
         ItemSwapper.OnLeftClickHold -= OnLeftUse;
         ItemSwapper.OnRightClickDown -= OnRightUse; 
 
-        m_player_ctrl.Animator.Play("Idle");
-        m_player_ctrl.ChangeState(PlayerState.IDLE);       
+        m_player_ctrl.Animator.Play("Drawing");       
     }
 
     private void OnDestroy()
@@ -74,6 +73,7 @@ public abstract class BaseTool : MonoBehaviour
 
     public virtual void EnableHit()
     {
+        SoundManager.Instance.PlaySFX("Slash", true, transform.position);
         m_collider.enabled = true;
     }
 

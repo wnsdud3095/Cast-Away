@@ -15,6 +15,8 @@ public class Bootstrapper : MonoBehaviour
 
     protected virtual void Start()
     {
+        SoundManager.Instance.PlayRandBGMLoop();
+
         // 이들을 순회하며 의존성을 주입한다.
         foreach (var installer in m_installers)
         {

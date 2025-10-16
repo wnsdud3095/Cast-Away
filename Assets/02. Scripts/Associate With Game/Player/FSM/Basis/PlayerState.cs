@@ -5,4 +5,5 @@ public enum PlayerState
     RUN = 2,
     WORK = 3,
     ATTACK = 4,
+    Fishing = 5,
 }

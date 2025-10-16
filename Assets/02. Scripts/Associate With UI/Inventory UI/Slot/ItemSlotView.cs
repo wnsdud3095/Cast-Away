@@ -79,6 +79,11 @@ public class ItemSlotView : MonoBehaviour, IItemSlotView
         m_cursor_db.SetCursor(mode);
     }
 
+    public void PlaySFX(string sfx_name)
+    {
+        SoundManager.Instance.PlaySFX(sfx_name, false, Vector3.zero);
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         m_presenter.OnPointerEnter();

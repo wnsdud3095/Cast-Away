@@ -1,10 +1,10 @@
-using UnityEngine;
 using System.Collections.Generic;
 using System;
 using EXPService;
 using UserService;
 using InventoryService;
 using KeyService;
+using SettingService;
 
 public static class ServiceLocator
 {
@@ -17,6 +17,7 @@ public static class ServiceLocator
         Register<IUserService>(new UserDataService());
         Register<IInventoryService>(new IventoryDataService());
         Register<IKeyService>(new KeyDataService());
+        Register<ISettingService>(new LocalSettingService());
     }
 
     public static void Register<T>(T service)
@@ -37,6 +38,5 @@ public static class ServiceLocator
         {
             return (T)service;
         }
-
     }
 }

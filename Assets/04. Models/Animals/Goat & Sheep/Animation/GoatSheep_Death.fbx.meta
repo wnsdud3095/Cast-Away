@@ -62,8 +62,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.997006
-        functionName: OnDeathAnimationEnd
+      - time: 0.60542166
+        functionName: PlaySFX
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: cb05d014d3cab9d42adfe9a2f543d18b, type: 3}
         floatParameter: 0
@@ -71,6 +71,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.6334842
         functionName: ShakeCamera
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: cb05d014d3cab9d42adfe9a2f543d18b, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.997006
+        functionName: OnDeathAnimationEnd
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: cb05d014d3cab9d42adfe9a2f543d18b, type: 3}
         floatParameter: 0

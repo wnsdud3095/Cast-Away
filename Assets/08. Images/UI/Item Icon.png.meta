@@ -641,10 +641,10 @@ TextureImporter:
       name: Fishing Rod
       rect:
         serializedVersion: 2
-        x: 504
+        x: 506
         y: 96
-        width: 24
-        height: 24
+        width: 20
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -655,6 +655,28 @@ TextureImporter:
       bones: []
       spriteID: 8cc95694fe866c04d9835ef04b3f7674
       internalID: 774933754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timber
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 240
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0e4e3871430e84499781605562bd8f5
+      internalID: 1590749510
       vertices: []
       indices: 
       edges: []
@@ -860,6 +882,7 @@ TextureImporter:
       Stone Hammer: 1757826286
       Stone Pickaxe: -126881242
       Thread: 1145177616
+      Timber: 1590749510
       Water Bottle: -1552187004
       Wood Log: 1135936264
       Wool: 525301450

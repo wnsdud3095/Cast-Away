@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01eccd20f4fc92c488f7127481b5daa7, type: 3}
+  m_Name: 01_Campfire
+  m_EditorClassIdentifier: 
+  m_module_name: "\uBAA8\uB2E5\uBD88"
+  m_module_code: 1
+  m_module_image: {fileID: 21300000, guid: aef805b397c0e0e4bb3967a8f6c0eedb, type: 3}
+  m_ingredient_list:
+  - m_item: {fileID: 11400000, guid: 70510367688d14c4c9956c8a9c62fed1, type: 2}
+    m_count: 5
+  - m_item: {fileID: 11400000, guid: 357f0f5e19e57744baba90c64da44373, type: 2}
+    m_count: 3
+  - m_item: {fileID: 11400000, guid: beffd9087d4cd4043a5bd746b2125f79, type: 2}
+    m_count: 1
+  m_unlock_level: 0

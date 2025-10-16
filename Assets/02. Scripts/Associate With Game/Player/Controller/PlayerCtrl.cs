@@ -10,6 +10,7 @@ public class PlayerCtrl : MonoBehaviour
     private IState<PlayerCtrl> m_run_state;
     private IState<PlayerCtrl> m_work_state;
     private IState<PlayerCtrl> m_attack_state;
+    private IState<PlayerCtrl> m_fishing_state;
     #endregion FSM States
 
     public PlayerMovement Movement { get; private set; }
@@ -22,6 +23,27 @@ public class PlayerCtrl : MonoBehaviour
     [field: SerializeField] public GameObject Model { get; private set; }
 
     public Vector3 Direction { get; set; }
+    public bool Interacting { get; set; }
+
+    private void OnEnable()
+    {
+        GameEventBus.Subscribe(GameEventType.INPLAY, GameManager.Instance.InPlay);
+        GameEventBus.Subscribe(GameEventType.INTERACTING, GameManager.Instance.Interacting);
+        GameEventBus.Subscribe(GameEventType.PAUSE, GameManager.Instance.Pause);
+        GameEventBus.Subscribe(GameEventType.GAMEOVER, GameManager.Instance.GameOver);
+        GameEventBus.Subscribe(GameEventType.GAMECLEAR, GameManager.Instance.GameClear);
+
+        GameEventBus.Publish(GameEventType.INPLAY);
+    }
+
+    private void OnDisable()
+    {
+        GameEventBus.Unsubscribe(GameEventType.INPLAY, GameManager.Instance.InPlay);
+        GameEventBus.Unsubscribe(GameEventType.INTERACTING, GameManager.Instance.Interacting);
+        GameEventBus.Unsubscribe(GameEventType.PAUSE, GameManager.Instance.Pause);
+        GameEventBus.Unsubscribe(GameEventType.GAMEOVER, GameManager.Instance.GameOver);
+        GameEventBus.Unsubscribe(GameEventType.GAMECLEAR, GameManager.Instance.GameClear);
+    }
 
     private void Awake()
     {
@@ -39,6 +61,7 @@ public class PlayerCtrl : MonoBehaviour
         m_run_state = gameObject.AddComponent<PlayerRunState>();
         m_work_state = gameObject.AddComponent<PlayerWorkState>();
         m_attack_state = gameObject.AddComponent<PlayerAttackState>();
+        m_fishing_state = gameObject.AddComponent<PlayerFishingState>();
 
         ChangeState(PlayerState.IDLE);
     }
@@ -62,9 +85,17 @@ public class PlayerCtrl : MonoBehaviour
             PlayerState.RUN         => m_run_state,
             PlayerState.WORK        => m_work_state,
             PlayerState.ATTACK      => m_attack_state,
+            PlayerState.Fishing     => m_fishing_state,
             _                       => null
         };
 
         m_state_context.Transition(target_state);
+    }
+
+    public void InstantiateNotice(string notice_text)
+    {
+        var notice_obj = ObjectManager.Instance.GetObject(ObjectType.POP_UP_NOTICE);
+        var notice_ui = notice_obj.GetComponent<PopupNoticeView>();
+        notice_ui.SetLabel(notice_text);
     }
 }

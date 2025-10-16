@@ -37,6 +37,9 @@ public class InventoryView : MonoBehaviour, IInventoryView
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE_AXE, 1);
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE_PICKAXE, 1);
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE_SPEAR, 1);
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.FISHING_ROD, 1);
+
+        SoundManager.Instance.PlaySFX("UI Open", false, Vector3.zero);
     }
 
     public void CloseUI()
@@ -44,6 +47,8 @@ public class InventoryView : MonoBehaviour, IInventoryView
         m_canvas_group.alpha = 0f;           
         m_canvas_group.interactable = false; 
         m_canvas_group.blocksRaycasts = false; 
+
+        SoundManager.Instance.PlaySFX("UI Close", false, Vector3.zero);
     }
 
 
