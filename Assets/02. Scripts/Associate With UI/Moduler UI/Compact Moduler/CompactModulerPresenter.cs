@@ -6,16 +6,19 @@ public class CompactModulerPresenter : IDisposable
     private readonly ICompactModulerView m_view;
     private readonly IInventoryService m_inventory_service;
     private readonly ModulerTutorialPresenter m_module_tutorial_presenter;
+    private readonly Moduler m_moduler;
 
     private ModuleReceipe m_module_receipe;
 
     public CompactModulerPresenter(ICompactModulerView view,
                                    IInventoryService inventory_service,
-                                   ModulerTutorialPresenter module_tutorial_presenter)
+                                   ModulerTutorialPresenter module_tutorial_presenter,
+                                   Moduler moduler)
     {
         m_view = view;
         m_inventory_service = inventory_service;
         m_module_tutorial_presenter = module_tutorial_presenter;
+        m_moduler = moduler;
 
         m_view.Inject(this);
     }
@@ -66,6 +69,7 @@ public class CompactModulerPresenter : IDisposable
     public void OnClickedBuild()
     {
         m_module_tutorial_presenter.OpenUI();
+        m_moduler.Activate(m_module_receipe);
     }
 
     public void Dispose()

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00cf0e1d93116041ba170d302341c5a, type: 3}
+  m_Name: 03_Wood Floor
+  m_EditorClassIdentifier: 
+  m_module_code: 3
+  m_preview_prefab: {fileID: 9091926701288435303, guid: 8dc217638a9d526449284e640426b9b8, type: 3}
+  m_realview_prefab: {fileID: 8624516788747939399, guid: 8e1406c68432a1b4c973001381b01cd4, type: 3}
