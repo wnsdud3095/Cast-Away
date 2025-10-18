@@ -4,6 +4,11 @@ using UnityEngine;
 public class PreviewObject : MonoBehaviour
 {
     private readonly List<Collider> m_collider_list = new();
+    private Vector3 m_snap_position;
+
+    private Vector2 m_accumulate_move;
+    private float m_unsnap_threshold = 10f;
+
 
     [Header("지형 레이어")]
     [SerializeField] private LayerMask m_layer_mask;
@@ -15,10 +20,46 @@ public class PreviewObject : MonoBehaviour
     [SerializeField] private Material m_red_mat;
 
     public bool Buildable => m_collider_list.Count == 0;
+    public bool IsSnapped { get; private set; }
+    public Vector3 SnapPosition => m_snap_position;
 
     private void Update()
     {
         ChangeColor();
+    }
+
+    public void SnapTo(Vector3 position)
+    {
+        if (IsSnapped) 
+        {
+            return;
+        }
+
+        m_snap_position = position;
+        IsSnapped = true;
+
+        transform.position = m_snap_position;
+    }
+
+    public void TryUnsnap()
+    {
+        if (!IsSnapped) 
+        {
+            return;
+        }
+
+        m_accumulate_move += new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+
+        if (m_accumulate_move.magnitude > m_unsnap_threshold)
+        {
+            Unsnap();
+        }
+    }
+
+    public void Unsnap()
+    {
+        m_accumulate_move = Vector2.zero;
+        IsSnapped = false;
     }
 
     private void ChangeColor()

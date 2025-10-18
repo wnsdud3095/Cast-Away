@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Preview Wood Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b0cf7cca98d77de468d1fd09473b67b9, type: 3}
+      propertyPath: m_TagString
+      value: Preview Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -133,7 +137,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.0093412, y: 0.36284897, z: 2.0065274}
+  m_Size: {x: 1.9, y: 0.36284897, z: 1.9}
   m_Center: {x: -0.0037429333, y: -0.18221079, z: 0.0032637715}
 --- !u!114 &6685519460179131780
 MonoBehaviour:

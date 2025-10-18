@@ -93,6 +93,19 @@ public class Moduler : MonoBehaviour
 
     private void Translation()
     {
+        var preview_obj = m_preview_object.GetComponent<PreviewObject>();
+
+        if (preview_obj != null && preview_obj.IsSnapped)
+        {
+            preview_obj.TryUnsnap();
+
+            if (preview_obj.IsSnapped)
+            {
+                m_preview_object.transform.position = preview_obj.SnapPosition;
+                return;
+            }
+        }
+
         var center = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
         var ray = Camera.main.ScreenPointToRay(center);
 
@@ -120,7 +133,10 @@ public class Moduler : MonoBehaviour
         var center = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
         var ray = Camera.main.ScreenPointToRay(center);
 
-        Instantiate(m_realview_object, ray.GetPoint(m_ray_length), m_preview_object.transform.rotation);   
+        var realview_obj = Instantiate(m_realview_object, m_preview_object.transform.position, Quaternion.identity);
+        var realview_transform = realview_obj.GetComponentInChildren<RealviewObject>().transform;
+        realview_transform.rotation = m_preview_object.transform.rotation;
+
         ConsumeIngredients();
     }
 

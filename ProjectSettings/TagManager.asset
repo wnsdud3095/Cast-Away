@@ -11,6 +11,8 @@ TagManager:
   - Breakable
   - UI
   - Water
+  - Preview Wall
+  - Preview Floor
   layers:
   - Default
   - TransparentFX
