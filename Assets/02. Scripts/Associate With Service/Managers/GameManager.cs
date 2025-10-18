@@ -48,6 +48,16 @@ public class GameManager : Singleton<GameManager>
         Time.timeScale = 1f;
     }
 
+    public void Crafting()
+    {
+        GameType = GameEventType.CRAFTING;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        Time.timeScale = 1f;
+    }
+
     public void Pause()
     {
         GameType = GameEventType.PAUSE;

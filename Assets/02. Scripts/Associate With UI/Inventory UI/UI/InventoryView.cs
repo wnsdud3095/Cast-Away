@@ -38,6 +38,11 @@ public class InventoryView : MonoBehaviour, IInventoryView
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE_PICKAXE, 1);
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE_SPEAR, 1);
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.FISHING_ROD, 1);
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.WOOD, 90);
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE, 90);
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.WOOL, 90);
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.TIMBER, 90);
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.ROPE, 90);
 
         SoundManager.Instance.PlaySFX("UI Open", false, Vector3.zero);
     }

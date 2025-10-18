@@ -6,7 +6,6 @@ public class Hand : BaseTool
     {
         if(collider.CompareTag("Animal"))
         {
-            Debug.Log(collider.name);
             var animal = collider.GetComponent<AnimalCtrl>();
             OnInteract(animal);
         }

@@ -4,7 +4,8 @@ public enum GameEventType
     LOADING = 1,
     INPLAY = 2,
     INTERACTING = 3,
-    PAUSE = 4,
-    GAMEOVER = 5,
-    GAMECLEAR = 6,
+    CRAFTING = 4,
+    PAUSE = 5,
+    GAMEOVER = 6,
+    GAMECLEAR = 7,
 }
