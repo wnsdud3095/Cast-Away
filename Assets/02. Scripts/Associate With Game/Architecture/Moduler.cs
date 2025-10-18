@@ -5,6 +5,7 @@ public class Moduler : MonoBehaviour
 {
     private IInventoryService m_inventory_service;
     private IModuleDataBase m_module_db;
+    private ModulerTutorialPresenter m_moduler_tutorial_presenter;
     private ModuleReceipe m_module_receipe;
 
     private bool m_is_active;
@@ -22,6 +23,12 @@ public class Moduler : MonoBehaviour
     {
         if(!m_is_active)
         {
+            return;
+        }
+
+        if(!CanBuild())
+        {
+            Deactivate();
             return;
         }
 
@@ -47,10 +54,12 @@ public class Moduler : MonoBehaviour
     }
 
     public void Inject(IModuleDataBase module_db,
-                       IInventoryService inventory_service)
+                       IInventoryService inventory_service,
+                       ModulerTutorialPresenter moduler_tutorial_presenter)
     {
         m_module_db = module_db;
         m_inventory_service = inventory_service;
+        m_moduler_tutorial_presenter = moduler_tutorial_presenter;
     }
 
     public void Activate(ModuleReceipe module_receipe)
@@ -78,6 +87,8 @@ public class Moduler : MonoBehaviour
         m_realview_object = null;
 
         m_is_active = false;
+        m_moduler_tutorial_presenter.CloseUI();
+        GameEventBus.Publish(GameEventType.INPLAY);
     }
 
     private void Translation()
@@ -90,14 +101,13 @@ public class Moduler : MonoBehaviour
 
     private void Build()
     {
-        if(!m_is_active)
+        if(GameManager.Instance.GameType != GameEventType.CRAFTING)
         {
             return;
         }
 
-        if(!CanBuild())
+        if(!m_is_active)
         {
-            Deactivate();
             return;
         }
 

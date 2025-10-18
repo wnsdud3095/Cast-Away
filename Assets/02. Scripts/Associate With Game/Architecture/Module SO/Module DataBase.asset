@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Module DataBase
   m_EditorClassIdentifier: 
   m_module_list:
+  - {fileID: 11400000, guid: a6e82617c35f7734a9a8a13339d3db04, type: 2}
+  - {fileID: 11400000, guid: 8510d5cb69bd3824798b462033f718ba, type: 2}
   - {fileID: 11400000, guid: 744e2cfd9563b7c41b612b725b958138, type: 2}
   - {fileID: 11400000, guid: eaf35e0ba8f5c79489a12f81a1877ed2, type: 2}
   - {fileID: 11400000, guid: c4d41a219f7cc814fa1569ee004872d3, type: 2}

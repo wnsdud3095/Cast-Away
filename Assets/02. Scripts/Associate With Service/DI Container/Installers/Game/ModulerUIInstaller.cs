@@ -32,7 +32,8 @@ public class ModulerUIInstaller : MonoBehaviour, IInstaller
         DIContainer.Register<Moduler>(m_moduler);
 
         m_moduler.Inject(m_module_db,
-                         ServiceLocator.Get<IInventoryService>());
+                         ServiceLocator.Get<IInventoryService>(),
+                         DIContainer.Resolve<ModulerTutorialPresenter>());
     }
 
     private void InstallCompact()
