@@ -81,6 +81,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f6f1afcbe926d340b2ffaaba03111b7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3245584963282766252}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f6f1afcbe926d340b2ffaaba03111b7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7595290684243824023}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f6f1afcbe926d340b2ffaaba03111b7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6008444690134275710}
   m_SourcePrefab: {fileID: 100100000, guid: 7f6f1afcbe926d340b2ffaaba03111b7, type: 3}
 --- !u!1 &3618180963036051139 stripped
 GameObject:
@@ -151,3 +157,37 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.795, z: 0.003}
   m_TimeToStationary: 0.5
+--- !u!95 &7595290684243824023
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3618180963036051139}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1519fbfd2e3923847be550ab27bc718b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6008444690134275710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3618180963036051139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b55ad36fe3e008c41a3268ab73acba8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
