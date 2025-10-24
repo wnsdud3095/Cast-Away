@@ -30,7 +30,7 @@ public class GameEventBus
     }
 
     public static void Publish(GameEventType event_type)
-    {
+    {    
         if(m_events.TryGetValue(event_type, out var this_event))
         {
             this_event.Invoke();

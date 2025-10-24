@@ -12,8 +12,6 @@ public class SlotDropHandler
     private SlotType m_slot_type;
     private int m_offset;
 
-    private bool IsShopOrCraft =>  m_slot_type == SlotType.Craft;
-
     public SlotDropHandler(IInventoryService inventory_service,
                            IItemSlotContext slot_context,
                            DragSlotPresenter drag_slot_presenter,
@@ -35,13 +33,14 @@ public class SlotDropHandler
             return;
         }
 
-        if (IsShopOrCraft)
-        {
-            return;
-        }
-
         m_slot_type = slot_type;
         m_offset = offset;
+
+        if(m_slot_type == SlotType.TrashCan)
+        {
+            m_drag_slot_presenter.Clear();
+            return;
+        }
 
         if (m_drag_slot_presenter.Mode == DragMode.SHIFT || m_drag_slot_presenter.Mode == DragMode.CTRL)
         {

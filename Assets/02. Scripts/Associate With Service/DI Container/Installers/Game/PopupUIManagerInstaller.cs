@@ -14,6 +14,7 @@ public class PopupUIManagerInstaller : MonoBehaviour, IInstaller
             new("Inventory", DIContainer.Resolve<InventoryPresenter>()),
             new("Pause", DIContainer.Resolve<SettingPresenter>()),
             new("Build", DIContainer.Resolve<ModulerPresenter>()),
+            new("Craft", DIContainer.Resolve<CraftPresenter>()),
         };
 
         m_popup_manager.Inject(popup_data_list);

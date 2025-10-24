@@ -12,8 +12,8 @@ public class GameManager : Singleton<GameManager>
 
     private void OnDisable()
     {
-        GameEventBus.Subscribe(GameEventType.LOGIN, Login);
-        GameEventBus.Subscribe(GameEventType.LOADING, Loading);
+        GameEventBus.Unsubscribe(GameEventType.LOGIN, Login);
+        GameEventBus.Unsubscribe(GameEventType.LOADING, Loading);
     }
 
     private void Login()
@@ -41,7 +41,6 @@ public class GameManager : Singleton<GameManager>
     public void Interacting()
     {
         GameType = GameEventType.INTERACTING;
-
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -51,7 +50,6 @@ public class GameManager : Singleton<GameManager>
     public void Crafting()
     {
         GameType = GameEventType.CRAFTING;
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
@@ -61,7 +59,6 @@ public class GameManager : Singleton<GameManager>
     public void Pause()
     {
         GameType = GameEventType.PAUSE;
-
         Time.timeScale = 0f;
     }
 

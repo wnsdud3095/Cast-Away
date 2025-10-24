@@ -233,6 +233,28 @@ namespace InventoryService
             return total_count;
         }
 
+        //특정 아이템을 개수만큼 감소시킨다
+        public bool ConsumeItem(ItemCode code, int count)
+        {
+            int remain = count;
+
+            for (int i = 0; i < m_items.Length; i++)
+            {
+                var item = m_items[i];
+                if (item.Code == code && remain > 0)
+                {
+                    int consume = Math.Min(item.Count, remain);
+                    UpdateItem(i, -consume);  
+                    remain -= consume;
+                }
+
+                if (remain <= 0)
+                    break;
+            }
+
+            return remain <= 0;
+        }
+
         // 아이템을 저장할 수 있는 타당한 위치를 반환한다.
         public int GetValidOffset(ItemCode code)
         {

@@ -62,6 +62,6 @@ public class ShortcutSlotPresenter : IDisposable
 
     public void UseShortcut()
     {
-        m_inventory_service.UseItem(Offset + 12);
+       // m_inventory_service.UseItem(Offset + 12);
     }
 }
