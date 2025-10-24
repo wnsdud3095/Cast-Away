@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00cf0e1d93116041ba170d302341c5a, type: 3}
+  m_Name: 06_Wood Window Wall
+  m_EditorClassIdentifier: 
+  m_module_code: 6
+  m_preview_prefab: {fileID: 5119281811403773838, guid: e42e8884907cf8c4895dff3be96cf0ad, type: 3}
+  m_realview_prefab: {fileID: 858525301345407684, guid: 9c0027966de7cfb4f91e093ef17cbc77, type: 3}

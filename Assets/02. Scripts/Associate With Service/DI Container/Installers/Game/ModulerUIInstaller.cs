@@ -4,6 +4,12 @@ using UserService;
 
 public class ModulerUIInstaller : MonoBehaviour, IInstaller
 {
+    [Header("모듈러")]
+    [SerializeField] private Moduler m_moduler;
+
+    [Header("모듈 데이터베이스")]
+    [SerializeField] private ModuleDataBase m_module_db;
+
     [Header("모듈러 뷰")]
     [SerializeField] private ModulerView m_moduler_view;
 
@@ -15,8 +21,19 @@ public class ModulerUIInstaller : MonoBehaviour, IInstaller
 
     public void Install()
     {
-        InstallCompact();
         InstallModuler();
+        InstallCompact();
+        InstallModulerUI();
+    }
+
+    private void InstallModuler()
+    {
+        DIContainer.Register<IModuleDataBase>(m_module_db);
+        DIContainer.Register<Moduler>(m_moduler);
+
+        m_moduler.Inject(m_module_db,
+                         ServiceLocator.Get<IInventoryService>(),
+                         DIContainer.Resolve<ModulerTutorialPresenter>());
     }
 
     private void InstallCompact()
@@ -24,11 +41,13 @@ public class ModulerUIInstaller : MonoBehaviour, IInstaller
         DIContainer.Register<ICompactModulerView>(m_compact_moduler_view);
 
         var compact_moduler_presenter = new CompactModulerPresenter(m_compact_moduler_view,
-                                                                    ServiceLocator.Get<IInventoryService>());
+                                                                    ServiceLocator.Get<IInventoryService>(),
+                                                                    DIContainer.Resolve<ModulerTutorialPresenter>(),
+                                                                    m_moduler);
         DIContainer.Register<CompactModulerPresenter>(compact_moduler_presenter);
     }
 
-    private void InstallModuler()
+    private void InstallModulerUI()
     {
         DIContainer.Register<IModulerView>(m_moduler_view);
 

@@ -61,6 +61,14 @@ public class PopupUIManager : MonoBehaviour
         }
     }
 
+    public void CloseAllUI()
+    {
+        while(m_active_popup_list.Count > 0)
+        {
+            CloseUI(m_active_popup_list.First.Value);
+        }
+    }
+
     // 키 입력을 통하여 활성화/비활성화 여부를 결정한다.
     private void InputToggleKey(string key_name)
     {

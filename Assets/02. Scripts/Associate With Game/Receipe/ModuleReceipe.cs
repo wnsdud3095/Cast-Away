@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Module", menuName = "SO/Create New Module")]
+[CreateAssetMenu(fileName = "New Module", menuName = "SO/Create New Module Receipe")]
 public class ModuleReceipe : ScriptableObject
 {
     [Header("모듈의 이름")]

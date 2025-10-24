@@ -16,36 +16,35 @@ public class PlayerIdleState : MonoBehaviour, IState<PlayerCtrl>
 
     public void ExecuteUpdate()
     {
-        if(GameManager.Instance.GameType != GameEventType.INPLAY)
+        if(GameManager.Instance.GameType == GameEventType.INPLAY)
         {
-            return;
-        }
-
-        if(Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            if(m_controller.State.Hungry || m_controller.State.Starving)
+            if(Input.GetKeyDown(KeyCode.Mouse0))
             {
-                m_controller.InstantiateNotice("허기로 인하여 도구를 사용할 수 없습니다.");
-                return;
-            }
+                if(m_controller.State.Hungry || m_controller.State.Starving)
+                {
+                    m_controller.InstantiateNotice("허기로 인하여 도구를 사용할 수 없습니다.");
+                    return;
+                }
 
-            ItemSwapper.OnLeftClickDown?.Invoke();
-        }
-        
-        if(Input.GetKey(KeyCode.Mouse0))
-        {
-            if(m_controller.State.Hungry || m_controller.State.Starving)
-            {
-                return;
+                ItemSwapper.OnLeftClickDown?.Invoke();
             }
             
-            ItemSwapper.OnLeftClickHold?.Invoke();
+            if(Input.GetKey(KeyCode.Mouse0))
+            {
+                if(m_controller.State.Hungry || m_controller.State.Starving)
+                {
+                    return;
+                }
+                
+                ItemSwapper.OnLeftClickHold?.Invoke();
+            }
+            else if(Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                ItemSwapper.OnRightClickDown?.Invoke();
+            }
         }
-        else if(Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            ItemSwapper.OnRightClickDown?.Invoke();
-        }
-        else if(m_controller.Direction.magnitude > 0f)
+
+        if(m_controller.Direction.magnitude > 0f)
         {
             if(m_controller.Movement.IsDashActive)
             {
