@@ -17,6 +17,7 @@ namespace InventoryService
         int UpdateItem(int offset, int count);
         void Clear(int offset);
         int GetItemCount(ItemCode code);
+        bool ConsumeItem(ItemCode code, int count);
         int GetValidOffset(ItemCode code);
         int GetPriorityOffset(ItemCode code);
         bool HasItem(ItemCode code);

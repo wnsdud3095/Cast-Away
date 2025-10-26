@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00cf0e1d93116041ba170d302341c5a, type: 3}
   m_Name: 08_Wood Chest
   m_EditorClassIdentifier: 
-  m_module_code: 8
+  m_item_code: 307
   m_preview_prefab: {fileID: 5621573684477822610, guid: e513c949ee4ea224c8b54ef5e4dbe39b, type: 3}
   m_realview_prefab: {fileID: 5536807146248342798, guid: d4e5ee23b5868094e9657d8d17ff0caf, type: 3}

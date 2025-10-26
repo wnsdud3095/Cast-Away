@@ -12,6 +12,8 @@ public class ShortcutPresenter
 
     private int m_shortcut_count = 5; // 1~5번 슬롯
 
+    private IItemSlotContext m_slot_context;
+
     public event Action<int> OnSelectedChanged;
     public event Action<ItemCode> OnSelectedChangedToCode;
     public event Action<int> OnUseShortcutRequested; // UseSelected 전용 이벤트
@@ -24,6 +26,18 @@ public class ShortcutPresenter
         m_inventory_service = inventory_service;
         m_player_ctrl = player_ctrl;
         m_view.Inject(this);
+        m_slot_context = DIContainer.Resolve<IItemSlotContext>();
+        m_slot_context.RegisterShortcutSelectCallback(OnShortcutSelected);
+    }
+
+    private void OnShortcutSelected(int index)
+    {
+        Select(index);
+    }
+
+    public void Dispose()
+    {
+        m_slot_context.UnRegisterShortcutSelectCallback();
     }
 
     public void Select(int index)
@@ -36,8 +50,7 @@ public class ShortcutPresenter
         SelectedIndex = index;
         OnSelectedChanged?.Invoke(index);
 
-        var transformed_index = 12 + index;
-        var item_code = m_inventory_service.GetItem(transformed_index).Code;
+        var item_code = m_inventory_service.GetItem(SelectedIndex).Code;
         OnSelectedChangedToCode?.Invoke(item_code);
     }
 

@@ -53,10 +53,6 @@ public class SlotDragHandler
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            if (m_drag_slot_presenter.Type == SlotType.Shortcut)
-            {
-                m_drag_slot_presenter.Clear();
-            }
             m_cursor_db.SetCursor(CursorMode.DEFAULT);
         }
         else

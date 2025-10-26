@@ -12,10 +12,11 @@ public class InventoryUIInstaller : MonoBehaviour, IInstaller
     [Header("아이템 슬롯의 루트")]
     [SerializeField] private Transform m_item_slot_root;
 
+    [Header("쓰레기통 뷰")]
+    [SerializeField] private ItemSlotView m_trash_view;
+
     public void Install()
     {
-        Debug.Log($"인벤토리 UI인스톨");
-
         DIContainer.Register<IItemDataBase>(m_item_db);
         DIContainer.Register<IInventoryView>(m_inventory_view);
 
@@ -26,10 +27,13 @@ public class InventoryUIInstaller : MonoBehaviour, IInstaller
         var item_slot_factory = DIContainer.Resolve<ItemSlotFactory>();
 
         var slot_presenters = new ItemSlotPresenter[slot_views.Length];
-        for (int i = 0; i < slot_presenters.Length; i++)
+        for (int i = 0; i < slot_presenters.Length; i++) // 숏컷 0~4, 인벤토리 5~16
         {
-            slot_presenters[i] = item_slot_factory.Instantiate(slot_views[i], i, SlotType.Inventory);
+            int index = i + 5;
+            slot_presenters[i] = item_slot_factory.Instantiate(slot_views[i], index, SlotType.Inventory);
         }
+
+        item_slot_factory.Instantiate(m_trash_view, 17, SlotType.TrashCan);
 
         var m_inventory_presenter = new InventoryPresenter(m_inventory_view,
                                                            ServiceLocator.Get<IInventoryService>(),

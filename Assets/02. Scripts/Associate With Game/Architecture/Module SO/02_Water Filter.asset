@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00cf0e1d93116041ba170d302341c5a, type: 3}
   m_Name: 02_Water Filter
   m_EditorClassIdentifier: 
-  m_module_code: 2
+  m_item_code: 306
   m_preview_prefab: {fileID: 186117038897051737, guid: 9b27eb8dbfc97fc429c22ba92cb58f2c, type: 3}
   m_realview_prefab: {fileID: 3618180963036051139, guid: 543f38b6ba395d8438008fc6a6f3e1fd, type: 3}

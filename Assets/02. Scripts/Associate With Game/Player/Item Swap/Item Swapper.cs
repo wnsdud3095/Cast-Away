@@ -26,6 +26,8 @@ public class ItemSwapper : MonoBehaviour
         m_shortcut_presenter = shortcut_presenter;
 
         m_shortcut_presenter.OnSelectedChangedToCode += Swap;
+
+        m_shortcut_presenter.Select(0); 
     }
 
     private void Swap(ItemCode item_code)

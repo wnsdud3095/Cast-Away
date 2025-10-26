@@ -4864,9 +4864,11 @@ GameObject:
   - component: {fileID: 8093395222734568885}
   - component: {fileID: 3912390902904721211}
   - component: {fileID: 6527517923796724293}
+  - component: {fileID: 4075619512369573221}
   - component: {fileID: 1743022296036128259}
   - component: {fileID: 6597368403713322347}
   - component: {fileID: 8000574327619790884}
+  - component: {fileID: -4159014472255555378}
   m_Layer: 0
   m_Name: Realview Campfire
   m_TagString: Untagged
@@ -4980,6 +4982,27 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.033, y: 0.115, z: 0.007}
   m_TimeToStationary: 0.5
+--- !u!135 &4075619512369573221
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7786777735506453734}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1743022296036128259
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5041,3 +5064,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b55ad36fe3e008c41a3268ab73acba8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4159014472255555378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7786777735506453734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ee8e825db94a942a5b18d4786930b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_item_codes: ca000000ce0000006a000000

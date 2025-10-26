@@ -12,8 +12,6 @@ public class SlotDropHandler
     private SlotType m_slot_type;
     private int m_offset;
 
-    private bool IsShopOrCraft =>  m_slot_type == SlotType.Craft;
-
     public SlotDropHandler(IInventoryService inventory_service,
                            IItemSlotContext slot_context,
                            DragSlotPresenter drag_slot_presenter,
@@ -35,33 +33,21 @@ public class SlotDropHandler
             return;
         }
 
-        if (IsShopOrCraft)
-        {
-            return;
-        }
-
         m_slot_type = slot_type;
         m_offset = offset;
 
+        if(m_slot_type == SlotType.TrashCan)
+        {
+            m_drag_slot_presenter.Clear();
+            return;
+        }
+
         if (m_drag_slot_presenter.Mode == DragMode.SHIFT || m_drag_slot_presenter.Mode == DragMode.CTRL)
         {
-            if (m_drag_slot_presenter.Type == SlotType.Shortcut)
-            {
-                return;
-            }
-
             var draged_item_data = m_drag_slot_presenter.GetItem();
             var current_item_data = m_slot_context.Get(m_slot_type, m_offset);
 
             if (current_item_data.Code != ItemCode.NONE && current_item_data.Code != draged_item_data.Code)
-            {
-                return;
-            }
-        }
-
-        if (m_drag_slot_presenter.Type == SlotType.Shortcut)
-        {
-            if (m_slot_type != SlotType.Shortcut)
             {
                 return;
             }
@@ -79,11 +65,9 @@ public class SlotDropHandler
     private void ChangeSlot()
     {
         var draged_item_data = m_drag_slot_presenter.GetItemData();
-        var draged_item = m_drag_slot_presenter.GetItem();
-
         var current_item_data = m_slot_context.Get(m_slot_type, m_offset);
 
-        if (current_item_data.Code == draged_item_data.Code && current_item_data.Code != ItemCode.NONE && m_slot_type != SlotType.Shortcut)
+        if (current_item_data.Code == draged_item_data.Code && current_item_data.Code != ItemCode.NONE )
         {
             var result = m_inventory_service.UpdateItem(m_offset, draged_item_data.Count);
             if (result == -1)
@@ -179,28 +163,17 @@ public class SlotDropHandler
     {
         var temp_data = new ItemData(current_item_data.Code, current_item_data.Count);
 
-        if (m_slot_type != SlotType.Shortcut)
+        m_slot_context.Set(m_slot_type, m_offset, draged_item_data.Code, draged_item_data.Count);
+        if (temp_data.Code != ItemCode.NONE)
         {
-            m_slot_context.Set(m_slot_type, m_offset, draged_item_data.Code, draged_item_data.Count);
-            if (temp_data.Code != ItemCode.NONE)
-            {
-                m_drag_slot_presenter.Set(temp_data.Code, temp_data.Count);
-            }
-            else
-            {
-                m_drag_slot_presenter.Clear();
-            }
-
-            m_inventory_service.InitializeSlot(m_offset);
+            m_drag_slot_presenter.Set(temp_data.Code, temp_data.Count);
         }
         else
         {
-            m_slot_context.Set(m_slot_type, m_offset, draged_item_data.Code, m_inventory_service.GetItemCount(draged_item_data.Code));
-
-            if (m_drag_slot_presenter.Type == SlotType.Shortcut)
-            {
-                m_drag_slot_presenter.Set(temp_data.Code, m_inventory_service.GetItemCount(temp_data.Code));
-            }
+            m_drag_slot_presenter.Clear();
         }
+
+        m_inventory_service.InitializeSlot(m_offset);
+        
     }
 }

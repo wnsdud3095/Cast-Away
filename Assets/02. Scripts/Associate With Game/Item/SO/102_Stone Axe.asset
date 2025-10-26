@@ -18,3 +18,4 @@ MonoBehaviour:
   m_stackable: 0
   m_cool: -1
   m_sprite: {fileID: 1152443898, guid: ae89c7acf9a641848a009ff1a1ea8e1d, type: 3}
+  m_is_default_unlocked: 1

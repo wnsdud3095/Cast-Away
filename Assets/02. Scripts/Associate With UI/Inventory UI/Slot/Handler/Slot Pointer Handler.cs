@@ -21,6 +21,9 @@ public class SlotPointerHandler
 
     public void OnPointerEnter(SlotType slot_type, int offset)
     {
+        if (slot_type == SlotType.TrashCan)
+            return;
+
         var code = m_slot_context.Get(slot_type, offset).Code;
         if (code == ItemCode.NONE)
         {

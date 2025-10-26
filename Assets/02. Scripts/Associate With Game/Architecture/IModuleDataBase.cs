@@ -1,4 +1,4 @@
 public interface IModuleDataBase
 {
-    Module GetModule(ModuleCode module_code);
+    Module GetModule(ItemCode module_code);
 }

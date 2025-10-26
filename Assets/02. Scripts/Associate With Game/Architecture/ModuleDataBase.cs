@@ -5,7 +5,7 @@ using UnityEngine;
 public class ModuleDataBase : ScriptableObject, IModuleDataBase
 {
     [SerializeField] private Module[] m_module_list;
-    private Dictionary<ModuleCode, Module> m_module_dict;
+    private Dictionary<ItemCode, Module> m_module_dict;
 
 #if UNITY_EDITOR
     private void OnEnable()
@@ -29,13 +29,13 @@ public class ModuleDataBase : ScriptableObject, IModuleDataBase
         }
     }
 
-    public Module GetModule(ModuleCode module_code)
+    public Module GetModule(ItemCode item_code)
     {
         if(m_module_dict == null)
         {
             Initialize();
         }
 
-        return m_module_dict.TryGetValue(module_code, out var module) ? module : null;
+        return m_module_dict.TryGetValue(item_code, out var module) ? module : null;
     }
 }

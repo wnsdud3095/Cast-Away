@@ -45,7 +45,8 @@ public class PopupUIManager : MonoBehaviour
             InputToggleKey("Binder");
             InputToggleKey("Crafting");
             InputToggleKey("Inventory");
-            InputToggleKey("Build");            
+            //InputToggleKey("Build");
+            InputToggleKey("Craft");
         }
     }
 
@@ -103,7 +104,6 @@ public class PopupUIManager : MonoBehaviour
         {
             m_active_popup_list.Remove(presenter);
         }
-
         m_active_popup_list.AddFirst(presenter);
         GameEventBus.Publish(GameEventType.INTERACTING);
 
@@ -130,7 +130,6 @@ public class PopupUIManager : MonoBehaviour
     {
         m_active_popup_list.AddFirst(presenter);
         presenter.OpenUI();
-
         GameEventBus.Publish(GameEventType.INTERACTING);
     }
 
@@ -139,7 +138,6 @@ public class PopupUIManager : MonoBehaviour
     {
         m_active_popup_list.Remove(presenter);
         presenter.CloseUI();
-
         if (m_active_popup_list.Count == 0)
         {
             GameEventBus.Publish(GameEventType.INPLAY);
