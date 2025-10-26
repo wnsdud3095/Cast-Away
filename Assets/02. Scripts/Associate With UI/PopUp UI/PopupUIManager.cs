@@ -45,7 +45,7 @@ public class PopupUIManager : MonoBehaviour
             InputToggleKey("Binder");
             InputToggleKey("Crafting");
             InputToggleKey("Inventory");
-            InputToggleKey("Build");
+            //InputToggleKey("Build");
             InputToggleKey("Craft");
         }
     }
@@ -104,7 +104,6 @@ public class PopupUIManager : MonoBehaviour
         {
             m_active_popup_list.Remove(presenter);
         }
-        Debug.Log("에드 프레젠터");
         m_active_popup_list.AddFirst(presenter);
         GameEventBus.Publish(GameEventType.INTERACTING);
 
@@ -131,8 +130,6 @@ public class PopupUIManager : MonoBehaviour
     {
         m_active_popup_list.AddFirst(presenter);
         presenter.OpenUI();
-        Debug.Log("오픈 UI");
-
         GameEventBus.Publish(GameEventType.INTERACTING);
     }
 
@@ -141,8 +138,6 @@ public class PopupUIManager : MonoBehaviour
     {
         m_active_popup_list.Remove(presenter);
         presenter.CloseUI();
-        Debug.Log("클로즈 UI");
-
         if (m_active_popup_list.Count == 0)
         {
             GameEventBus.Publish(GameEventType.INPLAY);

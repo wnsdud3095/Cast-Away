@@ -69,7 +69,7 @@ public class CompactModulerPresenter : IDisposable
     public void OnClickedBuild()
     {
         m_module_tutorial_presenter.OpenUI();
-        m_moduler.Activate(m_module_receipe);
+        //m_moduler.Activate(m_module_receipe);
     }
 
     public void Dispose()

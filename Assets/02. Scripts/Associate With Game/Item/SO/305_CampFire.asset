@@ -18,3 +18,4 @@ MonoBehaviour:
   m_stackable: 0
   m_cool: -1
   m_sprite: {fileID: 0}
+  m_is_default_unlocked: 1

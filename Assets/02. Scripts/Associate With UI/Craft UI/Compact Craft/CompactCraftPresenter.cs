@@ -6,13 +6,24 @@ public class CompactCraftPresenter : IDisposable
 {
     private readonly ICompactCraftView m_view;
     private readonly IInventoryService m_inventory_service;
+    private IItemDataBase m_item_db;
     private CraftReceipe m_craft_receipe;
 
+    private readonly ModulerTutorialPresenter m_module_tutorial_presenter;
+    private readonly Moduler m_moduler;
+
     public CompactCraftPresenter(ICompactCraftView view,
-                                   IInventoryService inventory_service)
+                                   IInventoryService inventory_service,
+                                   ModulerTutorialPresenter module_tutorial_presenter,
+                                   Moduler moduler)
     {
         m_view = view;
         m_inventory_service = inventory_service;
+
+        m_module_tutorial_presenter = module_tutorial_presenter;
+        m_moduler = moduler;
+
+        m_item_db = DIContainer.Resolve<IItemDataBase>();
 
         m_view.Inject(this);
     }
@@ -64,16 +75,25 @@ public class CompactCraftPresenter : IDisposable
     {
         var crafted_item_code = m_craft_receipe.Code;
 
-        if (m_inventory_service.GetValidOffset(crafted_item_code) < 0) 
+        if(m_item_db.GetItem(m_craft_receipe.Code).Type == ItemType.Structure)
         {
-            return;
+            m_module_tutorial_presenter.OpenUI();
+            m_moduler.Activate(m_craft_receipe);
+        }
+        else
+        {
+            if (m_inventory_service.GetValidOffset(crafted_item_code) < 0)
+            {
+                return;
+            }
+
+            foreach (var ingredient in m_craft_receipe.Ingredients)
+            {
+                m_inventory_service.ConsumeItem(ingredient.Item.Code, ingredient.Count);
+            }
+            m_inventory_service.AddItem(crafted_item_code, 1);
         }
 
-        foreach (var ingredient in m_craft_receipe.Ingredients)
-        {
-            m_inventory_service.ConsumeItem(ingredient.Item.Code, ingredient.Count);
-        }
-        m_inventory_service.AddItem(crafted_item_code, 1);
     }
     public void Dispose()
     {

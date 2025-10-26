@@ -17,32 +17,47 @@ public class CraftView : MonoBehaviour, ICraftView
     [Header("스크롤바")]
     [SerializeField] private Scrollbar m_scroll_bar;
 
-    private List<GameObject> m_slot_list;
-    private CraftPresenter m_presenter;
+    [Header("아이템 분류 버튼")]
+    [SerializeField] private Button[] m_buttons;
 
-    private void Awake()
-    {
-        m_slot_list = new();
-    }
+    [Header("아이템 분류 타입")]
+    [SerializeField] private ItemType[] m_filter_types;
+
+    private CraftPresenter m_presenter;
 
     public void Inject(CraftPresenter presenter)
     {
         m_presenter = presenter;
+
+        if (m_buttons.Length != m_filter_types.Length)
+            Debug.LogError("Filter 버튼 개수와 타입 배열 길이가 다릅니다!");
+
+        for (int i = 0; i < m_buttons.Length; i++)
+        {
+            var index = i; 
+            m_buttons[i].onClick.AddListener(() =>
+            {
+                m_presenter.ChangeFilter(m_filter_types[index]);
+            });
+        }
     }
 
     public ICraftSlotView InstantiateSlotView()
     {
         var slot_obj = ObjectManager.Instance.GetObject(ObjectType.CRAFT_SLOT);
         slot_obj.transform.SetParent(m_slot_root, false);
-        m_slot_list.Add(slot_obj);
 
         return slot_obj.GetComponent<ICraftSlotView>();
     }
 
+
+    public void ClearSlots()
+    {
+        Return();
+    }
+
     public void OpenUI()
     {
-        m_slot_list.Clear();
-
         m_canvas_group.alpha = 1f;
         m_canvas_group.blocksRaycasts = true;
         m_canvas_group.interactable = true;
@@ -57,19 +72,21 @@ public class CraftView : MonoBehaviour, ICraftView
         m_scroll_bar.value = 0f;
 
         Return();
-        m_slot_list.Clear();
     }
 
     public void Return()
     {
         var container = ObjectManager.Instance.GetPool(ObjectType.CRAFT_SLOT).Container;
 
-        foreach (var slot_obj in m_slot_list)
+        for (int i = m_slot_root.childCount - 1; i >= 0; i--)
         {
-            slot_obj.transform.SetParent(container, false);
+            var child = m_slot_root.GetChild(i).gameObject;
 
-            ObjectManager.Instance.ReturnObject(slot_obj, ObjectType.CRAFT_SLOT);
+            ObjectManager.Instance.ReturnObject(child, ObjectType.CRAFT_SLOT);
+
+            child.transform.SetParent(container, false);
         }
+
     }
 
     public void SetDepth()

@@ -13,7 +13,7 @@ public class PopupUIManagerInstaller : MonoBehaviour, IInstaller
             new("Binder", DIContainer.Resolve<KeyBinderPresenter>()),
             new("Inventory", DIContainer.Resolve<InventoryPresenter>()),
             new("Pause", DIContainer.Resolve<SettingPresenter>()),
-            new("Build", DIContainer.Resolve<ModulerPresenter>()),
+            //new("Build", DIContainer.Resolve<ModulerPresenter>()),
             new("Craft", DIContainer.Resolve<CraftPresenter>()),
         };
 

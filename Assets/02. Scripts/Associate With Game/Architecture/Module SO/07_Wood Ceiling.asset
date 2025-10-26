@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00cf0e1d93116041ba170d302341c5a, type: 3}
   m_Name: 07_Wood Ceiling
   m_EditorClassIdentifier: 
-  m_module_code: 7
+  m_item_code: 313
   m_preview_prefab: {fileID: 7639346914134130492, guid: 578c10a60153a0c4a9473f8dd40e5d2c, type: 3}
   m_realview_prefab: {fileID: 4330111502996936334, guid: 915394468636797449980e616329ac2b, type: 3}

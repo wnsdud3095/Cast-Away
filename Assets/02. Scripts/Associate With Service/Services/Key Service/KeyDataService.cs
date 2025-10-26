@@ -55,8 +55,8 @@ namespace KeyService
             Register(KeyCode.P, "Binder");
             Register(KeyCode.H, "Shortcut");
             Register(KeyCode.E, "PickUp");
-            Register(KeyCode.B, "Build");
-            Register(KeyCode.C, "Craft");
+            //Register(KeyCode.B, "Build");
+            Register(KeyCode.R, "Craft");
 
             Register(KeyCode.Alpha1, "Shortcut0");
             Register(KeyCode.Alpha2, "Shortcut1");

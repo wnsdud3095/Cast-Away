@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00cf0e1d93116041ba170d302341c5a, type: 3}
   m_Name: 06_Wood Window Wall
   m_EditorClassIdentifier: 
-  m_module_code: 6
+  m_item_code: 311
   m_preview_prefab: {fileID: 5119281811403773838, guid: e42e8884907cf8c4895dff3be96cf0ad, type: 3}
   m_realview_prefab: {fileID: 858525301345407684, guid: 9c0027966de7cfb4f91e093ef17cbc77, type: 3}

@@ -6,7 +6,7 @@ public class Moduler : MonoBehaviour
     private IInventoryService m_inventory_service;
     private IModuleDataBase m_module_db;
     private ModulerTutorialPresenter m_moduler_tutorial_presenter;
-    private ModuleReceipe m_module_receipe;
+    private CraftReceipe m_module_receipe;
 
     private bool m_is_active;
 
@@ -62,13 +62,13 @@ public class Moduler : MonoBehaviour
         m_moduler_tutorial_presenter = moduler_tutorial_presenter;
     }
 
-    public void Activate(ModuleReceipe module_receipe)
+    public void Activate(CraftReceipe craft_receipe)
     {
         var center = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
         var ray = Camera.main.ScreenPointToRay(center);
 
-        var module = m_module_db.GetModule(module_receipe.Code);
-        m_module_receipe = module_receipe;
+        var module = m_module_db.GetModule(craft_receipe.Code);
+        m_module_receipe = craft_receipe;
 
         m_preview_object = Instantiate(module.PreviewPrefab, ray.GetPoint(m_ray_length), Quaternion.identity);
         m_realview_object = module.RealviewPrefab;
