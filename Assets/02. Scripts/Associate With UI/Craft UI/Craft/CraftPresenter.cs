@@ -99,8 +99,6 @@ public class CraftPresenter: IPopupPresenter
 
     private void RefreshSlots()
     {
-        Debug.Log($"### RefreshSlots 호출됨. 필터:{m_current_type}, 잠금:{m_locked_codes.Count}개");
-
         // 기존 슬롯 반환
         m_view.ClearSlots();
 
@@ -109,7 +107,6 @@ public class CraftPresenter: IPopupPresenter
         {
             if (m_locked_codes.Contains(recipe.Code))
             {
-                Debug.Log($"(잠긴 레시피 코드 {recipe.Code})");
                 continue; // 잠긴 레시피는 출력 X
             }
 
