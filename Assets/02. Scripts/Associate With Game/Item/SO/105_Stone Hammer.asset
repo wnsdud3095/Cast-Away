@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e007a4a141875d745b10aa6d09ca3040, type: 3}
-  m_Name: 108_Filled_Bottle
+  m_Name: 105_Stone Hammer
   m_EditorClassIdentifier: 
-  m_code: 108
-  m_type: 8
-  m_name: "\uAC00\uB4DD \uCC2C \uBCD1"
-  m_stackable: 1
+  m_code: 105
+  m_type: 4
+  m_name: "\uB3CC \uB9DD\uCE58"
+  m_stackable: 0
   m_cool: -1
-  m_sprite: {fileID: -1552187004, guid: ae89c7acf9a641848a009ff1a1ea8e1d, type: 3}
+  m_sprite: {fileID: 1757826286, guid: ae89c7acf9a641848a009ff1a1ea8e1d, type: 3}

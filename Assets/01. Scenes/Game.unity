@@ -9853,6 +9853,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3c3f4e47aaf84674eb103a85b8cef9f7, type: 2}
   m_moduler: {fileID: 1194113810}
   m_module_db: {fileID: 11400000, guid: 34857610a06f8834a95dda10b55fd70b, type: 2}
+  m_camera_shaker: {fileID: 1194113813}
+  m_item_object_converter: {fileID: 11400000, guid: 58afef09e230d0748ab9b3a41e143a3a, type: 2}
 --- !u!1 &503923885 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4661435515762455780, guid: e289bf5debb17f6459818c207d781953, type: 3}
@@ -13402,6 +13404,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.60942316, y: 0.3372489, z: 0.7268169}
   m_Center: {x: -0.0000010065942, y: 0.0000014093473, z: -0.49864322}
+--- !u!114 &735564107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735564102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21a9c7320a9f519458b39b84ba922fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_player_ctrl: {fileID: 1051033469}
+  m_default_damage: 1
+  m_target_damage: 3
 --- !u!1 &736667017
 GameObject:
   m_ObjectHideFlags: 0
@@ -17773,6 +17790,14 @@ MonoBehaviour:
     Count: 0
     Prefab: {fileID: 8196667276661346070, guid: 4dbf14060a5a9a1408094622a4bec4b1, type: 3}
     Container: {fileID: 2131705284}
+  - Type: 108
+    Count: 0
+    Prefab: {fileID: 5341264237848266148, guid: 7e5150bf62822594dac963cf0e28f8b5, type: 3}
+    Container: {fileID: 2131705284}
+  - Type: 109
+    Count: 0
+    Prefab: {fileID: 2443840072333579982, guid: 7201d203af8ba3e4ebfc4509e413560f, type: 3}
+    Container: {fileID: 2131705284}
   m_animal_pool_list:
   - Type: 201
     Count: 3
@@ -19266,6 +19291,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4434961529217005506, guid: 582880a81be7ecd4eba55a2e6aa8eaae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 735564104}
+    - targetCorrespondingSourceObject: {fileID: 4434961529217005506, guid: 582880a81be7ecd4eba55a2e6aa8eaae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 735564107}
   m_SourcePrefab: {fileID: 100100000, guid: 582880a81be7ecd4eba55a2e6aa8eaae, type: 3}
 --- !u!1 &1132357265 stripped
 GameObject:
@@ -22705,6 +22733,8 @@ MonoBehaviour:
   - Code: 1
     Item: {fileID: 619633684}
   - Code: 105
+    Item: {fileID: 735564102}
+  - Code: 106
     Item: {fileID: 977795321}
 --- !u!95 &1261674379
 Animator:

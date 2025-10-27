@@ -19,11 +19,17 @@ public class CraftUIInstaller : MonoBehaviour, IInstaller
     [Header("모듈 데이터베이스")]
     [SerializeField] private ModuleDataBase m_module_db;
 
+    [Header("카메라 셰이커")]
+    [SerializeField] private CameraShaker m_camera_shaker;
+
+    [Header("아이템-오브젝트 변환자")]
+    [SerializeField] private ItemObjectConverter m_item_object_converter;
+
     public void Install()
     {
-        InstallModuler();
         InstallCompact();
         InstallCraftUI();
+        InstallModuler();
     }
 
     private void InstallModuler()
@@ -33,7 +39,10 @@ public class CraftUIInstaller : MonoBehaviour, IInstaller
 
         m_moduler.Inject(m_module_db,
                          ServiceLocator.Get<IInventoryService>(),
-                         DIContainer.Resolve<ModulerTutorialPresenter>());
+                         DIContainer.Resolve<ModulerTutorialPresenter>(),
+                         m_camera_shaker,
+                         m_item_object_converter,
+                         DIContainer.Resolve<CraftPresenter>());
     }
 
     private void InstallCompact()

@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Axe : BaseTool
+public class Hammer : BaseTool
 {
-    [Header("나무를 벨 때의 데미지")]
+    [Header("건물을 철거할 때의 데미지")]
     [SerializeField] private float m_target_damage;
 
     protected override void OnLeftUse()
@@ -15,10 +15,6 @@ public class Axe : BaseTool
     protected override void OnInteract(BaseBreakable target, Vector3 point)
     {
         if(target is BreakableBuilding)
-        {
-            return;
-        }
-        else if(target is BreakableTree)
         {
             target.UpdateHP(-m_target_damage, point);
         }

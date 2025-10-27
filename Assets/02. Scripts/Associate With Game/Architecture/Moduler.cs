@@ -7,6 +7,9 @@ public class Moduler : MonoBehaviour
     private IModuleDataBase m_module_db;
     private ModulerTutorialPresenter m_moduler_tutorial_presenter;
     private CraftReceipe m_module_receipe;
+    private CameraShaker m_camera_shaker;
+    private IItemObjectConverter m_item_object_converter;
+    private CraftPresenter m_craft_presenter;
 
     private bool m_is_active;
 
@@ -55,11 +58,17 @@ public class Moduler : MonoBehaviour
 
     public void Inject(IModuleDataBase module_db,
                        IInventoryService inventory_service,
-                       ModulerTutorialPresenter moduler_tutorial_presenter)
+                       ModulerTutorialPresenter moduler_tutorial_presenter,
+                       CameraShaker camera_shaker,
+                       IItemObjectConverter item_object_converter,
+                       CraftPresenter craft_presenter)
     {
         m_module_db = module_db;
         m_inventory_service = inventory_service;
         m_moduler_tutorial_presenter = moduler_tutorial_presenter;
+        m_camera_shaker = camera_shaker;
+        m_item_object_converter = item_object_converter;
+        m_craft_presenter = craft_presenter;
     }
 
     public void Activate(CraftReceipe craft_receipe)
@@ -136,6 +145,15 @@ public class Moduler : MonoBehaviour
         var realview_obj = Instantiate(m_realview_object, m_preview_object.transform.position, Quaternion.identity);
         var realview_transform = realview_obj.GetComponentInChildren<RealviewObject>().transform;
         realview_transform.rotation = m_preview_object.transform.rotation;
+
+        var breakable_obj = realview_obj.GetComponent<BreakableBuilding>();
+        breakable_obj.Inject(m_camera_shaker, m_item_object_converter);
+
+        var unlock_trigger = realview_obj.GetComponentInChildren<CraftUnlockTrigger>();
+        if(unlock_trigger != null)
+        {
+            unlock_trigger.Inject(m_craft_presenter);
+        }
 
         ConsumeIngredients();
     }

@@ -53,6 +53,12 @@ public class CraftPresenter: IPopupPresenter
         trigger.OnPlayerExit += HandleTriggerExit;
     }
 
+    public void UnsubscribeTrigger(CraftUnlockTrigger trigger)
+    {
+        trigger.OnPlayerEnter -= HandleTriggerEnter;
+        trigger.OnPlayerExit -= HandleTriggerExit;        
+    }
+
     private void HandleTriggerEnter(List<ItemCode> restricted_codes, CraftUnlockTrigger trigger)
     {
         // 트리거 안에 들어오면 잠금 해제
