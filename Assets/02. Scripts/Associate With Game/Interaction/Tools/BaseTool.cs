@@ -46,7 +46,7 @@ public abstract class BaseTool : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider collider)
     {
-        if(collider.CompareTag("Breakable"))
+        if(collider.CompareTag("Breakable") || collider.CompareTag("Building"))
         {
             var hit_point = collider.ClosestPoint(transform.position);
             var interactable = collider.GetComponent<BaseBreakable>();

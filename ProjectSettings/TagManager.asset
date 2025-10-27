@@ -15,6 +15,7 @@ TagManager:
   - Preview Floor
   - Preview
   - Ignore
+  - Building
   layers:
   - Default
   - TransparentFX

@@ -75,6 +75,7 @@ public class CameraCtrl : MonoBehaviour
            !collider.CompareTag("Tool") &&
            !collider.CompareTag("UI") &&
            !collider.CompareTag("Ignore") &&
+           !collider.CompareTag("Building") &&
            collider != null)
         {
             return true;

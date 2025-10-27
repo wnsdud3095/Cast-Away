@@ -2535,7 +2535,7 @@ GameObject:
   - component: {fileID: 4842727598828087223}
   m_Layer: 0
   m_Name: Realview Stone Craft Station
-  m_TagString: Breakable
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

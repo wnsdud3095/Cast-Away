@@ -1475,7 +1475,7 @@ GameObject:
   - component: {fileID: 5218623785649907634}
   m_Layer: 0
   m_Name: 'Realview Elite Craft Station '
-  m_TagString: Breakable
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

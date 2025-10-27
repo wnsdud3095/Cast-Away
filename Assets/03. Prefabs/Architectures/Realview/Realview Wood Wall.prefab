@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 2213010498223490594}
   m_Layer: 9
   m_Name: Realview Wood Wall
-  m_TagString: Breakable
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

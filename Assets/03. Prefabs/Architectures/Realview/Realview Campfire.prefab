@@ -4938,7 +4938,7 @@ GameObject:
   - component: {fileID: 7518856152896885140}
   m_Layer: 0
   m_Name: Realview Campfire
-  m_TagString: Breakable
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
