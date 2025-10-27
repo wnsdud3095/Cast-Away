@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_item_code: 304
   m_preview_prefab: {fileID: 2455339882299985075, guid: c8f4b8ead8b4b9f4b919376113934de7, type: 3}
-  m_realview_prefab: {fileID: 0}
+  m_realview_prefab: {fileID: 7076871734064053948, guid: 2b2d122a0238ded4fa7cf1644849c30f, type: 3}
