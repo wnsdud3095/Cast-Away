@@ -17,8 +17,8 @@ public class CraftView : MonoBehaviour, ICraftView
     [Header("스크롤바")]
     [SerializeField] private Scrollbar m_scroll_bar;
 
-    [Header("아이템 분류 버튼")]
-    [SerializeField] private Button[] m_buttons;
+    [Header("아이템 분류 토글")]
+    [SerializeField] private Toggle[] m_toggles;
 
     [Header("아이템 분류 타입")]
     [SerializeField] private ItemType[] m_filter_types;
@@ -29,15 +29,16 @@ public class CraftView : MonoBehaviour, ICraftView
     {
         m_presenter = presenter;
 
-        if (m_buttons.Length != m_filter_types.Length)
-            Debug.LogError("Filter 버튼 개수와 타입 배열 길이가 다릅니다!");
+        if (m_toggles.Length != m_filter_types.Length)
+            Debug.LogError("Filter 토글 개수와 타입 배열 길이가 다릅니다!");
 
-        for (int i = 0; i < m_buttons.Length; i++)
+        for (int i = 0; i < m_toggles.Length; i++)
         {
             var index = i; 
-            m_buttons[i].onClick.AddListener(() =>
+            m_toggles[i].onValueChanged.AddListener(isOn =>
             {
-                m_presenter.ChangeFilter(m_filter_types[index]);
+                if (isOn)
+                    m_presenter.ChangeFilter(m_filter_types[index]);
             });
         }
     }
