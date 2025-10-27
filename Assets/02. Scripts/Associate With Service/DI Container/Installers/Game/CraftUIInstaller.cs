@@ -63,7 +63,9 @@ public class CraftUIInstaller : MonoBehaviour, IInstaller
         var craft_presenter = new CraftPresenter(m_craft_view,
                                                      m_craft_receipe_list,
                                                      ServiceLocator.Get<IUserService>(),
-                                                     DIContainer.Resolve<CompactCraftPresenter>());
+                                                     DIContainer.Resolve<CompactCraftPresenter>(),
+                                                     DIContainer.Resolve<ModulerTutorialPresenter>(),
+                                                     m_moduler);
         DIContainer.Register<CraftPresenter>(craft_presenter);
     }
 }

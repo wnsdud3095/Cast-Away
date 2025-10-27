@@ -31,7 +31,7 @@ public class Moduler : MonoBehaviour
 
         if(!CanBuild())
         {
-            Deactivate();
+            Deactivate(true);
             return;
         }
 
@@ -52,7 +52,7 @@ public class Moduler : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.C))
         {
-            Deactivate();
+            Deactivate(true);
         }
     }
 
@@ -85,7 +85,7 @@ public class Moduler : MonoBehaviour
         m_is_active = true;
     }
 
-    public void Deactivate()
+    public void Deactivate(bool change_state)
     {
         if(m_is_active)
         {
@@ -97,7 +97,11 @@ public class Moduler : MonoBehaviour
 
         m_is_active = false;
         m_moduler_tutorial_presenter.CloseUI();
-        GameEventBus.Publish(GameEventType.INPLAY);
+
+        if(change_state)
+        {
+            GameEventBus.Publish(GameEventType.INPLAY);
+        }
     }
 
     private void Translation()

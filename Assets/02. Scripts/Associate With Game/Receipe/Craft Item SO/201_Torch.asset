@@ -22,5 +22,6 @@ MonoBehaviour:
     m_count: 1
   - m_item: {fileID: 11400000, guid: 357f0f5e19e57744baba90c64da44373, type: 2}
     m_count: 2
-  m_unlock_level: 0
+  m_unlock_level: 1
+  m_craft_exp: 10
   m_is_default_unlocked: 1
