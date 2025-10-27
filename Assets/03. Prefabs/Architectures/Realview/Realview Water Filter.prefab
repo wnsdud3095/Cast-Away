@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6996254190425587252}
   - component: {fileID: 7221473812602055829}
   - component: {fileID: 3986267461723110779}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Unlock Trigger
-  m_TagString: Untagged
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

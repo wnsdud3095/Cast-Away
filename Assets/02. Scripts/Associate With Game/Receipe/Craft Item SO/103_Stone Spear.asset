@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9160d218435a19347bce75c2e2e1e1c2, type: 3}
   m_Name: 103_Stone Spear
   m_EditorClassIdentifier: 
-  m_craft_name: "\uB3CC \uCC3D"
+  m_craft_name: "\uB098\uBB34 \uCC3D"
   m_item_code: 104
   m_craft_image: {fileID: -1252051298, guid: ae89c7acf9a641848a009ff1a1ea8e1d, type: 3}
   m_ingredient_list:
   - m_item: {fileID: 11400000, guid: 70510367688d14c4c9956c8a9c62fed1, type: 2}
-    m_count: 6
-  - m_item: {fileID: 11400000, guid: 357f0f5e19e57744baba90c64da44373, type: 2}
-    m_count: 3
+    m_count: 1
+  - m_item: {fileID: 11400000, guid: ddd64be2e43518646b5ef0c1d75c48a1, type: 2}
+    m_count: 1
   m_unlock_level: 0
-  m_is_default_unlocked: 1
+  m_is_default_unlocked: 0

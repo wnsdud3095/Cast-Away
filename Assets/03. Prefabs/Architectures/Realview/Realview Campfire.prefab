@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5471642054242074707}
   - component: {fileID: 408002201666951471}
   - component: {fileID: 2122393499918949101}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Unlock Trigger
-  m_TagString: Untagged
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

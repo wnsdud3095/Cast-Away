@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00cf0e1d93116041ba170d302341c5a, type: 3}
+  m_Name: 10_Wood Workbench
+  m_EditorClassIdentifier: 
+  m_item_code: 302
+  m_preview_prefab: {fileID: 5355876892685082892, guid: 306ace2847fec2941b1b854d11b2af6e, type: 3}
+  m_realview_prefab: {fileID: 5122267935553677149, guid: 41f5651dea8f8624a8d48e12fad19297, type: 3}
