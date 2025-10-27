@@ -19,4 +19,4 @@ MonoBehaviour:
   - m_item: {fileID: 11400000, guid: ddd64be2e43518646b5ef0c1d75c48a1, type: 2}
     m_count: 2
   m_unlock_level: 0
-  m_is_default_unlocked: 1
+  m_is_default_unlocked: 0

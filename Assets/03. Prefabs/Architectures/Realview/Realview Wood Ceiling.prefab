@@ -254,9 +254,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3989192926814489652}
+  - component: {fileID: 2817575220042657716}
+  - component: {fileID: 7951990627806767697}
   m_Layer: 9
   m_Name: Realview Wood Ceiling
-  m_TagString: Untagged
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,6 +280,41 @@ Transform:
   - {fileID: 4831701120075505700}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2817575220042657716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4330111502996936334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1868a2c82e7c6e44a1240a8c04d8a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_default_hp: 6
+  m_craft_receipe: {fileID: 11400000, guid: 2748e27b594aa504291d5a638f5cd12c, type: 2}
+--- !u!65 &7951990627806767697
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4330111502996936334}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: -1, z: 0}
 --- !u!1 &4800213126664238194
 GameObject:
   m_ObjectHideFlags: 0

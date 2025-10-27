@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: 201_Torch
   m_EditorClassIdentifier: 
   m_craft_name: "\uD683\uBD88"
-  m_item_code: 106
+  m_item_code: 107
   m_craft_image: {fileID: -1103984870, guid: 1d5864d95f477c441b3d5a0ef6bd9055, type: 3}
   m_ingredient_list:
   - m_item: {fileID: 11400000, guid: 70510367688d14c4c9956c8a9c62fed1, type: 2}
-    m_count: 6
+    m_count: 2
   - m_item: {fileID: 11400000, guid: 0229e49995961324cb98f04e9b6a2543, type: 2}
-    m_count: 3
+    m_count: 1
+  - m_item: {fileID: 11400000, guid: 357f0f5e19e57744baba90c64da44373, type: 2}
+    m_count: 2
   m_unlock_level: 0
+  m_is_default_unlocked: 1

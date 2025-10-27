@@ -23,6 +23,13 @@ public class PreviewObject : MonoBehaviour
     public bool IsSnapped { get; private set; }
     public Vector3 SnapPosition => m_snap_position;
 
+    private Renderer[] m_renderer_list;
+
+    private void Awake()
+    {
+        m_renderer_list = transform.GetComponentsInChildren<Renderer>();
+    }
+
     private void Update()
     {
         ChangeColor();
@@ -76,7 +83,10 @@ public class PreviewObject : MonoBehaviour
 
     private void SetMaterial(Material mat)
     {
-        transform.GetComponent<Renderer>().material = mat;
+        foreach(var renderer in m_renderer_list)
+        {
+            renderer.material = mat;
+        }
     }
 
     private void OnTriggerEnter(Collider collider)

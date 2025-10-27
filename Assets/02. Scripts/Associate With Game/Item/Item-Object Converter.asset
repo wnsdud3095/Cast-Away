@@ -25,5 +25,9 @@ MonoBehaviour:
     ObjectType: 104
   - ItemCode: 4
     ObjectType: 106
-  - ItemCode: 107
+  - ItemCode: 108
     ObjectType: 107
+  - ItemCode: 3
+    ObjectType: 108
+  - ItemCode: 5
+    ObjectType: 109

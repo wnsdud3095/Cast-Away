@@ -1,5 +1,72 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &214977105285287278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5471642054242074707}
+  - component: {fileID: 408002201666951471}
+  - component: {fileID: 2122393499918949101}
+  m_Layer: 2
+  m_Name: Unlock Trigger
+  m_TagString: Ignore
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5471642054242074707
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214977105285287278}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5321725598293521432}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &408002201666951471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214977105285287278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ee8e825db94a942a5b18d4786930b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_item_codes: ca000000ce0000006a000000
+--- !u!135 &2122393499918949101
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214977105285287278}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4760683515887875521
 GameObject:
   m_ObjectHideFlags: 0
@@ -4864,14 +4931,14 @@ GameObject:
   - component: {fileID: 8093395222734568885}
   - component: {fileID: 3912390902904721211}
   - component: {fileID: 6527517923796724293}
-  - component: {fileID: 4075619512369573221}
   - component: {fileID: 1743022296036128259}
   - component: {fileID: 6597368403713322347}
   - component: {fileID: 8000574327619790884}
-  - component: {fileID: -4159014472255555378}
+  - component: {fileID: 271358863985017711}
+  - component: {fileID: 7518856152896885140}
   m_Layer: 0
   m_Name: Realview Campfire
-  m_TagString: Untagged
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4890,6 +4957,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6144472820876849558}
+  - {fileID: 5471642054242074707}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &798844941582187501
@@ -4982,27 +5050,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.033, y: 0.115, z: 0.007}
   m_TimeToStationary: 0.5
---- !u!135 &4075619512369573221
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7786777735506453734}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1743022296036128259
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5064,7 +5111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b55ad36fe3e008c41a3268ab73acba8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4159014472255555378
+--- !u!114 &271358863985017711
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5073,7 +5120,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 7786777735506453734}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53ee8e825db94a942a5b18d4786930b2, type: 3}
+  m_Script: {fileID: 11500000, guid: a1868a2c82e7c6e44a1240a8c04d8a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_item_codes: ca000000ce0000006a000000
+  m_default_hp: 6
+  m_craft_receipe: {fileID: 11400000, guid: 83f366632089b3942bbf4adae9a4a92e, type: 2}
+--- !u!65 &7518856152896885140
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7786777735506453734}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
