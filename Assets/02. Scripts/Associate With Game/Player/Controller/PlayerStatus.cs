@@ -55,6 +55,12 @@ public class PlayerStatus : MonoBehaviour
     public void ChangeHP(float amount)
     {
         HP = Mathf.Clamp(HP + amount, 0, MaxValue);
+
+        if(HP <= 0f)
+        {
+            m_controller.ChangeState(PlayerState.DEATH);
+        }
+
         OnUpdatedHP?.Invoke(HP, MaxValue);
     }
 

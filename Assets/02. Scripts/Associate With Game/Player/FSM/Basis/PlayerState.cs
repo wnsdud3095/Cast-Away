@@ -6,4 +6,5 @@ public enum PlayerState
     WORK = 3,
     ATTACK = 4,
     Fishing = 5,
+    DEATH = 6,
 }

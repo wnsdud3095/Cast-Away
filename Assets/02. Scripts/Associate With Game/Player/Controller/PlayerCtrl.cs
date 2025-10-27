@@ -11,6 +11,7 @@ public class PlayerCtrl : MonoBehaviour
     private IState<PlayerCtrl> m_work_state;
     private IState<PlayerCtrl> m_attack_state;
     private IState<PlayerCtrl> m_fishing_state;
+    private IState<PlayerCtrl> m_death_state;
     #endregion FSM States
 
     public PlayerMovement Movement { get; private set; }
@@ -64,6 +65,7 @@ public class PlayerCtrl : MonoBehaviour
         m_work_state = gameObject.AddComponent<PlayerWorkState>();
         m_attack_state = gameObject.AddComponent<PlayerAttackState>();
         m_fishing_state = gameObject.AddComponent<PlayerFishingState>();
+        m_death_state = gameObject.AddComponent<PlayerDeadState>();
 
         ChangeState(PlayerState.IDLE);
     }
@@ -88,6 +90,7 @@ public class PlayerCtrl : MonoBehaviour
             PlayerState.WORK        => m_work_state,
             PlayerState.ATTACK      => m_attack_state,
             PlayerState.Fishing     => m_fishing_state,
+            PlayerState.DEATH       => m_death_state,
             _                       => null
         };
 
