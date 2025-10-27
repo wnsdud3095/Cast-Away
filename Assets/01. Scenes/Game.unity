@@ -6697,7 +6697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_default_hp: 15
-  m_stone_height: 1
+  m_stone_height: 0
 --- !u!208 &354010719
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -8315,7 +8315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_default_hp: 18
-  m_stone_height: 1
+  m_stone_height: 0
 --- !u!208 &420021433
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -11065,7 +11065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_default_hp: 18
-  m_stone_height: 2
+  m_stone_height: 0
 --- !u!208 &577525625
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -11528,7 +11528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_default_hp: 18
-  m_stone_height: 2
+  m_stone_height: 0
 --- !u!208 &595902758
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -11662,7 +11662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_default_hp: 18
-  m_stone_height: 2
+  m_stone_height: 0
 --- !u!208 &607591619
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -12515,7 +12515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_default_hp: 100
-  m_stone_height: 3
+  m_stone_height: 0
 --- !u!1 &667568659
 GameObject:
   m_ObjectHideFlags: 0
@@ -16683,7 +16683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_default_hp: 18
-  m_stone_height: 2
+  m_stone_height: 0
 --- !u!208 &959908833
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -17302,7 +17302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_default_hp: 100
-  m_stone_height: 3
+  m_stone_height: 0
 --- !u!1001 &997198248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17505,7 +17505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_default_hp: 21
-  m_stone_height: 2
+  m_stone_height: 0
 --- !u!208 &1002894970
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -19545,7 +19545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_default_hp: 18
-  m_stone_height: 2
+  m_stone_height: 0
 --- !u!208 &1160308924
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -24185,7 +24185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_default_hp: 18
-  m_stone_height: 2
+  m_stone_height: 0
 --- !u!208 &1351000713
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -25888,7 +25888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_default_hp: 15
-  m_stone_height: 1
+  m_stone_height: 0
 --- !u!208 &1427041391
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -26309,7 +26309,7 @@ MonoBehaviour:
   m_item_db: {fileID: 11400000, guid: 441b78eaf417ddb4d90cc31faa3b6f35, type: 2}
   m_inventory_view: {fileID: 2139470354}
   m_item_slot_root: {fileID: 441572365}
-  m_trash_view: {fileID: 276438601}
+  m_trash_view: {fileID: 0}
 --- !u!1001 &1448054095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27799,7 +27799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_default_hp: 18
-  m_stone_height: 2
+  m_stone_height: 0
 --- !u!208 &1539725590
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -29186,7 +29186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_default_hp: 21
-  m_stone_height: 2
+  m_stone_height: 0
 --- !u!208 &1614216312
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -33154,7 +33154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_default_hp: 18
-  m_stone_height: 1
+  m_stone_height: 0
 --- !u!208 &1822270528
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -37044,7 +37044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_default_hp: 18
-  m_stone_height: 2
+  m_stone_height: 0
 --- !u!208 &2043657055
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -37957,7 +37957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_default_hp: 15
-  m_stone_height: 1
+  m_stone_height: 0
 --- !u!208 &2088635184
 NavMeshObstacle:
   m_ObjectHideFlags: 0
