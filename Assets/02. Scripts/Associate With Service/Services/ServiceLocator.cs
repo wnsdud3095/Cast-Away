@@ -14,7 +14,7 @@ public static class ServiceLocator
     public static void InitServices()
     {
         Register<IEXPService>(new EXPDataService());
-        Register<IUserService>(new UserDataService());
+        Register<IUserService>(new UserDataService(Get<IEXPService>()));
         Register<IInventoryService>(new IventoryDataService());
         Register<IKeyService>(new KeyDataService());
         Register<ISettingService>(new LocalSettingService());

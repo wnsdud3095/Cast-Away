@@ -1,9 +1,11 @@
 using InventoryService;
 using UnityEngine;
+using UserService;
 
 public class Moduler : MonoBehaviour
 {
     private IInventoryService m_inventory_service;
+    private IUserService m_user_service;
     private IModuleDataBase m_module_db;
     private ModulerTutorialPresenter m_moduler_tutorial_presenter;
     private CraftReceipe m_module_receipe;
@@ -58,6 +60,7 @@ public class Moduler : MonoBehaviour
 
     public void Inject(IModuleDataBase module_db,
                        IInventoryService inventory_service,
+                       IUserService user_service,
                        ModulerTutorialPresenter moduler_tutorial_presenter,
                        CameraShaker camera_shaker,
                        IItemObjectConverter item_object_converter,
@@ -65,6 +68,7 @@ public class Moduler : MonoBehaviour
     {
         m_module_db = module_db;
         m_inventory_service = inventory_service;
+        m_user_service = user_service;
         m_moduler_tutorial_presenter = moduler_tutorial_presenter;
         m_camera_shaker = camera_shaker;
         m_item_object_converter = item_object_converter;
@@ -160,6 +164,7 @@ public class Moduler : MonoBehaviour
         }
 
         ConsumeIngredients();
+        m_user_service.UpdateLevel(m_module_receipe.EXP);
     }
 
     private void ConsumeIngredients()

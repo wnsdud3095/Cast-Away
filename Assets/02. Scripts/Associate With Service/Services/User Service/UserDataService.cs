@@ -1,11 +1,14 @@
 using UnityEngine;
 using System;
 using System.IO;
+using EXPService;
 
 namespace UserService
 {
     public class UserDataService : ISaveable, IUserService
     {
+        private readonly IEXPService m_exp_service;
+
         private Vector3 m_position;
         private StatusData m_status;
 
@@ -22,9 +25,11 @@ namespace UserService
             set => m_status = value;
         }
 
-        public UserDataService() //최초실행시 데이터
+        public UserDataService(IEXPService exp_service) //최초실행시 데이터
         {
             var user_data = new UserData();
+
+            m_exp_service = exp_service;
 
             m_position = user_data.Position;
             m_status = user_data.Status;
@@ -77,6 +82,12 @@ namespace UserService
         public void UpdateLevel(int exp)
         {
             m_status.EXP += exp;
+
+            while(m_status.EXP >= m_exp_service.GetEXP(m_status.Level + 1))
+            {
+                m_status.EXP -= m_exp_service.GetEXP(m_status.Level + 1);
+                m_status.Level++;
+            }
 
             OnUpdatedLevel?.Invoke(m_status.Level, m_status.EXP);
         }

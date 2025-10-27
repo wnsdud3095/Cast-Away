@@ -49,7 +49,7 @@ public class StatusPresenter : IDisposable
 
     private void OnUpdatedLevel(int level, int exp)
     {
-        int maxExp = m_exp_service.GetEXP(level);
+        int maxExp = m_exp_service.GetEXP(level + 1);
         float expRate = maxExp > 0 ? (float)exp / maxExp : 0f;
         m_view.UpdateLV(level, expRate);
     }

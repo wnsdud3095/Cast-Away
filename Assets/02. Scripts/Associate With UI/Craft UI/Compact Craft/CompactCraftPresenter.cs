@@ -1,24 +1,27 @@
 using InventoryService;
 using System;
-using Unity.Android.Gradle.Manifest;
+using UserService;
 
 public class CompactCraftPresenter : IDisposable
 {
     private readonly ICompactCraftView m_view;
     private readonly IInventoryService m_inventory_service;
-    private IItemDataBase m_item_db;
-    private CraftReceipe m_craft_receipe;
+    private readonly IUserService m_user_service;
+    private readonly IItemDataBase m_item_db;
+    private  CraftReceipe m_craft_receipe;
 
     private readonly ModulerTutorialPresenter m_module_tutorial_presenter;
     private readonly Moduler m_moduler;
 
     public CompactCraftPresenter(ICompactCraftView view,
                                    IInventoryService inventory_service,
+                                   IUserService user_service,
                                    ModulerTutorialPresenter module_tutorial_presenter,
                                    Moduler moduler)
     {
         m_view = view;
         m_inventory_service = inventory_service;
+        m_user_service = user_service;
 
         m_module_tutorial_presenter = module_tutorial_presenter;
         m_moduler = moduler;
@@ -92,8 +95,8 @@ public class CompactCraftPresenter : IDisposable
                 m_inventory_service.ConsumeItem(ingredient.Item.Code, ingredient.Count);
             }
             m_inventory_service.AddItem(crafted_item_code, 1);
+            m_user_service.UpdateLevel(m_craft_receipe.EXP);
         }
-
     }
     public void Dispose()
     {

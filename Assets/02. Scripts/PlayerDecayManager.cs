@@ -32,9 +32,6 @@ public class PlayerDecayManager : MonoBehaviour
 
             m_player_status.ChangeHunger(hunger_decay);
             m_player_status.ChangeThirst(thirst_decay);
-
-            var user_service = ServiceLocator.Get<IUserService>();
-            user_service.UpdateLevel(10);
         }
     }
 }

@@ -1,24 +1,20 @@
 {
   "List": [
     {
-      "Level": 1,
+      "Level": 2,
       "EXP": 100
     },
     {
-      "Level": 2,
-      "EXP": 250
-    },
-    {
       "Level": 3,
-      "EXP": 500
+      "EXP": 150
     },
     {
       "Level": 4,
-      "EXP": 900
+      "EXP": 200
     },
     {
       "Level": 5,
-      "EXP": 1500
+      "EXP": 250
     }
   ]
 }
