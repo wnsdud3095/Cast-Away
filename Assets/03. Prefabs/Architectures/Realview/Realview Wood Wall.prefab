@@ -49,6 +49,8 @@ MonoBehaviour:
   m_floor_snap_position: {x: 0, y: 0, z: 0}
   m_wall_snap: 1
   m_wall_snap_position: {x: 2, y: 0, z: 0}
+  m_tool_snap: 0
+  m_tool_snap_position: {x: 0, y: 0, z: 0}
 --- !u!65 &608977424534255862
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -154,6 +156,8 @@ MonoBehaviour:
   m_floor_snap_position: {x: 0, y: 0, z: 1}
   m_wall_snap: 1
   m_wall_snap_position: {x: 0, y: -3, z: 0}
+  m_tool_snap: 0
+  m_tool_snap_position: {x: 0, y: 0, z: 0}
 --- !u!65 &5462829595309669010
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -244,7 +248,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 730e682993b0c7a40943ba28adab5e86, type: 2}
+  - {fileID: 2100000, guid: 28972cefd29b64546a024501855913eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -455,6 +459,8 @@ MonoBehaviour:
   m_floor_snap_position: {x: 0, y: 0, z: 0}
   m_wall_snap: 1
   m_wall_snap_position: {x: -2, y: 0, z: 0}
+  m_tool_snap: 0
+  m_tool_snap_position: {x: 0, y: 0, z: 0}
 --- !u!65 &1008394584034151277
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -525,6 +531,8 @@ MonoBehaviour:
   m_floor_snap_position: {x: 0, y: 3, z: 1}
   m_wall_snap: 1
   m_wall_snap_position: {x: 0, y: 3, z: 0}
+  m_tool_snap: 0
+  m_tool_snap_position: {x: 0, y: 0, z: 0}
 --- !u!65 &3864168133023032296
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -70,6 +70,8 @@ MonoBehaviour:
   m_floor_snap_position: {x: 0, y: 0, z: 2}
   m_wall_snap: 1
   m_wall_snap_position: {x: 0, y: -3, z: 1}
+  m_tool_snap: 0
+  m_tool_snap_position: {x: 0, y: 0, z: 0}
 --- !u!1 &3307117414645384189
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,6 +142,8 @@ MonoBehaviour:
   m_floor_snap_position: {x: 2, y: 0, z: 0}
   m_wall_snap: 1
   m_wall_snap_position: {x: 1, y: -3, z: 0}
+  m_tool_snap: 0
+  m_tool_snap_position: {x: 0, y: 0, z: 0}
 --- !u!1 &3438803447600716512
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +214,8 @@ MonoBehaviour:
   m_floor_snap_position: {x: -2, y: 0, z: 0}
   m_wall_snap: 1
   m_wall_snap_position: {x: -1, y: -3, z: 0}
+  m_tool_snap: 0
+  m_tool_snap_position: {x: 0, y: 0, z: 0}
 --- !u!1 &3934319262528384621
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +388,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c2cf075d50d57b0458239dbaa6d06f2f, type: 2}
+  - {fileID: 2100000, guid: 28972cefd29b64546a024501855913eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -529,3 +535,5 @@ MonoBehaviour:
   m_floor_snap_position: {x: 0, y: 0, z: -2}
   m_wall_snap: 1
   m_wall_snap_position: {x: 0, y: -3, z: -1}
+  m_tool_snap: 0
+  m_tool_snap_position: {x: 0, y: 0, z: 0}

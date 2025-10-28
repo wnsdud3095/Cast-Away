@@ -18,6 +18,8 @@ public class Moduler : MonoBehaviour
     private GameObject m_preview_object;
     private GameObject m_realview_object;
 
+    private PreviewObject m_preview;
+
     [Header("지형 레이어")]
     [SerializeField] LayerMask m_layer_mask;
 
@@ -26,14 +28,8 @@ public class Moduler : MonoBehaviour
 
     private void Update()
     {
-        if(!m_is_active)
+        if(!m_is_active || m_preview_object == null)
         {
-            return;
-        }
-
-        if(!CanBuild())
-        {
-            Deactivate(true);
             return;
         }
 
@@ -43,8 +39,8 @@ public class Moduler : MonoBehaviour
         {
             var current_rotation = m_preview_object.transform.eulerAngles; 
             m_preview_object.transform.rotation = Quaternion.Euler(current_rotation.x,
-                                                                   current_rotation.y + 90f,
-                                                                   current_rotation.z);
+                                                                    current_rotation.y + 90f,
+                                                                    current_rotation.z);
         }
 
         if(Input.GetKeyDown(KeyCode.Mouse0))
@@ -86,6 +82,8 @@ public class Moduler : MonoBehaviour
         m_preview_object = Instantiate(module.PreviewPrefab, ray.GetPoint(m_ray_length), Quaternion.identity);
         m_realview_object = module.RealviewPrefab;
 
+        m_preview = m_preview_object.GetComponent<PreviewObject>();
+
         m_is_active = true;
     }
 
@@ -98,6 +96,7 @@ public class Moduler : MonoBehaviour
 
         m_preview_object = null;
         m_realview_object = null;
+        m_preview = null;
 
         m_is_active = false;
         m_moduler_tutorial_presenter.CloseUI();
@@ -110,15 +109,13 @@ public class Moduler : MonoBehaviour
 
     private void Translation()
     {
-        var preview_obj = m_preview_object.GetComponent<PreviewObject>();
-
-        if (preview_obj != null && preview_obj.IsSnapped)
+        if (m_preview != null && m_preview.IsSnapped)
         {
-            preview_obj.TryUnsnap();
+            m_preview.TryUnsnap();
 
-            if (preview_obj.IsSnapped)
+            if (m_preview.IsSnapped)
             {
-                m_preview_object.transform.position = preview_obj.SnapPosition;
+                m_preview_object.transform.position = m_preview.SnapPosition;
                 return;
             }
         }
@@ -131,26 +128,16 @@ public class Moduler : MonoBehaviour
 
     private void Build()
     {
-        if(GameManager.Instance.GameType != GameEventType.CRAFTING)
-        {
+        if(GameManager.Instance.GameType != GameEventType.CRAFTING || !m_is_active)
             return;
-        }
-
-        if(!m_is_active)
-        {
-            return;
-        }
 
         var preview = m_preview_object.GetComponent<PreviewObject>();
         if(!preview.Buildable)
-        {
             return;
-        }
-
-        var center = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
-        var ray = Camera.main.ScreenPointToRay(center);
 
         var realview_obj = Instantiate(m_realview_object, m_preview_object.transform.position, Quaternion.identity);
+        realview_obj.transform.SetPositionAndRotation(m_preview_object.transform.position, Quaternion.identity);
+
         var realview_transform = realview_obj.GetComponentInChildren<RealviewObject>().transform;
         realview_transform.rotation = m_preview_object.transform.rotation;
 
@@ -165,6 +152,12 @@ public class Moduler : MonoBehaviour
 
         ConsumeIngredients();
         m_user_service.UpdateLevel(m_module_receipe.EXP);
+
+        if(!CanBuild())
+        {
+            Deactivate(true);
+            return;
+        }
     }
 
     private void ConsumeIngredients()

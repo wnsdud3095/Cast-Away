@@ -2,17 +2,26 @@ using UnityEngine;
 
 public class ModuleSnap : MonoBehaviour
 {
+    [Header("바닥면 관련 설정")]
     [Header("바닥면 스냅 여부")]
     [SerializeField] private bool m_floor_snap = true;
 
     [Header("바닥면이 스냅 될 위치")]
     [SerializeField] private Vector3 m_floor_snap_position;
 
+    [Header("벽면 관련 설정")]
     [Header("벽면 스냅 여부")]
     [SerializeField] private bool m_wall_snap = true;
 
     [Header("벽면이 스냅 될 위치")]
     [SerializeField] private Vector3 m_wall_snap_position; 
+
+    [Header("건물 관련 설정")]
+    [Header("건물 스냅 여부")]
+    [SerializeField] private bool m_tool_snap = false;
+    
+    [Header("건물이 스낼 될 위치")]
+    [SerializeField] private Vector3 m_tool_snap_position;
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -30,6 +39,11 @@ public class ModuleSnap : MonoBehaviour
         if(m_floor_snap && collider.CompareTag("Preview Floor"))
         {
             preview_obj.SnapTo(transform.parent.TransformPoint(m_floor_snap_position));
+        }
+
+        if(m_floor_snap && collider.CompareTag("Preview"))
+        {
+            preview_obj.SnapTo(transform.parent.TransformPoint(m_tool_snap_position));
         }
     }
 }
