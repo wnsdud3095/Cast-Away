@@ -150,6 +150,7 @@ public class Moduler : MonoBehaviour
             unlock_trigger.Inject(m_craft_presenter);
         }
 
+        SoundManager.Instance.PlaySFX("Build", true, m_preview_object.transform.position);
         ConsumeIngredients();
         m_user_service.UpdateLevel(m_module_receipe.EXP);
 

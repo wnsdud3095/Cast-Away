@@ -24,10 +24,17 @@ public class KeyBinderSlotView : MonoBehaviour
 
     private Coroutine m_wrong_key_coroutine;
 
+    private void OnDestroy()
+    {
+        m_binding_button.onClick.RemoveListener(ModifyKey);
+        m_binding_button.onClick.RemoveListener(PlaySFX);        
+    }
+
     private void Awake()
     {
         // 바인딩 버튼에 키 변경 이벤트를 등록한다.
         m_binding_button.onClick.AddListener(ModifyKey);
+        m_binding_button.onClick.AddListener(PlaySFX);
     }
 
     // Inject()를 통해서 키 서비스를 주입받는다.
@@ -138,5 +145,10 @@ public class KeyBinderSlotView : MonoBehaviour
         var color = m_wrong_text.color;
         color.a = alpha;
         m_wrong_text.color = color;
+    }
+
+    private void PlaySFX()
+    {
+        SoundManager.Instance.PlaySFX("Button Click", false, Vector3.zero);
     }
 }

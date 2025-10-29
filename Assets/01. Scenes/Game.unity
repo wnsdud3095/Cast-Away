@@ -6592,7 +6592,7 @@ MonoBehaviour:
     Channel: 3
   - Clip: {fileID: 8300000, guid: d533120a17c25dd4f9165eb51015ee13, type: 3}
     Channel: 3
-  - Clip: {fileID: 8300000, guid: 3f62808f36986e44f9fccfd30255a271, type: 3}
+  - Clip: {fileID: 8300000, guid: d71925fa483b29d48979ee61b3baa8e2, type: 3}
     Channel: 3
   - Clip: {fileID: 8300000, guid: 551d550ab98e3cc4bb7793e752fe8628, type: 3}
     Channel: 2
@@ -6634,6 +6634,18 @@ MonoBehaviour:
     Channel: 2
   - Clip: {fileID: 8300000, guid: bd5653e52c4636e4aa3b0ced8f49a18d, type: 3}
     Channel: 2
+  - Clip: {fileID: 8300000, guid: 37ef69132d4001648bb8175796c9f92a, type: 3}
+    Channel: 3
+  - Clip: {fileID: 8300000, guid: 584b07898ac55154d86b63cc1150d9ea, type: 3}
+    Channel: 3
+  - Clip: {fileID: 8300000, guid: 69978c26e576caf43b71c02dededf04d, type: 3}
+    Channel: 1
+  - Clip: {fileID: 8300000, guid: 936cfb0c33daf2543a2ec819f87b3912, type: 3}
+    Channel: 3
+  - Clip: {fileID: 8300000, guid: 94d8cee4c86d4ed43ab0c479e9d4a69a, type: 3}
+    Channel: 3
+  - Clip: {fileID: 8300000, guid: f6d524aade81e554bb43c330c107574a, type: 3}
+    Channel: 3
 --- !u!82 &341981750
 AudioSource:
   m_ObjectHideFlags: 0

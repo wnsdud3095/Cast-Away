@@ -91,4 +91,9 @@ public class CompactCraftView : MonoBehaviour, ICompactCraftView
             ObjectManager.Instance.ReturnObject(slot_obj, ObjectType.CRAFT_INGREDIENT_SLOT);
         }
     }
+
+    public void PlaySFX(string sfx_name)
+    {
+        SoundManager.Instance.PlaySFX(sfx_name, false, Vector3.zero);
+    }
 }

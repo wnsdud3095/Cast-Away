@@ -41,7 +41,7 @@ public class ModuleSnap : MonoBehaviour
             preview_obj.SnapTo(transform.parent.TransformPoint(m_floor_snap_position));
         }
 
-        if(m_floor_snap && collider.CompareTag("Preview"))
+        if(m_tool_snap && collider.CompareTag("Preview"))
         {
             preview_obj.SnapTo(transform.parent.TransformPoint(m_tool_snap_position));
         }

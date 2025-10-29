@@ -9,4 +9,5 @@ public interface ICompactCraftView
     void CloseUI();
 
     ICraftIngredientSlotView InstantiateSlotView();
+    void PlaySFX(string sfx_name);
 }

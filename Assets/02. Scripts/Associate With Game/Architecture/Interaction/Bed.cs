@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class Bed : RealviewObject
 {
     private TimeSettings m_time_settings;
@@ -16,6 +18,7 @@ public class Bed : RealviewObject
 
         fade_presenter.Fade(true);
         time_settings.Multiplier = 10000;
+        SoundManager.Instance.PlaySFX("Sleep", false, Vector3.zero);
         GameEventBus.Publish(GameEventType.INTERACTING);
     }
 

@@ -97,6 +97,8 @@ public class CompactCraftPresenter : IDisposable
             m_inventory_service.AddItem(crafted_item_code, 1);
             m_user_service.UpdateLevel(m_craft_receipe.EXP);
         }
+
+        m_view.PlaySFX("Button Click");
     }
     public void Dispose()
     {
