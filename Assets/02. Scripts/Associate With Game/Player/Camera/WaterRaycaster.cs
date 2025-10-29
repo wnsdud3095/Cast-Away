@@ -38,19 +38,16 @@ public class WaterRaycaster : MonoBehaviour
     {
         if(!m_inventory_service.HasItem(ItemCode.FISHING_ROD))
         {
-            m_notice_presenter.CloseUI();
             return;
         }
 
         if(m_item_swapper.CurrentTool is not FishingRod)
         {
-            m_notice_presenter.CloseUI();
             return;
         }
 
         if(m_fishing_presenter.Active)
         {
-            m_notice_presenter.CloseUI();
             return;
         }
 
@@ -73,6 +70,7 @@ public class WaterRaycaster : MonoBehaviour
                     }
 
                     m_fishing_presenter.OpenUI();
+                    m_notice_presenter.CloseUI();
                 }
             }
             else

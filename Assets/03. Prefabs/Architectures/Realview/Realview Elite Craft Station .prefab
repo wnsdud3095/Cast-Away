@@ -1473,7 +1473,7 @@ GameObject:
   - component: {fileID: 1321937438576162125}
   - component: {fileID: 7147501776334033467}
   - component: {fileID: 5218623785649907634}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 'Realview Elite Craft Station '
   m_TagString: Building
   m_Icon: {fileID: 0}

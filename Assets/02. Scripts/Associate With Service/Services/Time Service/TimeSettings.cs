@@ -5,7 +5,11 @@ public class TimeSettings : ScriptableObject
 {
     [Header("시간 배율")]
     [SerializeField] private float m_time_multiplier = 2000f;
-    public float Multiplier => m_time_multiplier;
+    public float Multiplier
+    {
+        get => m_time_multiplier;
+        set => m_time_multiplier = value;
+    }
 
     [Header("시작 시간")]
     [SerializeField] private float m_start_hour = 12f;

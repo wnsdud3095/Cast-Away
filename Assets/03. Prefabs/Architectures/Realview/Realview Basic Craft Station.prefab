@@ -1484,7 +1484,7 @@ GameObject:
   - component: {fileID: 1642331028677532244}
   - component: {fileID: 5313014007071436942}
   - component: {fileID: 4717991056066553375}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Realview Basic Craft Station
   m_TagString: Building
   m_Icon: {fileID: 0}

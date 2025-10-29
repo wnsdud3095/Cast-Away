@@ -4936,7 +4936,7 @@ GameObject:
   - component: {fileID: 8000574327619790884}
   - component: {fileID: 271358863985017711}
   - component: {fileID: 7518856152896885140}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Realview Campfire
   m_TagString: Building
   m_Icon: {fileID: 0}

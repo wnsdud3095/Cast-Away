@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 8492470084477109778}
   - component: {fileID: 438240312586013351}
   - component: {fileID: 2486651764090461582}
-  - component: {fileID: 7460592560838524931}
   - component: {fileID: 5396778293084346428}
-  m_Layer: 0
+  - component: {fileID: 2559055899056452443}
+  - component: {fileID: 5026381799108004420}
+  m_Layer: 10
   m_Name: Realview Bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,18 +179,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7460592560838524931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 338568818171111038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b55ad36fe3e008c41a3268ab73acba8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5396778293084346428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,3 +193,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_default_hp: 6
   m_craft_receipe: {fileID: 11400000, guid: 6084e9a447f34ed4995ba21ec12c3638, type: 2}
+--- !u!114 &2559055899056452443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338568818171111038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b6609fa5e9c026489b09fc5852e9585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &5026381799108004420
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338568818171111038}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8, y: 1, z: 0.8}
+  m_Center: {x: 0, y: 0.5, z: 0}

@@ -1387,7 +1387,7 @@ GameObject:
   - component: {fileID: 2449182642906188545}
   - component: {fileID: 4942934311426778448}
   - component: {fileID: 895868057395474447}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Realview Wood Craft Station
   m_TagString: Building
   m_Icon: {fileID: 0}

@@ -2185,7 +2185,7 @@ GameObject:
   - component: {fileID: 4740207449089897437}
   - component: {fileID: 838182277957893807}
   - component: {fileID: 4842727598828087223}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Realview Stone Craft Station
   m_TagString: Building
   m_Icon: {fileID: 0}
