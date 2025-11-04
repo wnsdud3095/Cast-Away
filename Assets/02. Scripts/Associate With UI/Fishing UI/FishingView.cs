@@ -111,7 +111,7 @@ public class FishingView : MonoBehaviour, IFishingView
 
         while(m_presenter.Gaming)
         {
-            current_angle += Time.deltaTime * rotation_speed * 100f;
+            current_angle -= Time.deltaTime * rotation_speed * 100f;
             current_angle %= 360f;
 
             m_outer_circle.transform.rotation = Quaternion.Euler(0f, 0f, current_angle);

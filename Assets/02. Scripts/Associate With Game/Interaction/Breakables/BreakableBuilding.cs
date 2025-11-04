@@ -26,9 +26,9 @@ public class BreakableBuilding : BaseBreakable
         m_camera_shaker.Shaking(0.15f, 0.35f);
     }
 
-    protected override void PlaySFX()
+    protected override void PlaySFX(Vector3 positon)
     {
-
+        SoundManager.Instance.PlaySFX("Module Interaction", true, positon);
     }
 
     private void InstantiateDeathEffect()

@@ -24,7 +24,7 @@ public abstract class BaseBreakable : MonoBehaviour
         m_default_hp += amount;
 
         InstantiateEffect(point);
-        PlaySFX();
+        PlaySFX(point);
 
         if(m_default_hp <= 0f)
         {
@@ -37,5 +37,5 @@ public abstract class BaseBreakable : MonoBehaviour
 
     protected abstract void InstantiateEffect(Vector3 point);
     protected abstract void Break(Vector3 point);
-    protected abstract void PlaySFX();
+    protected abstract void PlaySFX(Vector3 positon);
 }

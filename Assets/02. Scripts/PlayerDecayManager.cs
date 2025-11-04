@@ -1,18 +1,21 @@
 using UnityEngine;
 using System.Collections;
-using UserService;
 
 public class PlayerDecayManager : MonoBehaviour
 {
-    [SerializeField] private PlayerStatus m_player_status;
+    [Header("플레이어 컨트롤러")]
     [SerializeField] private PlayerCtrl m_player_ctrl;
 
     [SerializeField] private float m_decay_interval = 1f;
 
-    private float m_hunger_decay = -0.2f;
-    private float m_running_hunger_decay = -0.4f;
+    [Header("기본 허기 감소 속도")]
+    [SerializeField] private float m_hunger_decay = -0.2f;
+    
+    [Header("달리기 허기 감소 속도")]
+    [SerializeField] private float m_running_hunger_decay = -0.4f;
 
-    private float m_thirst_decay = -0.2f;
+    [Header("갈증 감소 속도")]
+    [SerializeField] private float m_thirst_decay = -0.2f;
 
     private void Start()
     {
@@ -30,11 +33,8 @@ public class PlayerDecayManager : MonoBehaviour
             float hunger_decay = m_player_ctrl.Movement.IsDashActive ? m_running_hunger_decay : m_hunger_decay;
             float thirst_decay = m_thirst_decay;
 
-            m_player_status.ChangeHunger(hunger_decay);
-            m_player_status.ChangeThirst(thirst_decay);
-
-            var user_service = ServiceLocator.Get<IUserService>();
-            user_service.UpdateLevel(10);
+            m_player_ctrl.State.ChangeHunger(hunger_decay);
+            m_player_ctrl.State.ChangeThirst(thirst_decay);
         }
     }
 }

@@ -38,27 +38,35 @@ public class WaterRaycaster : MonoBehaviour
     {
         if(!m_inventory_service.HasItem(ItemCode.FISHING_ROD))
         {
-            m_notice_presenter.CloseUI();
             return;
         }
 
         if(m_item_swapper.CurrentTool is not FishingRod)
         {
-            m_notice_presenter.CloseUI();
             return;
         }
 
         if(m_fishing_presenter.Active)
         {
-            m_notice_presenter.CloseUI();
             return;
         }
 
+        CheckWater();
+    }
+
+    private void CheckWater()
+    {
         var center = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
         var ray = Camera.main.ScreenPointToRay(center);
-        Debug.DrawRay(ray.origin, ray.direction * m_ray_length, Color.green);
 
-        if(Physics.Raycast(ray, out var hit, m_ray_length, m_layer_mask))
+#if UNITY_EDITOR
+        Debug.DrawRay(ray.origin, ray.direction * m_ray_length, Color.green);
+#endif
+
+        if(Physics.Raycast(ray, 
+                           out var hit, 
+                           m_ray_length, 
+                           m_layer_mask))
         {
             if(hit.collider.CompareTag("Water"))
             {
@@ -73,6 +81,7 @@ public class WaterRaycaster : MonoBehaviour
                     }
 
                     m_fishing_presenter.OpenUI();
+                    m_notice_presenter.CloseUI();
                 }
             }
             else

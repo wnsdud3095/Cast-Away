@@ -70,35 +70,18 @@ public class AnimalCtrl : MonoBehaviour
 
     public virtual void ChangeState(AnimalState state)
     {
-        switch(state)
+        var target_state = state switch
         {
-            case AnimalState.RETURNED:
-                m_state_context.Transition(m_returned_state);
-                break;
+            AnimalState.RETURNED        => m_returned_state,
+            AnimalState.IDLE            => m_idle_state,
+            AnimalState.EAT             => m_eat_state,
+            AnimalState.WANDER          => m_wander_state,
+            AnimalState.ESCAPE          => m_escape_state,
+            AnimalState.HURT            => m_hurt_state,
+            AnimalState.DEATH           => m_death_state,
+            _                           => null
+        };
 
-            case AnimalState.IDLE:
-                m_state_context.Transition(m_idle_state);
-                break;
-            
-            case AnimalState.EAT:
-                m_state_context.Transition(m_eat_state);
-                break;
-            
-            case AnimalState.WANDER:
-                m_state_context.Transition(m_wander_state);
-                break;
-
-            case AnimalState.ESCAPE:
-                m_state_context.Transition(m_escape_state);
-                break;
-            
-            case AnimalState.HURT:
-                m_state_context.Transition(m_hurt_state);
-                break;
-            
-            case AnimalState.DEATH:
-                m_state_context.Transition(m_death_state);
-                break;
-        }
+        m_state_context.Transition(target_state);
     }
 }

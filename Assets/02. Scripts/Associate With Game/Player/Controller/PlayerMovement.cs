@@ -22,7 +22,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckInput()
     {
-        if(GameManager.Instance.GameType == GameEventType.INTERACTING)
+        if(GameManager.Instance.GameType == GameEventType.INTERACTING || 
+           GameManager.Instance.GameType == GameEventType.GAMEOVER ||
+           GameManager.Instance.GameType == GameEventType.GAMECLEAR)
         {
             return;
         }

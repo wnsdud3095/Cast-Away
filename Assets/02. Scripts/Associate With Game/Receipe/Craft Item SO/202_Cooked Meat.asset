@@ -18,4 +18,6 @@ MonoBehaviour:
   m_ingredient_list:
   - m_item: {fileID: 11400000, guid: 3e96ba0153a3b87479b8411187d8f98c, type: 2}
     m_count: 1
-  m_unlock_level: 0
+  m_unlock_level: 1
+  m_craft_exp: 5
+  m_is_default_unlocked: 0
