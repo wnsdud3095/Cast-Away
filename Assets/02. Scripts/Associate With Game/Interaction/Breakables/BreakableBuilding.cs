@@ -28,7 +28,7 @@ public class BreakableBuilding : BaseBreakable
 
     protected override void PlaySFX(Vector3 positon)
     {
-        SoundManager.Instance.PlaySFX("Module Interaction", false, Vector3.zero);
+        SoundManager.Instance.PlaySFX("Module Interaction", true, positon);
     }
 
     private void InstantiateDeathEffect()

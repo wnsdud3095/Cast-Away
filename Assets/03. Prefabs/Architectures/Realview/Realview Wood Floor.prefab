@@ -71,7 +71,7 @@ MonoBehaviour:
   m_wall_snap: 0
   m_wall_snap_position: {x: 0, y: 0, z: 0}
   m_tool_snap: 1
-  m_tool_snap_position: {x: 0, y: 2, z: 0}
+  m_tool_snap_position: {x: 0, y: 0.175, z: 0}
 --- !u!1 &1632707871974088098
 GameObject:
   m_ObjectHideFlags: 0

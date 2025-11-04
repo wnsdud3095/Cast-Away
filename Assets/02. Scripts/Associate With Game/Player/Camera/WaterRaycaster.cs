@@ -51,11 +51,22 @@ public class WaterRaycaster : MonoBehaviour
             return;
         }
 
+        CheckWater();
+    }
+
+    private void CheckWater()
+    {
         var center = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
         var ray = Camera.main.ScreenPointToRay(center);
-        Debug.DrawRay(ray.origin, ray.direction * m_ray_length, Color.green);
 
-        if(Physics.Raycast(ray, out var hit, m_ray_length, m_layer_mask))
+#if UNITY_EDITOR
+        Debug.DrawRay(ray.origin, ray.direction * m_ray_length, Color.green);
+#endif
+
+        if(Physics.Raycast(ray, 
+                           out var hit, 
+                           m_ray_length, 
+                           m_layer_mask))
         {
             if(hit.collider.CompareTag("Water"))
             {
