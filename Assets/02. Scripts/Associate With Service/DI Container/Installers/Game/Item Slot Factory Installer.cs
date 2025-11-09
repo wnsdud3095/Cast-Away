@@ -16,6 +16,7 @@ public class ItemSlotFactoryInstaller : MonoBehaviour, IInstaller
                                                     DIContainer.Resolve<IItemSlotContext>(),
                                                     m_item_db,
                                                     m_cursor_db,
+                                                    DIContainer.Resolve<ToolTipPresenter>(),
                                                     DIContainer.Resolve<DragSlotPresenter>());
         DIContainer.Register<ItemSlotFactory>(item_slot_factory);
     }

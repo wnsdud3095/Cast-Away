@@ -75,6 +75,7 @@ public class SettingPresenter : IPopupPresenter
 
     public void OnClickedTitle()
     {
+        DIContainer.Resolve<SaveLoadManager>().SaveAll();
         // TODO: 저장 후 타이틀씬으로 이동
     }
 

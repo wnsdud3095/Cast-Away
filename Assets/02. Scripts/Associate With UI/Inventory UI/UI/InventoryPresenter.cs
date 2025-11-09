@@ -43,12 +43,6 @@ public class InventoryPresenter : IPopupPresenter //IDisposable
             m_model.InitializeSlot(i);
         }
     }
-
-    // 인벤토리 서비스의 델리게이트에 연결된 이벤트를 해제한다.
-    public void Dispose()
-    {
-        //m_model.OnUpdatedGold -= m_view.UpdateMoney;
-    }
     
     public void SortDepth()
     {

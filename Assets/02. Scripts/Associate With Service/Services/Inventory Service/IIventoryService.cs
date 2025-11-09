@@ -2,7 +2,7 @@ using System;
 
 namespace InventoryService
 {
-    public interface IInventoryService
+    public interface IInventoryService : ISaveable
     {
 
         void Inject(IItemDataBase item_db);			// 아이템 매니저를 주입받을 메서드

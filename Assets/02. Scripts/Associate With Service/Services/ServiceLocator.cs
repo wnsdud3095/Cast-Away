@@ -5,6 +5,7 @@ using UserService;
 using InventoryService;
 using KeyService;
 using SettingService;
+using ItemService; 
 
 public static class ServiceLocator
 {
@@ -17,7 +18,9 @@ public static class ServiceLocator
         Register<IUserService>(new UserDataService());
         Register<IInventoryService>(new IventoryDataService());
         Register<IKeyService>(new KeyDataService());
+        Register<IItemDataService>(new ItemDataService());
         Register<ISettingService>(new LocalSettingService());
+       
     }
 
     public static void Register<T>(T service)
@@ -25,6 +28,7 @@ public static class ServiceLocator
         if (!Services.ContainsKey(typeof(T)))
         {
             Services.TryAdd(typeof(T), service);
+            UnityEngine.Debug.Log($"{service}레지스터");
         }
     }
 

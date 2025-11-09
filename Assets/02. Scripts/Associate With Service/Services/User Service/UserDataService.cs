@@ -4,12 +4,14 @@ using System.IO;
 
 namespace UserService
 {
-    public class UserDataService : ISaveable, IUserService
+    public class UserDataService : IUserService
     {
         private Vector3 m_position;
         private StatusData m_status;
 
         public event Action<int, int> OnUpdatedLevel;
+        public event Action<UserData> OnLoaded;
+
 
         public Vector3 Position 
         { 
@@ -58,6 +60,9 @@ namespace UserService
 
                 m_position = user_data.Position;
                 m_status = user_data.Status;
+
+                OnLoaded?.Invoke(user_data);
+                Debug.Log($"로드 유저 데이터 {m_status.HP}");
 
                 return true;
             }

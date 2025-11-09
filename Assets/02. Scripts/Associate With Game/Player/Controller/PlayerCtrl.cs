@@ -1,4 +1,5 @@
 using UnityEngine;
+using UserService;
 
 public class PlayerCtrl : MonoBehaviour
 {
@@ -66,6 +67,11 @@ public class PlayerCtrl : MonoBehaviour
         m_fishing_state = gameObject.AddComponent<PlayerFishingState>();
 
         ChangeState(PlayerState.IDLE);
+    }
+
+    private void Start()
+    {
+        transform.position = ServiceLocator.Get<IUserService>().Position;
     }
 
     private void Update()

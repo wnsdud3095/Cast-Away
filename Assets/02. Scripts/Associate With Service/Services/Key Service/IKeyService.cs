@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace KeyService
 {
-    public interface IKeyService
+    public interface IKeyService : ISaveable
     {  
         event Action<KeyCode, string> OnUpdatedKey;// 이전의 키와 달라진 키가 있는 경우에 호출.
 

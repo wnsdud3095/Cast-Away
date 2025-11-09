@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using UserService;
 
 [RequireComponent(typeof(PlayerCtrl))]
 public class PlayerStatus : MonoBehaviour 
@@ -27,6 +28,7 @@ public class PlayerStatus : MonoBehaviour
     private void Awake()
     {
         m_controller = GetComponent<PlayerCtrl>();
+
     }
 
     private void OnDestroy()
@@ -36,22 +38,50 @@ public class PlayerStatus : MonoBehaviour
         OnUpdatedThirst -= UpdateThirstState;        
     }
 
+    public void LoadStatus()
+    {
+        var data = ServiceLocator.Get<IUserService>();
+        SetHP(data.Status.HP);
+        SetHunger(data.Status.Hunger);
+        SetThirst(data.Status.Thirst);
+    }
+
     public void Initialize()
     {
-        HP = MaxValue;
-        Thirst = MaxValue;
-        Hunger = MaxValue;
+        //HP = MaxValue;
+        //Thirst = MaxValue;
+        //Hunger = MaxValue;
 
         OnUpdatedHP += UpdateHPState;
         OnUpdatedHunger += UpdateHungerState;
         OnUpdatedThirst += UpdateThirstState;
 
+        //OnUpdatedHP?.Invoke(HP, MaxValue);
+        //OnUpdatedThirst?.Invoke(Thirst, MaxValue);
+        //OnUpdatedHunger?.Invoke(Hunger, MaxValue);
+
+        LoadStatus();
+    }
+
+    public void SetHP(float value)
+    {
+        HP = Mathf.Clamp(value, 0, MaxValue);
         OnUpdatedHP?.Invoke(HP, MaxValue);
-        OnUpdatedThirst?.Invoke(Thirst, MaxValue);
+    }
+
+    public void SetHunger(float value)
+    {
+        Hunger = Mathf.Clamp(value, 0, MaxValue);
         OnUpdatedHunger?.Invoke(Hunger, MaxValue);
     }
 
-    // HP 변경
+    public void SetThirst(float value)
+    {
+        Thirst = Mathf.Clamp(value, 0, MaxValue);
+        OnUpdatedThirst?.Invoke(Thirst, MaxValue);
+    }
+
+    // hp 변경
     public void ChangeHP(float amount)
     {
         HP = Mathf.Clamp(HP + amount, 0, MaxValue);

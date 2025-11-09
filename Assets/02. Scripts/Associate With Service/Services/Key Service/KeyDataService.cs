@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace KeyService
 {
-    public class KeyDataService : ISaveable, IKeyService
+    public class KeyDataService : IKeyService
     {
         private Dictionary<string, KeyCode> m_key_dict;
 

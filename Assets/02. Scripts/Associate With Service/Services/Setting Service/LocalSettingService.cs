@@ -53,36 +53,37 @@ namespace SettingService
 
         public LocalSettingService()
         {
-            m_local_data_path = Path.Combine(Application.persistentDataPath, "SettingData.json");
 
             Load();
         }
 
         public bool Load()
         {
-            if(!File.Exists(m_local_data_path))
-            {
-                var json_data = File.ReadAllText(m_local_data_path);
-                var setting_data = JsonUtility.FromJson<SettingData>(json_data);
+            var data_path = Path.Combine(Application.persistentDataPath, "SettingData.json");
 
-                if(setting_data == null)
+            if (File.Exists(data_path))
+            {
+                var json_data = File.ReadAllText(data_path);
+                var setting_data = JsonUtility.FromJson<SettingData>(json_data);
+                if (setting_data != null)
                 {
-                    return false;
+                    m_setting_data = setting_data;
+                    return true;
                 }
             }
-            else
-            {
-                m_setting_data = new SettingData();
-                Save();
-            }
 
-            return true;
+            // 파일 없거나 읽기 실패시 새로 생성
+            m_setting_data = new SettingData();
+            Save();
+            return false;
         }
 
         public void Save()
         {
+            var data_path = Path.Combine(Application.persistentDataPath, "SettingData.json");
+
             var json_data = JsonUtility.ToJson(m_setting_data, true);
-            File.WriteAllText(m_local_data_path, json_data);
+            File.WriteAllText(data_path, json_data);
         }
     }
 }

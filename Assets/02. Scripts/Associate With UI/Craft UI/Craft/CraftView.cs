@@ -41,6 +41,13 @@ public class CraftView : MonoBehaviour, ICraftView
                     m_presenter.ChangeFilter(m_filter_types[index]);
             });
         }
+
+        for (int i = 0; i < m_toggles.Length; i++)
+        {
+            if (m_toggles[i].isOn)
+                 m_presenter.ChangeFilter(m_filter_types[i]);
+        }
+
     }
 
     public ICraftSlotView InstantiateSlotView()

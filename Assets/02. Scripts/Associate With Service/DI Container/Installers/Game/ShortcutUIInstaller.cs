@@ -38,6 +38,9 @@ public class ShortcutUIInstaller : MonoBehaviour, IInstaller
                                       ServiceLocator.Get<IKeyService>(),
                                       ServiceLocator.Get<IInventoryService>(), // 인벤토리 참조
                                       i, shortcut_presenter);
+
+            ServiceLocator.Get<IInventoryService>().InitializeSlot(i);
+
         }
         //shortcut_presenter.Select(0); 아이템 스와퍼가 인스톨 된 이후에 호출하기 위해 아이템 스와퍼에서 호출
 

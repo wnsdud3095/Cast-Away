@@ -6,7 +6,7 @@ public class InventoryData
     // 기본 생성자: 슬롯 12개
     public InventoryData()
     {
-        Items = new ItemData[12];
+        Items = new ItemData[17];
     }
 
     // 생성자: 슬롯 수 지정 가능

@@ -9,12 +9,14 @@ public class ItemSlotFactory
     private readonly IItemDataBase m_item_db;
     private readonly ICursorDataBase m_cursor_db;
 
+    private readonly ToolTipPresenter m_tooltip_presenter;
     private readonly DragSlotPresenter m_drag_slot_presenter;
 
     public ItemSlotFactory(IInventoryService inventory_service,
                            IItemSlotContext slot_context,
                            IItemDataBase item_db,
                            ICursorDataBase cursor_db,
+                           ToolTipPresenter tooltip_presenter,
                            DragSlotPresenter drag_slot_presenter)
     {
         m_inventory_service = inventory_service;
@@ -23,6 +25,7 @@ public class ItemSlotFactory
         m_item_db = item_db;
         m_cursor_db = cursor_db;
 
+        m_tooltip_presenter = tooltip_presenter;
         m_drag_slot_presenter = drag_slot_presenter;
 
     }
@@ -43,7 +46,9 @@ public class ItemSlotFactory
     {
         return new ItemInteractionHandler(InstantiatePointerHandler(),
                                           InstantiateDragHandler(),
-                                          InstantiateDropHandler());
+                                          InstantiateDropHandler(),
+                                          m_tooltip_presenter,
+                                          m_slot_context);
     }
 
     private SlotPointerHandler InstantiatePointerHandler()

@@ -17,11 +17,6 @@ public class InventoryView : MonoBehaviour, IInventoryView
         m_canvas_group = GetComponent<CanvasGroup>();
     }
 
-    private void OnDestroy()
-    {
-        m_presenter.Dispose();
-    }
-
     public void Inject(InventoryPresenter inventory_presenter)
     {
         m_presenter = inventory_presenter;
@@ -38,8 +33,8 @@ public class InventoryView : MonoBehaviour, IInventoryView
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE_PICKAXE, 1);
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE_SPEAR, 1);
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.FISHING_ROD, 1);
-        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.WOOD, 90);
-        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE, 90);
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.WOOD, 3);
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE, 5);
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.WOOL, 90);
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.TIMBER, 90);
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.ROPE, 90);

@@ -42,12 +42,10 @@ public class ItemSlotView : MonoBehaviour, IItemSlotView
     // 아이템 슬롯에 아이템을 추가한다.
     // 1. 아이템 스프라이트 추가
     // 2. 중첩 아이템이면 아이템 개수 텍스트를 활성화
-    // 3. 쿨타임 이미지 초기화
     public void UpdateUI(Sprite item_image, bool stackable, int count)
     {
         m_item_image.sprite = item_image;
         SetAlpha(1f);
-
         if (stackable)
         {
             m_count_label.gameObject.SetActive(true);

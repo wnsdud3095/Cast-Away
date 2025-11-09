@@ -39,7 +39,7 @@ public class InventoryUIInstaller : MonoBehaviour, IInstaller
                                                            ServiceLocator.Get<IInventoryService>(),
                                                            slot_presenters);
         DIContainer.Register<InventoryPresenter>(m_inventory_presenter);
-
+        m_inventory_presenter.Initialize();
         Inject();
     }
 

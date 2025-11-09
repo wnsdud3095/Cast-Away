@@ -5,6 +5,7 @@ public class SlotDropHandler
     private IInventoryService m_inventory_service;
 
     private IItemSlotContext m_slot_context;
+
     private DragSlotPresenter m_drag_slot_presenter;
 
     private ICursorDataBase m_cursor_db;

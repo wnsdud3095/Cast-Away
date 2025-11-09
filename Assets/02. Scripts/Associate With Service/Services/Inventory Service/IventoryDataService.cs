@@ -3,10 +3,11 @@ using System;
 using UnityEngine;
 using static UnityEditor.Timeline.Actions.MenuPriority;
 using Mono.Cecil.Cil;
+using static UnityEditor.Progress;
 
 namespace InventoryService
 {
-    public class IventoryDataService : ISaveable, IInventoryService
+    public class IventoryDataService : IInventoryService
     {
         private IItemDataBase m_item_db;
 
@@ -189,6 +190,11 @@ namespace InventoryService
         // 원하는 위치의 아이템의 개수를 갱신하고 싶을 때 사용한다.
         public int UpdateItem(int offset, int count)
         {
+            if(count <=0)
+            {
+                Clear(offset); return 0;
+            }
+
             // 슬롯의 최대 보관 개수 이하라면 -1을 반환하고,
             if (m_items[offset].Count + count <= 99)
             {
@@ -311,6 +317,8 @@ namespace InventoryService
         {
             return m_items[offset];
         }
+
+
         public bool Load()
         {
             var local_data_path = Path.Combine(Application.persistentDataPath, "Inventory", $"InventoryData.json");
@@ -321,6 +329,12 @@ namespace InventoryService
                 var inventory_data = JsonUtility.FromJson<InventoryData>(json_data);
 
                 m_items = inventory_data.Items;
+
+                for (int i = 0; i < m_items.Length; i++)
+                {
+                    InitializeSlot(i);
+                }
+                Debug.Log($"인벤토리 로드 성공");
             }
             else
             {

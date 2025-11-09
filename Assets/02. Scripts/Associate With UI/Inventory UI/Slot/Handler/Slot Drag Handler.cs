@@ -4,6 +4,7 @@ using UnityEngine;
 public class SlotDragHandler
 {
     private IItemSlotContext m_slot_context;
+
     private DragSlotPresenter m_drag_slot_presenter;
 
     private ICursorDataBase m_cursor_db;
@@ -12,7 +13,6 @@ public class SlotDragHandler
     private int m_offset;
 
     public SlotDragHandler(IItemSlotContext slot_context,
-                           
                            DragSlotPresenter drag_slot_presenter,
                            ICursorDataBase cursor_db)
     {

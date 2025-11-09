@@ -33,6 +33,11 @@ public class ModulerSlotView : MonoBehaviour, IModulerSlotView
         m_presenter.Dispose();
     }
 
+    private void OnEnable()
+    {
+        m_info_button.GetComponent<Animator>().Rebind();
+    }
+
     public void Inject(ModulerSlotPresenter presenter)
     {
         m_presenter = presenter;
