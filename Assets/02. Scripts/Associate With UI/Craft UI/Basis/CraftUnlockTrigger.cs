@@ -9,12 +9,18 @@ public class CraftUnlockTrigger : MonoBehaviour
     public event System.Action<List<ItemCode>, CraftUnlockTrigger> OnPlayerEnter;
     public event System.Action<CraftUnlockTrigger> OnPlayerExit;
 
-    private CraftPresenter m_presenter;
+    private CraftPresenter m_craft_presenter;
 
-    private void Awake()
+    private void OnDestroy()
     {
-        m_presenter = DIContainer.Resolve<CraftPresenter>();
-        m_presenter?.SubscribeTrigger(this);
+        OnPlayerExit?.Invoke(this);
+        m_craft_presenter?.UnsubscribeTrigger(this);
+    }
+
+    public void Inject(CraftPresenter craft_presenter)
+    {
+        m_craft_presenter = craft_presenter;
+        m_craft_presenter?.SubscribeTrigger(this);
     }
 
     private void OnTriggerEnter(Collider other)

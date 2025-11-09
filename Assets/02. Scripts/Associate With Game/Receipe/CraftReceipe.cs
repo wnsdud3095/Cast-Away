@@ -23,6 +23,10 @@ public class CraftReceipe : ScriptableObject
     [SerializeField] private int m_unlock_level;
     public int Unlock => m_unlock_level;
 
+    [Header("제작 경험치")]
+    [SerializeField] private int m_craft_exp;
+    public int EXP => m_craft_exp;
+
     [Header("기본 제작 가능여부")]
     [SerializeField] private bool m_is_default_unlocked;
     public bool IsDefaultUnlocked => m_is_default_unlocked;

@@ -10,7 +10,7 @@ public class RealviewObject : MonoBehaviour
         m_animator = GetComponent<Animator>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         m_animator.SetTrigger("Instantiate");
     }

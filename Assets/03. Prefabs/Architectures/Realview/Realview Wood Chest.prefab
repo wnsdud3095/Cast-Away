@@ -51,10 +51,18 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 38de1d300a04bc848ba03f1e57507acb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8436d7f4fe47cf14a94216deb0dd5cd5, type: 2}
+      objectReference: {fileID: 2100000, guid: 73ab7ce8a64f7f141bae2e09b9b5d7f5, type: 2}
     - target: {fileID: 919132149155446097, guid: 38de1d300a04bc848ba03f1e57507acb, type: 3}
       propertyPath: m_Name
       value: Realview Wood Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 38de1d300a04bc848ba03f1e57507acb, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 38de1d300a04bc848ba03f1e57507acb, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -72,6 +80,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 38de1d300a04bc848ba03f1e57507acb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4390551235540998619}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 38de1d300a04bc848ba03f1e57507acb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8334058510352199546}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 38de1d300a04bc848ba03f1e57507acb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 872181812096329585}
   m_SourcePrefab: {fileID: 100100000, guid: 38de1d300a04bc848ba03f1e57507acb, type: 3}
 --- !u!1 &5536807146248342798 stripped
 GameObject:
@@ -160,3 +174,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b55ad36fe3e008c41a3268ab73acba8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8334058510352199546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536807146248342798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1868a2c82e7c6e44a1240a8c04d8a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_default_hp: 6
+  m_craft_receipe: {fileID: 11400000, guid: 3c3f4e47aaf84674eb103a85b8cef9f7, type: 2}
+--- !u!65 &872181812096329585
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536807146248342798}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}

@@ -28,7 +28,7 @@ public class InventoryView : MonoBehaviour, IInventoryView
         m_canvas_group.interactable = true; 
         m_canvas_group.blocksRaycasts = true;
 
-        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.HAND_AXE, 1);
+        ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE_HAMMER, 1);
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE_AXE, 1);
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE_PICKAXE, 1);
         ServiceLocator.Get<IInventoryService>().AddItem(ItemCode.STONE_SPEAR, 1);

@@ -14,6 +14,11 @@ public class Spear : BaseTool
 
     protected override void OnInteract(BaseBreakable target, Vector3 point)
     {
+        if(target is BreakableBuilding)
+        {
+            return;
+        }
+
         target.UpdateHP(-m_default_damage, point);
     }    
 

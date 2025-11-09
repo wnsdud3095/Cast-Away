@@ -29,8 +29,7 @@ public class ShortcutView : MonoBehaviour, IShortcutView
         }
 
         // 마우스 휠 전달
-        if (Input.mouseScrollDelta.y != 0 && GameManager.Instance.GameType == GameEventType.INPLAY 
-                                          && GameManager.Instance.GameType == GameEventType.INTERACTING)
+        if (Input.mouseScrollDelta.y != 0 && GameManager.Instance.GameType == GameEventType.INPLAY)
         {
             int delta = (Input.mouseScrollDelta.y > 0) ? -1 : 1;
             m_presenter.ScrollSelect(delta);

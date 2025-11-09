@@ -35,22 +35,33 @@ public class CameraCtrl : MonoBehaviour
 
     private void Rotation()
     {
-        Delta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        Delta = new Vector2(Input.GetAxis("Mouse X"), 
+                            Input.GetAxis("Mouse Y"));
 
         var current_direction = transform.rotation.eulerAngles;
         
-        var final_x = !m_setting_service.MouseInversion ? (current_direction.x - Delta.y) : (current_direction.x + Delta.y);
-        final_x = final_x < 180f ? Mathf.Clamp(final_x, -1f, 60f) : Mathf.Clamp(final_x, 340f, 361f);
+        var final_x = !m_setting_service.MouseInversion ? (current_direction.x - Delta.y) 
+                                                        : (current_direction.x + Delta.y);
+        final_x = final_x < 180f ? Mathf.Clamp(final_x, -1f, 60f) 
+                                 : Mathf.Clamp(final_x, 340f, 361f);
 
-        transform.rotation = Quaternion.Euler(final_x, current_direction.y + Delta.x, current_direction.z);
+        transform.rotation = Quaternion.Euler(final_x, 
+                                              current_direction.y + Delta.x, 
+                                              current_direction.z);
     }
 
     private void Translation()
     {
         var ray_direction = (m_camera_transform.position - transform.position).normalized;
 
+#if UNITY_EDITOR
         Debug.DrawRay(transform.position, ray_direction * m_camera_distance, Color.red);
-        if(Physics.Raycast(transform.position, ray_direction, out var ray_info, m_camera_distance))
+#endif
+
+        if(Physics.Raycast(transform.position, 
+                           ray_direction, 
+                           out var ray_info, 
+                           m_camera_distance))
         {
             if(CheckObstacle(ray_info.collider))
             {
@@ -74,6 +85,8 @@ public class CameraCtrl : MonoBehaviour
            !collider.CompareTag("Item") &&
            !collider.CompareTag("Tool") &&
            !collider.CompareTag("UI") &&
+           !collider.CompareTag("Ignore") &&
+           !collider.CompareTag("Building") &&
            collider != null)
         {
             return true;

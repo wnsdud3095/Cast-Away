@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using Unity.Android.Gradle;
 using UnityEngine;
 
 public class NoticeView : MonoBehaviour, INoticeView

@@ -9,7 +9,9 @@ public class CraftPresenter: IPopupPresenter
     private readonly CraftReceipe[] m_receipe_list;
     private readonly IUserService m_user_service;
     private readonly CompactCraftPresenter m_compact_craft_presenter;
-    private IItemDataBase m_item_db;
+    private readonly IItemDataBase m_item_db;
+    private readonly ModulerTutorialPresenter m_module_tutorial_presenter;
+    private readonly Moduler m_moduler;
 
     private List<CraftReceipe> m_filtered_receipe_list;
     private ItemType m_current_type;
@@ -20,13 +22,17 @@ public class CraftPresenter: IPopupPresenter
     public CraftPresenter(ICraftView view,
                             CraftReceipe[] receipe_list,
                             IUserService user_service,
-                            CompactCraftPresenter compact_craft_presenter)
+                            CompactCraftPresenter compact_craft_presenter,
+                            ModulerTutorialPresenter mouduler_tutorial_presenter,
+                            Moduler moduler)
     {
         m_view = view;
 
         m_receipe_list = receipe_list;
         m_user_service = user_service;
         m_compact_craft_presenter = compact_craft_presenter;
+        m_module_tutorial_presenter = mouduler_tutorial_presenter;
+        m_moduler = moduler;
 
         m_filtered_receipe_list = new List<CraftReceipe>();
         m_item_db = DIContainer.Resolve<IItemDataBase>();
@@ -51,6 +57,12 @@ public class CraftPresenter: IPopupPresenter
     {
         trigger.OnPlayerEnter += HandleTriggerEnter;
         trigger.OnPlayerExit += HandleTriggerExit;
+    }
+
+    public void UnsubscribeTrigger(CraftUnlockTrigger trigger)
+    {
+        trigger.OnPlayerEnter -= HandleTriggerEnter;
+        trigger.OnPlayerExit -= HandleTriggerExit;        
     }
 
     private void HandleTriggerEnter(List<ItemCode> restricted_codes, CraftUnlockTrigger trigger)
@@ -93,8 +105,6 @@ public class CraftPresenter: IPopupPresenter
 
     private void RefreshSlots()
     {
-        Debug.Log($"### RefreshSlots 호출됨. 필터:{m_current_type}, 잠금:{m_locked_codes.Count}개");
-
         // 기존 슬롯 반환
         m_view.ClearSlots();
 
@@ -103,7 +113,6 @@ public class CraftPresenter: IPopupPresenter
         {
             if (m_locked_codes.Contains(recipe.Code))
             {
-                Debug.Log($"(잠긴 레시피 코드 {recipe.Code})");
                 continue; // 잠긴 레시피는 출력 X
             }
 
@@ -126,6 +135,9 @@ public class CraftPresenter: IPopupPresenter
     {
         m_view.PlaySFX("UI Open");
         m_view.OpenUI();
+
+        m_module_tutorial_presenter.CloseUI();
+        m_moduler.Deactivate(false);
 
         ChangeFilter(m_current_type);
     }

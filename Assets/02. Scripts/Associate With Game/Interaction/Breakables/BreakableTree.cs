@@ -21,9 +21,9 @@ public class BreakableTree : BaseBreakable
         leaf_vfx.Play();
     }
 
-    protected override void PlaySFX()
+    protected override void PlaySFX(Vector3 positon)
     {
-        SoundManager.Instance.PlaySFX("Tree Interaction", false, Vector3.zero);
+        SoundManager.Instance.PlaySFX("Tree Interaction", true, positon);
     }
 
     protected override void Break(Vector3 point)

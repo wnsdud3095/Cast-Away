@@ -20,9 +20,9 @@ public class BreakableRock : BaseBreakable
         rock_vfx.Play();
     }
 
-    protected override void PlaySFX()
+    protected override void PlaySFX(Vector3 positon)
     {
-        SoundManager.Instance.PlaySFX("Rock Interaction", false, Vector3.zero);
+        SoundManager.Instance.PlaySFX("Rock Interaction", true, positon);
     }
 
     protected override void Break(Vector3 point)

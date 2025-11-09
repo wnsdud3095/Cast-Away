@@ -14,7 +14,11 @@ public class Axe : BaseTool
 
     protected override void OnInteract(BaseBreakable target, Vector3 point)
     {
-        if(target is BreakableTree)
+        if(target is BreakableBuilding)
+        {
+            return;
+        }
+        else if(target is BreakableTree)
         {
             target.UpdateHP(-m_target_damage, point);
         }

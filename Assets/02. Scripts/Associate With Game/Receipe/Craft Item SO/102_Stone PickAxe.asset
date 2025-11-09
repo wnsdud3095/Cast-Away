@@ -16,9 +16,10 @@ MonoBehaviour:
   m_item_code: 103
   m_craft_image: {fileID: -126881242, guid: ae89c7acf9a641848a009ff1a1ea8e1d, type: 3}
   m_ingredient_list:
-  - m_item: {fileID: 11400000, guid: 70510367688d14c4c9956c8a9c62fed1, type: 2}
-    m_count: 4
+  - m_item: {fileID: 11400000, guid: ddd64be2e43518646b5ef0c1d75c48a1, type: 2}
+    m_count: 1
   - m_item: {fileID: 11400000, guid: 357f0f5e19e57744baba90c64da44373, type: 2}
-    m_count: 5
-  m_unlock_level: 0
-  m_is_default_unlocked: 1
+    m_count: 3
+  m_unlock_level: 4
+  m_craft_exp: 40
+  m_is_default_unlocked: 0

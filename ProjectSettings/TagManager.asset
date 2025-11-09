@@ -13,6 +13,9 @@ TagManager:
   - Water
   - Preview Wall
   - Preview Floor
+  - Preview
+  - Ignore
+  - Building
   layers:
   - Default
   - TransparentFX
@@ -24,7 +27,7 @@ TagManager:
   - TOOL
   - ITEM
   - BUILDING
-  - 
+  - ACTIVE_BUILDING
   - 
   - 
   - 
