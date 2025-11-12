@@ -28,7 +28,7 @@ public class PlayerStatus : MonoBehaviour
     private void Awake()
     {
         m_controller = GetComponent<PlayerCtrl>();
-
+        DIContainer.Register<PlayerStatus>(this);
     }
 
     private void OnDestroy()

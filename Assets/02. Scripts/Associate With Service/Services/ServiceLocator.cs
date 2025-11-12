@@ -28,7 +28,6 @@ public static class ServiceLocator
         if (!Services.ContainsKey(typeof(T)))
         {
             Services.TryAdd(typeof(T), service);
-            UnityEngine.Debug.Log($"{service}레지스터");
         }
     }
 

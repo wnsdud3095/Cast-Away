@@ -68,6 +68,8 @@ public class PlayerCtrl : MonoBehaviour
         m_fishing_state = gameObject.AddComponent<PlayerFishingState>();
         m_death_state = gameObject.AddComponent<PlayerDeadState>();
 
+
+        DIContainer.Register<PlayerCtrl>(this);
         ChangeState(PlayerState.IDLE);
     }
 

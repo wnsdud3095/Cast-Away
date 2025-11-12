@@ -67,8 +67,6 @@ namespace UserService
                 m_status = user_data.Status;
 
                 OnLoaded?.Invoke(user_data);
-                Debug.Log($"로드 유저 데이터 {m_status.HP}");
-
                 return true;
             }
             return false;
@@ -78,7 +76,12 @@ namespace UserService
         {
             var local_data_path = Path.Combine(Application.persistentDataPath, "User", $"UserData.json");
 
-            var user_data = new UserData(m_position,m_status);
+            m_position = DIContainer.Resolve<PlayerCtrl>().transform.position;
+            
+            var now_status = DIContainer.Resolve<PlayerStatus>();
+            m_status = new StatusData(m_status.Level, m_status.EXP, now_status.Thirst, now_status.Hunger, now_status.HP);
+
+            var user_data = new UserData(m_position, m_status);
             var json_data = JsonUtility.ToJson(user_data, true);
 
             File.WriteAllText(local_data_path, json_data);

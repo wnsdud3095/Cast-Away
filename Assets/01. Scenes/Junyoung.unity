@@ -5865,7 +5865,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 710ac9b12b677ae45b40e3b63410725e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 4e43c2e44e8c2534e84de28d52a02c9d, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1001 &284600163
 PrefabInstance:
@@ -7019,7 +7019,7 @@ MonoBehaviour:
     Channel: 3
   - Clip: {fileID: 8300000, guid: d533120a17c25dd4f9165eb51015ee13, type: 3}
     Channel: 3
-  - Clip: {fileID: 8300000, guid: 3f62808f36986e44f9fccfd30255a271, type: 3}
+  - Clip: {fileID: 8300000, guid: d71925fa483b29d48979ee61b3baa8e2, type: 3}
     Channel: 3
   - Clip: {fileID: 8300000, guid: 551d550ab98e3cc4bb7793e752fe8628, type: 3}
     Channel: 2
@@ -10669,6 +10669,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3c3f4e47aaf84674eb103a85b8cef9f7, type: 2}
   m_moduler: {fileID: 1194113810}
   m_module_db: {fileID: 11400000, guid: 34857610a06f8834a95dda10b55fd70b, type: 2}
+  m_camera_shaker: {fileID: 0}
+  m_item_object_converter: {fileID: 0}
 --- !u!1 &503923885 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4661435515762455780, guid: e289bf5debb17f6459818c207d781953, type: 3}
@@ -16267,19 +16269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eed15637ef6fd445a1928126dd0f2f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moduler: {fileID: 1194113810}
-  m_module_db: {fileID: 11400000, guid: 34857610a06f8834a95dda10b55fd70b, type: 2}
-  m_moduler_view: {fileID: 1674209740}
-  m_compact_moduler_view: {fileID: 1078512300}
-  m_module_receipe_list:
-  - {fileID: 11400000, guid: a8c711ec817761d44a966b354baaac9f, type: 2}
-  - {fileID: 11400000, guid: 31b26e54468bafb45b44582e4ff3d92a, type: 2}
-  - {fileID: 11400000, guid: 1ffd4edb0f37748489677829a652805e, type: 2}
-  - {fileID: 11400000, guid: bc5bc75a3af819440b2a36a476d4162a, type: 2}
-  - {fileID: 11400000, guid: 4226db13c7bdfad488ab316c5225803a, type: 2}
-  - {fileID: 11400000, guid: 4d8eb7972442e6046b4fad489d4baf2b, type: 2}
-  - {fileID: 11400000, guid: c11edb93646d1d04c809edd108a7474f, type: 2}
-  - {fileID: 11400000, guid: 0d9fd661b03b842488e73b0c8c304def, type: 2}
 --- !u!1 &852811596
 GameObject:
   m_ObjectHideFlags: 0
@@ -16324,9 +16313,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6393630b026cd144f8985d236ab59433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_player_status: {fileID: 1051033475}
   m_player_ctrl: {fileID: 1051033469}
   m_decay_interval: 1
+  m_hunger_decay: -0.2
+  m_running_hunger_decay: -0.4
+  m_thirst_decay: -0.2
 --- !u!1001 &859752877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20213,12 +20204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd305520c094a64d828a868523b77bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ui_manager: {fileID: 61643578}
-  m_canvas_group: {fileID: 1078512301}
-  m_slot_root: {fileID: 31918930}
-  m_module_name_label: {fileID: 1051485512}
-  m_module_image: {fileID: 50767520}
-  m_build_button: {fileID: 120085364}
 --- !u!225 &1078512301
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -33176,10 +33161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b3542d12be9864591e94da55687c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ui_manager: {fileID: 61643578}
-  m_canvas_group: {fileID: 1674209741}
-  m_slot_root: {fileID: 1607833157}
-  m_scroll_bar: {fileID: 1498290783}
 --- !u!225 &1674209741
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -43211,9 +43192,9 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1679563478}
   - {fileID: 1016610247}
   - {fileID: 1293734244}
   - {fileID: 341981751}
   - {fileID: 1442922437}
   - {fileID: 1638089620}
-  - {fileID: 1679563478}
